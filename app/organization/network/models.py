@@ -517,3 +517,37 @@ class PersonActivity(Period):
             return ' - '.join((self.status.name, str(self.date_from), str(self.date_to)))
         else:
             return ' - '.join((str(self.date_from), str(self.date_to)))
+
+
+class PersonActivityHebdoHourVolume(models.Model):
+
+    activity = models.ForeignKey('PersonActivity', verbose_name=_('activity'))
+    monday_hours = models.IntegerField(_('monday hours'), blank=True, null=True)
+    tuesday_hours = models.IntegerField(_('tuesday hours'), blank=True, null=True)
+    wednesday_hours = models.IntegerField(_('wednesday hours'), blank=True, null=True)
+    thursday_hours = models.IntegerField(_('thursday hours'), blank=True, null=True)
+    friday_hours = models.IntegerField(_('friday hours'), blank=True, null=True)
+
+
+class PersonActivityTimeSheet(models.Model):
+
+    activity = models.ForeignKey('PersonActivity', verbose_name=_('activity'), related_name='timesheets')
+    project = models.ForeignKey('organization-projects.Project', verbose_name=_('project'), related_name='timesheets')
+    work_packages = models.ManyToManyField('organization-projects.ProjectWorkPackage', verbose_name=_('work package'), related_name='timesheets', blank=True)
+    percentage = models.IntegerField(_('% of work time on the project'))
+    month = models.IntegerField(_('month'))
+    year = models.IntegerField(_('year'))
+
+    @property
+    def date(self):
+        pass
+
+    class Meta:
+        verbose_name = _('activity timesheet')
+        verbose_name_plural = _('activity timesheets')
+        ordering = ['month',]
+
+
+class PersonActivityVacation(Period):
+
+    activity = models.ForeignKey('PersonActivity', verbose_name=_('activity'))

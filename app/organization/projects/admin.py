@@ -64,6 +64,11 @@ class ProjectDemoInline(TabularDynamicInlineAdmin):
     model = ProjectDemo
 
 
+class ProjectWorkPackageInline(TabularDynamicInlineAdmin):
+
+    model = ProjectWorkPackage
+
+
 class ProjectDemoAdmin(BaseTranslationModelAdmin):
 
     model = ProjectDemo
@@ -96,6 +101,7 @@ class ProjectAdminDisplayable(DisplayableAdmin):
     fieldsets = deepcopy(ProjectAdmin.fieldsets)
     inlines = [ ProjectBlockInline,
                 ProjectImageInline,
+                ProjectWorkPackageInline,
                 ProjectPlaylistInline,
                 ProjectLinkInline,
                 ProjectFileInline,
