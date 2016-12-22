@@ -144,11 +144,6 @@ class ActivityWeeklyHourVolumeAdmin(BaseTranslationModelAdmin):
     model = ActivityWeeklyHourVolume
 
 
-class PersonActivityWeeklyHourVolumeAdminInline(TabularDynamicInlineAdmin):
-
-    model = PersonActivityWeeklyHourVolume
-
-
 class PersonActivityInline(StackedDynamicInlineAdmin):
 
     model = PersonActivity
@@ -209,7 +204,6 @@ class PersonActivityAdmin(BaseTranslationModelAdmin):
     list_filter = [ 'date_from', 'date_to',
                     'is_permanent', 'framework', 'grade',
                     'status', 'teams', 'projects',]
-    inlines = [PersonActivityWeeklyHourVolumeAdminInline,]
 
     def get_teams(self, instance):
         values = []
