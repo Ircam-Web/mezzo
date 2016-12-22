@@ -139,6 +139,16 @@ class PersonAdminBase(BaseTranslationModelAdmin):
     model = Person
 
 
+class ActivityWeeklyHourVolumeAdmin(BaseTranslationModelAdmin):
+
+    model = ActivityWeeklyHourVolume
+
+
+class PersonActivityWeeklyHourVolumeAdminInline(TabularDynamicInlineAdmin):
+
+    model = PersonActivityWeeklyHourVolume
+
+
 class PersonActivityInline(StackedDynamicInlineAdmin):
 
     model = PersonActivity
@@ -199,6 +209,7 @@ class PersonActivityAdmin(BaseTranslationModelAdmin):
     list_filter = [ 'date_from', 'date_to',
                     'is_permanent', 'framework', 'grade',
                     'status', 'teams', 'projects',]
+    inlines = [PersonActivityWeeklyHourVolumeAdminInline,]
 
     def get_teams(self, instance):
         values = []
@@ -273,6 +284,7 @@ admin.site.register(ActivityStatus, ActivityStatusAdmin)
 admin.site.register(ActivityGrade, ActivityGradeAdmin)
 admin.site.register(ActivityFramework, ActivityFrameworkAdmin)
 admin.site.register(ActivityFunction, ActivityFunctionAdmin)
+admin.site.register(ActivityWeeklyHourVolume, ActivityWeeklyHourVolumeAdmin)
 admin.site.register(TrainingType, TrainingTypeAdmin)
 admin.site.register(TrainingLevel, TrainingLevelAdmin)
 admin.site.register(TrainingTopic, TrainingTopicAdmin)

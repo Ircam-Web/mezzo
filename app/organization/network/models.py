@@ -96,6 +96,7 @@ BOX_SIZE_CHOICES = [
     (6, 6),
 ]
 
+
 class Organization(Named, Address, URL, AdminThumbRelatedMixin, Orderable):
     """(Organization description)"""
 
@@ -294,6 +295,7 @@ class Person(Displayable, AdminThumbMixin):
     last_name = models.CharField(_('last name'), max_length=255, blank=True, null=True)
     email = models.EmailField(_('email'), blank=True, null=True)
     telephone = models.CharField(_('telephone'), max_length=64, blank=True, null=True)
+    register_id = models.CharField(_('register ID'), blank=True, null=True, max_length=128)
     birthday = models.DateField(_('birthday'), blank=True, null=True)
     bio = RichTextField(_('biography'), blank=True)
     external_id = models.CharField(_('external ID'), blank=True, null=True, max_length=128)
@@ -458,6 +460,32 @@ class UMR(Named):
         verbose_name = _('UMR')
 
 
+class ActivityWeeklyHourVolume(Titled):
+
+    monday_hours = models.IntegerField(_('monday hours'))
+    tuesday_hours = models.IntegerField(_('tuesday hours'))
+    wednesday_hours = models.IntegerField(_('wednesday hours'))
+    thursday_hours = models.IntegerField(_('thursday hours'))
+    friday_hours = models.IntegerField(_('friday hours'))
+
+    class Meta:
+        verbose_name = _('Activity Weekly Hour Volume')
+        verbose_name_plural = _('Activity Weekly Hour Volumes')
+
+
+class PersonActivityWeeklyHourVolume(models.Model):
+
+    activity = models.OneToOneField('PersonActivity', verbose_name=_('activity'), related_name="person_activity_weekly_hour_volume", blank=True, null=True, on_delete=models.CASCADE)
+    monday_hours = models.IntegerField(_('monday hours'), blank=True, null=True)
+    tuesday_hours = models.IntegerField(_('tuesday hours'), blank=True, null=True)
+    wednesday_hours = models.IntegerField(_('wednesday hours'), blank=True, null=True)
+    thursday_hours = models.IntegerField(_('thursday hours'), blank=True, null=True)
+    friday_hours = models.IntegerField(_('friday hours'), blank=True, null=True)
+
+    class Meta:
+        verbose_name = _('Person Activity Weekly Hour Volume')
+
+
 class PersonActivity(Period):
     """(Activity description)"""
 
@@ -507,6 +535,8 @@ class PersonActivity(Period):
 
     external_id = models.CharField(_('external ID'), blank=True, null=True, max_length=128)
 
+    weekly_hour_volume = models.ForeignKey('ActivityWeeklyHourVolume', blank=True, null=True, on_delete=models.SET_NULL)
+
     class Meta:
         verbose_name = _('activity')
         verbose_name_plural = _('activities')
@@ -517,3 +547,14 @@ class PersonActivity(Period):
             return ' - '.join((self.status.name, str(self.date_from), str(self.date_to)))
         else:
             return ' - '.join((str(self.date_from), str(self.date_to)))
+
+    def save(self, *args, **kwargs):
+        super(PersonActivity, self).save(args, kwargs)
+        if self.weekly_hour_volume and not hasattr(self, 'person_activity_weekly_hour_volume'):
+            self.person_activity_weekly_hour_volume = PersonActivityWeeklyHourVolume(activity=self)
+            self.person_activity_weekly_hour_volume.monday_hours = self.weekly_hour_volume.monday_hours
+            self.person_activity_weekly_hour_volume.tuesday_hours = self.weekly_hour_volume.tuesday_hours
+            self.person_activity_weekly_hour_volume.wednesday_hours = self.weekly_hour_volume.wednesday_hours
+            self.person_activity_weekly_hour_volume.thursday_hours = self.weekly_hour_volume.thursday_hours
+            self.person_activity_weekly_hour_volume.friday_hours = self.weekly_hour_volume.friday_hours
+            self.person_activity_weekly_hour_volume.save()
