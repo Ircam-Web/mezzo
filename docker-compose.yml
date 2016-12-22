@@ -48,8 +48,6 @@ app:
     - ./app:/srv/app
     - ./lib/grappelli-safe:/srv/lib/grappelli-safe
     - ./lib/mezzanine-agenda:/srv/lib/mezzanine-agenda
-    - ./lib/django-eve:/srv/lib/django-eve
-    - ./lib/django-prestashop:/srv/lib/django-prestashop
     # - ./lib/mezzanine/:/srv/lib/mezzanine
     # - ./lib/cartridge/:/srv/lib/cartridge
   volumes_from:
