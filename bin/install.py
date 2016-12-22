@@ -163,7 +163,7 @@ class DockerCompositionInstaller(object):
             os.makedirs(log_path, 0o755)
             os.chown(log_path, getpwnam(self.user).pw_uid, getgrnam(self.user).gr_gid)
         path = "PATH=/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin\n"
-        command = "cd /srv/"+self.name+" && ./scripts/push.sh >> /var/log/"+ self.name +"/"+self.name+"-push.log 2>&1 \n"
+        command = "cd /srv/"+self.name+" && ./bin/push.sh >> /var/log/"+ self.name +"/"+self.name+"-push.log 2>&1 \n"
         rule = self.cron_rule % (self.user, command)
         f = open('/etc/cron.d/' + self.name, 'w')
         f.write(path + rule)
