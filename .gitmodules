@@ -1,6 +1,6 @@
 [submodule "lib/mezzanine-agenda"]
 	path = lib/mezzanine-agenda
-	url = git+ssh://git@git.forge.ircam.fr/mezzanine-agenda.git
+	url = https://github.com/yomguy/mezzanine-agenda.git
 [submodule "lib/mezzanine"]
 	path = lib/mezzanine
 	url = https://github.com/yomguy/mezzanine.git
