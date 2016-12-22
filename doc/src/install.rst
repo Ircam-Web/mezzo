@@ -11,7 +11,7 @@ On MacOS or Windows install Git_ and the Docker-Toolbox_ and open a Docker Quick
 
 Then run these commands::
 
-    git clone --recursive https://github.com/Ircam-RnD/mezzanine-organization.git
+    git clone --recursive https://github.com/yomguy/mezzanine-organization.git
 
 
 Start
