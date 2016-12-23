@@ -48,7 +48,7 @@ class Command(BaseCommand):
 
     def update_external_id(self, figgo_users):
         for figgo_user in figgo_users['data']:
-            slug = slugify(figgo_user['firstName'].lower()+'-'+figgo_user['lastName'].lower()) #).replace( ' ', '-')
+            slug = slugify(figgo_user['firstName']+'-'+figgo_user['lastName'])
             person = Person.objects.filter(slug__contains=slug)
             if person:
                 self.number_of_person += 1
