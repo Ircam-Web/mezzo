@@ -20,9 +20,6 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 import requests
-import json
-import unicodedata
-from requests.auth import HTTPBasicAuth
 from optparse import make_option
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError

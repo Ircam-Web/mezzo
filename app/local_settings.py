@@ -264,3 +264,6 @@ if not os.path.exists(PROJECT_DEMOS_DIR):
 FORMAT_MODULE_PATH = [
     'organization.formats',
 ]
+
+# FIGGO API - Lucca
+FIGGO_API_URL_PROD='https://ircam.ilucca.net/'
