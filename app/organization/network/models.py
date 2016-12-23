@@ -49,6 +49,8 @@ from organization.core.models import *
 from organization.media.models import *
 from organization.pages.models import CustomPage
 
+from organization.network.validators import *
+
 # from .nationalities.fields import NationalityField
 
 # Hack to have these strings translated
@@ -462,28 +464,15 @@ class UMR(Named):
 
 class ActivityWeeklyHourVolume(Titled):
 
-    monday_hours = models.IntegerField(_('monday hours'))
-    tuesday_hours = models.IntegerField(_('tuesday hours'))
-    wednesday_hours = models.IntegerField(_('wednesday hours'))
-    thursday_hours = models.IntegerField(_('thursday hours'))
-    friday_hours = models.IntegerField(_('friday hours'))
+    monday_hours = models.FloatField(_('monday hours'), validators=[validate_positive])
+    tuesday_hours = models.FloatField(_('tuesday hours'), validators=[validate_positive])
+    wednesday_hours = models.FloatField(_('wednesday hours'), validators=[validate_positive])
+    thursday_hours = models.FloatField(_('thursday hours'), validators=[validate_positive])
+    friday_hours = models.FloatField(_('friday hours'), validators=[validate_positive])
 
     class Meta:
         verbose_name = _('Activity Weekly Hour Volume')
         verbose_name_plural = _('Activity Weekly Hour Volumes')
-
-
-class PersonActivityWeeklyHourVolume(models.Model):
-
-    activity = models.OneToOneField('PersonActivity', verbose_name=_('activity'), related_name="person_activity_weekly_hour_volume", blank=True, null=True, on_delete=models.CASCADE)
-    monday_hours = models.IntegerField(_('monday hours'), blank=True, null=True)
-    tuesday_hours = models.IntegerField(_('tuesday hours'), blank=True, null=True)
-    wednesday_hours = models.IntegerField(_('wednesday hours'), blank=True, null=True)
-    thursday_hours = models.IntegerField(_('thursday hours'), blank=True, null=True)
-    friday_hours = models.IntegerField(_('friday hours'), blank=True, null=True)
-
-    class Meta:
-        verbose_name = _('Person Activity Weekly Hour Volume')
 
 
 class PersonActivity(Period):
@@ -532,10 +521,15 @@ class PersonActivity(Period):
     date_modified_manual = models.DateTimeField(_('manual modification date'), blank=True, null=True)
 
     comments = models.TextField(_('comments'), blank=True)
-
     external_id = models.CharField(_('external ID'), blank=True, null=True, max_length=128)
 
     weekly_hour_volume = models.ForeignKey('ActivityWeeklyHourVolume', blank=True, null=True, on_delete=models.SET_NULL)
+
+    monday_hours = models.FloatField(_('monday hours'), validators=[validate_positive], blank=True, null=True)
+    tuesday_hours = models.FloatField(_('tuesday hours'), validators=[validate_positive], blank=True, null=True)
+    wednesday_hours = models.FloatField(_('wednesday hours'), validators=[validate_positive], blank=True, null=True)
+    thursday_hours = models.FloatField(_('thursday hours'), validators=[validate_positive], blank=True, null=True)
+    friday_hours = models.FloatField(_('friday hours'), validators=[validate_positive], blank=True, null=True)
 
     class Meta:
         verbose_name = _('activity')
@@ -550,11 +544,17 @@ class PersonActivity(Period):
 
     def save(self, *args, **kwargs):
         super(PersonActivity, self).save(args, kwargs)
-        if self.weekly_hour_volume and not hasattr(self, 'person_activity_weekly_hour_volume'):
-            self.person_activity_weekly_hour_volume = PersonActivityWeeklyHourVolume(activity=self)
-            self.person_activity_weekly_hour_volume.monday_hours = self.weekly_hour_volume.monday_hours
-            self.person_activity_weekly_hour_volume.tuesday_hours = self.weekly_hour_volume.tuesday_hours
-            self.person_activity_weekly_hour_volume.wednesday_hours = self.weekly_hour_volume.wednesday_hours
-            self.person_activity_weekly_hour_volume.thursday_hours = self.weekly_hour_volume.thursday_hours
-            self.person_activity_weekly_hour_volume.friday_hours = self.weekly_hour_volume.friday_hours
-            self.person_activity_weekly_hour_volume.save()
+        if self.weekly_hour_volume :
+            # caution : if 0 return False
+            # caution : 'None' is not empty
+            if not self.monday_hours.__str__() != 'None' and \
+            not self.tuesday_hours.__str__() != 'None' and \
+            not self.wednesday_hours.__str__() != 'None' and \
+            not self.thursday_hours.__str__() != 'None' and \
+            not self.friday_hours.__str__() != 'None' :
+                self.monday_hours = self.weekly_hour_volume.monday_hours
+                self.tuesday_hours = self.weekly_hour_volume.tuesday_hours
+                self.wednesday_hours = self.weekly_hour_volume.wednesday_hours
+                self.thursday_hours = self.weekly_hour_volume.thursday_hours
+                self.friday_hours = self.weekly_hour_volume.friday_hours
+                self.save()
