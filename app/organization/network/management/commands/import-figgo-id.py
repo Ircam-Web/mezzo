@@ -33,12 +33,12 @@ class Command(BaseCommand):
     number_of_person = 0
     def handle(self, *args, **options):
         # process active person
-        r_p_active = requests.get('https://ircam.ilucca.net/api/users?fields=id,lastname,firstname',
+        r_p_active = requests.get(settings.FIGGO_API_URL_PROD+'api/users?fields=id,lastname,firstname',
         headers={'Authorization': 'Lucca application=bd6d5481-40eb-414b-9135-434e12749223'})
         self.update_external_id(r_p_active.json())
 
         # process INactive person
-        r_p_inactive = requests.get('https://ircam.ilucca.net/api/users?dtContractEnd=until,2016-12-31,null&fields=id,lastname,firstname',
+        r_p_inactive = requests.get(settings.FIGGO_API_URL_PROD+'api/users?dtContractEnd=until,2016-12-31,null&fields=id,lastname,firstname',
         headers={'Authorization': 'Lucca application=bd6d5481-40eb-414b-9135-434e12749223'})
         self.update_external_id(r_p_inactive.json())
 
