@@ -191,7 +191,7 @@ class PersonAdmin(BaseTranslationOrderedModelAdmin):
     list_display = [ 'last_name', 'first_name', 'register_id', 'external_id', 'email', 'gender', 'created']
     list_filter = ['person_title', 'activities__date_from', 'activities__date_to',
                     'activities__is_permanent', 'activities__framework', 'activities__grade',
-                    'activities__status', 'activities__teams', 'activities__projects',]
+                    'activities__status', 'activities__teams', 'activities__projects']
 
 
 class PersonActivityAdmin(BaseTranslationModelAdmin):
@@ -203,7 +203,7 @@ class PersonActivityAdmin(BaseTranslationModelAdmin):
     search_fields = ['person__title',]
     list_filter = [ 'date_from', 'date_to',
                     'is_permanent', 'framework', 'grade',
-                    'status', 'teams', 'projects',]
+                    'status', 'teams', 'projects']
 
     def get_teams(self, instance):
         values = []
