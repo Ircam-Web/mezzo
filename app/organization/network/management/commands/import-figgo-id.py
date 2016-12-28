@@ -34,17 +34,17 @@ class Command(BaseCommand):
     number_of_person = 0
     def handle(self, *args, **options):
         # process active person
-        self.update_external_id(get_active_person())
+        self.update_external_id(get_active_persons())
 
         # process INactive person
-        self.update_external_id(get_inactive_person())
+        self.update_external_id(get_inactive_persons())
 
         print('***************************************************')
         print("Number of person processed : "+str(self.number_of_person))
         print('***************************************************')
 
     def update_external_id(self, figgo_users):
-        for figgo_user in figgo_users['data']:
+        for figgo_user in figgo_users:
             slug = slugify(figgo_user['firstName']+'-'+figgo_user['lastName'])
             person = Person.objects.filter(slug__contains=slug)
             if person:
