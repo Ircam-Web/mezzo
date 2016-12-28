@@ -49,6 +49,8 @@ from organization.core.models import *
 from organization.media.models import *
 from organization.pages.models import CustomPage
 
+from organization.network.validators import *
+
 # from .nationalities.fields import NationalityField
 
 # Hack to have these strings translated
@@ -95,6 +97,7 @@ BOX_SIZE_CHOICES = [
     (3, 3),
     (6, 6),
 ]
+
 
 class Organization(Named, Address, URL, AdminThumbRelatedMixin, Orderable):
     """(Organization description)"""
@@ -294,6 +297,7 @@ class Person(Displayable, AdminThumbMixin):
     last_name = models.CharField(_('last name'), max_length=255, blank=True, null=True)
     email = models.EmailField(_('email'), blank=True, null=True)
     telephone = models.CharField(_('telephone'), max_length=64, blank=True, null=True)
+    register_id = models.CharField(_('register ID'), blank=True, null=True, max_length=128)
     birthday = models.DateField(_('birthday'), blank=True, null=True)
     bio = RichTextField(_('biography'), blank=True)
     external_id = models.CharField(_('external ID'), blank=True, null=True, max_length=128)
@@ -458,6 +462,19 @@ class UMR(Named):
         verbose_name = _('UMR')
 
 
+class ActivityWeeklyHourVolume(Titled):
+
+    monday_hours = models.FloatField(_('monday hours'), validators=[validate_positive])
+    tuesday_hours = models.FloatField(_('tuesday hours'), validators=[validate_positive])
+    wednesday_hours = models.FloatField(_('wednesday hours'), validators=[validate_positive])
+    thursday_hours = models.FloatField(_('thursday hours'), validators=[validate_positive])
+    friday_hours = models.FloatField(_('friday hours'), validators=[validate_positive])
+
+    class Meta:
+        verbose_name = _('Activity Weekly Hour Volume')
+        verbose_name_plural = _('Activity Weekly Hour Volumes')
+
+
 class PersonActivity(Period):
     """(Activity description)"""
 
@@ -504,8 +521,15 @@ class PersonActivity(Period):
     date_modified_manual = models.DateTimeField(_('manual modification date'), blank=True, null=True)
 
     comments = models.TextField(_('comments'), blank=True)
-
     external_id = models.CharField(_('external ID'), blank=True, null=True, max_length=128)
+
+    weekly_hour_volume = models.ForeignKey('ActivityWeeklyHourVolume', blank=True, null=True, on_delete=models.SET_NULL)
+
+    monday_hours = models.FloatField(_('monday hours'), validators=[validate_positive], blank=True, null=True)
+    tuesday_hours = models.FloatField(_('tuesday hours'), validators=[validate_positive], blank=True, null=True)
+    wednesday_hours = models.FloatField(_('wednesday hours'), validators=[validate_positive], blank=True, null=True)
+    thursday_hours = models.FloatField(_('thursday hours'), validators=[validate_positive], blank=True, null=True)
+    friday_hours = models.FloatField(_('friday hours'), validators=[validate_positive], blank=True, null=True)
 
     class Meta:
         verbose_name = _('activity')
@@ -518,15 +542,22 @@ class PersonActivity(Period):
         else:
             return ' - '.join((str(self.date_from), str(self.date_to)))
 
-
-class PersonActivityHebdoHourVolume(models.Model):
-
-    activity = models.ForeignKey('PersonActivity', verbose_name=_('activity'))
-    monday_hours = models.IntegerField(_('monday hours'), blank=True, null=True)
-    tuesday_hours = models.IntegerField(_('tuesday hours'), blank=True, null=True)
-    wednesday_hours = models.IntegerField(_('wednesday hours'), blank=True, null=True)
-    thursday_hours = models.IntegerField(_('thursday hours'), blank=True, null=True)
-    friday_hours = models.IntegerField(_('friday hours'), blank=True, null=True)
+    def save(self, *args, **kwargs):
+        super(PersonActivity, self).save(args, kwargs)
+        if self.weekly_hour_volume :
+            # caution : if 0 return False
+            # caution : 'None' is not empty
+            if not self.monday_hours.__str__() != 'None' and \
+            not self.tuesday_hours.__str__() != 'None' and \
+            not self.wednesday_hours.__str__() != 'None' and \
+            not self.thursday_hours.__str__() != 'None' and \
+            not self.friday_hours.__str__() != 'None' :
+                self.monday_hours = self.weekly_hour_volume.monday_hours
+                self.tuesday_hours = self.weekly_hour_volume.tuesday_hours
+                self.wednesday_hours = self.weekly_hour_volume.wednesday_hours
+                self.thursday_hours = self.weekly_hour_volume.thursday_hours
+                self.friday_hours = self.weekly_hour_volume.friday_hours
+                self.save()
 
 
 class PersonActivityTimeSheet(models.Model):

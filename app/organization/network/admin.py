@@ -139,6 +139,11 @@ class PersonAdminBase(BaseTranslationModelAdmin):
     model = Person
 
 
+class ActivityWeeklyHourVolumeAdmin(BaseTranslationModelAdmin):
+
+    model = ActivityWeeklyHourVolume
+
+
 class PersonActivityInline(StackedDynamicInlineAdmin):
 
     model = PersonActivity
@@ -183,11 +188,19 @@ class PersonAdmin(BaseTranslationOrderedModelAdmin):
                PersonActivityInline,]
     first_fields = ['last_name', 'first_name', 'title', 'gender', 'user']
     search_fields = ['last_name', 'first_name']
-    list_display = ['last_name', 'first_name', 'description', 'email', 'gender', 'created']
+    list_display = [ 'last_name', 'first_name', 'register_id', 'external_id', 'email', 'last_weekly_hour_volume', 'gender', 'created']
     list_filter = ['person_title', 'activities__date_from', 'activities__date_to',
                     'activities__is_permanent', 'activities__framework', 'activities__grade',
-                    'activities__status', 'activities__teams', 'activities__projects',]
+                    'activities__status', 'activities__teams', 'activities__projects',
+                    'activities__weekly_hour_volume', null_filter('register_id'), null_filter('external_id')]
 
+    def last_weekly_hour_volume(self, instance):
+        last_activity = instance.activities.first()
+        weekly_hour_volume = '-'
+        if hasattr(last_activity, 'weekly_hour_volume'):
+            if last_activity.weekly_hour_volume.__str__() != 'None':
+                weekly_hour_volume = last_activity.weekly_hour_volume.__str__()
+        return weekly_hour_volume
 
 class PersonActivityAdmin(BaseTranslationModelAdmin):
 
@@ -198,7 +211,7 @@ class PersonActivityAdmin(BaseTranslationModelAdmin):
     search_fields = ['person__title',]
     list_filter = [ 'date_from', 'date_to',
                     'is_permanent', 'framework', 'grade',
-                    'status', 'teams', 'projects',]
+                    'status', 'teams', 'projects']
 
     def get_teams(self, instance):
         values = []
@@ -273,6 +286,7 @@ admin.site.register(ActivityStatus, ActivityStatusAdmin)
 admin.site.register(ActivityGrade, ActivityGradeAdmin)
 admin.site.register(ActivityFramework, ActivityFrameworkAdmin)
 admin.site.register(ActivityFunction, ActivityFunctionAdmin)
+admin.site.register(ActivityWeeklyHourVolume, ActivityWeeklyHourVolumeAdmin)
 admin.site.register(TrainingType, TrainingTypeAdmin)
 admin.site.register(TrainingLevel, TrainingLevelAdmin)
 admin.site.register(TrainingTopic, TrainingTopicAdmin)
