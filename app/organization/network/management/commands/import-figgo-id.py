@@ -24,6 +24,7 @@ from optparse import make_option
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 from organization.network.models import Person
+from organization.network.api import *
 from django.utils.text import slugify
 
 class Command(BaseCommand):
@@ -33,14 +34,10 @@ class Command(BaseCommand):
     number_of_person = 0
     def handle(self, *args, **options):
         # process active person
-        r_p_active = requests.get(settings.FIGGO_API_URL_PROD+'api/users?fields=id,lastname,firstname',
-        headers={'Authorization': 'Lucca application=bd6d5481-40eb-414b-9135-434e12749223'})
-        self.update_external_id(r_p_active.json())
+        self.update_external_id(get_active_person())
 
         # process INactive person
-        r_p_inactive = requests.get(settings.FIGGO_API_URL_PROD+'api/users?dtContractEnd=until,2016-12-31,null&fields=id,lastname,firstname',
-        headers={'Authorization': 'Lucca application=bd6d5481-40eb-414b-9135-434e12749223'})
-        self.update_external_id(r_p_inactive.json())
+        self.update_external_id(get_inactive_person())
 
         print('***************************************************')
         print("Number of person processed : "+str(self.number_of_person))
