@@ -42,7 +42,7 @@ db:
     - POSTGRES_PASSWORD=hyRob0otlaz4
 
 app:
-  build: .
+  image: ircamwww_app
   command: /bin/bash bin/app.sh
   volumes:
     - ./app:/srv/app
