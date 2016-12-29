@@ -1,0 +1,25 @@
+{% extends "pages/page.html" %}
+{% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
+
+{% block meta_title %}{% trans "Timesheet" %}{% endblock %}
+
+{% block page_class %}
+    time_sheet
+{% endblock %}
+
+{% block page_title %}
+  <h1 class="dotted">{% trans "Timesheet" %}</h1>
+{% endblock %}
+
+{% block page_content %}
+
+    <a class="pull-right button button--black" href="{% url 'organization-network-timesheet-list-view' slug %}" title="">Back to dashboard</a>
+
+    <form class="form" action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+    </form>
+
+
+{% endblock %}

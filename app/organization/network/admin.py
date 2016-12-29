@@ -150,7 +150,16 @@ class PersonActivityInline(StackedDynamicInlineAdmin):
     fk_name = 'person'
     filter_horizontal = ['organizations', 'employers', 'teams',
                          'projects', 'supervisors', 'phd_directors', ]
+    # fields = ()
+    #
+    # fields = (('monday_am','monday_pm'), 'weekly_hour_volume')
 
+    # def __init__(self, *args, **kwargs):
+    #     super(PersonActivityInline, self).__init__(*args, **kwargs)
+    #     # print(self.model._meta.get_fields())
+    #     self.fields = self.model._meta.get_fields()
+    #     print(self.fields)
+    #     # self.fields.append(('monday_am', 'monday_pm'))
 
 class PersonPlaylistInline(TabularDynamicInlineAdmin):
 
