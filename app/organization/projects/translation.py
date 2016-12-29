@@ -90,8 +90,14 @@ class ProjectDemoTranslationOptions(TranslationOptions):
     fields = ('title', 'description',)
 
 
+@register(ProjectWorkPackage)
+class ProjectWorkPackageTranslationOptions(TranslationOptions):
+
+    pass
+
+
 @register(ProjectRelatedTitle)
-class ProjectRelatedTitleranslationOptions(TranslationOptions):
+class ProjectRelatedTitleTranslationOptions(TranslationOptions):
 
     fields = ('title',)
 

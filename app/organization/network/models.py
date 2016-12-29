@@ -324,13 +324,10 @@ class Person(Displayable, AdminThumbMixin):
             self.first_name = names[0]
             self.last_name = ' '.join(names[1:])
 
-    # def clean(self):
-    #     super(Person, self).clean()
-    #     self.set_names()
-    #
-    # def save(self, *args, **kwargs):
-    #     self.set_names()
-    #     super(Person, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        super(Person, self).save(args, kwargs)
+        for activity in self.activities.all():
+            update_activity(activity)
 
 
 class PersonPlaylist(PlaylistRelated):
@@ -464,11 +461,16 @@ class UMR(Named):
 
 class ActivityWeeklyHourVolume(Titled):
 
-    monday_hours = models.FloatField(_('monday hours'), validators=[validate_positive])
-    tuesday_hours = models.FloatField(_('tuesday hours'), validators=[validate_positive])
-    wednesday_hours = models.FloatField(_('wednesday hours'), validators=[validate_positive])
-    thursday_hours = models.FloatField(_('thursday hours'), validators=[validate_positive])
-    friday_hours = models.FloatField(_('friday hours'), validators=[validate_positive])
+    monday_am = models.FloatField(_('monday AM'), validators=[validate_positive])
+    monday_pm = models.FloatField(_('monday PM'), validators=[validate_positive])
+    tuesday_am = models.FloatField(_('tuesday AM'), validators=[validate_positive])
+    tuesday_pm = models.FloatField(_('tuesday PM'), validators=[validate_positive])
+    wednesday_am = models.FloatField(_('wednesday AM'), validators=[validate_positive])
+    wednesday_pm = models.FloatField(_('wednesday PM'), validators=[validate_positive])
+    thursday_am = models.FloatField(_('thursday AM'), validators=[validate_positive])
+    thursday_pm = models.FloatField(_('thursday PM'), validators=[validate_positive])
+    friday_am = models.FloatField(_('friday AM'), validators=[validate_positive])
+    friday_pm = models.FloatField(_('friday PM'), validators=[validate_positive])
 
     class Meta:
         verbose_name = _('Activity Weekly Hour Volume')
@@ -525,11 +527,16 @@ class PersonActivity(Period):
 
     weekly_hour_volume = models.ForeignKey('ActivityWeeklyHourVolume', blank=True, null=True, on_delete=models.SET_NULL)
 
-    monday_hours = models.FloatField(_('monday hours'), validators=[validate_positive], blank=True, null=True)
-    tuesday_hours = models.FloatField(_('tuesday hours'), validators=[validate_positive], blank=True, null=True)
-    wednesday_hours = models.FloatField(_('wednesday hours'), validators=[validate_positive], blank=True, null=True)
-    thursday_hours = models.FloatField(_('thursday hours'), validators=[validate_positive], blank=True, null=True)
-    friday_hours = models.FloatField(_('friday hours'), validators=[validate_positive], blank=True, null=True)
+    monday_am = models.FloatField(_('monday AM'), validators=[validate_positive], blank=True, null=True)
+    monday_pm = models.FloatField(_('monday PM'), validators=[validate_positive], blank=True, null=True)
+    tuesday_am = models.FloatField(_('tuesday AM'), validators=[validate_positive], blank=True, null=True)
+    tuesday_pm = models.FloatField(_('tuesday PM'), validators=[validate_positive], blank=True, null=True)
+    wednesday_am = models.FloatField(_('wednesday AM'), validators=[validate_positive], blank=True, null=True)
+    wednesday_pm = models.FloatField(_('wednesday PM'), validators=[validate_positive], blank=True, null=True)
+    thursday_am = models.FloatField(_('thursday AM'), validators=[validate_positive], blank=True, null=True)
+    thursday_pm = models.FloatField(_('thursday PM'), validators=[validate_positive], blank=True, null=True)
+    friday_am = models.FloatField(_('friday AM'), validators=[validate_positive], blank=True, null=True)
+    friday_pm = models.FloatField(_('friday PM'), validators=[validate_positive], blank=True, null=True)
 
     class Meta:
         verbose_name = _('activity')
@@ -544,17 +551,56 @@ class PersonActivity(Period):
 
     def save(self, *args, **kwargs):
         super(PersonActivity, self).save(args, kwargs)
-        if self.weekly_hour_volume :
-            # caution : if 0 return False
-            # caution : 'None' is not empty
-            if not self.monday_hours.__str__() != 'None' and \
-            not self.tuesday_hours.__str__() != 'None' and \
-            not self.wednesday_hours.__str__() != 'None' and \
-            not self.thursday_hours.__str__() != 'None' and \
-            not self.friday_hours.__str__() != 'None' :
-                self.monday_hours = self.weekly_hour_volume.monday_hours
-                self.tuesday_hours = self.weekly_hour_volume.tuesday_hours
-                self.wednesday_hours = self.weekly_hour_volume.wednesday_hours
-                self.thursday_hours = self.weekly_hour_volume.thursday_hours
-                self.friday_hours = self.weekly_hour_volume.friday_hours
-                self.save()
+        update_activity(self)
+
+
+
+class PersonActivityTimeSheet(models.Model):
+
+    activity = models.ForeignKey('PersonActivity', verbose_name=_('activity'), related_name='timesheets')
+    project = models.ForeignKey('organization-projects.Project', verbose_name=_('project'), related_name='timesheets')
+    work_packages = models.ManyToManyField('organization-projects.ProjectWorkPackage', verbose_name=_('work package'), related_name='timesheets', blank=True)
+    percentage = models.IntegerField(_('% of work time on the project'))
+    month = models.IntegerField(_('month'))
+    year = models.IntegerField(_('year'))
+
+    @property
+    def date(self):
+        pass
+
+    class Meta:
+        verbose_name = _('activity timesheet')
+        verbose_name_plural = _('activity timesheets')
+        ordering = ['month',]
+
+
+class PersonActivityVacation(Period):
+
+    activity = models.ForeignKey('PersonActivity', verbose_name=_('activity'))
+
+
+def update_activity(a):
+    if a.weekly_hour_volume :
+        # caution : if 0 return False
+        # caution : 'None' is not empty
+        if not a.monday_am.__str__() != 'None' and \
+        not a.monday_pm.__str__() != 'None' and \
+        not a.tuesday_am.__str__() != 'None' and \
+        not a.tuesday_pm.__str__() != 'None' and \
+        not a.wednesday_am.__str__() != 'None' and \
+        not a.wednesday_pm.__str__() != 'None' and \
+        not a.thursday_am.__str__() != 'None' and \
+        not a.thursday_pm.__str__() != 'None' and \
+        not a.friday_am.__str__() != 'None' and \
+        not a.friday_pm.__str__() != 'None' :
+            a.monday_am = a.weekly_hour_volume.monday_am
+            a.monday_pm = a.weekly_hour_volume.monday_pm
+            a.tuesday_am = a.weekly_hour_volume.tuesday_am
+            a.tuesday_pm = a.weekly_hour_volume.tuesday_pm
+            a.wednesday_am = a.weekly_hour_volume.wednesday_am
+            a.wednesday_pm = a.weekly_hour_volume.wednesday_pm
+            a.thursday_am = a.weekly_hour_volume.thursday_am
+            a.thursday_pm = a.weekly_hour_volume.thursday_pm
+            a.friday_am = a.weekly_hour_volume.friday_am
+            a.friday_pm = a.weekly_hour_volume.friday_pm
+            a.save()
