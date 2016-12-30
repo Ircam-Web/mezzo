@@ -211,6 +211,7 @@ class PersonAdmin(BaseTranslationOrderedModelAdmin):
                 weekly_hour_volume = last_activity.weekly_hour_volume.__str__()
         return weekly_hour_volume
 
+
 class PersonActivityAdmin(BaseTranslationModelAdmin):
 
     model = PersonActivity
@@ -280,6 +281,13 @@ class TrainingTopicAdmin(BaseTranslationModelAdmin):
 
     model = TrainingTopic
 
+class PersonActivityTimeSheetAdmin(BaseTranslationModelAdmin):
+    model = PersonActivityTimeSheet
+    list_display = ['person', 'activity', 'year', 'month', 'project', 'percentage']
+    list_filter = ['activity__person', 'year', 'project']
+    def person(self, instance):
+        return instance.activity.person
+
 
 admin.site.register(OrganizationLinked, OrganizationLinkedAdmin)
 admin.site.register(Organization, OrganizationAdmin)
@@ -300,3 +308,4 @@ admin.site.register(TrainingType, TrainingTypeAdmin)
 admin.site.register(TrainingLevel, TrainingLevelAdmin)
 admin.site.register(TrainingTopic, TrainingTopicAdmin)
 admin.site.register(TrainingSpeciality, TrainingSpecialityAdmin)
+admin.site.register(PersonActivityTimeSheet, PersonActivityTimeSheetAdmin)

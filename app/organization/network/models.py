@@ -560,7 +560,7 @@ class PersonActivityTimeSheet(models.Model):
     activity = models.ForeignKey('PersonActivity', verbose_name=_('activity'), related_name='timesheets')
     project = models.ForeignKey('organization-projects.Project', verbose_name=_('project'), related_name='timesheets')
     work_packages = models.ManyToManyField('organization-projects.ProjectWorkPackage', verbose_name=_('work package'), related_name='timesheets', blank=True)
-    percentage = models.IntegerField(_('% of work time on the project'))
+    percentage = models.FloatField(_('% of work time on the project'), validators=[validate_positive])
     month = models.IntegerField(_('month'))
     year = models.IntegerField(_('year'))
 
