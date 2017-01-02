@@ -21,6 +21,9 @@
 
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from mezzanine.conf import settings
+from django.core.urlresolvers import reverse
 from dal import autocomplete
 from organization.network.models import *
 from organization.core.views import *
@@ -119,7 +122,15 @@ class OrganizationLinkedView(autocomplete.Select2QuerySetView):
         return qs
 
 
-class TimeSheetCreateView(CreateView):
+
+class TimesheetAbstractView(LoginRequiredMixin):
+    login_url = settings.LOGIN_URL
+
+    class Meta:
+        abstract = True
+
+
+class TimeSheetCreateView(TimesheetAbstractView, CreateView):
     model = PersonActivityTimeSheet
     template_name='network/person_activity_timesheet/person_activity_timesheet_create.html'
     context_object_name = 'timesheet'
@@ -138,7 +149,7 @@ class TimeSheetCreateView(CreateView):
         return context
 
 
-class PersonActivityTimeSheetListView(ListView):
+class PersonActivityTimeSheetListView(TimesheetAbstractView, ListView):
     model = PersonActivityTimeSheet
     template_name='network/person_activity_timesheet/person_activity_timesheet_list.html'
     context_object_name = 'timesheet'

@@ -31,7 +31,7 @@ from mezzanine.conf import settings
 from organization.network.views import *
 
 urlpatterns = [
-    url(r'^person/(?P<slug>.*)/timesheet/(?P<year>[0-9]{4})/(?P<month>[0-9]{2})/create/$', TimeSheetCreateView.as_view(), name="organization-network-timesheet-create-view"),
+    url(r'^person/(?P<slug>.*)/timesheet/(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/create/$', TimeSheetCreateView.as_view(), name="organization-network-timesheet-create-view"),
     url(r'^person/(?P<slug>.*)/timesheet/dashboard/$', PersonActivityTimeSheetListView.as_view(), name="organization-network-timesheet-list-view" ),
     url(r'^person/(?P<slug>.*)/$', PersonDetailView.as_view(), name="organization-network-person-detail"),
     url("^person-list-block-autocomplete/$", permission_required('person.can_edit')(PersonListBlockAutocompleteView.as_view()), name='person-list-block-autocomplete'),
