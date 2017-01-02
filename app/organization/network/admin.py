@@ -150,7 +150,16 @@ class PersonActivityInline(StackedDynamicInlineAdmin):
     fk_name = 'person'
     filter_horizontal = ['organizations', 'employers', 'teams',
                          'projects', 'supervisors', 'phd_directors', ]
+    # fields = ()
+    #
+    # fields = (('monday_am','monday_pm'), 'weekly_hour_volume')
 
+    # def __init__(self, *args, **kwargs):
+    #     super(PersonActivityInline, self).__init__(*args, **kwargs)
+    #     # print(self.model._meta.get_fields())
+    #     self.fields = self.model._meta.get_fields()
+    #     print(self.fields)
+    #     # self.fields.append(('monday_am', 'monday_pm'))
 
 class PersonPlaylistInline(TabularDynamicInlineAdmin):
 
@@ -201,6 +210,7 @@ class PersonAdmin(BaseTranslationOrderedModelAdmin):
             if last_activity.weekly_hour_volume.__str__() != 'None':
                 weekly_hour_volume = last_activity.weekly_hour_volume.__str__()
         return weekly_hour_volume
+
 
 class PersonActivityAdmin(BaseTranslationModelAdmin):
 
@@ -271,6 +281,13 @@ class TrainingTopicAdmin(BaseTranslationModelAdmin):
 
     model = TrainingTopic
 
+class PersonActivityTimeSheetAdmin(BaseTranslationModelAdmin):
+    model = PersonActivityTimeSheet
+    list_display = ['person', 'activity', 'year', 'month', 'project', 'percentage']
+    list_filter = ['activity__person', 'year', 'project']
+    def person(self, instance):
+        return instance.activity.person
+
 
 admin.site.register(OrganizationLinked, OrganizationLinkedAdmin)
 admin.site.register(Organization, OrganizationAdmin)
@@ -291,3 +308,4 @@ admin.site.register(TrainingType, TrainingTypeAdmin)
 admin.site.register(TrainingLevel, TrainingLevelAdmin)
 admin.site.register(TrainingTopic, TrainingTopicAdmin)
 admin.site.register(TrainingSpeciality, TrainingSpecialityAdmin)
+admin.site.register(PersonActivityTimeSheet, PersonActivityTimeSheetAdmin)
