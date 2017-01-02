@@ -48,7 +48,7 @@ class Command(BaseCommand):
         self.first_row = self.sheet.row(0)
         num_cols = self.sheet.ncols
         for row_idx in range(0, self.sheet.nrows):    # Iterate through rows
-            cell_id = self.sheet.cell(row_idx, 0).value
+            cell_id = self.sheet.cell(row_idx, 0).value.strip()
             cell_last_name = self.sheet.cell(row_idx, 1).value
             cell_first_name = self.sheet.cell(row_idx, 2).value
             self.update_register_id(cell_id, cell_last_name, cell_first_name)

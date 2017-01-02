@@ -220,3 +220,9 @@ class OrganizationLinkedBlockInlineTranslationOptions(TranslationOptions):
 class ActivityWeeklyHourVolumeTranslationOptions(TranslationOptions):
 
     fields = []
+
+
+@register(PersonActivityTimeSheet)
+class PersonActivityTimeSheetTranslationOptions(TranslationOptions):
+
+    fields = []

@@ -142,7 +142,9 @@ ADMIN_MENU_ORDER = (
                     'organization-network.TrainingTopic',
                     'organization-network.TrainingLevel',
                     'organization-network.TrainingSpeciality',
-                    'organization-network.ActivityWeeklyHourVolume'
+                    )),
+    (_('Timesheet'), ('organization-network.ActivityWeeklyHourVolume',
+                     'organization-network.PersonActivityTimeSheet'
                     )),
     (_('Projects'), ('organization-projects.Project',
                     'organization-projects.ProjectProgram',

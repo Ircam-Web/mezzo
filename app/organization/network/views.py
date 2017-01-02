@@ -20,10 +20,15 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from mezzanine.conf import settings
+from django.core.urlresolvers import reverse
 from dal import autocomplete
 from organization.network.models import *
 from organization.core.views import *
-
+from datetime import date
+from organization.network.forms import *
 
 class PersonListView(ListView):
 
@@ -115,3 +120,47 @@ class OrganizationLinkedView(autocomplete.Select2QuerySetView):
         if self.q:
             qs = qs.filter(name__istartswith=self.q)
         return qs
+
+
+
+class TimesheetAbstractView(LoginRequiredMixin):
+    login_url = settings.LOGIN_URL
+
+    class Meta:
+        abstract = True
+
+
+class TimeSheetCreateView(TimesheetAbstractView, CreateView):
+    model = PersonActivityTimeSheet
+    template_name='network/person_activity_timesheet/person_activity_timesheet_create.html'
+    context_object_name = 'timesheet'
+    form_class = PersonActivityTimeSheetForm
+
+    def get_initial(self):
+        initial = super(TimeSheetCreateView, self).get_initial()
+        initial['activity'] = PersonActivity.objects.filter(person__slug=self.kwargs['slug']).first()
+        initial['month'] = self.kwargs['month']
+        initial['year'] = self.kwargs['year']
+        return initial
+
+    def get_context_data(self, **kwargs):
+        context = super(TimeSheetCreateView, self).get_context_data(**kwargs)
+        context.update(self.kwargs)
+        return context
+
+
+class PersonActivityTimeSheetListView(TimesheetAbstractView, ListView):
+    model = PersonActivityTimeSheet
+    template_name='network/person_activity_timesheet/person_activity_timesheet_list.html'
+    context_object_name = 'timesheet'
+
+    def get_queryset(self):
+        if 'slug' in self.kwargs:
+            return PersonActivityTimeSheet.objects.filter(activity__person__slug__exact=self.kwargs['slug'])
+
+    def get_context_data(self, **kwargs):
+        context = super(PersonActivityTimeSheetListView, self).get_context_data(**kwargs)
+        context['current_month'] = date.today().month
+        context['current_year'] = date.today().year
+        context.update(self.kwargs)
+        return context

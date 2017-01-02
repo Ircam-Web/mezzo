@@ -50,7 +50,7 @@ class Project(Displayable, Period, RichText):
     """(Project description)"""
 
     type = models.CharField(_('type'), max_length=128, choices=PROJECT_TYPE_CHOICES)
-    external_id = models.CharField(_('register ID'), blank=True, null=True, max_length=128)
+    external_id = models.CharField(_('external ID'), blank=True, null=True, max_length=128)
     program = models.ForeignKey('ProjectProgram', verbose_name=_('project program'), related_name='projects', blank=True, null=True, on_delete=models.SET_NULL)
     program_type = models.ForeignKey('ProjectProgramType', verbose_name=_('project program type'), related_name='projects', blank=True, null=True, on_delete=models.SET_NULL)
     lead_team = models.ForeignKey('organization-network.Team', verbose_name=_('lead team'), related_name='leader_projects', blank=True, null=True)
