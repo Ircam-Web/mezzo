@@ -28,6 +28,7 @@ RUN gem install bundler
 RUN bundle install
 
 COPY bower.json /srv
+COPY .bowerrc /srv
 RUN npm install -g bower
 RUN bower --allow-root install
 
