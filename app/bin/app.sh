@@ -33,8 +33,8 @@ chown -R $uid:$gid $media
 sh $app/bin/wait.sh
 
 # django setup
-python $manage migrate
 python $manage wait-for-db
+python $manage migrate
 # python $manage migrate --noinput
 # python $manage bower_install -- --allow-root
 python $manage create-admin-user
