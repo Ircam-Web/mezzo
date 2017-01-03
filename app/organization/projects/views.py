@@ -29,7 +29,31 @@ from organization.core.views import *
 from organization.magazine.views import Article
 from organization.pages.models import CustomPage
 
-class ProjectDetailView(SlugMixin, DetailView):
+
+class ProjectMixin(object):
+
+    def get_context_data_mixin(self, context):
+        department = None
+
+        if self.project.lead_team:
+            if self.project.lead_team.department:
+                department = self.project.lead_team.department
+        else:
+            for team in self.project.teams.all():
+                if team.department:
+                    department = team.department
+                    break
+
+        context['department'] = department
+        if self.project.topic and self.project.topic.parent:
+            context['page'] = self.project.topic.parent.pages.all().first()
+        elif self.project.topic:
+            context['page'] = self.project.topic.pages.all().first()
+
+        return context
+
+
+class ProjectDetailView(SlugMixin, ProjectMixin, DetailView):
 
     model = Project
     template_name='projects/project_detail.html'
@@ -37,23 +61,9 @@ class ProjectDetailView(SlugMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProjectDetailView, self).get_context_data(**kwargs)
-        project = self.get_object()
-        department = None
-
-        if project.lead_team:
-            if project.lead_team.department:
-                department = project.lead_team.department
-        else:
-            for team in project.teams.all():
-                if team.department:
-                    department = team.department
-                    break
-
-        context['department'] = department
-        if project.topic and project.topic.parent:
-            context['page'] = project.topic.parent.pages.all().first()
-        elif project.topic:
-            context['page'] = project.topic.pages.all().first()
+        self.project = self.get_object()
+        self.get_context_data_mixin(context)
+        context['next'] = reverse_lazy('organization-project-detail', kwargs={'slug': self.project.slug})
         return context
 
 
@@ -86,7 +96,7 @@ class DynamicContentProjectView(Select2QuerySetSequenceView):
         return results
 
 
-class ProjectDemoDetailView(SlugMixin, DetailView):
+class ProjectDemoDetailView(SlugMixin, ProjectMixin, DetailView):
 
     model = ProjectDemo
     template_name='projects/project_demo_detail.html'
@@ -96,22 +106,5 @@ class ProjectDemoDetailView(SlugMixin, DetailView):
         context = super(ProjectDemoDetailView, self).get_context_data(**kwargs)
         demo = self.get_object()
         project = demo.project
-        department = None
-
-        if project:
-            if project.lead_team:
-                if project.lead_team.department:
-                    department = project.lead_team.department
-            else:
-                for team in project.teams.all():
-                    if team.department:
-                        department = team.department
-                        break
-
-            context['department'] = department
-            if project.topic and project.topic.parent:
-                context['page'] = project.topic.parent.pages.all().first()
-            elif project.topic:
-                context['page'] = project.topic.pages.all().first()
-
+        self.get_context_data_mixin(context)
         return context
