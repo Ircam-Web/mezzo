@@ -51,7 +51,7 @@ class ProjectFileTranslationOptions(TranslationOptions):
 @register(ProjectBlock)
 class ProjectBlockTranslationOptions(TranslationOptions):
 
-    pass
+    fields = ('title', 'description', 'content')
 
 
 @register(ProjectLink)
@@ -90,8 +90,14 @@ class ProjectDemoTranslationOptions(TranslationOptions):
     fields = ('title', 'description',)
 
 
+@register(ProjectWorkPackage)
+class ProjectWorkPackageTranslationOptions(TranslationOptions):
+
+    pass
+
+
 @register(ProjectRelatedTitle)
-class ProjectRelatedTitleranslationOptions(TranslationOptions):
+class ProjectRelatedTitleTranslationOptions(TranslationOptions):
 
     fields = ('title',)
 

@@ -22,7 +22,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404
 from django.views.generic.base import View
-from django.views.generic import DetailView, ListView, TemplateView
+from django.views.generic import DetailView, ListView, TemplateView, UpdateView
 from django.apps import apps
 from django.utils import six, timezone, formats
 from django.utils.translation import ugettext_lazy as _

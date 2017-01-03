@@ -214,3 +214,15 @@ class OrganizationLinkedInlineTranslationOptions(TranslationOptions):
 class OrganizationLinkedBlockInlineTranslationOptions(TranslationOptions):
 
     fields = []
+
+
+@register(ActivityWeeklyHourVolume)
+class ActivityWeeklyHourVolumeTranslationOptions(TranslationOptions):
+
+    fields = []
+
+
+@register(PersonActivityTimeSheet)
+class PersonActivityTimeSheetTranslationOptions(TranslationOptions):
+
+    fields = []

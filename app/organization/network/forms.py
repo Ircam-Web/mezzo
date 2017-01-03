@@ -33,7 +33,8 @@ from organization.network.models import (Person,
                                 OrganizationLinked,
                                 OrganizationLinkedInline,
                                 OrganizationLinkedBlockInline,
-                                Organization)
+                                Organization,
+                                PersonActivityTimeSheet)
 from organization.pages.models import Page, CustomPage
 
 
@@ -83,3 +84,11 @@ class OrganizationLinkedForm(forms.ModelForm):
     class Meta:
         model = OrganizationLinkedInline
         fields = ('organization',)
+
+
+class PersonActivityTimeSheetForm(forms.ModelForm):
+
+    class Meta:
+        model = PersonActivityTimeSheet
+        fields = ('__all__')
+        # PersonActivityTimeSheetviewfields = ['pub_date', 'headline', 'content', 'reporter']

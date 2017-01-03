@@ -15,6 +15,7 @@ develop-eggs
 .thumbnails
 .tmp
 *.lock
+var
 
 # Installer logs
 pip-log.txt
