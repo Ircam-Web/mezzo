@@ -8,9 +8,9 @@ WORKDIR /srv
 
 RUN apt-get update && apt-get install apt-transport-https
 COPY etc/apt/sources.list /etc/apt/
-COPY debian-requirements.txt /srv
+COPY requirements-debian.txt /srv
 RUN apt-get update && \
-    DEBIAN_PACKAGES=$(egrep -v "^\s*(#|$)" /srv/debian-requirements.txt) && \
+    DEBIAN_PACKAGES=$(egrep -v "^\s*(#|$)" /srv/requirements-debian.txt) && \
     apt-get install -y --force-yes $DEBIAN_PACKAGES && \
     echo fr_FR.UTF-8 UTF-8 >> /etc/locale.gen && \
     locale-gen && \
