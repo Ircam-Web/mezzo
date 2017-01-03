@@ -62,7 +62,7 @@ app:
 nginx:
   image: nginx
   ports:
-    - "8020:80"
+    - "10020:80"
   volumes:
     - ./etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
   volumes_from:
