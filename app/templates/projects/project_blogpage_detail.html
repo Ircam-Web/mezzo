@@ -40,8 +40,8 @@
 {% endblock %}
 
 {% block page_content %}
-    {% if project.content %}
-        {% editable project.content %}
+    {% if object.content %}
+        {% editable object.content %}
             {{ object.content|richtext_filters|safe }}
         {% endeditable %}
     {% endif %}
