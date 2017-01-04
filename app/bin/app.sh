@@ -23,9 +23,9 @@ gid='www-data'
 # pip install -U https://forge.ircam.fr/p/django-eve/source/download/dev/
 # pip install https://forge.ircam.fr/p/django-prestashop/source/download/master/ --src /srv/lib
 # pip install -U https://github.com/stephenmcd/grappelli-safe/archive/dynamic_stacked.zip
-pip install django-querysetsequence==0.6.1 django==1.9.11
-#pip install django-autocomplete-light django-querysetsequence
-#/usr/bin/yes | pip uninstall django-orderable
+# pip install django-querysetsequence==0.6.1 django==1.9.11
+# pip install django-autocomplete-light django-querysetsequence
+# /usr/bin/yes | pip uninstall django-orderable
 
 chown -R $uid:$gid $media
 
@@ -37,6 +37,7 @@ python $manage wait-for-db
 # python $manage migrate --noinput
 # python $manage bower_install -- --allow-root
 python $manage create-admin-user
+
 # @todo searching every fixtures file in each folder
 python $manage loaddata $app/organization/job/fixtures/organization-job.json
 python $manage loaddata $app/organization/projects/fixtures/organization-projects-repositorysystems.json

@@ -149,7 +149,6 @@ class ProjectFile(File):
 
 class ProjectBlock(Block):
 
-
     project = models.ForeignKey(Project, verbose_name=_('project'), related_name='blocks', blank=True, null=True, on_delete=models.SET_NULL)
 
 
