@@ -28,6 +28,7 @@ from organization.pages.models import CustomPage
 from mezzanine_agenda.models import Event
 from organization.core.views import autocomplete_result_formatting
 
+
 class ConfirmationView(TemplateView):
 
     template_name = "agenda/confirmation.html"
