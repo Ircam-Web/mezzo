@@ -34,13 +34,12 @@ sh $app/bin/wait.sh
 
 # django setup
 python $manage wait-for-db
-# python $manage migrate --noinput
-# python $manage bower_install -- --allow-root
-python $manage create-admin-user
 
-# @todo searching every fixtures file in each folder
-python $manage loaddata $app/organization/job/fixtures/organization-job.json
-python $manage loaddata $app/organization/projects/fixtures/organization-projects-repositorysystems.json
+# initial setup
+if [ ! -f .init ]; then
+    bash init.sh
+    touch .init
+fi
 
 # app start
 if [ "$1" = "--runserver" ]; then
