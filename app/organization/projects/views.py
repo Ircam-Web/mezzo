@@ -20,6 +20,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 from django.shortcuts import render
+from django.views.generic.detail import SingleObjectMixin
 from dal import autocomplete
 from dal_select2_queryset_sequence.views import Select2QuerySetSequenceView
 from mezzanine_agenda.models import Event
@@ -30,9 +31,16 @@ from organization.magazine.views import Article
 from organization.pages.models import CustomPage
 
 
-class ProjectMixin(object):
+class ProjectMixin(SingleObjectMixin):
 
-    def get_context_data_mixin(self, context):
+    def get_context_data(self, **kwargs):
+        context = super(ProjectMixin, self).get_context_data(**kwargs)
+        self.object = self.get_object()
+        if not isinstance(self.object, Project):
+            self.project = self.object.project
+        else:
+            self.project = self.object
+
         department = None
 
         if self.project.lead_team:
@@ -57,14 +65,6 @@ class ProjectDetailView(SlugMixin, ProjectMixin, DetailView):
 
     model = Project
     template_name='projects/project_detail.html'
-    context_object_name = 'project'
-
-    def get_context_data(self, **kwargs):
-        context = super(ProjectDetailView, self).get_context_data(**kwargs)
-        self.project = self.get_object()
-        self.get_context_data_mixin(context)
-        context['next'] = reverse_lazy('organization-project-detail', kwargs={'slug': self.project.slug})
-        return context
 
 
 class DynamicContentProjectView(Select2QuerySetSequenceView):
@@ -100,11 +100,9 @@ class ProjectDemoDetailView(SlugMixin, ProjectMixin, DetailView):
 
     model = ProjectDemo
     template_name='projects/project_demo_detail.html'
-    context_object_name = 'demo'
 
-    def get_context_data(self, **kwargs):
-        context = super(ProjectDemoDetailView, self).get_context_data(**kwargs)
-        demo = self.get_object()
-        project = demo.project
-        self.get_context_data_mixin(context)
-        return context
+
+class ProjectBlogPageView(SlugMixin, ProjectMixin, DetailView):
+
+    model = ProjectBlogPage
+    template_name='projects/project_blogpage_detail.html'

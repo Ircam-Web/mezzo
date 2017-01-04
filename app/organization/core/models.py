@@ -96,7 +96,7 @@ class CustomCategory(Named):
         return self.name
 
 
-class Block(RichText, Titled, Orderable):
+class Block(Titled, RichText, Orderable):
 
     with_separator = models.BooleanField(default=False)
     background_color = models.CharField(_('background color'), max_length=32, choices=COLOR_CHOICES, blank=True)
