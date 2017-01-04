@@ -54,6 +54,12 @@ class ProjectBlockTranslationOptions(TranslationOptions):
     fields = ('title', 'description', 'content')
 
 
+@register(ProjectBlogPage)
+class ProjectBlogPageTranslationOptions(TranslationOptions):
+
+    fields = ('title', 'description', 'content', 'login_required_content')
+
+
 @register(ProjectLink)
 class ProjectLinkTranslationOptions(TranslationOptions):
 
