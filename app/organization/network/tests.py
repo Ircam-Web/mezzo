@@ -19,6 +19,30 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-from django.test import TestCase
+from django.test import SimpleTestCase
+import datetime
+from organization.network.utils import get_nb_half_days_by_period
 
-# Create your tests here.
+class NbOfHalfDaysInPeriodTestCase(SimpleTestCase):
+
+    def setUp(self):
+        self.date_from = datetime.date(2016,12,1)
+        self.date_to = datetime.date(2016,12,31)
+
+    def test_nbhalf_half_days(self):
+
+        expected = {
+          "monday_am": 4,
+          "monday_pm": 4,
+          "tuesday_am": 4,
+          "tuesday_pm": 4,
+          "wednesday_am": 4,
+          "wednesday_pm": 4,
+          "thursday_am": 5,
+          "thursday_pm": 5,
+          "friday_am": 5,
+          "friday_pm": 5,
+        }
+
+        result = get_nb_half_days_by_period(self.date_from, self.date_to)
+        self.assertEquals(result, expected)
