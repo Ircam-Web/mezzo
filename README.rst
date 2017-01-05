@@ -151,7 +151,7 @@ For a production environment setup::
 
 which builds, (re)creates, starts, and attaches all containers.
 
-Then browse the app at http://localhost:8020/
+Then browse the app at http://localhost:8021/
 
 On MacOS or Windows, we need to replace 'localhost' by the IP given by the docker terminal.
 
@@ -198,7 +198,7 @@ For a development environment setup::
 
     docker-compose -f docker-compose.yml -f env/dev.yml up
 
-This will launch the django development server. Then browse the app at http://localhost:9020/
+This will launch the django development server. Then browse the app at http://localhost:9021/
 
 On MacOS or Windows, we need to replace 'localhost' by the IP given by the docker terminal.
 

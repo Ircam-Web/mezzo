@@ -9,7 +9,7 @@ For a development environment setup::
 
     docker-compose -f docker-compose.yml -f env/dev.yml up
 
-This will launch the django development server. Then browse the app at http://localhost:9020/
+This will launch the django development server. Then browse the app at http://localhost:9021/
 
 On MacOS or Windows, we need to replace 'localhost' by the IP given by the docker terminal.
 

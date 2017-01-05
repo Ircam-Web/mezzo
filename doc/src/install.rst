@@ -26,7 +26,7 @@ For a production environment setup::
 
 which builds, (re)creates, starts, and attaches all containers.
 
-Then browse the app at http://localhost:8020/
+Then browse the app at http://localhost:8021/
 
 On MacOS or Windows, we need to replace 'localhost' by the IP given by the docker terminal.
 
