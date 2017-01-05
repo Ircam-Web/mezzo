@@ -133,6 +133,13 @@ class ProjectTopicPageAdmin(PageAdmin):
     inlines = [PageImageInline, ]
 
 
+class ProjectWorkPackageAdmin(BaseTranslationModelAdmin):
+
+    model = ProjectWorkPackage
+    list_display = ['title', 'project', 'date_from', 'date_to', 'number', 'lead_organization' ]
+    list_filter = ['project', 'date_from', 'date_to', 'lead_organization' ]
+
+
 admin.site.register(Project, ProjectAdminDisplayable)
 admin.site.register(ProjectProgram, ProjectProgramAdmin)
 admin.site.register(ProjectProgramType, ProjectProgramTypeAdmin)
@@ -141,3 +148,4 @@ admin.site.register(ProjectTopicPage, ProjectTopicPageAdmin)
 admin.site.register(ProjectDemo, ProjectDemoAdmin)
 admin.site.register(Repository)
 admin.site.register(RepositorySystem)
+admin.site.register(ProjectWorkPackage, ProjectWorkPackageAdmin)

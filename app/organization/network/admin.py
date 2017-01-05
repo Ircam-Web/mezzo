@@ -281,12 +281,17 @@ class TrainingTopicAdmin(BaseTranslationModelAdmin):
 
     model = TrainingTopic
 
+
 class PersonActivityTimeSheetAdmin(BaseTranslationModelAdmin):
     model = PersonActivityTimeSheet
-    list_display = ['person', 'activity', 'year', 'month', 'project', 'percentage']
+    list_display = ['person', 'activity', 'year', 'month', 'project', 'work_package', 'percentage',  'accounting', 'validation']
     list_filter = ['activity__person', 'year', 'project']
     def person(self, instance):
         return instance.activity.person
+
+    def work_package(self, instance):
+        wk_list = [str(wk.number) for wk in instance.work_packages.all()]
+        return ",".join(wk_list)
 
 
 admin.site.register(OrganizationLinked, OrganizationLinkedAdmin)
