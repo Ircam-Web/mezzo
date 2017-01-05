@@ -23,7 +23,7 @@
                                 {% if block.login_required and not user.is_authenticated %}
                                     <div class="chapo">
                                         {% trans "Please login to get links to the data" %}<br><br>
-                                        <a class="button" href="{% url 'login' %}?next={{ next }}#section-0" title="Login">{% trans "Login" %}</a>
+                                        <a class="button" href="{% url 'login' %}?next={{ request.path }}" title="Login">{% trans "Login" %}</a>
                                     </div>
                                 {% else %}
                                     {% if block.content %}

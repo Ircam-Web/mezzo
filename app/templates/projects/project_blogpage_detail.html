@@ -1,0 +1,58 @@
+{% extends "pages/page.html" %}
+{% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
+
+{% block meta_title %}{% trans "Demo" %}{% endblock %}
+
+{% block meta_description %}
+    {% metablock %}
+        {{ object.description }}
+    {% endmetablock %}
+{% endblock %}
+
+{% block page_class %}
+    projectblogpage
+{% endblock %}
+
+{% block breadcrumb_menu %}
+    {{ block.super }}
+    <li class="breadcrumb__item"><a class="breadcrumb__link" href="{% url 'organization-project-detail' object.project.slug %}">{{ object.project.title }}</a></li>
+    <li class="breadcrumb__item active">{{ object.title }}</li>
+{% endblock %}
+
+{% block page_title %}
+    {% editable project.title %}
+        <h1 class="dotted">{{ object.title }}</h1>
+    {% endeditable %}
+
+    {% if object.description %}
+        {% editable object.description %}
+            <div class="chapo">
+                {{ object.description }}
+            </div>
+        {% endeditable %}
+    {% endif %}
+{% endblock %}
+
+{% block page_sidebar %}
+{% endblock %}
+
+{% block page_slider %}
+{% endblock %}
+
+{% block page_content %}
+    {% if object.content %}
+        {% editable object.content %}
+            {{ object.content|richtext_filters|safe }}
+        {% endeditable %}
+    {% endif %}
+    {% if object.login_required_content and not user.is_authenticated %}
+        <div class="chapo" id="login_required_content">
+            {% trans "Please login to get more data." %}<br><br>
+            <a class="button" href="{% url 'login' %}?next={{ request.path }}#login_required_content" title="Login">{% trans "Login" %}</a>
+        </div>
+    {% else %}
+            {% editable block.content %}
+                {{ object.login_required_content|richtext_filters|safe }}
+            {% endeditable %}
+    {% endif %}
+{% endblock %}

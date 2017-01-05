@@ -35,7 +35,7 @@ from django_countries.fields import CountryField
 
 COLOR_CHOICES = (('black', _('black')), ('yellow', _('yellow')), ('red', _('red')))
 ALIGNMENT_CHOICES = (('left', _('left')), ('center', _('center')), ('right', _('right')))
-IMAGE_TYPE_CHOICES = (('logo', _('logo')), ('logo_white', _('logo white')), ('logo_black', _('logo black')), ('slider', _('slider')), ('card', _('card')), ('page_slider', _('page - slider')), ('page_featured', _('page - featured')))
+IMAGE_TYPE_CHOICES = (('logo', _('logo')), ('logo_white', _('logo white')), ('logo_black', _('logo black')), ('logo_header', _('logo header')), ('logo_footer', _('logo footer')), ('slider', _('slider')), ('card', _('card')), ('page_slider', _('page - slider')), ('page_featured', _('page - featured')))
 
 
 class Description(models.Model):
@@ -96,7 +96,7 @@ class CustomCategory(Named):
         return self.name
 
 
-class Block(RichText, Titled, Orderable):
+class Block(Titled, RichText, Orderable):
 
     with_separator = models.BooleanField(default=False)
     background_color = models.CharField(_('background color'), max_length=32, choices=COLOR_CHOICES, blank=True)
