@@ -37,7 +37,7 @@ python $manage wait-for-db
 
 # initial setup
 if [ ! -f .init ]; then
-    bash init.sh
+    bash $app/bin/init.sh
     touch .init
 fi
 
