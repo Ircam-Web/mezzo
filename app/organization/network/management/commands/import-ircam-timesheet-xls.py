@@ -250,4 +250,4 @@ class Command(BaseCommand):
                             pat.validation = date_validation
                             pat.save()
 
-                self.logger.info('Processing', '_________________________ Number of record : ' + str(processing_counter) + ' _________________________')                
+                self.logger.info('Processing', '_________________________ Number of record : ' + str(processing_counter) + ' _________________________')
