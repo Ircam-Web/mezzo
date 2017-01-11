@@ -21,3 +21,4 @@ ipython
 gitpython
 pygraphviz
 sphinx_rtd_theme
+pandas==0.19.2
