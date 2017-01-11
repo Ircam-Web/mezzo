@@ -68,84 +68,116 @@ def get_instance(model, field, value):
         return model
 
 
+def format_message(project):
+    message = str(project.id) + " | "
+    message += project.title + " | "
+    message += project.external_id if project.external_id else "None"
+    return message
+
+
 class IrcamXLS:
 
     sheet_id = 0
     project_table_1_first_row = 12
     project_table_1_last_row = 25
     project_table_2_first_row = 34
-    project_table_2_last_row = 89
+    project_table_2_last_row = 90
     nb_col_max = 9
     nb_col_min = 0
     avoid_col = 3
 
     def __init__(self, file):
+        self.book = xlrd.open_workbook(file)
         self.sheet = self.book.sheet_by_index(self.sheet_id)
 
 
 class IrcamProjects(object):
 
     def __init__(self, project_name):
-        project, is_created = Project.object.get_or_create(title__icontains=project_name)
+        project, is_created = Project.objects.get_or_create(title=project_name)
         self.project = project
         self.is_created = is_created
+        if self.is_created:
+            self.project.title = project_name
 
 
     def set_external_id(self, external_id):
-        if external_id and not self.project.external_id:
+        if external_id and self.project.external_id is None:
+            if isinstance(external_id, float):
+                external_id = str(int(external_id))
             external_id = re.sub(r'((\s)*(-)(\s)*)|(\s)', '-', external_id)
             self.project.external_id = external_id
 
 
     def set_call_project(self, call):
-        if call and not self.project.call:
-            self.project.call = ProjectCall.objects.get_or_create(name__icontains=call)
+        if call and self.project.call is None:
+            project_call, is_created = ProjectCall.objects.get_or_create(name__icontains=call)
+            if is_created:
+                project_call.name = call
+                project_call.save()
+            self.project.call = project_call
 
 
     def set_date_from(self, date_from):
-        if date_from and not self.project.date_from:
+        if date_from and self.project.date_from is None:
             self.project.date_from = date_from
 
 
     def set_date_to(self, date_to):
-        if date_to and not self.project.date_to:
+        if date_to and self.project.date_to is None:
             self.project.date_to = date_to
 
 
     def set_lead_organization(self, lead_organization):
-        if lead_organization and not self.project.lead_organization:
-            self.project.lead_organization.add(Organization.objects.get_or_create(title__icontains=lead_organization))
+        if lead_organization and self.project.lead_organization is None:
+            lo, is_created = Organization.objects.get_or_create(name=lead_organization)
+            self.project.lead_organization = lo
 
 
     def set_referring_person(self, referring_person):
-        if referring_person and not self.project.referring_person:
-            referring_person_list = re.split(r'(\s)*/(\s)*', referring_person)
-            person_list = ()
+        if referring_person and self.project.referring_person is None:
+            referring_person_list = re.split(r'\s*/\s*', referring_person, 1)
             for rp in referring_person_list:
-                rp_whole_name = re.split(r'(\s)*', rp)
+                rp_whole_name = re.split(r'\s*', rp, 1)
                 last_name = max(rp_whole_name, key=len)
-                self.project.referring_person.add(Person.objects.get_or_create(last_name__icontains=last_name))
+                initial_first_name = min(rp_whole_name, key=len)
+                initial_first_name = re.sub(r'\.', '', initial_first_name)
+                persons = Person.objects.filter(last_name__icontains=last_name)
+                for person in persons:
+                    if person.first_name[0] == initial_first_name:
+                        self.project.referring_person.add(person)
 
 
     def set_teams(self, lead_teams):
-        if lead_teams and not self.project.lead_team:
-            lead_teams_list = re.split(r'(\s)*(,|/)(\s)*', lead_teams)
-                self.project.lead_team.add(lead_teams)
+        if lead_teams and self.project.lead_team is None:
+            lead_teams_list = re.split(r'\s*,\s*', lead_teams, 1)
+            for lt in lead_teams_list:
+                t, is_created = Team.objects.get_or_create(code__icontains=lt)
+                if is_created:
+                    t.title = lt
+                    t.save()
+                self.project.teams.add(t)
 
 
     def set_manager(self, manager):
-        if manager:
-            if not self.project.manager:
-                self.project.manager = Person.objects.get_or_create(last_name__icontains=manager)
+        if manager and self.project.manager is None :
+            manager_whole_name = re.split(r'\s*', manager, 1)
+            last_name = max(manager_whole_name, key=len)
+            initial_first_name = min(manager_whole_name, key=len)
+            initial_first_name = re.sub(r'\.', '', initial_first_name)
+            persons = Person.objects.filter(last_name__icontains=last_name)
+            for person in persons:
+                if person.first_name[0] == initial_first_name:
+                    self.project.manager.add(person)
 
 
-    def save_project():
+    def save_project(self):
         self.project.save()
 
 
 class Command(BaseCommand):
     help = """Import Person data from IRCAM's legacy XLS management file.
-              python manage.py import-ircam-timesheet-xls -s /srv/backup/TemplateInputTimeSheet2015-16.xlsx
+              python manage.py import-ircam-project -s /srv/backup/projects_rd_jan17.xlsx
     """
 
     option_list = BaseCommand.option_list + (
@@ -176,29 +208,32 @@ class Command(BaseCommand):
 
         # Table 1
         for row_index in range(xls.project_table_1_first_row, xls.project_table_1_last_row):
-
-            ip = IrcamProjects(sheet.cell_value(0, row_index))
-            ip.set_external_id(sheet.cell_value(1, row_index))
-            ip.set_call_project(sheet.cell_value(2, row_index))
-            ip.set_date_from(xlrd.xldate.xldate_as_datetime(sheet.cell_value(4, row_index)), 1))
-            ip.set_date_to(xlrd.xldate.xldate_as_datetime(sheet.cell_value(5, row_index))
-            ip.set_lead_organization(sheet.cell_value(6, row_index))
-            ip.set_referring_person(sheet.cell_value(7, row_index))
-            ip.set_teams(sheet.cell_value(8, row_index))
-            ip.set_manager(sheet.cell_value(9, row_index))
+            ip = IrcamProjects(xls.sheet.cell_value(row_index, 0))
+            ip.set_external_id(xls.sheet.cell_value(row_index, 1))
+            ip.set_call_project(xls.sheet.cell_value(row_index, 2))
+            ip.set_date_from(xlrd.xldate.xldate_as_datetime(xls.sheet.cell_value(row_index, 4), 1))
+            ip.set_date_to(xlrd.xldate.xldate_as_datetime(xls.sheet.cell_value(row_index, 5), 1))
+            ip.set_lead_organization(xls.sheet.cell_value(row_index, 6))
+            ip.set_referring_person(xls.sheet.cell_value(row_index, 7))
+            ip.set_teams(xls.sheet.cell_value(row_index, 8))
+            ip.set_manager(xls.sheet.cell_value(row_index, 9))
             ip.save_project()
+
+            self.logger.info('Project', format_message(ip.project))
 
 
         # Table 2
         for row_index in range(xls.project_table_2_first_row, xls.project_table_2_last_row):
 
-            ip = IrcamProjects(sheet.cell_value(0, row_index))
-            ip.set_external_id(sheet.cell_value(1, row_index))
-            ip.set_call_project(sheet.cell_value(2, row_index))
-            ip.set_date_from(xlrd.xldate.xldate_as_datetime(sheet.cell_value(4, row_index), 1))
-            ip.set_date_to(xlrd.xldate.xldate_as_datetime(sheet.cell_value(5, row_index), 1))
-            ip.set_lead_organization(sheet.cell_value(6, row_index))
-            ip.set_referring_person(sheet.cell_value(7, row_index))
-            ip.set_teams(sheet.cell_value(8, row_index))
-            ip.set_manager(sheet.cell_value(9, row_index))
+            ip = IrcamProjects(xls.sheet.cell_value(row_index, 0))
+            ip.set_external_id(xls.sheet.cell_value(row_index, 1))
+            ip.set_call_project(xls.sheet.cell_value(row_index, 2))
+            ip.set_date_from(xlrd.xldate.xldate_as_datetime(xls.sheet.cell_value(row_index, 4), 1))
+            ip.set_date_to(xlrd.xldate.xldate_as_datetime(xls.sheet.cell_value(row_index, 5), 1))
+            ip.set_lead_organization(xls.sheet.cell_value(row_index, 6))
+            ip.set_referring_person(xls.sheet.cell_value(row_index, 7))
+            ip.set_teams(xls.sheet.cell_value(row_index, 8))
+            ip.set_manager(xls.sheet.cell_value(row_index, 9))
             ip.save_project()
+
+            self.logger.info('Project', format_message(ip.project))
