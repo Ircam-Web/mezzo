@@ -149,7 +149,7 @@ class Organization(Named, Address, URL, AdminThumbRelatedMixin, Orderable):
             self.lat = lat
             self.lon = lon
 
-    def save(self):
+    def save(self, **kwargs):
         self.clean()
         super(Organization, self).save()
 
