@@ -73,6 +73,7 @@ class PlaylistListView(ListView):
     model = Playlist
     template_name='media/playlist_list.html'
     context_object_name = 'playlists'
+
     def get_queryset(self):
         self.qs = Playlist.objects.all()
         self.current_type = None
@@ -80,6 +81,7 @@ class PlaylistListView(ListView):
             self.qs = self.qs.filter(type=self.kwargs['type'])
             self.current_type = self.kwargs['type']
         return self.qs
+
     def get_context_data(self, **kwargs):
         context = super(PlaylistListView, self).get_context_data(**kwargs)
 

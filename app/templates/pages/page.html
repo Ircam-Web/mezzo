@@ -112,6 +112,9 @@
             {% block page_demo %}
             {% endblock %}
 
+            {% block page_blog %}
+            {% endblock %}
+
             {% block page_sub_content %}
                 {% with object.blocks.all as blocks %}
                     {% include "core/inc/block.html" %}

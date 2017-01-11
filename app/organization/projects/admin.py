@@ -76,6 +76,11 @@ class ProjectDemoAdmin(BaseTranslationModelAdmin):
     filter_horizontal = ['authors']
 
 
+class ProjectBlogPageInline(StackedDynamicInlineAdmin):
+
+    model = ProjectBlogPage
+
+
 class ProjectAdmin(admin.ModelAdmin):
 
     model = Project
@@ -107,7 +112,8 @@ class ProjectAdminDisplayable(DisplayableAdmin):
                 ProjectLinkInline,
                 ProjectFileInline,
                 ProjectRelatedTitleAdmin,
-                DynamicContentProjectInline]
+                DynamicContentProjectInline,
+                ProjectBlogPageInline,]
     filter_horizontal = ['teams', 'organizations']
     list_filter = ['type', 'program', 'program_type', null_filter('external_id')]
     list_display = ['title', 'external_id', 'date_from', 'date_to', 'status', 'admin_link']

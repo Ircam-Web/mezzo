@@ -20,6 +20,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 from django.shortcuts import render
+from django.views.generic.detail import SingleObjectMixin
 from dal import autocomplete
 from dal_select2_queryset_sequence.views import Select2QuerySetSequenceView
 from mezzanine_agenda.models import Event
@@ -29,32 +30,41 @@ from organization.core.views import *
 from organization.magazine.views import Article
 from organization.pages.models import CustomPage
 
-class ProjectDetailView(SlugMixin, DetailView):
 
-    model = Project
-    template_name='projects/project_detail.html'
-    context_object_name = 'project'
+class ProjectMixin(SingleObjectMixin):
 
     def get_context_data(self, **kwargs):
-        context = super(ProjectDetailView, self).get_context_data(**kwargs)
-        project = self.get_object()
+        context = super(ProjectMixin, self).get_context_data(**kwargs)
+        self.object = self.get_object()
+        if not isinstance(self.object, Project):
+            self.project = self.object.project
+        else:
+            self.project = self.object
+
         department = None
 
-        if project.lead_team:
-            if project.lead_team.department:
-                department = project.lead_team.department
+        if self.project.lead_team:
+            if self.project.lead_team.department:
+                department = self.project.lead_team.department
         else:
-            for team in project.teams.all():
+            for team in self.project.teams.all():
                 if team.department:
                     department = team.department
                     break
 
         context['department'] = department
-        if project.topic and project.topic.parent:
-            context['page'] = project.topic.parent.pages.all().first()
-        elif project.topic:
-            context['page'] = project.topic.pages.all().first()
+        if self.project.topic and self.project.topic.parent:
+            context['page'] = self.project.topic.parent.pages.all().first()
+        elif self.project.topic:
+            context['page'] = self.project.topic.pages.all().first()
+
         return context
+
+
+class ProjectDetailView(SlugMixin, ProjectMixin, DetailView):
+
+    model = Project
+    template_name='projects/project_detail.html'
 
 
 class DynamicContentProjectView(Select2QuerySetSequenceView):
@@ -86,32 +96,13 @@ class DynamicContentProjectView(Select2QuerySetSequenceView):
         return results
 
 
-class ProjectDemoDetailView(SlugMixin, DetailView):
+class ProjectDemoDetailView(SlugMixin, ProjectMixin, DetailView):
 
     model = ProjectDemo
     template_name='projects/project_demo_detail.html'
-    context_object_name = 'demo'
 
-    def get_context_data(self, **kwargs):
-        context = super(ProjectDemoDetailView, self).get_context_data(**kwargs)
-        demo = self.get_object()
-        project = demo.project
-        department = None
 
-        if project:
-            if project.lead_team:
-                if project.lead_team.department:
-                    department = project.lead_team.department
-            else:
-                for team in project.teams.all():
-                    if team.department:
-                        department = team.department
-                        break
+class ProjectBlogPageView(SlugMixin, ProjectMixin, DetailView):
 
-            context['department'] = department
-            if project.topic and project.topic.parent:
-                context['page'] = project.topic.parent.pages.all().first()
-            elif project.topic:
-                context['page'] = project.topic.pages.all().first()
-
-        return context
+    model = ProjectBlogPage
+    template_name='projects/project_blogpage_detail.html'

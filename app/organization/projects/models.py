@@ -160,7 +160,6 @@ class ProjectFile(File):
 
 class ProjectBlock(Block):
 
-
     project = models.ForeignKey(Project, verbose_name=_('project'), related_name='blocks', blank=True, null=True, on_delete=models.SET_NULL)
 
 
@@ -267,3 +266,16 @@ class DynamicContentProject(DynamicContent, Orderable):
 
     class Meta:
         verbose_name = 'Dynamic Content Project'
+
+
+class ProjectBlogPage(Displayable, RichText):
+
+    project = models.ForeignKey(Project, verbose_name=_('project'), related_name='blog_pages', blank=True, null=True, on_delete=models.SET_NULL)
+    login_required_content = RichTextField(_("Login required content"), null=True)
+
+    class Meta:
+        verbose_name = 'Project blog page'
+        verbose_name_plural = 'Project blog pages'
+
+    def get_absolute_url(self):
+        return reverse("organization-project-blogpage-detail", kwargs={"slug": self.slug})
