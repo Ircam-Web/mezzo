@@ -31,6 +31,7 @@ from mezzanine.conf import settings
 from organization.network.views import *
 
 urlpatterns = [
+    url(r'^person/(?P<slug>.*)/timesheet/(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/export_xls/$', PersonActivityTimeSheetExportView.as_view(), name="organization-network-timesheet-export-xls-view"),
     url(r'^person/(?P<slug>.*)/timesheet/(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/create/$', TimeSheetCreateView.as_view(), name="organization-network-timesheet-create-view"),
     url(r'^person/(?P<slug>.*)/timesheet/dashboard/$', PersonActivityTimeSheetListView.as_view(), name="organization-network-timesheet-list-view" ),
     url(r'^person/(?P<slug>.*)/$', PersonDetailView.as_view(), name="organization-network-person-detail"),

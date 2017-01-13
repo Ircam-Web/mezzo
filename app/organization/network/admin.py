@@ -32,7 +32,7 @@ from organization.pages.models import *
 from organization.core.admin import *
 from organization.pages.admin import PageImageInline, PageBlockInline, PagePlaylistInline, DynamicContentPageInline, PageRelatedTitleAdmin
 from organization.shop.models import PageProductList
-
+from django.http import HttpResponse
 
 class OrganizationAdminInline(StackedDynamicInlineAdmin):
 
@@ -263,6 +263,7 @@ class TrainingLevelAdmin(BaseTranslationModelAdmin):
     model = TrainingLevel
 
 
+
 class TrainingSpecialityAdmin(BaseTranslationModelAdmin):
 
     model = TrainingSpeciality
@@ -273,16 +274,27 @@ class TrainingTopicAdmin(BaseTranslationModelAdmin):
     model = TrainingTopic
 
 
+
+
 class PersonActivityTimeSheetAdmin(BaseTranslationModelAdmin):
     model = PersonActivityTimeSheet
     list_display = ['person', 'activity', 'year', 'month', 'project', 'work_package', 'percentage',  'accounting', 'validation']
     list_filter = ['activity__person', 'year', 'project']
+    actions = ['export_xls',]
+
     def person(self, instance):
         return instance.activity.person
 
     def work_package(self, instance):
         wk_list = [str(wk.number) for wk in instance.work_packages.all()]
         return ",".join(wk_list)
+
+    def export_xls(self, request, queryset):
+        xls = TimesheetXLS(queryset)
+        return xls.write()
+    export_xls.short_description = "Export person timesheets"
+
+
 
 
 admin.site.register(OrganizationLinked, OrganizationLinkedAdmin)
