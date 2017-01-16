@@ -22,6 +22,8 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.base import TemplateView
+from django.views.generic import View
 from mezzanine.conf import settings
 from django.core.urlresolvers import reverse
 from dal import autocomplete
@@ -29,6 +31,8 @@ from organization.network.models import *
 from organization.core.views import *
 from datetime import date
 from organization.network.forms import *
+from organization.network.utils import TimesheetXLS
+
 
 class PersonListView(ListView):
 
@@ -164,3 +168,11 @@ class PersonActivityTimeSheetListView(TimesheetAbstractView, ListView):
         context['current_year'] = date.today().year
         context.update(self.kwargs)
         return context
+
+
+class PersonActivityTimeSheetExportView(TimesheetAbstractView, View):
+
+    def get(self, *args, **kwargs):
+        timesheets = PersonActivityTimeSheet.objects.filter(activity__person__slug__exact=kwargs['slug'], year=kwargs['year'])
+        xls = TimesheetXLS(timesheets)
+        return xls.write()

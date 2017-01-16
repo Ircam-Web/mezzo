@@ -57,30 +57,7 @@ class Logger:
         self.logger.error(prefix + ' : ' + message)
 
 
-def get_instance(model, field, value):
-    models = model.objects.filter(field=value)
-    if models:
-        return models[0]
-    else:
-        model = model()
-        model.field = value
-        return model
-
-
 class IrcamXLS:
-
-    register_id_row = 4
-    register_id_col = 3
-    period_row = 5
-    period_col = 2
-    first_project_row = 13
-    first_project_col = 2
-    first_month_row = 10
-    first_month_col = 3
-    first_percent_row = 13
-    first_percent_col = 3
-    nb_of_month = 12
-    nb_max_of_project = 10
 
     def __init__(self, file):
         self.book = xlrd.open_workbook(file)

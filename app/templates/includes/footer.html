@@ -3,9 +3,11 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-11 tar-sm tal-xs">
-                <a class="button button--small button--white mr3" href="{{ newsletter_subscribing_url }}">
-                    {% trans "Subscribe to our newsletter" %}
-                </a>
+                {% if newsletter_subscribing_url %}
+                    <a class="button button--small button--white mr3" href="{{ newsletter_subscribing_url }}">
+                        {% trans "Subscribe to our newsletter" %}
+                    </a>
+                {% endif %}
                 {% for link in host_organization.links.all %}
                     <a class="footer__follow-link {{ link.link_type.slug }}" href="{{ link.url }}" target="_blank" title="{% trans 'Follow us on' %} {{ link.title }}"><i class="fa fa-{{ link.link_type.slug }}{% if link.link_type.fa_option %}-{{ link.link_type.fa_option }}{% endif %}"></i></a>
                 {% endfor %}
@@ -18,7 +20,15 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-3 col-sm-4 col-sm-push-1 tal">
-                <a href="{% url "home" %}" title="{% trans 'Home' %}"><img src="{% static "img/logo-ircam-white.png" %}" width="151" /></a>
+                <a href="{% url "home" %}" title="{% trans 'Home' %}">
+                    {% with host_organization.images|get_type:"logo_footer" as images %}
+                      {% if images %}
+                       {% with images|first as img %}
+                        <img src="{{ MEDIA_URL }}{{ img }}" title="{{ img.title }}" width="151" />
+                       {% endwith %}
+                      {% endif %}
+                    {% endwith %}
+                </a>
             </div>
             <div class="col-xs-3 col-sm-2 col-sm-push-1 tar-sm tal fsm">
                 <strong>{{ host_organization.name }}</strong><br />
