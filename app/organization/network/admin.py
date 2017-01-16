@@ -276,8 +276,9 @@ class TrainingTopicAdmin(BaseTranslationModelAdmin):
 
 
 
-class PersonActivityTimeSheetAdmin(BaseTranslationModelAdmin):
+class PersonActivityTimeSheetAdmin(BaseTranslationOrderedModelAdmin):
     model = PersonActivityTimeSheet
+    search_fields = ['year','activity__person__last_name', "project__title"]
     list_display = ['person', 'activity', 'year', 'month', 'project', 'work_package', 'percentage',  'accounting', 'validation']
     list_filter = ['activity__person', 'year', 'project']
     actions = ['export_xls',]

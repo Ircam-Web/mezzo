@@ -563,8 +563,8 @@ class PersonActivityTimeSheet(models.Model):
     percentage = models.FloatField(_('% of work time on the project'), validators=[validate_positive])
     month = models.IntegerField(_('month'))
     year = models.IntegerField(_('year'))
-    accounting = models.DateField(default=timezone.now(), blank=True)
-    validation = models.DateField(default=timezone.now(), blank=True)
+    accounting = models.DateField(default=timezone.now(), blank=True, null=True)
+    validation = models.DateField(default=timezone.now(), blank=True, null=True)
 
     @property
     def date(self):
