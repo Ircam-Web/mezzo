@@ -42,7 +42,7 @@ db:
     - POSTGRES_PASSWORD=hyRob0otlaz4
 
 app:
-  image: ircamwww_app
+  build: .
   command: /bin/bash bin/app.sh
   volumes:
     - ./app:/srv/app
@@ -64,7 +64,7 @@ app:
 nginx:
   image: nginx
   ports:
-    - "80:80"
+    - "8020:80"
   volumes:
     - ./etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
   volumes_from:
