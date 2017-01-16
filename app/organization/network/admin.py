@@ -32,7 +32,7 @@ from organization.pages.models import *
 from organization.core.admin import *
 from organization.pages.admin import PageImageInline, PageBlockInline, PagePlaylistInline, DynamicContentPageInline, PageRelatedTitleAdmin
 from organization.shop.models import PageProductList
-
+from django.http import HttpResponse
 
 class OrganizationAdminInline(StackedDynamicInlineAdmin):
 
@@ -150,16 +150,7 @@ class PersonActivityInline(StackedDynamicInlineAdmin):
     fk_name = 'person'
     filter_horizontal = ['organizations', 'employers', 'teams',
                          'projects', 'supervisors', 'phd_directors', ]
-    # fields = ()
-    #
-    # fields = (('monday_am','monday_pm'), 'weekly_hour_volume')
 
-    # def __init__(self, *args, **kwargs):
-    #     super(PersonActivityInline, self).__init__(*args, **kwargs)
-    #     # print(self.model._meta.get_fields())
-    #     self.fields = self.model._meta.get_fields()
-    #     print(self.fields)
-    #     # self.fields.append(('monday_am', 'monday_pm'))
 
 class PersonPlaylistInline(TabularDynamicInlineAdmin):
 
@@ -272,6 +263,7 @@ class TrainingLevelAdmin(BaseTranslationModelAdmin):
     model = TrainingLevel
 
 
+
 class TrainingSpecialityAdmin(BaseTranslationModelAdmin):
 
     model = TrainingSpeciality
@@ -281,12 +273,28 @@ class TrainingTopicAdmin(BaseTranslationModelAdmin):
 
     model = TrainingTopic
 
+
+
+
 class PersonActivityTimeSheetAdmin(BaseTranslationModelAdmin):
     model = PersonActivityTimeSheet
-    list_display = ['person', 'activity', 'year', 'month', 'project', 'percentage']
+    list_display = ['person', 'activity', 'year', 'month', 'project', 'work_package', 'percentage',  'accounting', 'validation']
     list_filter = ['activity__person', 'year', 'project']
+    actions = ['export_xls',]
+
     def person(self, instance):
         return instance.activity.person
+
+    def work_package(self, instance):
+        wk_list = [str(wk.number) for wk in instance.work_packages.all()]
+        return ",".join(wk_list)
+
+    def export_xls(self, request, queryset):
+        xls = TimesheetXLS(queryset)
+        return xls.write()
+    export_xls.short_description = "Export person timesheets"
+
+
 
 
 admin.site.register(OrganizationLinked, OrganizationLinkedAdmin)

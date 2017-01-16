@@ -1,4 +1,4 @@
-{% load i18n pages_tags staticfiles mezzanine_tags %}
+{% load i18n pages_tags staticfiles mezzanine_tags organization_tags %}
 {% get_language_info_list for LANGUAGES as languages %}
 
 {% spaceless %}
@@ -12,7 +12,15 @@
                         <span class="second"></span>
                     </li>
                     <li class="nav-header__item nav-header__item--image">
-                        <a href="{% url "home" %}" title="{% trans 'Home' %}"><img src="{% static "img/logo-ircam.png" %}" width="118" height="80" /></a>
+                        <a href="{% url "home" %}" title="{% trans 'Home' %}">
+                          {% with host_organization.images|get_type:"logo_header" as images %}
+                            {% if images %}
+                             {% with images|first as img %}
+                              <img src="{{ MEDIA_URL }}{{ img }}" title="{{ img.title }}" width="118" height="80" />
+                             {% endwith %}
+                            {% endif %}
+                          {% endwith %}
+                        </a>
                     </li>
             {% endif %}
         {% endif %}

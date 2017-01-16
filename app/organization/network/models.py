@@ -29,7 +29,6 @@ import urllib
 import string
 import datetime
 import mimetypes
-
 from geopy.geocoders import GoogleV3 as GoogleMaps
 from geopy.exc import GeocoderQueryError
 
@@ -39,6 +38,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 from mezzanine.pages.models import Page
 from mezzanine.core.models import RichText, Displayable, Slugged
@@ -149,7 +149,7 @@ class Organization(Named, Address, URL, AdminThumbRelatedMixin, Orderable):
             self.lat = lat
             self.lon = lon
 
-    def save(self):
+    def save(self, **kwargs):
         self.clean()
         super(Organization, self).save()
 
@@ -563,6 +563,8 @@ class PersonActivityTimeSheet(models.Model):
     percentage = models.FloatField(_('% of work time on the project'), validators=[validate_positive])
     month = models.IntegerField(_('month'))
     year = models.IntegerField(_('year'))
+    accounting = models.DateField(default=timezone.now(), blank=True)
+    validation = models.DateField(default=timezone.now(), blank=True)
 
     @property
     def date(self):
