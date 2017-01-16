@@ -13,3 +13,6 @@ python $manage loaddata $app/organization/job/fixtures/organization-job.json
 python $manage loaddata $app/organization/projects/fixtures/organization-projects-repositorysystems.json
 
 bash /srv/doc/build.sh
+
+cd /srv && bower --allow-root install && gulp build
+python /srv/app/manage.py collectstatic --no-input
