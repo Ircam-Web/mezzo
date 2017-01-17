@@ -118,7 +118,7 @@ class IrcamTimeSheet(object):
 
 class Command(BaseCommand):
     help = """Import Person data from IRCAM's legacy XLS management file.
-              python manage.py import-ircam-timesheet-xls -s /srv/backup/TemplateInputTimeSheet2015-16.xlsx
+              python manage.py import-ircam-timesheet-xls -s /srv/backup/time_sheet_2015_V3_H2020.xls
     """
 
     option_list = BaseCommand.option_list + (
@@ -155,10 +155,8 @@ class Command(BaseCommand):
             for person in persons:
                 period_str = sheet.cell_value(xls.period_row, xls.period_col)
                 periods = findall(r'\d{1,2}/\d{1,2}/\d{4}', period_str)
-                print("periods", periods, person, period_str)
                 date_from = dateutil.parser.parse(periods[0])
                 date_to = dateutil.parser.parse(periods[1])
-                print("date_from", type(date_from), "date_to", type(date_to))
                 curr_range_date = datetimerange.DateTimeRange(date_from, date_to)
                 curr_year = date_to.year
 
@@ -213,7 +211,6 @@ class Command(BaseCommand):
                             # processing projects
                             if end_project_list_row == 0:
                                 # check if project exists
-                                print("project_id_str", project_id_str, project_row_index, xls.first_project_col - 1)
                                 project, is_created = Project.objects.get_or_create(external_id=str(project_id_str))
                                 if is_created:
                                     project.title = sheet.cell_value(project_row_index, xls.first_project_col)
@@ -233,19 +230,16 @@ class Command(BaseCommand):
 
                         # processing work package
                         work_package_row_index = project_row_index + 1
-                        print("WK", sheet.cell_value(work_package_row_index, xls.first_project_col))
                         while sheet.cell_value(work_package_row_index, xls.first_project_col) != "Date entrée":
 
                             # get project
                             project_external_id = int(sheet.cell_value(work_package_row_index, xls.first_project_col - 1))
-                            print("project_external_id", project_external_id)
                             project = Project.objects.get(external_id=str(project_external_id))
 
                             # check if project exists
                             if project:
 
                                 # list all work package
-                                print(work_package_row_index, col_index)
                                 wk_p_str = sheet.cell_value(work_package_row_index, col_index)
                                 if wk_p_str :
                                     self.logger.info('Processing', 'work packages : ' + str(wk_p_str) + " | project" + project.external_id + " - " + project.title)
@@ -255,7 +249,6 @@ class Command(BaseCommand):
                                     elif isinstance(wk_p_str, float):
                                         i, d = divmod(wk_p_str, 1)
                                         wk_p_list = (int(i), int(d))
-                                        print("wk_p_list", wk_p_list, wk_p_str)
                                     # link work packages to timesheet
                                     for wk_p_num in wk_p_list:
                                         wk_p_num = str(wk_p_num)
@@ -288,3 +281,4 @@ class Command(BaseCommand):
                             pat.save()
 
                 self.logger.info('Processing', '_________________________ Number of record : ' + str(processing_counter) + ' _________________________')
+                print("Person : " + person.title + " | Number of record : " + str(processing_counter))

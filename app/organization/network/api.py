@@ -22,7 +22,7 @@ def figgo_request(method):
 def get_active_persons():
     r_p_active = figgo_request('api/users?fields=id,lastname,firstname')
     r_p_active = r_p_active.json()
-    return r_p_active['data']
+    return r_p_active['data'] if 'data' in r_p_active else {}
 
 
 def get_inactive_persons():
@@ -30,13 +30,14 @@ def get_inactive_persons():
     yesterday = yesterday.isoformat()
     r_p_inactive = figgo_request('api/users?dtContractEnd=until,'+yesterday+',null&fields=id,lastname,firstname')
     r_p_inactive = r_p_inactive.json()
-    return r_p_inactive['data']
+    return r_p_inactive['data'] if 'data' in r_p_inactive else {}
 
 
 def get_leave_periods(date_from, date_to, person_external_id):
     leave_periods = figgo_request('api/leaves?date=between,'+str(date_from)+','+str(date_to)+'&fields=owner.name,owner.login,owner.mail,owner.matricule,duration,name,date,status,leaveScope&owner.id='+str(person_external_id))
     leave_periods = leave_periods.json()
-    return leave_periods['data']
+
+    return leave_periods['data'] if 'data' in leave_periods else {}
 
 
 def get_leave_days(date_from, date_to, person_external_id):

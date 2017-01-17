@@ -21,6 +21,7 @@
 
 from django.contrib import admin
 from django import forms
+from django.http import HttpResponse
 from copy import deepcopy
 from dal import autocomplete
 from dal_select2_queryset_sequence.views import Select2QuerySetSequenceView
@@ -32,7 +33,7 @@ from organization.pages.models import *
 from organization.core.admin import *
 from organization.pages.admin import PageImageInline, PageBlockInline, PagePlaylistInline, DynamicContentPageInline, PageRelatedTitleAdmin
 from organization.shop.models import PageProductList
-from django.http import HttpResponse
+from organization.network.utils import TimesheetXLS
 
 class OrganizationAdminInline(StackedDynamicInlineAdmin):
 
@@ -272,8 +273,6 @@ class TrainingSpecialityAdmin(BaseTranslationModelAdmin):
 class TrainingTopicAdmin(BaseTranslationModelAdmin):
 
     model = TrainingTopic
-
-
 
 
 class PersonActivityTimeSheetAdmin(BaseTranslationOrderedModelAdmin):

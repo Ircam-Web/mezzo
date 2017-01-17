@@ -31,7 +31,7 @@ from organization.network.models import *
 from organization.core.views import *
 from datetime import date
 from organization.network.forms import *
-from organization.network.utils import TimesheetXLS
+from organization.network.utils import TimesheetXLS, TimesheetXLS2
 
 
 class PersonListView(ListView):
@@ -175,4 +175,5 @@ class PersonActivityTimeSheetExportView(TimesheetAbstractView, View):
     def get(self, *args, **kwargs):
         timesheets = PersonActivityTimeSheet.objects.filter(activity__person__slug__exact=kwargs['slug'], year=kwargs['year'])
         xls = TimesheetXLS(timesheets)
-        return xls.write()
+        response = xls.write()
+        return response
