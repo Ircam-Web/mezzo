@@ -33,7 +33,7 @@ from organization.pages.models import *
 from organization.core.admin import *
 from organization.pages.admin import PageImageInline, PageBlockInline, PagePlaylistInline, DynamicContentPageInline, PageRelatedTitleAdmin
 from organization.shop.models import PageProductList
-from organization.network.utils import TimesheetXLS
+from organization.network.utils import TimesheetXLS, set_timesheets_validation_date
 
 class OrganizationAdminInline(StackedDynamicInlineAdmin):
 
@@ -280,7 +280,8 @@ class PersonActivityTimeSheetAdmin(BaseTranslationOrderedModelAdmin):
     search_fields = ['year','activity__person__last_name', "project__title"]
     list_display = ['person', 'activity', 'year', 'month', 'project', 'work_package', 'percentage',  'accounting', 'validation']
     list_filter = ['activity__person', 'year', 'project']
-    actions = ['export_xls',]
+    actions = ['export_xls', 'validate_timesheets']
+
 
     def person(self, instance):
         return instance.activity.person
@@ -292,6 +293,10 @@ class PersonActivityTimeSheetAdmin(BaseTranslationOrderedModelAdmin):
     def export_xls(self, request, queryset):
         xls = TimesheetXLS(queryset)
         return xls.write()
+
+    def validate_timesheets(self, request, queryset):
+        set_timesheets_validation_date(queryset)
+
     export_xls.short_description = "Export person timesheets"
 
 

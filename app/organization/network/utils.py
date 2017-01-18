@@ -4,8 +4,9 @@ import csv
 from django.http import HttpResponse
 from xlwt import *
 import calendar
-from organization.network.api import *
 import datetime
+from django.utils import timezone
+from organization.network.api import *
 from collections import defaultdict, OrderedDict
 from pprint import pprint
 
@@ -83,12 +84,6 @@ def get_nb_half_days_by_period_per_month(date_from, date_to):
     return md_dict
 
 
-class TimesheetXLS2(object):
-
-    def __init__(self, timesheets):
-        self.timesheets = timesheets.order_by('activity','project', 'year', 'month')
-
-
 class TimesheetXLS(object):
 
     t_dict = OrderedDict()
@@ -163,11 +158,12 @@ class TimesheetXLS(object):
             if not person_slug in self.t_dict:
                 self.t_dict[person_slug] = {}
                 # caculate for each person leaved days in year
+                print("timesheet.year", timesheet.year)
                 date_from = datetime.date(timesheet.year, 1, 1)
                 date_to = datetime.date(timesheet.year, 12, 31)
                 nb_half_days = get_nb_half_days_by_period_per_month(date_from, date_to)
                 leave_days = get_leave_days_per_month(date_from, date_to, timesheet.activity.person.external_id)
-                worked_hours_by_month = {"test" : "1"}
+                worked_hours_by_month = {}
                 # for each month
                 for m_key, m_val in nb_half_days.items():
                     # for each week day
@@ -275,3 +271,11 @@ class TimesheetXLS(object):
         response['Content-Disposition'] = 'attachment; filename=users.xls'
         self.book.save(response)
         return response
+
+
+
+def set_timesheets_validation_date(timesheets):
+    """ Admin action to set validation date for selected timesheets """
+    for timesheet in timesheets :
+        timesheet.validation = timezone.now()
+        timesheet.save()

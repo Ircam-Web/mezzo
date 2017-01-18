@@ -3,7 +3,7 @@
 import requests
 import time
 from django.conf import settings
-from datetime import date, datetime, timedelta
+from datetime import date, timedelta
 import dateutil.parser
 
 WEEK_DAYS = {

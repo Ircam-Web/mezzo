@@ -61,7 +61,7 @@ class Project(Displayable, Period, RichText):
     website = models.URLField(_('website'), max_length=512, blank=True)
     topic = models.ForeignKey('ProjectTopic', verbose_name=_('topic'), related_name='projects', blank=True, null=True)
     referring_person = models.ManyToManyField('organization-network.Person', verbose_name=_('Referring Person'), related_name='projects_referring_person', blank=True)
-    manager =  models.ManyToManyField('organization-network.Person', verbose_name=_('Manager'), related_name='projects_manager', blank=True, null=True)
+    manager =  models.ManyToManyField('organization-network.Person', verbose_name=_('Manager'), related_name='projects_manager', blank=True)
 
     class Meta:
         verbose_name = _('project')

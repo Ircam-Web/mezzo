@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+from django.utils import timezone
 from dal import autocomplete
 import dal_queryset_sequence
 import dal_select2_queryset_sequence
@@ -88,7 +89,11 @@ class OrganizationLinkedForm(forms.ModelForm):
 
 class PersonActivityTimeSheetForm(forms.ModelForm):
 
+    def save(self):
+        self.instance.accounting = timezone.now()
+        super(PersonActivityTimeSheetForm, self).save()
+
     class Meta:
         model = PersonActivityTimeSheet
         fields = ('__all__')
-        # PersonActivityTimeSheetviewfields = ['pub_date', 'headline', 'content', 'reporter']
+        exclude = ['accounting', 'validation']
