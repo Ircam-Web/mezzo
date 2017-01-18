@@ -94,6 +94,7 @@ class IrcamXLS:
 class IrcamProjects(object):
 
     def __init__(self, project_name):
+        print("project", project_name)
         project, is_created = Project.objects.get_or_create(title=project_name)
         self.project = project
         self.is_created = is_created

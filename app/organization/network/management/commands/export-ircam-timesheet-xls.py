@@ -91,6 +91,7 @@ class IrcamTimeSheet(object):
     def set_work_package(self, person_activity_timesheet):
         """ set contract id of the project """
 
+
 class Command(BaseCommand):
     help = """Import Person data from IRCAM's legacy XLS management file.
               python manage.py import-ircam-timesheet-xls -s /srv/backup/TemplateInputTimeSheet2015-16.xlsx
@@ -146,6 +147,7 @@ class Command(BaseCommand):
                     # get month
                     month = int(sheet.cell_value(xls.first_month_row, col_index))
                     self.logger.info('Processing', 'year : ' + str(curr_year) + " | month : " + str(month))
+
                     # calculate the current date
                     curr_date = datetime.date(curr_year, month, 1)
 

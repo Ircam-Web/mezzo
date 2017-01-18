@@ -21,6 +21,7 @@
 
 from django.contrib import admin
 from django import forms
+from django.http import HttpResponse
 from copy import deepcopy
 from dal import autocomplete
 from dal_select2_queryset_sequence.views import Select2QuerySetSequenceView
@@ -32,7 +33,7 @@ from organization.pages.models import *
 from organization.core.admin import *
 from organization.pages.admin import PageImageInline, PageBlockInline, PagePlaylistInline, DynamicContentPageInline, PageRelatedTitleAdmin
 from organization.shop.models import PageProductList
-from django.http import HttpResponse
+from organization.network.utils import TimesheetXLS, set_timesheets_validation_date
 
 class OrganizationAdminInline(StackedDynamicInlineAdmin):
 
@@ -274,13 +275,13 @@ class TrainingTopicAdmin(BaseTranslationModelAdmin):
     model = TrainingTopic
 
 
-
-
-class PersonActivityTimeSheetAdmin(BaseTranslationModelAdmin):
+class PersonActivityTimeSheetAdmin(BaseTranslationOrderedModelAdmin):
     model = PersonActivityTimeSheet
+    search_fields = ['year','activity__person__last_name', "project__title"]
     list_display = ['person', 'activity', 'year', 'month', 'project', 'work_package', 'percentage',  'accounting', 'validation']
     list_filter = ['activity__person', 'year', 'project']
-    actions = ['export_xls',]
+    actions = ['export_xls', 'validate_timesheets']
+
 
     def person(self, instance):
         return instance.activity.person
@@ -292,6 +293,10 @@ class PersonActivityTimeSheetAdmin(BaseTranslationModelAdmin):
     def export_xls(self, request, queryset):
         xls = TimesheetXLS(queryset)
         return xls.write()
+
+    def validate_timesheets(self, request, queryset):
+        set_timesheets_validation_date(queryset)
+
     export_xls.short_description = "Export person timesheets"
 
 
