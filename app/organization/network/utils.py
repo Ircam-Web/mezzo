@@ -88,7 +88,7 @@ class TimesheetXLS(object):
 
     t_dict = OrderedDict()
     first_month_row = 5
-    first_month_col = 4
+    first_month_col = 3
     last_month_col = first_month_col + 13
     project_margin_row = 4
     project_first_row = 6
@@ -114,41 +114,64 @@ class TimesheetXLS(object):
     validation_label_col = 0
     title_col = 0
     title_row = 0
-    title_action_col = 0
-    title_action_row = 1
     beneficiary_col = 0
     beneficiary_row = 2
     name_person_col = 0
     name_person_row = 3
-    grant_col = 2
-    grant_row = 1
-    type_personal_col = 2
+    type_personal_col = 9
     type_personal_row = 3
+    person_signature_label = "Signature of person working on the action :"
+    person_signature_col = 1
+    person_signature_row_margin = 9
+    director_signature_label = "Signature of R&D Department Director:"
+    director_signature_col = 10
+    director_signature_row_margin = 9
 
 
-    def __init__(self, timesheets):
-        self.timesheets = timesheets.order_by('activity','project', 'year', 'month')
+    def __init__(self, timesheets, year=''):
+        self.timesheets = timesheets.order_by('activity', 'project', 'year', 'month')
         self.book = Workbook()
-        self.grey_pattern = Pattern()
-        self.grey_pattern.pattern = Pattern.SOLID_PATTERN
-        self.grey_pattern.pattern_fore_colour = Style.colour_map['gray25']
+        self.year = year
+        font_header = Font()
+        font_header.bold = True
+
+        font_title = Font()
+        font_title.bold = True
+
+        grey_pattern = Pattern()
+        grey_pattern.pattern = Pattern.SOLID_PATTERN
+        grey_pattern.pattern_fore_colour = Style.colour_map['gray25']
+
         self.header_style = XFStyle()
-        self.header_style.pattern = self.grey_pattern
+        self.header_style.pattern = grey_pattern
+        self.header_style.font = font_header
+
+        self.header_title = XFStyle()
+        self.header_title.font = font_title
+
         self.date_style = XFStyle()
         self.date_style.num_format_str = 'M/D/YY'
 
+        self.title_style = XFStyle()
+        self.title_style.pattern = grey_pattern
+        self.title_style.font = font_title
+        self.title_style.alignment.horz = self.title_style.alignment.HORZ_CENTER
 
 
-    def init_layout(self, sheet, year):
-        sheet.write(self.title_row, self.title_col, "TIME RECORDING FOR A HORIZON 2020 ACTION")
-        sheet.write(self.title_action_row, self.title_action_col, "Title of the action :")
-        sheet.write(self.beneficiary_row, self.beneficiary_col, "Beneficiary's / linked third part's name :")
-        sheet.write(self.name_person_row, self.name_person_col, "Name of the person working on the action :")
-        sheet.write(self.grant_row, self.grant_col, "Grant Agreement No : ")
-        sheet.write(self.type_personal_row, self.type_personal_col, "Type of personnel :")
+    def init_layout(self, sheet, year, activity):
+        sheet.write_merge(0, self.title_row, self.title_col, self.title_col + 15 , "IRCAM - TIMESHEET - " + str(year), self.title_style)
+        sheet.write(self.beneficiary_row, self.beneficiary_col, "Beneficiary :", self.header_title)
+        sheet.write(self.beneficiary_row, self.beneficiary_col + 1, "IRCAM")
+        sheet.write_merge(self.name_person_row, self.name_person_row, self.name_person_col, self.name_person_col + 3, "Name of the person working on the action :", self.header_title)
+        sheet.write_merge(self.name_person_row, self.name_person_row, self.name_person_col + 4, self.name_person_col + 6, activity.person.title)
+        sheet.write_merge(self.type_personal_row, self.type_personal_row, self.type_personal_col, self.type_personal_col + 1, "Type of personnel :", self.header_title)
+        sheet.write_merge(self.type_personal_row, self.type_personal_row, self.type_personal_col + 2, self.type_personal_col + 6, activity.status.name)
+        # sheet.col_default_width = 200
         row = sheet.row(self.first_month_row)
-        for i in range(self.first_month_col, self.last_month_col):
+        for i in range(self.first_month_col + 1, self.last_month_col):
             row.write(i, calendar.month_name[i - self.first_month_col] +"-"+ str(year % 100), self.header_style)
+        return sheet
+
 
     def format(self):
         self.t_dict = OrderedDict()
@@ -158,7 +181,6 @@ class TimesheetXLS(object):
             if not person_slug in self.t_dict:
                 self.t_dict[person_slug] = {}
                 # caculate for each person leaved days in year
-                print("timesheet.year", timesheet.year)
                 date_from = datetime.date(timesheet.year, 1, 1)
                 date_to = datetime.date(timesheet.year, 12, 31)
                 nb_half_days = get_nb_half_days_by_period_per_month(date_from, date_to)
@@ -212,27 +234,28 @@ class TimesheetXLS(object):
                 # for each timesheet
                 for timesheet in project_v:
                     try :
-                        self.sheet = self.book.add_sheet(person_k)
-                        self.init_layout(self.sheet, timesheet.year)
+                        sheet = self.book.add_sheet(person_k)
+                        sheet.default_width = 200
+                        sheet = self.init_layout(sheet, timesheet.year, timesheet.activity)
                     except:
                         pass
 
                     # project name
                     try :
-                        self.sheet.write(project_row_index, self.project_first_col, timesheet.project.title, self.header_style)
+                        sheet.write(project_row_index, self.project_first_col, timesheet.project.title, self.header_style)
                     except:
                         pass
 
 
                     # percent
                     try:
-                        self.sheet.write(project_row_index + self.percent_margin, timesheet.month + self.first_month_col, timesheet.percentage)
+                        sheet.write(project_row_index + self.percent_margin, timesheet.month + self.first_month_col, timesheet.percentage)
                     except :
                         pass
 
                     # nb worked hours
                     try:
-                        self.sheet.write(project_row_index + self.hours_margin, timesheet.month + self.first_month_col, timesheet.worked_hours)
+                        sheet.write(project_row_index + self.hours_margin, timesheet.month + self.first_month_col, timesheet.worked_hours)
                     except :
                         pass
 
@@ -241,34 +264,42 @@ class TimesheetXLS(object):
                     work_packages = [str(wk.number) for wk in timesheet.work_packages.all()]
                     work_packages = ",".join(work_packages)
                     try :
-                        self.sheet.write(project_row_index + self.wk_margin, timesheet.month + self.first_month_col, work_packages)
+                        sheet.write(project_row_index + self.wk_margin, timesheet.month + self.first_month_col, work_packages)
                     except:
                         pass
 
                     try :
-                        self.sheet.write(project_row_index, self.project_first_col + 1, timesheet.project.external_id, self.header_style)
-                        self.sheet.write(project_row_index + self.percent_margin, self.percent_label_col, self.percent_label)
-                        self.sheet.write(project_row_index + self.hours_margin, self.hours_label_col, self.hours_label)
-                        self.sheet.write(project_row_index + self.wk_margin, self.wk_label_col, self.wk_label)
+                        sheet.write_merge(project_row_index, project_row_index, self.project_first_col + 1, self.project_first_col + 1 + 2, timesheet.project.external_id, self.header_style)
+                        percent_row = project_row_index + self.percent_margin
+                        sheet.write_merge(percent_row, percent_row, self.percent_label_col, self.percent_label_col + 3, self.percent_label)
+                        hours_row = project_row_index + self.hours_margin
+                        sheet.write_merge(hours_row, hours_row, self.hours_label_col, self.hours_label_col + 3, self.hours_label)
+                        wk_row = project_row_index + self.wk_margin
+                        sheet.write_merge(wk_row, wk_row, self.wk_label_col, self.wk_label_col + 3, self.wk_label)
                     except:
                         pass
 
                     try :
                         # accounting date
-                        self.sheet.write(project_row_last + self.accounting_margin, timesheet.month + self.first_month_col, timesheet.accounting, self.date_style)
+                        sheet.write(project_row_last + self.accounting_margin, timesheet.month + self.first_month_col, timesheet.accounting, self.date_style)
 
                         # validation date
-                        self.sheet.write(project_row_last + self.validation_margin, timesheet.month + self.first_month_col, timesheet.validation, self.date_style)
+                        sheet.write(project_row_last + self.validation_margin, timesheet.month + self.first_month_col, timesheet.validation, self.date_style)
                     except:
                         pass
-
-
+                    try :
+                        person_signature_row = project_row_last + self.person_signature_row_margin
+                        sheet.write_merge(person_signature_row, person_signature_row, self.person_signature_col, self.person_signature_col + 3, self.person_signature_label)
+                        director_signature_row = project_row_last + self.director_signature_row_margin
+                        sheet.write_merge(director_signature_row, director_signature_row, self.director_signature_col, self.director_signature_col + 2, self.director_signature_label)
+                    except:
+                        pass
 
     def write(self):
         self.format()
         self.export()
         response = HttpResponse(content_type="application/vnd.ms-excel")
-        response['Content-Disposition'] = 'attachment; filename=users.xls'
+        response['Content-Disposition'] = 'attachment; filename=timesheet_ircam'+self.year+'.xls'
         self.book.save(response)
         return response
 

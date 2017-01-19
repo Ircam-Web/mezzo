@@ -277,9 +277,9 @@ class TrainingTopicAdmin(BaseTranslationModelAdmin):
 
 class PersonActivityTimeSheetAdmin(BaseTranslationOrderedModelAdmin):
     model = PersonActivityTimeSheet
-    search_fields = ['year','activity__person__last_name', "project__title"]
+    search_fields = ['year', 'month', 'activity__person__last_name', "project__title"]
     list_display = ['person', 'activity', 'year', 'month', 'project', 'work_package', 'percentage',  'accounting', 'validation']
-    list_filter = ['activity__person', 'year', 'project']
+    list_filter = ['activity__person', 'year', 'month', 'project']
     actions = ['export_xls', 'validate_timesheets']
 
 
@@ -291,15 +291,16 @@ class PersonActivityTimeSheetAdmin(BaseTranslationOrderedModelAdmin):
         return ",".join(wk_list)
 
     def export_xls(self, request, queryset):
-        xls = TimesheetXLS(queryset)
+        if request.GET.get('year') :
+            xls = TimesheetXLS(queryset, request.GET.get('year'))
+        else :
+            xls = TimesheetXLS(queryset)
         return xls.write()
 
     def validate_timesheets(self, request, queryset):
         set_timesheets_validation_date(queryset)
 
     export_xls.short_description = "Export person timesheets"
-
-
 
 
 admin.site.register(OrganizationLinked, OrganizationLinkedAdmin)

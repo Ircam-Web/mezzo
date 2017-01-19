@@ -193,5 +193,4 @@ class PersonActivityTimeSheetExportView(TimesheetAbstractView, View):
     def get(self, *args, **kwargs):
         timesheets = PersonActivityTimeSheet.objects.filter(activity__person__slug__exact=kwargs['slug'], year=kwargs['year'])
         xls = TimesheetXLS(timesheets)
-        response = xls.write()
-        return response
+        return xls.write()
