@@ -5,6 +5,7 @@ import time
 from django.conf import settings
 from datetime import date, timedelta
 import dateutil.parser
+from pprint import pprint
 
 WEEK_DAYS = {
     1:'monday',
@@ -112,7 +113,7 @@ def increment_day_per_month(month_key, day_key, dt):
             dt[month_key][day_key] = 1
     else :
         dt[month_key] = {}
-
+        dt[month_key][day_key] = 1
     return dt
 
 

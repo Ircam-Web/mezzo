@@ -213,6 +213,176 @@ class NbOfHalfDaysInPeriodPerMonthTestCase(SimpleTestCase):
         self.assertEquals(result, expected)
 
 
+class NbOfHalfDaysInPeriodPerMonthTestCase2(SimpleTestCase):
+
+    def setUp(self):
+        self.date_from = datetime.date(2016,1,1)
+        self.date_to = datetime.date(2016,12,31)
+
+    def test_nbhalf_half_days(self):
+        expected =    {
+               1:{
+                  'wednesday_pm':4,
+                  'tuesday_am':4,
+                  'thursday_am':4,
+                  'monday_am':4,
+                  'tuesday_pm':4,
+                  'friday_am':4,
+                  'wednesday_am':4,
+                  'thursday_pm':4,
+                  'friday_pm':4,
+                  'monday_pm':4
+               },
+               2:{
+                  'wednesday_pm':4,
+                  'tuesday_am':4,
+                  'thursday_am':4,
+                  'monday_am':5,
+                  'tuesday_pm':4,
+                  'friday_am':4,
+                  'wednesday_am':4,
+                  'thursday_pm':4,
+                  'friday_pm':4,
+                  'monday_pm':5
+               },
+               3:{
+                  'wednesday_pm':5,
+                  'tuesday_am':5,
+                  'thursday_am':5,
+                  'monday_am':3,
+                  'tuesday_pm':5,
+                  'friday_am':4,
+                  'wednesday_am':5,
+                  'thursday_pm':5,
+                  'friday_pm':4,
+                  'monday_pm':3
+               },
+               4:{
+                  'wednesday_pm':4,
+                  'tuesday_am':4,
+                  'thursday_am':4,
+                  'monday_am':4,
+                  'tuesday_pm':4,
+                  'friday_am':5,
+                  'wednesday_am':4,
+                  'thursday_pm':4,
+                  'friday_pm':5,
+                  'monday_pm':4
+               },
+               5:{
+                  'wednesday_pm':4,
+                  'tuesday_am':5,
+                  'thursday_am':3,
+                  'monday_am':4,
+                  'tuesday_pm':5,
+                  'friday_am':4,
+                  'wednesday_am':4,
+                  'thursday_pm':3,
+                  'friday_pm':4,
+                  'monday_pm':4
+               },
+               6:{
+                  'wednesday_pm':5,
+                  'tuesday_am':4,
+                  'thursday_am':5,
+                  'monday_am':4,
+                  'tuesday_pm':4,
+                  'friday_am':4,
+                  'wednesday_am':5,
+                  'thursday_pm':5,
+                  'friday_pm':4,
+                  'monday_pm':4
+               },
+               7:{
+                  'wednesday_pm':4,
+                  'tuesday_am':4,
+                  'thursday_am':3,
+                  'monday_am':4,
+                  'tuesday_pm':4,
+                  'friday_am':5,
+                  'wednesday_am':4,
+                  'thursday_pm':3,
+                  'friday_pm':5,
+                  'monday_pm':4
+               },
+               8:{
+                  'wednesday_pm':5,
+                  'tuesday_am':5,
+                  'thursday_am':4,
+                  'monday_am':4,
+                  'tuesday_pm':5,
+                  'friday_am':4,
+                  'wednesday_am':5,
+                  'thursday_pm':4,
+                  'friday_pm':4,
+                  'monday_pm':4
+               },
+               9:{
+                  'wednesday_pm':4,
+                  'tuesday_am':4,
+                  'thursday_am':5,
+                  'monday_am':4,
+                  'tuesday_pm':4,
+                  'friday_am':5,
+                  'wednesday_am':4,
+                  'thursday_pm':5,
+                  'friday_pm':5,
+                  'monday_pm':4
+               },
+               10:{
+                  'wednesday_pm':4,
+                  'tuesday_am':4,
+                  'thursday_am':4,
+                  'monday_am':5,
+                  'tuesday_pm':4,
+                  'friday_am':4,
+                  'wednesday_am':4,
+                  'thursday_pm':4,
+                  'friday_pm':4,
+                  'monday_pm':5
+               },
+               11:{
+                  'wednesday_pm':5,
+                  'tuesday_am':4,
+                  'thursday_am':4,
+                  'monday_am':4,
+                  'tuesday_pm':4,
+                  'friday_am':3,
+                  'wednesday_am':5,
+                  'thursday_pm':4,
+                  'friday_pm':3,
+                  'monday_pm':4
+               },
+               12:{
+                  'wednesday_pm':4,
+                  'tuesday_am':4,
+                  'thursday_am':5,
+                  'monday_am':4,
+                  'tuesday_pm':4,
+                  'friday_am':5,
+                  'wednesday_am':4,
+                  'thursday_pm':5,
+                  'friday_pm':5,
+                  'monday_pm':4
+               }
+            }
+        result = get_nb_half_days_by_period_per_month(self.date_from, self.date_to)
+        self.assertEquals(result, expected)
+
+
+class NbOfLeaveDaysPerMonthTestCase2(SimpleTestCase):
+
+    def setUp(self):
+        self.date_from = datetime.date(2016,1,1)
+        self.date_to = datetime.date(2016,1,31)
+        self.external_id = 106
+
+    def test_nb_leave_days(self):
+        expected = {}
+        result = get_leave_days_per_month(self.date_from, self.date_to, self.external_id)
+        self.assertEquals(result, expected)
+
+
 class NbOfLeaveDaysPerMonthTestCase(SimpleTestCase):
 
     def setUp(self):

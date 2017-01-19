@@ -9,6 +9,7 @@ from django.utils import timezone
 from organization.network.api import *
 from collections import defaultdict, OrderedDict
 from pprint import pprint
+from workalendar.europe import France
 
 
 def get_nb_half_days_by_period(date_from, date_to):
@@ -47,7 +48,9 @@ def get_nb_half_days_by_period(date_from, date_to):
 
 def get_nb_half_days_by_period_per_month(date_from, date_to):
     day_list = pd.date_range(date_from, date_to).tolist()
-
+    cal = France()
+    holidays = cal.holidays(date_from.year)
+    holidays_date = [h[0] for h in holidays]
     md_dict = {}
     for i in range(1,13):
         md_dict[i] = {
@@ -65,21 +68,22 @@ def get_nb_half_days_by_period_per_month(date_from, date_to):
 
     # for each day of the period
     for day in day_list :
-        if day.dayofweek == 0:
-            md_dict[day.month]['monday_am'] += 1
-            md_dict[day.month]['monday_pm'] += 1
-        if day.dayofweek == 1:
-            md_dict[day.month]['tuesday_am'] += 1
-            md_dict[day.month]['tuesday_pm'] += 1
-        if day.dayofweek == 2:
-            md_dict[day.month]['wednesday_am'] += 1
-            md_dict[day.month]['wednesday_pm'] += 1
-        if day.dayofweek == 3:
-            md_dict[day.month]['thursday_am'] += 1
-            md_dict[day.month]['thursday_pm'] += 1
-        if day.dayofweek == 4:
-            md_dict[day.month]['friday_am'] += 1
-            md_dict[day.month]['friday_pm'] += 1
+        if not day.date() in holidays_date:
+            if day.dayofweek == 0:
+                md_dict[day.month]['monday_am'] += 1
+                md_dict[day.month]['monday_pm'] += 1
+            if day.dayofweek == 1:
+                md_dict[day.month]['tuesday_am'] += 1
+                md_dict[day.month]['tuesday_pm'] += 1
+            if day.dayofweek == 2:
+                md_dict[day.month]['wednesday_am'] += 1
+                md_dict[day.month]['wednesday_pm'] += 1
+            if day.dayofweek == 3:
+                md_dict[day.month]['thursday_am'] += 1
+                md_dict[day.month]['thursday_pm'] += 1
+            if day.dayofweek == 4:
+                md_dict[day.month]['friday_am'] += 1
+                md_dict[day.month]['friday_pm'] += 1
 
     return md_dict
 
