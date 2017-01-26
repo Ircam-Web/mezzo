@@ -21,6 +21,7 @@
 
 # -*- coding: utf-8 -*-
 import datetime
+import calendar
 from django.http import QueryDict
 from mezzanine.pages.models import Page
 from mezzanine.blog.models import BlogPost
@@ -202,3 +203,16 @@ def unspam(email):
 @register.filter
 def get_attr(obj, attr):
     return getattr(obj, attr)
+
+@register.filter
+def month_name(month_number):
+    return calendar.month_name[month_number]
+
+@register.filter
+def format_wp(work_packages):
+    work_packages = [str(wk.number) for wk in work_packages]
+    return ",".join(work_packages)
+
+@register.filter
+def format_percent(percent):
+    return str(percent * 100) + ' %'

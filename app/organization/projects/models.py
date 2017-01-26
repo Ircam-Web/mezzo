@@ -53,12 +53,15 @@ class Project(Displayable, Period, RichText):
     external_id = models.CharField(_('external ID'), blank=True, null=True, max_length=128)
     program = models.ForeignKey('ProjectProgram', verbose_name=_('project program'), related_name='projects', blank=True, null=True, on_delete=models.SET_NULL)
     program_type = models.ForeignKey('ProjectProgramType', verbose_name=_('project program type'), related_name='projects', blank=True, null=True, on_delete=models.SET_NULL)
+    call = models.ForeignKey('ProjectCall', verbose_name=_('project call'), related_name='projects', blank=True, null=True, on_delete=models.SET_NULL)
     lead_team = models.ForeignKey('organization-network.Team', verbose_name=_('lead team'), related_name='leader_projects', blank=True, null=True)
     lead_organization = models.ForeignKey('organization-network.Organization', verbose_name=_('lead organization'), related_name='leader_projects', blank=True, null=True)
     teams = models.ManyToManyField('organization-network.Team', verbose_name=_('teams'), related_name='partner_projects', blank=True)
     organizations = models.ManyToManyField('organization-network.Organization', verbose_name=_('organizations'), blank=True)
     website = models.URLField(_('website'), max_length=512, blank=True)
     topic = models.ForeignKey('ProjectTopic', verbose_name=_('topic'), related_name='projects', blank=True, null=True)
+    referring_person = models.ManyToManyField('organization-network.Person', verbose_name=_('Referring Person'), related_name='projects_referring_person', blank=True)
+    manager =  models.ManyToManyField('organization-network.Person', verbose_name=_('Manager'), related_name='projects_manager', blank=True)
 
     class Meta:
         verbose_name = _('project')
@@ -112,6 +115,14 @@ class ProjectProgramType(Named):
     class Meta:
         verbose_name = _('program type')
         verbose_name_plural = _("program types")
+        ordering = ['name',]
+
+
+class ProjectCall(Named):
+
+    class Meta:
+        verbose_name = _('project call')
+        verbose_name_plural = _("project calls")
         ordering = ['name',]
 
 

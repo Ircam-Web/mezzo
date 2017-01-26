@@ -21,6 +21,7 @@
 
 from django.contrib import admin
 from django import forms
+from django.http import HttpResponse
 from copy import deepcopy
 from dal import autocomplete
 from dal_select2_queryset_sequence.views import Select2QuerySetSequenceView
@@ -32,7 +33,7 @@ from organization.pages.models import *
 from organization.core.admin import *
 from organization.pages.admin import PageImageInline, PageBlockInline, PagePlaylistInline, DynamicContentPageInline, PageRelatedTitleAdmin
 from organization.shop.models import PageProductList
-
+from organization.network.utils import TimesheetXLS, set_timesheets_validation_date
 
 class OrganizationAdminInline(StackedDynamicInlineAdmin):
 
@@ -150,16 +151,7 @@ class PersonActivityInline(StackedDynamicInlineAdmin):
     fk_name = 'person'
     filter_horizontal = ['organizations', 'employers', 'teams',
                          'projects', 'supervisors', 'phd_directors', ]
-    # fields = ()
-    #
-    # fields = (('monday_am','monday_pm'), 'weekly_hour_volume')
 
-    # def __init__(self, *args, **kwargs):
-    #     super(PersonActivityInline, self).__init__(*args, **kwargs)
-    #     # print(self.model._meta.get_fields())
-    #     self.fields = self.model._meta.get_fields()
-    #     print(self.fields)
-    #     # self.fields.append(('monday_am', 'monday_pm'))
 
 class PersonPlaylistInline(TabularDynamicInlineAdmin):
 
@@ -272,6 +264,7 @@ class TrainingLevelAdmin(BaseTranslationModelAdmin):
     model = TrainingLevel
 
 
+
 class TrainingSpecialityAdmin(BaseTranslationModelAdmin):
 
     model = TrainingSpeciality
@@ -281,12 +274,33 @@ class TrainingTopicAdmin(BaseTranslationModelAdmin):
 
     model = TrainingTopic
 
-class PersonActivityTimeSheetAdmin(BaseTranslationModelAdmin):
+
+class PersonActivityTimeSheetAdmin(BaseTranslationOrderedModelAdmin):
     model = PersonActivityTimeSheet
-    list_display = ['person', 'activity', 'year', 'month', 'project', 'percentage']
-    list_filter = ['activity__person', 'year', 'project']
+    search_fields = ['year', 'month', 'activity__person__last_name', "project__title"]
+    list_display = ['person', 'activity', 'year', 'month', 'project', 'work_package', 'percentage',  'accounting', 'validation']
+    list_filter = ['activity__person', 'year', 'month', 'project']
+    actions = ['export_xls', 'validate_timesheets']
+
+
     def person(self, instance):
         return instance.activity.person
+
+    def work_package(self, instance):
+        wk_list = [str(wk.number) for wk in instance.work_packages.all()]
+        return ",".join(wk_list)
+
+    def export_xls(self, request, queryset):
+        if request.GET.get('year') :
+            xls = TimesheetXLS(queryset, request.GET.get('year'))
+        else :
+            xls = TimesheetXLS(queryset)
+        return xls.write()
+
+    def validate_timesheets(self, request, queryset):
+        set_timesheets_validation_date(queryset)
+
+    export_xls.short_description = "Export person timesheets"
 
 
 admin.site.register(OrganizationLinked, OrganizationLinkedAdmin)

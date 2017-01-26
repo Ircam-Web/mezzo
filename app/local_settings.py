@@ -131,6 +131,7 @@ ADMIN_MENU_ORDER = (
                     'organization-projects.ProjectDemo',
                     'organization-projects.Repository',
                     'organization-projects.RepositorySystem',
+                    'organization-projects.ProjectWorkPackage'
                     )),
     (_('Shop'), ('shop.Product',
                     'organization-shop.ProductList',

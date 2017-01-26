@@ -22,6 +22,8 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.base import TemplateView
+from django.views.generic import View
 from mezzanine.conf import settings
 from django.core.urlresolvers import reverse
 from dal import autocomplete
@@ -29,6 +31,10 @@ from organization.network.models import *
 from organization.core.views import *
 from datetime import date
 from organization.network.forms import *
+from organization.network.utils import TimesheetXLS
+from collections import OrderedDict
+
+
 
 class PersonListView(ListView):
 
@@ -136,8 +142,13 @@ class TimeSheetCreateView(TimesheetAbstractView, CreateView):
     context_object_name = 'timesheet'
     form_class = PersonActivityTimeSheetForm
 
+    def get_success_url(self):
+        print(" self.kwargs['slug']",  self.kwargs['slug'])
+        return reverse('organization-network-timesheet-list-view', kwargs={'slug': self.kwargs['slug']})
+
     def get_initial(self):
         initial = super(TimeSheetCreateView, self).get_initial()
+        # get the more recent activity
         initial['activity'] = PersonActivity.objects.filter(person__slug=self.kwargs['slug']).first()
         initial['month'] = self.kwargs['month']
         initial['year'] = self.kwargs['year']
@@ -152,11 +163,22 @@ class TimeSheetCreateView(TimesheetAbstractView, CreateView):
 class PersonActivityTimeSheetListView(TimesheetAbstractView, ListView):
     model = PersonActivityTimeSheet
     template_name='network/person_activity_timesheet/person_activity_timesheet_list.html'
-    context_object_name = 'timesheet'
+    context_object_name = 'timesheets_by_year'
 
     def get_queryset(self):
         if 'slug' in self.kwargs:
-            return PersonActivityTimeSheet.objects.filter(activity__person__slug__exact=self.kwargs['slug'])
+            timesheets = PersonActivityTimeSheet.objects.filter(activity__person__slug__exact=self.kwargs['slug'])
+            t_dict = OrderedDict()
+            for timesheet in timesheets:
+                year = timesheet.year
+                if not year in t_dict:
+                    t_dict[year] = {}
+                project_slug = timesheet.project.title
+                # if new person
+                if not project_slug in t_dict[year]:
+                    t_dict[year][project_slug] = []
+                t_dict[year][project_slug].append(timesheet)
+            return t_dict
 
     def get_context_data(self, **kwargs):
         context = super(PersonActivityTimeSheetListView, self).get_context_data(**kwargs)
@@ -164,3 +186,11 @@ class PersonActivityTimeSheetListView(TimesheetAbstractView, ListView):
         context['current_year'] = date.today().year
         context.update(self.kwargs)
         return context
+
+
+class PersonActivityTimeSheetExportView(TimesheetAbstractView, View):
+
+    def get(self, *args, **kwargs):
+        timesheets = PersonActivityTimeSheet.objects.filter(activity__person__slug__exact=kwargs['slug'], year=kwargs['year'])
+        xls = TimesheetXLS(timesheets)
+        return xls.write()

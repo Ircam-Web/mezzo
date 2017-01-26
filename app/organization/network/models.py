@@ -29,7 +29,6 @@ import urllib
 import string
 import datetime
 import mimetypes
-
 from geopy.geocoders import GoogleV3 as GoogleMaps
 from geopy.exc import GeocoderQueryError
 
@@ -78,6 +77,21 @@ PATTERN_CHOICES = [
     ('pattern-bg--squares', _('squares')),
     ('pattern-bg--stripes', _('stripes')),
     ('pattern-bg--triangles', _('triangles')),
+]
+
+MONTH_CHOICES = [
+    (1, _('January')),
+    (2, _('February')),
+    (3, _('March')),
+    (4, _('April')),
+    (5, _('May')),
+    (6, _('June')),
+    (7, _('July')),
+    (8, _('August')),
+    (9, _('September')),
+    (10, _('October')),
+    (11, _('November')),
+    (12, _('December')),
 ]
 
 ALIGNMENT_CHOICES = (('left', _('left')), ('left', _('left')), ('right', _('right')))
@@ -149,7 +163,7 @@ class Organization(Named, Address, URL, AdminThumbRelatedMixin, Orderable):
             self.lat = lat
             self.lon = lon
 
-    def save(self):
+    def save(self, **kwargs):
         self.clean()
         super(Organization, self).save()
 
@@ -561,8 +575,10 @@ class PersonActivityTimeSheet(models.Model):
     project = models.ForeignKey('organization-projects.Project', verbose_name=_('project'), related_name='timesheets')
     work_packages = models.ManyToManyField('organization-projects.ProjectWorkPackage', verbose_name=_('work package'), related_name='timesheets', blank=True)
     percentage = models.FloatField(_('% of work time on the project'), validators=[validate_positive])
-    month = models.IntegerField(_('month'))
+    month = models.IntegerField(_('month'), choices=MONTH_CHOICES)
     year = models.IntegerField(_('year'))
+    accounting = models.DateField(blank=True, null=True)
+    validation = models.DateField(blank=True, null=True)
 
     @property
     def date(self):
@@ -572,6 +588,7 @@ class PersonActivityTimeSheet(models.Model):
         verbose_name = _('activity timesheet')
         verbose_name_plural = _('activity timesheets')
         ordering = ['month',]
+        unique_together = (("activity", "project", "month", "year"),)
 
 
 class PersonActivityVacation(Period):
