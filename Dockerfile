@@ -6,7 +6,7 @@ RUN mkdir /srv/app
 RUN mkdir /srv/lib
 WORKDIR /srv
 
-RUN apt-get update && apt-get install apt-transport-https
+RUN apt-get update && apt-get install -y apt-transport-https
 COPY etc/apt/sources.list /etc/apt/
 COPY requirements-debian.txt /srv
 RUN apt-get update && \
