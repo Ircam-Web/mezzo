@@ -18,6 +18,8 @@ develop-eggs
 var
 .init
 data
+postgres
+mysql
 
 # Installer logs
 pip-log.txt
