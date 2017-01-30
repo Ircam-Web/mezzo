@@ -17,6 +17,7 @@ develop-eggs
 *.lock
 var
 .init
+data
 
 # Installer logs
 pip-log.txt
