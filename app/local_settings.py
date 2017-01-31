@@ -31,8 +31,8 @@ ADMINS = (
 )
 
 # Make these unique, and don't share it with anybody.
-SECRET_KEY = "j1qa@u$5ktqr^0_kwh@-j@*-80t$)ht!4-=ybz1xc%@3+r(r&tzefoih"
-NEVERCACHE_KEY = "m)u^%r@uh#r3wu0&$=#$1ogx)uy4hv93^2lt%c3@xi=^gifoj8paozijdihazefd"
+SECRET_KEY = "j1qa@u$5kzeofiheoppoh@-j@*-80t$)ht!4-=ybz1xc%@3+r(r&tzefoih"
+NEVERCACHE_KEY = "m)u^%r@uez$ze##$1ogx)uy4hv93dbzt%c3@xi=^gifoj8paozijdihazefd"
 
 DATABASES = {
     'default': {

@@ -39,7 +39,7 @@ db:
   volumes:
     - ./var/lib/postgresql/data:/var/lib/postgresql/data
   environment:
-    - POSTGRES_PASSWORD=hyRob0otlaz4
+    - POSTGRES_PASSWORD=noodFof2Kna
 
 app:
   build: .
