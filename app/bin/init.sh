@@ -15,4 +15,3 @@ python $manage loaddata $app/organization/projects/fixtures/organization-project
 bash /srv/doc/build.sh
 
 cd /srv && bower --allow-root install && gulp build
-python /srv/app/manage.py collectstatic --no-input
