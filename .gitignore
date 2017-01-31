@@ -15,7 +15,6 @@ develop-eggs
 .thumbnails
 .tmp
 *.lock
-var
 .init
 data
 postgres
