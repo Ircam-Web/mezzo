@@ -46,7 +46,7 @@ app:
   command: /bin/bash bin/app.sh
   volumes:
     - ./app:/srv/app
-    - ./lib/mezzanine-agenda:/srv/lib/mezzanine-agenda
+    # - ./lib/mezzanine-agenda:/srv/lib/mezzanine-agenda
     # - ./lib/grappelli-safe:/srv/lib/grappelli-safe
     # - ./lib/mezzanine/:/srv/lib/mezzanine
     # - ./lib/cartridge/:/srv/lib/cartridge
