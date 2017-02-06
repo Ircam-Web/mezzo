@@ -19,12 +19,12 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 .main {
-    @include margin(3 0 0 0);
-    @include padding(1 0 0 0);
+    @include margin(0 0 0 0);
+    @include padding(0 0 0 0);
 
     @media screen and (max-height: 900px) {
 
-        @include margin(.5 0 0 0);
+        @include margin(0 0 0 0);
 
     }
 }
@@ -39,6 +39,8 @@
 }
 
 html, body {
+
+    background: $color-background;
 
     @include mq($until: sm) {
 

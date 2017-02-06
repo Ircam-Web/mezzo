@@ -47,39 +47,20 @@
     </div>
 
     <div class="header push">
-        <div class="header__pre">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-md-push-1 tac">
-                        {% page_menu "pages/menus/action.html" %}
-                    </div>
-                    <div class="col-md-1 col-md-push-1 tar">
-                        {% include "includes/languages.html" %}
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="container">
             <div class="row header__nav">
-                <div class="col-md-12 tac">
+                <div class="col-md-10 tac">
                     <div id="navHeader">
                         {% page_menu "pages/menus/header.html" %}
                     </div>
                 </div>
-            </div>
-            {% if not on_home %}
-                <div class="row white-bg">
-                    <div class="col-md-8 col-md-push-2">
-                        <ul class="breadcrumb">
-                            {% spaceless %}
-                                {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
-                            {% endspaceless %}
-                        </ul>
-                    </div>
+                <div class="col-md-6 tac">
+                    {% include "includes/languages.html" %}
                 </div>
-            {% endif %}
+            </div>
         </div>
+
     </div>
 
     <div id="container">
@@ -93,6 +74,7 @@
             {% include "includes/footer.html" %}
         </footer>
     </div>
+
     {% search_form %}
     {% include "includes/footer_scripts.html" %}
     {% endspaceless %}

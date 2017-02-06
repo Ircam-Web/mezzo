@@ -38,18 +38,6 @@ $module: ".header";
         }
     }
 
-    &__pre {
-
-        background: $color-black;
-        height: $header-pre-height;
-        color: white;
-
-        @include mq($until: sm) {
-            display: none;
-        }
-
-    }
-
     &__nav {
 
         background: $color-white;

@@ -11,12 +11,6 @@
 {% endblock %}
 {% endspaceless %}
 
-{% block breadcrumb_menu %}
-    <li class="active">{% trans "Home" %}</li>
-{% endblock %}
-
-{% block content_header %}{% endblock %}
-
 {% block main %}
 
     <div class="home-mobile-nav">
@@ -24,42 +18,6 @@
     </div>
 
     {% include "home/inc/slider.html" %}
-
-    <ul class="home__menu">
-      <li class="home__menu-item">
-          <a class="active" href="#" title="{% trans "News Headlines" %}">{% trans "News Headlines" %}</a>
-      </li>
-      <li class="home__menu-item">
-          <a href="#" title="{% trans "Magazine" %}">{% trans "Magazine" %}</a>
-          <div class="home__shutter">
-              <div class="home__shutter-content">
-                  <div class="container-fluid tal">
-                      {% page_menu "pages/menus/magazine.html" %}
-                  </div>
-              </div>
-          </div>
-      </li>
-      <li class="home__menu-item">
-          <a href="#" title="{% trans "Brief" %}">{% trans "Briefs" %}</a>
-          <div class="home__shutter">
-              <div class="home__shutter-content">
-                  <div class="container-fluid tal">
-                      {% include "magazine/brief/brief_list.html" %}
-                  </div>
-              </div>
-          </div>
-      </li>
-      <li class="home__menu-item">
-          <a href="{% url 'organization-playlist-list' %}" title="{% trans "Media" %}">{% trans "Medias" %}</a>
-          <div class="home__shutter">
-              <div class="home__shutter-content">
-                  <div class="container-fluid tal">
-                      {% include "media/inc/playlist_shutter.html" %}
-                  </div>
-              </div>
-          </div>
-      </li>
-    </ul>
 
     {% include "home/inc/body.html" %}
 

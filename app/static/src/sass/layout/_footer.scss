@@ -22,6 +22,9 @@ $module: ".footer";
 
 #{$module} {
 
+    /* Rectangle 2: */
+    background-image: linear-gradient(-180deg, #000F24 0%, #FF203C 100%);
+
     @include mq($until: xs) {
         div[class^="col-"] {
             @include margin(.5 0);
@@ -30,7 +33,6 @@ $module: ".footer";
 
     &__pre {
 
-        background: $color-black;
         border-bottom: 3px solid white;
         color: white;
 
@@ -44,8 +46,6 @@ $module: ".footer";
     }
 
     &__content {
-
-        background: #6b6b6b;
 
         @include padding(1 0);
 

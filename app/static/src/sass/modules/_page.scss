@@ -23,7 +23,7 @@ $module: ".page";
 #{$module} {
 
     min-height: 500px;
-    
+
     @include mq($until: sm) {
         min-height: 0;
     }
@@ -220,6 +220,24 @@ $module: ".page";
 
             h2:first-child {
                 margin-top: 0;
+            }
+
+        }
+
+        &--accent {
+
+            background-color: white;
+            color: $color-background;
+            text-align: center;
+            font-family: $serif;
+
+            @include padding(2 0);
+
+            h2 {
+                font-family: $serif;
+                font-weight: weight(bold);
+                @include margin-bottom(1);
+                @include margin-top(0);
             }
 
         }

@@ -1,25 +1,12 @@
 {% load i18n pages_tags mezzanine_tags staticfiles keyword_tags event_tags organization_tags %}
-<div class="footer__pre">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-11 tar-sm tal-xs">
-                {% if newsletter_subscribing_url %}
-                    <a class="button button--small button--white mr3" href="{{ newsletter_subscribing_url }}">
-                        {% trans "Subscribe to our newsletter" %}
-                    </a>
-                {% endif %}
-                {% for link in host_organization.links.all %}
-                    <a class="footer__follow-link {{ link.link_type.slug }}" href="{{ link.url }}" target="_blank" title="{% trans 'Follow us on' %} {{ link.title }}"><i class="fa fa-{{ link.link_type.slug }}{% if link.link_type.fa_option %}-{{ link.link_type.fa_option }}{% endif %}"></i></a>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="footer__content">
     <div class="container">
+
         <div class="row">
-            <div class="col-xs-3 col-sm-4 col-sm-push-1 tal">
+
+            <div class="col-xxs-16 col-sm-push-1 col-sm-4">
+
                 <a href="{% url "home" %}" title="{% trans 'Home' %}">
                     {% with host_organization.images|get_type:"logo_footer" as images %}
                       {% if images %}
@@ -29,64 +16,61 @@
                       {% endif %}
                     {% endwith %}
                 </a>
-            </div>
-            <div class="col-xs-3 col-sm-2 col-sm-push-1 tar-sm tal fsm">
-                <strong>{{ host_organization.name }}</strong><br />
-                <br />
-                {{ host_organization.address }}<br />
-                {{ host_organization.postal_code }} {{ host_organization.city }}<br />
-                {% if host_organization.telephone %}T. {{ host_organization.telephone }}{% endif %}
-            </div>
-            <div class="col-xs-3 col-sm-2 col-sm-push-1 tar-sm tal fsm">
-                <strong>{% trans 'Opening times' %}</strong><br />
-                <br />
-                {{ host_organization.opening_times|safe }}
-            </div>
-            <div class="col-xs-3 col-sm-2 col-sm-push-1 tar-sm tal fsm">
-                <strong>{% trans 'Subway access' %}</strong><br />
-                <br />
-                {{ host_organization.subway_access|safe }}
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-sm-10 col-sm-push-1">
-                <div class="footer__separator"></div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-xs-4 col-sm-3 col-sm-push-1 tal">
-                {% page_menu "pages/menus/footer_vertical.html" %}
-            </div>
-
-            <div class="col-xs-4 col-sm-5 col-sm-push-1 tal">
-                <strong>{{ host_organization.description }}</strong><br/ >{% trans 'under the tutelage of' %} :<br />
-                <br />
                 {% if linked_organization_footer %}
                     {% include 'pages/page/includes/linked_organization_footer.html' %}
                 {% endif %}
+
             </div>
 
-            <div class="col-xs-4 col-sm-2 col-sm-push-1 tal">
-                {% trans 'go to' %} :
-                {% if linked_organization_footer_2 %}
-                    {% include 'pages/page/includes/linked_organization_footer_2.html' %}
-                {% endif %}
+            <div class="col-xxs-16 col-sm-push-1 col-sm-10">
+
+                <div class="row">
+
+                    <div class="col-xxs-16">
+
+                        {% include 'pages/page/includes/linked_organization_footer.html' %}
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-xxs-16 col-sm-8">
+
+                        {% page_menu "pages/menus/footer_vertical.html" %}
+
+                    </div>
+
+                    <div class="col-xxs-16 col-sm-8">
+
+                        {% for link in host_organization.links.all %}
+                            <a class="footer__follow-link {{ link.link_type.slug }}" href="{{ link.url }}" target="_blank" title="{% trans 'Follow us on' %} {{ link.title }}"><i class="fa fa-{{ link.link_type.slug }}{% if link.link_type.fa_option %}-{{ link.link_type.fa_option }}{% endif %}"></i></a>
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
             </div>
+
         </div>
 
+        {% comment %}
+            Additional menu
+        {% endcomment %}
         <div class="row">
-            <div class="col-sm-10 col-sm-push-1">
-                <div class="footer__separator footer__seprator--small"></div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-xxs-12 col-xs-8 col-sm-7 col-sm-push-1">
+            <div class="col-xxs-16 col-sm-12 col-sm-push-1 tac">
                 {% page_menu "pages/menus/footer_horizontal.html" %}
             </div>
-            <div class="col-xxs-12 col-xs-4 col-sm-3 col-sm-push-1 tar-xs tal-xxs">
+        </div>
+
+        {% comment %}
+            Copyright
+        {% endcomment %}
+        <div class="row">
+            <div class="col-xxs-16 col-sm-12 col-sm-push-1 tac">
                 Copyright &copy; {% current_year %} {{ host_organization.name }}. {% trans "All rights reserved" %}.
             </div>
         </div>
