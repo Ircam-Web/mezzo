@@ -37,7 +37,7 @@ def settings(request):
         newsletter_subscribing_url = newsletter_page.first().get_absolute_url()
 
     # HOST ORGANIZATIONS
-    host_org = Organization.objects.get(is_host=True)
+    host_org = Organization.objects.filter(is_host=True).first()
     organization_lists = []
 
     for orga_linked_block in host_org.organization_linked_block.all():
