@@ -31,6 +31,13 @@ $module: ".section-title";
             color: $color-accent;
         }
     }
+    
+    &--main {
+        border-color: $color-main;
+        &:before {
+            color: $color-main;
+        }
+    }
 
     &:before {
         content: '_';
