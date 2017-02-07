@@ -14,38 +14,36 @@
 {% endblock %}
 
 {% block image %}
-    {% with object.images.all|get_type:'card' as images %}
-        {% if images %}
-            <figure class="article-box__image">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="{{ MEDIA_URL }}{% thumbnail images.0.file 427 286 top=0.5 left=article.photo_alignment|get_photo_alignment %}" class="lazyload" />
-            </figure>
-        {% else %}
-            <figure class="article-box__image">
-                {% if object.departments.first %}
-                    {% with object.departments.first as department %}
-                        <div class="article-box__placeholder {{department.department.name|slugify}}"></div>
-                    {% endwith %}
-                {% else %}
-                    <div class="article-box__placeholder"></div>
-                {% endif %}
-            </figure>
-        {% endif %}
-    {% endwith %}
+    <div class="article-box__image-container">
+        {% with object.images.all|get_type:'card' as images %}
+            {% if images %}
+                <figure class="article-box__image">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="{{ MEDIA_URL }}{% thumbnail images.0.file 427 286 top=0.5 left=article.photo_alignment|get_photo_alignment %}" class="lazyload" />
+                </figure>
+            {% else %}
+                <figure class="article-box__image">
+                    {% if object.departments.first %}
+                        {% with object.departments.first as department %}
+                            <div class="article-box__placeholder {{department.department.name|slugify}}"></div>
+                        {% endwith %}
+                    {% else %}
+                        <div class="article-box__placeholder"></div>
+                    {% endif %}
+                </figure>
+            {% endif %}
+        {% endwith %}
+    </div>
 {% endblock %}
 
 {% block tags %}
     <div class="article-box__tags">
         {% if object.departments.first %}
             {% with object.departments.first as department %}
-                <div class="tag tag--small dashed dashed--small">
-                  {{ department.department.name }}
-                </div>
+                {{ department.department.name }}
             {% endwith %}
         {% endif %}
         {% if object.category %}
-            <div class="tag tag--small tag--category">
-                {{ object.category|truncatechars:15 }}
-            </div>
+            {{ object.category|truncatechars:15 }}
         {% endif %}
     </div>
 {% endblock %}
@@ -59,7 +57,7 @@
         {% include 'agenda/includes/event_date_line.html' %}
     </strong>
     {% if object.location %}
-         <br />{{ object.location }}
+         <br /><span>{{ object.location }}</span>
     {% endif %}
 {% endblock %}
 

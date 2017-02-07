@@ -6,9 +6,6 @@
         {% block image %}
         {% endblock %}
 
-        {% block tags %}
-        {% endblock %}
-
         {% block btn %}
         {% endblock %}
 
@@ -19,6 +16,10 @@
             {% block title %}
             {% endblock %}
         </h3>
+        <div class="article-box__tags">
+            {% block tags %}
+            {% endblock %}
+        </div>
         <div class="article-box__subtitle">
             {% block subtitle %}
             {% endblock %}

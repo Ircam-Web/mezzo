@@ -1,9 +1,16 @@
 {% load i18n %}
-<div class="page__block page__block--accent">
+<div class="page__block page__block--accent mb4">
     <div class="container">
         <div class="row">
             <div class="col-xs-16 col-md-16 col-lg-10 fsxl lh5 ffss fwl">
-                {{ host_organization.bio|safe }}
+                {% if host_organization.bio %}
+                    {{ host_organization.bio|safe }}
+                {% else %}
+                        <strong>« LES FORMES DU DIGITAL »</strong> questionnera les enjeux des mutations
+                        formelles au sein d’un monde digitalisé dans les domaines de la musique, de l’art, du
+                        design et de l’architecture au regard des avancées des technosciences. Comment les
+                        champs de création se sont-ils emparés des technologies numériques ?
+                {% endif %}
             </div>
         </div>
     </div>

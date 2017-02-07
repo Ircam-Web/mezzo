@@ -67,7 +67,29 @@
             {% block content_footer %}{% endblock %}
         </main>
 
-        {% include "twitter/tweets.html" %}
+        <div class="section container">
+            <div class="row">
+
+                <div class="col-sm-8 tac">
+                    <div class="section-title section-title--uppercase section-title--underline section-title--accent">
+                        {% trans "Instagram feed" %}
+                    </div>
+                    <div>
+                        INSTAGRAM HERE
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-sm-push-1 tac">
+                    <div class="section-title section-title--uppercase section-title--underline section-title--main">
+                        {% trans "Twitter feed" %}
+                    </div>
+                    <div>
+                        {% include "twitter/tweets.html" %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         <footer class="footer" role="footer">
             {% include "includes/footer.html" %}

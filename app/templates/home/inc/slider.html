@@ -1,94 +1,77 @@
 {% load i18n pages_tags mezzanine_tags media_tags organization_tags %}
-<div class="slider-home">
-    <ul data-slider-home>
-        {% for slider in home.dynamiccontenthomeslider_set.all %}
-                {% with slider.content_object.images.all|get_type:'slider' as images %}
-                    {% if images %}
-                        <li class="slider-home__slide" style="background-image: url('{{ MEDIA_URL }}{% thumbnail images.0.file 1440 760 %}');">
-                            <div class="slider-home__wrapper">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-11 col-sm-push-1">
-                                            <a class="article-box article-box--inline" href="{{ slider.content_object.get_absolute_url }}" title="{{ slider.content_object.title }}">
-                                                {% if slider.content_object.department %}
-                                                    <div class="tag dashed">
-                                                      {{ slider.content_object.department.name }}
-                                                    </div>
-                                                {% endif %}
-                                                {% if slider.content_type.model == 'article' %}
-                                                <div class="tag tag--category">
-                                                    {% trans 'News' %}
-                                                </div>
-                                                {% elif slider.content_type.model == 'event' %}
-                                                    {% if slider.content_object.departments.first %}
-                                                        {% with slider.content_object.departments.first as department %}
-                                                            <div class="tag dashed">
-                                                              {{ department.department.name }}
-                                                            </div>
-                                                        {% endwith %}
-                                                    {% endif %}
-                                                    {% if slider.content_object.category %}
-                                                        <div class="tag tag--category">
-                                                            {{ slider.content_object.category }}
-                                                        </div>
-                                                    {% endif %}
-                                                {% endif %}
-
-                                                <div class="article-box__content tal">
-                                                    <h3 class="article-box__title">{{ slider.content_object.title }}</h3>
-                                                    <div class="article-box__subtitle">
-                                                        {% if slider.content_type.model != 'event' %}
-                                                            {{ slider.content_object.sub_title }}
-                                                        {% endif %}
-                                                        {% if slider.content_object.start %}
-                                                            {% with slider.content_object as event %}
-                                                                {% if slider.content_object.sub_title %}
-                                                                    <br />
-                                                                {% endif %}
-                                                                {% include 'agenda/includes/event_date_slider.html' %}
-                                                            {% endwith %}
-                                                        {% endif %}
-                                                        {% if slider.content_object.location %}
-                                                             <br />{{ slider.content_object.location }}
-                                                        {% endif %}
-                                                    </div>
-                                                    <div class="article-box__desc">
-                                                        {{ slider.content_object.description|richtext_filters|safe|truncatechars_html:200 }}
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {% if image.credits %}
-                                <div class="slider-home__credits">
-                                    {{ image.credits }}
-                                </div>
-                            {% endif %}
-                        </li>
-                    {% endif %}
-                {% endwith %}
-
-        {% endfor %}
-    </ul>
-    <div class="slider-home__pager">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-11 col-sm-push-1">
-                    <ul class="">
+{% if home.dynamiccontenthomeslider_set.all|length > 0 %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-16">
+                <div class="slider-home">
+                    <ul data-slider-home>
                         {% for slider in home.dynamiccontenthomeslider_set.all %}
-                            {% with slider.content_object.images.all|get_type:'slider' as images %}
-                                {% if images %}
-                                    <li class="{% if forloop.first %}active{% endif %}">
-                                        <a href="#"></a>
-                                    </li>
-                                {% endif %}
-                            {% endwith %}
+                                {% with slider.content_object.images.all|get_type:'slider' as images %}
+                                    {% if images %}
+                                        <li class="slider-home__slide">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-sm-push-2">
+                                                    <a href="{{ slider.content_object.get_absolute_url }}" class="slider-home__wrapper">
+                                                        <div class="row">
+                                                            <div class="col-sm-8">
+                                                                <div class="slider-home__image-container">
+                                                                    <img class="slider-home__image" src="{{ MEDIA_URL }}{% thumbnail images.0.file 478 366 %}" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                <div class="slider-home__content">
+                                                                    <div class="article-box article-box--inline" href="{{ slider.content_object.get_absolute_url }}" title="{{ slider.content_object.title }}">
+
+                                                                        <div class="article-box__content tal">
+                                                                            <h3 class="article-box__title">{{ slider.content_object.title }}</h3>
+
+                                                                            {% if slider.content_type.model == 'article' %}
+                                                                            <div class="article-box__tags">
+                                                                                {% trans 'News' %}
+                                                                            </div>
+                                                                            {% elif slider.content_type.model == 'event' %}
+                                                                                {% if slider.content_object.category %}
+                                                                                    <div class="article-box__tags">
+                                                                                        {{ slider.content_object.category }}
+                                                                                    </div>
+                                                                                {% endif %}
+                                                                            {% endif %}
+
+                                                                            <div class="article-box__subtitle">
+                                                                                {% if slider.content_type.model != 'event' %}
+                                                                                    {{ slider.content_object.sub_title }}
+                                                                                {% endif %}
+                                                                                {% if slider.content_object.start %}
+                                                                                    {% with slider.content_object as event %}
+                                                                                        {% if slider.content_object.sub_title %}
+                                                                                            <br />
+                                                                                        {% endif %}
+                                                                                        {% include 'agenda/includes/event_date_slider.html' %}
+                                                                                    {% endwith %}
+                                                                                {% endif %}
+                                                                                {% if slider.content_object.location %}
+                                                                                     <br /><span>{{ slider.content_object.location }}</span>
+                                                                                {% endif %}
+                                                                            </div>
+                                                                            <div class="article-box__desc">
+                                                                                {{ slider.content_object.description|richtext_filters|safe|truncatechars_html:200 }}
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                {% endwith %}
+
                         {% endfor %}
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-</div>
+{% endif %}
