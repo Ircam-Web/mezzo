@@ -7,6 +7,9 @@
                 {% with img|first as img %}
                     <img class="footer__partner" src="{{ MEDIA_URL }}{{ img }}" title="{{ img.title }}" width="120" height="66" />
                 {% endwith %}
+                {% if not forloop.last %}
+                    <span class="footer__partner-separator">&</span>
+                {% endif %}
             {% endif %}
         {% endwith %}
     </a>

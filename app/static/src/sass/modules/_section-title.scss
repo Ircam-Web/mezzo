@@ -1,0 +1,34 @@
+$module: ".section-title";
+
+#{$module} {
+
+    @include typeface(sans-serif);
+    @include font-size(m);
+    font-weight: weight(regular);
+
+    text-align: center;
+    color: white;
+
+    @include margin-bottom(2);
+
+    &--uppercase {
+        text-transform: uppercase;
+    }
+
+    &--underline {
+        text-decoration: underline;
+    }
+
+    &--dark {
+        color: $color-background;
+    }
+
+    &:before {
+        content: '_';
+        display: block;
+        text-decoration: none;
+        @include font-size(m);
+        @include margin-bottom(.5);
+    }
+
+}

@@ -5,19 +5,22 @@
 
         <div class="row">
 
-            <div class="col-xxs-16 col-sm-push-1 col-sm-4">
+            <div class="col-xxs-16 col-sm-push-1 col-sm-4 tac">
 
                 <a href="{% url "home" %}" title="{% trans 'Home' %}">
                     {% with host_organization.images|get_type:"logo_footer" as images %}
                       {% if images %}
                        {% with images|first as img %}
-                        <img src="{{ MEDIA_URL }}{{ img }}" title="{{ img.title }}" width="151" />
+                        <img src="{{ MEDIA_URL }}{{ img }}" title="{{ img.title }}" width="243" />
                        {% endwith %}
                       {% endif %}
                     {% endwith %}
                 </a>
 
                 {% if linked_organization_footer %}
+                    <div class="section-title section-title--dark">
+                        Porté par
+                    </div>
                     {% include 'pages/page/includes/linked_organization_footer.html' %}
                 {% endif %}
 
@@ -29,7 +32,29 @@
 
                     <div class="col-xxs-16">
 
-                        NEWSLETTER HERE
+                        <div class="newsletter">
+
+                            <div class="row">
+
+                                <div class="col-xxs-16 col-xs-7 col-xs-push-1 col-lg-8 col-lg-push-0">
+
+                                    <div class="newsletter__text">
+                                        Inscrivez-vous à notre newsletter afin de recevoir les dernières actualités,  informations sur les expositions.
+                                    </div>
+                                </div>
+
+                                <div class="col-xxs-16 col-xs-7 col-xs-push-1">
+
+                                    <form method="GET" action="https://www.ircam.fr/etre-informe" target="_blank">
+                                        <input placeholder="Votre email" class="newsletter__input" type="text" name="email" />
+                                        <button class="newsletter__button" type="submit"><i class="fa fa-envelope-o"></i></button>
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
@@ -37,17 +62,21 @@
 
                 <div class="row">
 
-                    <div class="col-xxs-16 col-sm-8">
+                    <div class="col-xxs-8 col-xs-7 col-xs-push-1">
 
                         {% page_menu "pages/menus/footer_vertical.html" %}
 
                     </div>
 
-                    <div class="col-xxs-16 col-sm-8">
+                    <div class="col-xxs-8 col-xs-7 col-xs-push-1 col-lg-6 col-lg-push-2">
 
-                        {% for link in host_organization.links.all %}
-                            <a class="footer__follow-link {{ link.link_type.slug }}" href="{{ link.url }}" target="_blank" title="{% trans 'Follow us on' %} {{ link.title }}"><i class="fa fa-{{ link.link_type.slug }}{% if link.link_type.fa_option %}-{{ link.link_type.fa_option }}{% endif %}"></i></a>
-                        {% endfor %}
+                        <ul class="nav-footer" role="navigation">
+                            {% for link in host_organization.links.all %}
+                                <li class="nav-footer__item">
+                                    <a class="nav-footer__item-link" href="{{ link.url }}" target="_blank" title="{% trans 'Follow us on' %} {{ link.title }}">{{ link.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
 
                     </div>
 
@@ -70,7 +99,7 @@
             Copyright
         {% endcomment %}
         <div class="row">
-            <div class="col-xxs-16 col-sm-12 col-sm-push-1 tac">
+            <div class="col-xxs-16 col-sm-12 col-sm-push-1 tac fcb mt2">
                 Copyright &copy; {% current_year %} {{ host_organization.name }}. {% trans "All rights reserved" %}.
             </div>
         </div>

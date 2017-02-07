@@ -47,7 +47,7 @@ $module: ".footer";
 
     &__content {
 
-        @include padding(1 0);
+        @include padding(1 0 .5 0);
 
         @include font-size(s);
         @include typeface(sans-serif);
@@ -57,7 +57,6 @@ $module: ".footer";
 
         @include mq($until: xs) {
             @include padding(0);
-            background: $color-black;
         }
 
     }
@@ -118,9 +117,37 @@ $module: ".footer";
     }
 
     &__partner {
+        @include mq($until: lg) {
+            width: 80px;
+        }
+        @include mq($until: md) {
+            width: 80px;
+        }
+        @include mq($until: sm) {
+            width: 120px;
+        }
         @include mq($until: xs) {
-            width: 48%;
+            width: 80px;
             height: auto;
+        }
+    }
+
+    &__partner-separator {
+        @include typeface(sans-serif);
+        @include font-size(m);
+        font-weight: weight(regular);
+        display: inline-block;
+        @include margin(0 1);
+        position: relative;
+        top: -30px;
+        @include mq($until: xs) {
+            color: white;
+        }
+    }
+
+    .section-title {
+        @include mq($until: xs) {
+            color: white;
         }
     }
 
