@@ -34,6 +34,8 @@ from organization.magazine.models import Article, Topic, Brief
 from organization.pages.models import Home
 from organization.agenda.models import Event
 from organization.media.models import Playlist
+from organization.network.models import Person
+
 
 class HomeView(SlugMixin, ListView):
 
@@ -61,13 +63,16 @@ class DynamicContentHomeSliderView(Select2QuerySetSequenceView):
         articles = Article.objects.all()
         custompage = CustomPage.objects.all()
         events = Event.objects.all()
+        persons = Person.objects.published()
+
 
         if self.q:
             articles = articles.filter(title__icontains=self.q)
             custompage = custompage.filter(title__icontains=self.q)
             events = events.filter(title__icontains=self.q)
+            persons = persons.filter(title__icontains=self.q)
 
-        qs = autocomplete.QuerySetSequence(articles, custompage, events)
+        qs = autocomplete.QuerySetSequence(articles, custompage, events, persons)
 
         if self.q:
             # This would apply the filter on all the querysets
@@ -166,4 +171,4 @@ class DynamicContentPageView(Select2QuerySetSequenceView):
 
     def get_results(self, context):
         results = autocomplete_result_formatting(self, context)
-        return results    
+        return results
