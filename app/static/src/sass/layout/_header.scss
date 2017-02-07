@@ -25,6 +25,9 @@ $module: ".header";
     z-index: 100;
     position: relative;
 
+    background: white;
+    box-shadow: 0 10px 50px rgba(79,227,194,0.5);
+
     @include mq($until: sm) {
         position: fixed;
         width: 100%;
