@@ -187,7 +187,7 @@ EVENT_DOMAIN = "//eve.ircam.fr"
 EVENT_SHOP_URL = EVENT_DOMAIN+"/pub.php/event/%d/edit"
 EVENT_PASS_URL = EVENT_DOMAIN+"/pub.php/pass/"
 EVENT_CONFIRMATION_URL = EVENT_DOMAIN+"/pub.php/cart/done?transaction_id=%s"
-EVENT_EXCLUDE_TAG_LIST = ['tournees', ]
+EVENT_EXCLUDE_TAG_LIST = [ ]
 
 TINYMCE_SETUP_JS = "/static/js/tinymce_setup.js"
 
