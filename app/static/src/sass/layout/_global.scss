@@ -41,6 +41,7 @@
 html, body {
 
     background: $color-background;
+    color: white;
 
     @include mq($until: sm) {
 
