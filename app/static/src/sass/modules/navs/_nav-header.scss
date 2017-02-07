@@ -25,9 +25,9 @@ $module: ".nav-header";
     list-style-type: none;
     margin: 0;
     padding: 0;
-    text-align: center;
+    text-align: left;
 
-    @include margin(.5 0);
+    @include margin(.5 0 0 0);
 
     @include mq($until: sm) {
         @include margin(0);
@@ -40,7 +40,7 @@ $module: ".nav-header";
         vertical-align: top;
         position: relative;
 
-        &:after {
+        &:before {
             content: "";
             display: block;
             height: $header-height;
@@ -48,13 +48,47 @@ $module: ".nav-header";
             background: black;
             position: absolute;
             top: 0;
-            right: -1px;
+            left: -1px;
 
-            @include margin-left(.5);
+            @include margin-right(.5);
+
+            @include mq($until: lg) {
+                height: $header-height - 10px;
+            }
+        }
+
+        &--no-separator {
+            &:before {
+                display: none;
+            }
+        }
+
+        &--separator {
+            @include padding-left(1.5);
+            &:before {
+                @include margin(0 1);
+            }
+
+            @include mq($until: md) {
+                @include padding-left(1);
+                &:before {
+                    @include margin(0 .5);
+                }
+            }
         }
 
         &:first-child {
             display: none;
+            z-index: 3;
+            &:before {
+                display: none;
+            }
+        }
+
+        &:nth-child(2) {
+            &:before {
+                display: none;
+            }
         }
 
         &:last-child {
@@ -82,7 +116,58 @@ $module: ".nav-header";
             }*/
         }
 
+        &--image-big {
+            vertical-align: top;
+            @include margin(0 1 0 2.5);
+            @include padding-right(.50);
+
+            @include mq($until: lg) {
+                height: $header-height - 10px;
+                img {
+                    width: 200px;
+                }
+            }
+            @include mq($until: md) {
+                height: $header-height - 10px;
+                img {
+                    width: 160px;
+                }
+            }
+
+            @include mq($until: sm) {
+                position: absolute;
+                top: 20px;
+                left: 0;
+                width: 100%;
+                z-index: 2;
+                @include padding(0);
+                @include margin(0);
+                text-align: center;
+                img {
+                    width: auto;
+                    height: 70px;
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+
+            @include mq($until: xs) {
+
+                img {
+                    width: 200px;
+                    height: auto;
+                    display: block;
+                    margin: 0 auto;
+                }
+
+            }
+
+            height: $header-height;
+
+        }
+
         &--special {
+            z-index: 3;
             vertical-align: top;
             @include margin(0 0 0 .5);
             @include padding-right(.5);
@@ -94,16 +179,26 @@ $module: ".nav-header";
         }
 
         &--centered {
-            line-height: $header-height;
+            z-index: 3;
+            line-height: $header-height - 10px;
 
+            @include mq($until: lg) {
+                line-height: $header-height - 13px;
+            }
             @include mq($until: sm) {
                 line-height: $header-height-tablet;
-                height: $header-height-tablet;
+                height: $header-height-tablet - 10px;
             }
             @include mq($until: xs) {
                 line-height: $header-height-mobile;
-                height: $header-height-mobile;
+                height: $header-height-mobile - 10px;
             }
+        }
+
+        &--right {
+
+            float: right;
+
         }
 
         &.hover {
@@ -152,44 +247,66 @@ $module: ".nav-header";
 
     &__item-link {
 
-        text-transform: lowercase;
-        color: inherit;
+        text-transform: uppercase;
+        color: $color-background;
         text-decoration: none;
         position: relative;
         z-index: 4;
         vertical-align: top;
 
-        @include font-size(xl);
+        @include font-size(l);
         @include line-height($header-pre-height);
         @include typeface(sans-serif);
 
         @include padding-right(1);
 
-        @include mq($until: md) {
+        @include mq($until: lg) {
+            @include font-size(m);
             @include padding-right(.75);
         }
 
-        /*@include mq($until: lg) {
-            @include font-size(l);
-        }*/
+        @include mq($until: md) {
+            @include font-size(s);
+            @include padding-right(.5);
+        }
+
 
         &:before {
-            display: inline;
+            display: inline-block;
             content: '.';
             vertical-align: top;
+            @include margin-right(.25);
+        }
+
+        &--no-dot {
+
+            @include padding-right(.25);
+            font-weight: weight(light);
+
+            &:before {
+                content: '';
+            }
+
+            &.active {
+                font-weight: weight(regular);
+                &:after {
+                    display: none !important;
+                }
+            }
+
         }
 
         &.active {
             &:after {
                 position: absolute;
-                height: 40%;
+                height: 80%;
                 display: block;
-                top: 30%;
-                left: 1px;
+                top: 10%;
+                left: 0px;
                 content: "";
-                background: #F8E71C;
+                background: $color-main;
                 z-index: -1;
-                right: 0px;
+                right: 1px;
             }
         }
 
@@ -392,29 +509,17 @@ $module: ".nav-header";
                 display: none;
             }
 
-            &:nth-child(2) {
-                @include margin-bottom(1.5);
-            }
-
-            &:nth-child(6) {
-                @include margin-bottom(0);
-                &:after {
-
-                    display: block;
-                    position: static;
-                    content: "";
-                    background: #979797;
-                    width: 240px;
-                    height: 1px;
-                    @include margin(1.5 0 .5 0);
-
-                }
-            }
-
             &.hover {
                 &:before {
                     display: none;
                 }
+            }
+
+            &--image-big {
+                position: static;
+                height: auto;
+                margin-top: 10px;
+                @include margin-bottom(3);
             }
 
             &--special {
@@ -444,15 +549,33 @@ $module: ".nav-header";
                 }
             }
 
+            &--right {
+                float: none;
+            }
+
+            &--separator {
+                @include margin-top(3);
+                @include padding(0);
+            }
+
+            &:before {
+                display: none;
+            }
+
         }
 
         &__item-link {
 
-            color: black;
-            @include font-size(xxl);
+            color: $color-background;
+            @include font-size(l);
 
             &:hover {
-                color: black;
+                color: $color-background;
+            }
+
+            &--no-dot {
+                display: inline-block;
+                width: auto;
             }
 
         }

@@ -50,13 +50,10 @@
 
         <div class="container">
             <div class="row header__nav">
-                <div class="col-md-10 tac">
+                <div class="col-md-16 tal">
                     <div id="navHeader">
                         {% page_menu "pages/menus/header.html" %}
                     </div>
-                </div>
-                <div class="col-md-6 tac">
-                    {% include "includes/languages.html" %}
                 </div>
             </div>
         </div>
@@ -69,6 +66,8 @@
             {% block main %}{% endblock %}
             {% block content_footer %}{% endblock %}
         </main>
+
+        {% include "twitter/tweets.html" %}
 
         <footer class="footer" role="footer">
             {% include "includes/footer.html" %}

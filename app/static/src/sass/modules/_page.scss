@@ -226,7 +226,7 @@ $module: ".page";
 
         &--accent {
 
-            background-color: white;
+            background-color: $color-accent;
             color: $color-background;
             text-align: center;
             font-family: $serif;

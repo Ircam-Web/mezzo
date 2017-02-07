@@ -206,6 +206,9 @@
 .lh1 {
     @include line-height(1);
 }
+.lh5 {
+    @include line-height(1.5);
+}
 .lh2 {
     @include line-height(2);
 }

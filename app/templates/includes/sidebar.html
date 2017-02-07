@@ -3,37 +3,5 @@
 <div class="sidebar">
 
     {% page_menu "pages/menus/header.html" %}
-    {% page_menu "pages/menus/action.html" %}
-
-    <ul class="sidebar__menu">
-        <li class="sidebar__menu-item">
-            <a href="#" title="{% trans "Magazine" %}">{% trans "Magazine" %}</a>
-            {% page_menu "pages/menus/magazine.html" %}
-        </li>
-        <li class="sidebar__menu-item">
-            <a href="{% url 'organization-playlist-list' %}" title="{% trans "Medias" %}">{% trans "Medias" %}</a>
-        </li>
-    </ul>
-
-    <ul class="lang-switcher" id="langSelectorMobile">
-        {% for language in languages %}
-            {% if language.code == LANGUAGE_CODE %}
-                <li class="lang-switcher__item active">
-                    <a href="#">
-                      {{ language.code|title }}
-                    </a>
-                </li>
-            {% endif %}
-        {% endfor %}
-        {% for language in languages %}
-            {% if language.code != LANGUAGE_CODE %}
-                <li class="lang-switcher__item">
-                    <a href="#" data-lang="{{ language.code }}">
-                      {{ language.code|title }}
-                    </a>
-                </li>
-            {% endif %}
-        {% endfor %}
-    </ul>
 
 </div>

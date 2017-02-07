@@ -23,6 +23,10 @@ $module: ".sidebar";
 #{$module} {
 
     @include padding-bottom(1);
+    /* Rectangle 2: */
+    background-image: -webkit-linear-gradient(bottom, rgba(79,227,194,0.00) 0%, rgba(80,227,194,0.30) 100%);
+    background-image: -o-linear-gradient(bottom, rgba(79,227,194,0.00) 0%, rgba(80,227,194,0.30) 100%);
+    background-image: linear-gradient(to top, rgba(79,227,194,0.00) 0%, rgba(80,227,194,0.30) 100%);
 
     &__menu {
 

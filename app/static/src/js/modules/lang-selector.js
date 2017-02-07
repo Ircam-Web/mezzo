@@ -49,6 +49,12 @@ LangSelector.prototype.init = function() {
 
     });
 
+    $('[data-lang]').click(function() {
+
+        that.changeLanguage($(this).attr('data-lang'));
+
+    });
+
 };
 
 LangSelector.prototype.changeLanguage = function(lang) {

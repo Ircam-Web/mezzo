@@ -32,7 +32,6 @@ $module: ".header";
         left: 0;
         z-index: 100;
         height: $header-height-tablet;
-        overflow: hidden;
         @include mq($until: xs) {
             height: $header-height-mobile;
         }
