@@ -23,27 +23,57 @@ $module: ".article-box";
 #{$module} {
 
     position: relative;
-    background: white;
     display: block;
     @include margin-bottom(1);
     @include transition(all 0.25s ease-in-out);
 
+    border: 1px solid $color-main;
+    @include padding(1);
+
+    .slider-home & {
+        @include margin(0);
+        max-width: none;
+    }
+
     &:hover {
-        box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.17);
+
+        background: white;
+
+        .article-box__image-container {
+            background: black;
+        }
+
         .article-box__image {
 
             img {
-                @include transform(scale(1.1));
+                -webkit-filter: grayscale(0);
+                filter: grayscale(0);
             }
 
-            &:after {
-                border-width: 12px;
-            }
         }
+
+        .article-box__title {
+            color: $color-background;
+        }
+        .article-box__tags {
+            color: $color-background;
+        }
+        .article-box__subtitle {
+            color: $color-background;
+        }
+        .article-box__desc {
+            color: $color-background;
+        }
+
     }
 
     &__header {
         position: relative;
+    }
+
+    &__image-container {
+        background: $color-background;
+        @include transition(all 0.5s ease-in-out);
     }
 
     &__image {
@@ -60,22 +90,14 @@ $module: ".article-box";
             width: 100%;
             max-width: 100%;
             height: auto;
-            @include transition(all 0.3s ease-in-out);
+
+            @include transition(all 0.5s ease-in-out);
+
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+            mix-blend-mode: screen;
         }
 
-        &:after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-width: 0px;
-            border-color: white;
-            border-style: solid;
-            @include transition(all 0.25s ease-in-out);
-        }
     }
 
     &__placeholder {
@@ -106,11 +128,15 @@ $module: ".article-box";
     }
 
     &__tags {
-        position: absolute;
-        bottom: 0;
-        left: 0;
 
-        @include margin-bottom(.55);
+        text-transform: uppercase;
+        @include font-size(s);
+        @include line-height(1.25);
+        @include typeface(sans-serif);
+        @include margin(0 0 0 0);
+        font-weight: weight(regular);
+        color: $color-main;
+        @include transition(color 0.5s ease-in-out);
     }
 
     &__btn {
@@ -123,7 +149,7 @@ $module: ".article-box";
     }
 
     &__content {
-        @include padding(.25 .25 1 .25);
+        @include padding(.25 .25 .25 .25);
 
         position: relative;
         overflow: hidden;
@@ -149,30 +175,47 @@ $module: ".article-box";
             @include filter-gradient(#ffffff, #ffffff, vertical);
             @include background-image(linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%));
         }*/
+
+        .slider-home & {
+            @include padding(0);
+        }
     }
 
     &__title {
         @include font-size(xl);
         @include line-height(1.25);
         @include typeface(sans-serif);
-        @include margin(0 0 .25 0);
+        @include margin(.5 0 0 0);
+        font-weight: weight(bold);
+        color: $color-main;
+        @include transition(color 0.5s ease-in-out);
+    }
+
+    &__tag {
+        color: $color-main;
     }
 
     &__subtitle {
-        @include font-size(s);
+        @include font-size(m);
         @include line-height(.75);
-        @include typeface(serif);
+        @include typeface(sans-serif);
         @include margin-top(.25);
-        font-weight: weight(regular);
+        font-weight: weight(bold);
+        color: white;
+        text-transform: uppercase;
+        @include transition(color 0.5s ease-in-out);
+
+        span {
+            @include typeface(serif);
+            @include font-size(s);
+            font-weight: weight(regular);
+            text-transform: none;
+            display: block;
+            @include margin-top(.25);
+        }
 
         .slider-home & {
-
-            @include font-size(m);
-            @include line-height(1);
-            @include typeface(sans-serif);
-            @include margin-top(.25);
-            font-weight: weight(regular);
-
+            @include margin-top(.5);
         }
 
     }
@@ -183,6 +226,8 @@ $module: ".article-box";
         @include typeface(serif);
         @include margin(1 0 .25 0);
         font-weight: weight(light);
+        color: white;
+        @include transition(color 0.5s ease-in-out);
     }
 
     &--small {
@@ -206,7 +251,7 @@ $module: ".article-box";
         background: transparent;
 
         &__content {
-            background: white;
+            background: transparent;
             margin-top: 1px;
         }
     }

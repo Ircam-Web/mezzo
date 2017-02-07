@@ -18,8 +18,10 @@
                 </a>
 
                 {% if linked_organization_footer %}
-                    <div class="section-title section-title--dark">
-                        Porté par
+                    <div class="tac">
+                        <div class="section-title section-title--dark">
+                            {% trans "Porté par" %}
+                        </div>
                     </div>
                     {% include 'pages/page/includes/linked_organization_footer.html' %}
                 {% endif %}
@@ -45,8 +47,8 @@
 
                                 <div class="col-xxs-16 col-xs-7 col-xs-push-1">
 
-                                    <form method="GET" action="https://www.ircam.fr/etre-informe" target="_blank">
-                                        <input placeholder="Votre email" class="newsletter__input" type="text" name="email" />
+                                    <form method="GET" action="http://public.message-business.com/form/46711/84/form.aspx" target="_blank">
+                                        <input placeholder="Votre email" class="newsletter__input" type="text" name="formItem-mbtext-email" />
                                         <button class="newsletter__button" type="submit"><i class="fa fa-envelope-o"></i></button>
                                     </form>
 

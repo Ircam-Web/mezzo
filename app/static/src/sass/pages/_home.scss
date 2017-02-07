@@ -268,6 +268,22 @@ $module: ".home";
 
     }
 
+    .lSAction {
+        > a {
+            background: transparent;
+            &:before {
+                color: #F2EDDC;
+                font-size: 40px;
+            }
+        }
+        > a.lSPrev {
+
+        }
+        > a.lSNext {
+
+        }
+    }
+
 }
 
 .home-mobile-nav {

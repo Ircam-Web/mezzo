@@ -23,12 +23,9 @@ $module: ".slider-home";
 #{$module} {
 
     position: relative;
+    @include margin-bottom(4);
 
     @include mq($until: sm) {
-        @include margin-bottom(1);
-    }
-
-    @include mq($until: xs) {
         display: none;
     }
 
@@ -41,28 +38,83 @@ $module: ".slider-home";
     &__slide {
 
         width: 100%;
-        height: $home-slider-height;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
         position: relative;
 
     }
 
     &__wrapper {
 
-        position: absolute;
-        bottom: 75px;
-        left: 0;
-        right: 0;
+        position: relative;
+
+        @include padding(1);
+        border: 1px solid $color-main;
+        display: table;
+        width: 100%;
+        background: $color-background;
+        @include transition(background 0.5s ease-in-out);
+
+        &:hover {
+            background: $color-main;
+            #{$module}__image-container {
+                background: black;
+            }
+            #{$module}__image {
+                -webkit-filter: grayscale(0);
+                filter: grayscale(0);
+            }
+            .article-box__title {
+                color: $color-background;
+            }
+            .article-box__tags {
+                color: $color-background;
+            }
+            .article-box__subtitle {
+                color: $color-background;
+            }
+            .article-box__desc {
+                color: $color-background;
+            }
+        }
+
+    }
+
+    &__image-container {
+        background: $color-background;
+        @include transition(all 0.5s ease-in-out);
+    }
+
+    &__image {
+
+        width: 100%;
+        display: block;
+        @include transition(all 0.5s ease-in-out);
+
+        -webkit-filter: grayscale(1);
+        filter: grayscale(1);
+        mix-blend-mode: screen;
+        transition: all 0.5s ease-in-out;
 
     }
 
     &__content {
 
-        background: white;
-        display: inline-block;
-        @include padding(1);
+        display: table-cell;
+        vertical-align: middle;
+        height: 373px;
+
+        @include mq($until: lg) {
+            height: 296px;
+        }
+
+        @include mq($until: md) {
+            height: 245px;
+        }
+
+        @include mq($until: sm) {
+            height: auto;
+            display: block;
+            @include margin-top(1);
+        }
 
     }
 
@@ -80,6 +132,13 @@ $module: ".slider-home";
 
         background: rgba(0,0,0,0.5);
         color: white;
+
+    }
+
+    .article-box {
+
+        @include padding(0);
+        border: 0;
 
     }
 

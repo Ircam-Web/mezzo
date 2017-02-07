@@ -240,6 +240,10 @@ $module: ".page";
                 @include margin-top(0);
             }
 
+            strong {
+                font-weight: weight(regular);
+            }
+
         }
 
         p:last-child {

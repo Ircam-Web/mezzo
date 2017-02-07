@@ -24,11 +24,16 @@ $module: ".footer";
 
     /* Rectangle 2: */
     background-image: linear-gradient(-180deg, #000F24 0%, #FF203C 100%);
+    @include margin-top(5);
 
     @include mq($until: xs) {
         div[class^="col-"] {
             @include margin(.5 0);
         }
+    }
+
+    .section-title {
+        @include margin-bottom(2);
     }
 
     &__pre {

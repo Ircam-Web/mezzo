@@ -8,25 +8,34 @@ $module: ".section-title";
 
     text-align: center;
     color: white;
+    display: inline-block;
 
-    @include margin-bottom(2);
+    @include margin-bottom(4);
+    @include margin-top(0);
 
     &--uppercase {
         text-transform: uppercase;
     }
 
     &--underline {
-        text-decoration: underline;
+        border-bottom: 1px solid white;
     }
 
     &--dark {
         color: $color-background;
     }
 
+    &--accent {
+        border-color: $color-accent;
+        &:before {
+            color: $color-accent;
+        }
+    }
+
     &:before {
         content: '_';
         display: block;
-        text-decoration: none;
+        text-decoration: none !important;
         @include font-size(m);
         @include margin-bottom(.5);
     }
