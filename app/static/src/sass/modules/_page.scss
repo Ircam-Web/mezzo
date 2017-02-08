@@ -23,7 +23,7 @@ $module: ".page";
 #{$module} {
 
     min-height: 500px;
-    @include margin-top(5);
+    @include margin-top(3);
 
     @include mq($until: sm) {
         min-height: 0;

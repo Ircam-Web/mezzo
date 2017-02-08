@@ -166,7 +166,7 @@
 
     @include padding-left(1);
     @include margin-top(1.5);
-    border-left: 1px solid $color-black;
+    border-left: 1px solid $color-main;
 
     & + .wys-highlighted-paragraph {
 

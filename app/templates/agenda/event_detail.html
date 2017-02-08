@@ -20,29 +20,8 @@
 {% endblock %}
 
 {% block page_title %}
-    {% editable event.title %}
-        <h1 class="dotted">{{ event.title }}</h1>
-    {% endeditable %}
-    {% if event.sub_title %}
-        {% editable event.sub_title %}
-            <div class="chapo">
-                {{ event.sub_title }}
-            </div>
-        {% endeditable %}
-    {% endif %}
-{% endblock %}
-
-{% block page_tags %}
-    {% if event.departments.all.0 %}
-        <div class="tag dashed">
-          {{ event.departments.all.0.department.name }}
-        </div>
-    {% endif %}
-    {% if event.category %}
-        <div class="tag tag--category">
-            {{ event.category }}
-        </div>
-    {% endif %}
+    <h1 class="section-title section-title--uppercase section-title--main"><a href=""><i class="fsl fa fa-angle-left"></i>{% trans "Back to events" %}</a></h1>
+    {% include 'agenda/includes/event_linecard.html' %}
 {% endblock %}
 
 {% block breadcrumb_menu %}
