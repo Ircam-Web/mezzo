@@ -31,6 +31,10 @@ $module: ".event-line-box";
     @include transition(all 0.5s ease-in-out);
     @include margin-bottom(5);
 
+    @include mq($until: sm) {
+        @include margin-bottom(1);
+    }
+
     &:hover {
 
         border: 1px solid rgba($color-main, 1);
@@ -62,8 +66,19 @@ $module: ".event-line-box";
         position: absolute;
         top: 0;
         left: 0;
-        height: 390px;
+        height: 100%;
         width: 100%;
+
+        @include mq($until: sm) {
+            position: static;
+        }
+
+        /*@include mq($until: lg) {
+            height: 312px;
+        }
+        @include mq($until: md) {
+            height: 361px;
+        }*/
 
     }
 
@@ -98,6 +113,11 @@ $module: ".event-line-box";
         right: 1rem;
         @include transform(translateY(-50%));
 
+        @include mq($until: sm) {
+            top: 70px;
+            width: auto;
+        }
+
     }
 
     &__tags {
@@ -125,6 +145,12 @@ $module: ".event-line-box";
         @include transition(all 0.5s ease-in-out);
         width: 10rem;
 
+        @include mq($until: sm) {
+            top: 70px;
+            width: auto;
+            @include padding(0.1 .5 0.1 2);
+        }
+
     }
 
     &__body {
@@ -134,14 +160,21 @@ $module: ".event-line-box";
         left: 12rem;
         @include transform(translateY(-50%));
 
+        @include mq($until: sm) {
+            position: static;
+            @include transform(translateY(0));
+            @include padding(1);
+        }
+
     }
 
     &__title {
 
         font-size: 36px;
-        @include line-height(1.25);
+        @include line-height(1.5);
         @include typeface(sans-serif);
         font-weight: weight(regular);
+        text-transform: uppercase;
 
         color: $color-main;
 
