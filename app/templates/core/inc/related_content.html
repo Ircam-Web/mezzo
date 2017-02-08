@@ -1,10 +1,10 @@
 {% load i18n mezzanine_tags keyword_tags organization_tags pages_tags %}
 {% if dynamic_content.first.content_object %}
     <hr class="mt0 mb0" />
-    <div class="white-bg pb2">
+    <div class="pb2">
         <div class="container">
             <div class="row tac">
-                <div class="col-xs-12">
+                <div class="col-xs-16">
                     <h2 class="dashed dashed--center mt2">{% if object.related_title.title %}{{ object.related_title.title }}{% else %}{% trans "Also discover" %}{% endif %}</h2>
                 </div>
             </div>

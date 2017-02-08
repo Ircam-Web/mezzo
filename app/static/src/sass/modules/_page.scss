@@ -23,6 +23,7 @@ $module: ".page";
 #{$module} {
 
     min-height: 500px;
+    @include margin-top(5);
 
     @include mq($until: sm) {
         min-height: 0;
@@ -134,7 +135,6 @@ $module: ".page";
     &__block {
 
         @include padding-bottom(1);
-        background-color: white;
 
         &--yellow {
 

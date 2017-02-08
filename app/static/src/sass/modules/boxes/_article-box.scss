@@ -25,9 +25,9 @@ $module: ".article-box";
     position: relative;
     display: block;
     @include margin-bottom(1);
-    @include transition(all 0.25s ease-in-out);
+    @include transition(all 0.5s ease-in-out);
 
-    border: 1px solid $color-main;
+    border: 1px solid rgba($color-main, 0.35);
     @include padding(1);
 
     .slider-home & {
@@ -37,6 +37,7 @@ $module: ".article-box";
 
     &:hover {
 
+        border: 1px solid rgba($color-main, 1);
         background: $color-main;
 
         .article-box__image-container {
