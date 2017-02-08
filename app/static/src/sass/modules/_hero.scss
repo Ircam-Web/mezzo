@@ -15,6 +15,17 @@ $module: ".hero";
         margin-bottom: 140px;
     }
 
+    .Background {
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	height: 563px;
+    	width: 100%;
+        @include mq($until: xs) {
+            height: 346px;
+        }
+    }
+
     &:after {
 
         content: '';

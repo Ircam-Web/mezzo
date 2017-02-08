@@ -37,7 +37,7 @@ $module: ".article-box";
 
     &:hover {
 
-        background: white;
+        background: $color-main;
 
         .article-box__image-container {
             background: black;

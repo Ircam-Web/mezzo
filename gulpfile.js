@@ -25,6 +25,11 @@ gulp.task('copy-assets-img', function() {
         .pipe(gulp.dest(destFolder + 'img'));
 });
 
+gulp.task('copy-vendors-js', function() {
+    gulp.src([srcFolder + 'js/vendors/**/*'])
+        .pipe(gulp.dest(destFolder + 'js'));
+});
+
 gulp.task("favicons", function () {
     return gulp.src(srcFolder + "assets/favicon/favicon.png")
         .pipe(favicons({
@@ -132,7 +137,7 @@ gulp.task('serve', ['clean'], function () {
 
 });
 
-gulp.task('default', ['main-js', 'main-css', 'copy-assets-img', 'serve']);
-gulp.task('build', ['main-js', 'main-css', 'copy-assets-img'], function() {
+gulp.task('default', ['main-js', 'main-css', 'copy-assets-img', 'copy-vendors-js', 'serve']);
+gulp.task('build', ['main-js', 'main-css', 'copy-assets-img', 'copy-vendors-js'], function() {
     runSequence(['cssmin', 'jsmin', 'imagemin', 'favicons', 'clean']);
 });
