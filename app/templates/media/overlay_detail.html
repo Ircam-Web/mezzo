@@ -1,0 +1,29 @@
+{{ media.title }}
+{% if media.poster_url %}
+    {{ media.poster_url }}
+{% endif %}
+
+{{ media.publish_date|date:"j F, Y" }}
+
+{% if media.description %}
+    {{ media.description }}
+{% endif %}
+
+<br><br>
+
+{% with media.transcoded.all as media_transcoded %}
+    {% if media_transcoded %}
+        {# WEBM #}
+        {{ media_transcoded.0.url }}
+        {{ media_transcoded.0.mime_type }}
+        <br><br>
+        {# MP4 #}
+        {{ media_transcoded.1.url }}
+        {{ media_transcoded.1.mime_type }}
+        <br><br>
+        {# OGG #}
+        {{ media_transcoded.2.url }}
+        {{ media_transcoded.2.mime_type }}
+    {% endif %}
+{% endwith %}
+<z
