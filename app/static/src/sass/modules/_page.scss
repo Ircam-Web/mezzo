@@ -39,10 +39,8 @@ $module: ".page";
 
     &__slider {
 
-    background: white;
-
-        @include padding-top(3);
-        @include padding-bottom(3);
+        @include padding-top(2);
+        @include padding-bottom(2);
 
         @include mq($until: sm) {
             @include padding-top(1);
