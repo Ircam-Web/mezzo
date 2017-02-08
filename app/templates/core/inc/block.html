@@ -1,6 +1,6 @@
 {% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
 {% if blocks %}
-    <div class="white-bg pb2">
+    <div class="pb2">
         {% if blocks.first %}
         <hr class="mt0" />
         {% endif %}
@@ -12,7 +12,7 @@
                 <div class="page__block{% if block.background_color %} page__block--{{ block.background_color }}{% endif %}">
                     <div class="container">
                         <div class="row" data-summary-content>
-                            <div class="col-sm-9 col-sm-push-3 col-lg-8 col-lg-push-2">
+                            <div class="col-sm-16 col-md-10 col-md-push-3">
                                 {% editable block.title %}
                                     <h2 class="dotted">{{ block.title }}</h2>
                                 {% endeditable %}

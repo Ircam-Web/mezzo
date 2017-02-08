@@ -9,6 +9,7 @@ $module: ".section-title";
     text-align: center;
     color: white;
     display: inline-block;
+    line-height: 1.5em;
 
     @include margin-bottom(4);
     @include margin-top(0);
@@ -31,7 +32,7 @@ $module: ".section-title";
             color: $color-accent;
         }
     }
-    
+
     &--main {
         border-color: $color-main;
         &:before {

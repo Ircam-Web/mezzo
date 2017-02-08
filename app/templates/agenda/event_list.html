@@ -5,7 +5,7 @@
     {% if page %}
         {{ page.title }}
     {% else %}
-        {% trans "Rendez-vous in Paris" %}
+        {% trans "Events" %}
     {% endif %}
 {% endblock %}
 
@@ -33,125 +33,23 @@
     <div class="page page--{% spaceless %}{% block page_class %}{% endblock %}{% endspaceless %}">
         <div class="container">
             <div class="row">
-                <div class="col-sm-9 col-sm-push-3 col-lg-8 col-lg-push-2">
-                    <h1 class="dotted">
-                        {% if tag and tag|tag_is_excluded %}
-                            {% trans "On tour" %}
-                        {% elif is_archive %}
-                            {% trans 'Archives' %}
-                        {% else %}
-                            {{ page.title }}
-                        {% endif %}
-                    </h1>
+                <div class="col-sm-16 col-md-10 col-md-push-3 tac">
+                    <h1 class="section-title section-title--uppercase section-title--main">{% trans "Events" %}</h1>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm-3 col-lg-2 page__sidebar">
-                    <div style="position: relative;" >
-                        {% if tag and not tag|tag_is_excluded or not tag and not is_archive %}
-                        <a class="banner banner--light banner--sidebar hide-until-sm" href="{% url 'event_list_tag' 'tournees' %}" style="background-image:url({% static 'img/services/tours.jpg' %});">
-                            <div class="banner__content">
-                                <div class="banner__title fsxxxl">{% trans "On tour" %} {{ current_season_styled }}
-                                </div>
-                            </div>
-                        </a>
-                        {% endif %}
 
-                        <div class="nav-tree-wrapper" data-sticky data-sticky-parent="row" data-sticky-offset="100" data-sticky-detach-at="971">
-                            {% if not tag and not is_archive %}
-                                {% page_menu "pages/menus/current_tree_event.html" %}
-                            {% else %}
-                                <ul class="nav-tree nav-tree--level-{{ branch_level }}">
-                                    <li class="nav-tree__item">
-                                        <a class="nav-tree__link active" href="{% url 'event_list' %}">
-                                            {% if tag and tag|tag_is_excluded %}
-                                                {% trans "On tour" %}
-                                            {% elif is_archive %}
-                                                {% trans 'Archives' %}
-                                            {% else %}
-                                                {% trans "Rendez-vous in Paris" %}
-                                            {% endif %}
-                                        </a>
-
-                                        <ul class="nav-tree" data-summary>
-                                            <li class="nav-tree__item nav-tree__item--sub hide">
-                                                <a class="nav-tree__link nav-tree__link--sub" href="#"></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    {% if is_archive %}
-                                        <li class="nav-tree__item">
-                                            <a class="nav-tree__link" href="{% url 'event_list' %}">
-                                                {% trans "Rendez-vous in Paris" %}
-                                            </a>
-                                        </li>
-                                    {% endif %}
-
-                                    {% if tag and tag|tag_is_excluded %}
-                                        <li class="nav-tree__item">
-                                            <a class="nav-tree__link" href="{% url 'event_list' %}">
-                                                {% trans "Rendez-vous in Paris" %}
-                                            </a>
-                                        </li>
-                                    {% else %}
-                                        <li class="nav-tree__item">
-                                            <a class="nav-tree__link" href="{% url 'event_list_tag' 'tournees' %}">
-                                                {% trans "On tour" %}
-                                            </a>
-                                        </li>
-                                    {% endif %}
-
-                                    {% if not is_archive %}
-                                        <li class="nav-tree__item">
-                                            <a class="nav-tree__link" href="{% url "event_list_year" current_season %}" title="{% trans 'archive' %}">{% trans 'Archives' %}</a>
-                                        </li>
-                                    {% endif %}
-                                </ul>
-                            {% endif %}
-
-                            {% if tag and not tag|tag_is_excluded or not tag and not is_archive %}
-                                <ul class="nav-tree nav-tree--level-{{ branch_level }}">
-                                {% keywords_for mezzanine_agenda.event as tags %}
-                                    {# {% all_events as all_events %}#}
-                                    {% if tags %}
-                                        {% comment %}
-                                            <a href="{% url 'event_list' %}" class="button{% if not tag %} button--black{% else %} button--white{% endif %}">{% trans "All events" %}</a>
-                                        {% endcomment %}
-                                        {% for t in tags %}
-                                            {% if not t|tag_is_excluded %}
-                                                <li class="nav-tree__item">
-                                                    <a class="nav-tree__link--filter nav-tree__link{% if tag == t %} active{% endif %}" href="{% if tag == t %}{% url 'event_list' %}{% else %}{% url "event_list_tag" t.slug %}{% endif %}">
-                                                        {{ t }} {% if tag == t %}<i class="fa fa-times"></i>{% endif %}
-                                                    </a>
-                                                </li>
-                                            {% endif %}
-                                        {% endfor %}
-                                    {% endif %}
-                                </ul>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb2 col-sm-9 col-lg-10 page__content" data-summary-content>
+                <div class="mb2 col-md-12 col-md-push-2 page__content" data-summary-content>
                     <div class="page__content">
                         <div class="container">
                             {% for event in events.object_list %}
                                 {% include 'agenda/includes/event_linecard.html' %}
                             {% endfor %}
-                            {% if tag and not tag|tag_is_excluded or not tag and not is_archive %}
-                            <a class="banner banner--light banner--sidebar hide-from-sm" href="{% url 'event_list_tag' 'tournees' %}" style="background-image:url({% static 'img/services/tours.jpg' %});">
-                                <div class="banner__content">
-                                    <div class="banner__title fsxxxl">{% trans "On tour" %} {{ current_season_styled }}
-                                    </div>
-                                </div>
-                            </a>
-                            {% endif %}
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

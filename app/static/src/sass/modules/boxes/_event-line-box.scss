@@ -22,23 +22,48 @@ $module: ".event-line-box";
 
 #{$module} {
 
-    &__content {
+    position: relative;
+    display: block;
 
-        &:after {
+    border: 1px solid rgba($color-main, 0.35);
 
-            content: "";
-            display: block;
-            width: 100%;
-            height: 1px;
-            background: rgba(0, 0, 0, 0.25);
+    background: $color-background;
+    @include transition(all 0.5s ease-in-out);
+    @include margin-bottom(5);
 
-            @include margin(1 0 1 0);
+    &:hover {
 
-            @include mq($until: sm) {
-                @include margin(1 0 1 0);
-            }
+        border: 1px solid rgba($color-main, 1);
+        background: black;
+
+        .event-line-box__image {
+
+            -webkit-filter: grayscale(0);
+            filter: grayscale(0);
 
         }
+
+        .event-line-box__category {
+
+            background: $color-main;
+
+        }
+
+        .event-line-box__date {
+
+            color: $color-main;
+
+        }
+
+    }
+
+    &__content {
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 390px;
+        width: 100%;
 
     }
 
@@ -56,7 +81,22 @@ $module: ".event-line-box";
 
     &__image {
 
-        @include fluid-aspect(200 140);
+        @include fluid-aspect(1030 400);
+
+        @include transition(all 0.5s ease-in-out);
+
+        -webkit-filter: grayscale(1);
+        filter: grayscale(1);
+        mix-blend-mode: screen;
+
+    }
+
+    &__button {
+
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        @include transform(translateY(-50%));
 
     }
 
@@ -66,18 +106,50 @@ $module: ".event-line-box";
 
     }
 
-    &__title {
+    &__category {
 
-        @include font-size(xxl);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        background: white;
+        color: $color-background;
+        text-align: right;
+        text-transform: uppercase;
+        @include font-size(s);
         @include line-height(1.25);
         @include typeface(sans-serif);
-        font-weight: weight(bold);
+        font-weight: weight(regular);
 
-        margin-top: 0;
-        @include margin-bottom(1);
+        @include padding(0.1 .5 0.1 .5);
+        @include transform(translateY(-50%));
+        @include transition(all 0.5s ease-in-out);
+        width: 10rem;
+
+    }
+
+    &__body {
+
+        position: absolute;
+        top: 50%;
+        left: 12rem;
+        @include transform(translateY(-50%));
+
+    }
+
+    &__title {
+
+        font-size: 36px;
+        @include line-height(1.25);
+        @include typeface(sans-serif);
+        font-weight: weight(regular);
+
+        color: $color-main;
+
+        margin: 0;
 
         a:not(.button) {
 
+            color: $color-main;
             border: 0;
 
             &:hover {
@@ -88,12 +160,37 @@ $module: ".event-line-box";
 
     }
 
+    &__location {
+
+        @include font-size(s);
+        @include line-height(1.25);
+        @include typeface(sans-serif);
+        font-weight: weight(regular);
+        color: $color-main;
+
+    }
+
+    &__date {
+
+        @include font-size(l);
+        @include line-height(1.25);
+        @include typeface(sans-serif);
+        font-weight: weight(regular);
+        color: white;
+        @include transition(all 0.5s ease-in-out);
+
+        @include margin-top(1);
+
+    }
+
     &__desc {
 
         @include font-size(m);
         @include line-height(1);
         @include typeface(serif);
         font-weight: weight(light);
+
+        color: $color-main;
 
     }
 
