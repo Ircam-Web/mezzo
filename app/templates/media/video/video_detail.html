@@ -15,42 +15,51 @@
     media
 {% endblock %}
 
-
 {% block page_title %}
     {% editable person.title %}
-        <h1 class="dotted">{{ media.title }}</h1>
+        <h1 class="section-title section-title--uppercase section-title--main">{{ media.title }}</h1>
     {% endeditable %}
 {% endblock %}
 
+{% block page_sidebar %}
 
+    <div class="page__meta" data-sticky data-sticky-parent="row" data-sticky-offset="100" data-sticky-detach-at="971">
+        <div class="page__meta-title">
+            {% trans 'Publish date' %}
+        </div>
+        {% editable media.publish_date %}
+            <div class="page__meta-text">
+                {{ media.publish_date|date:"DATE_FORMAT" }}
+            </div>
+        {% endeditable %}
+        <div class="page__meta-separator">
+
+        </div>
+        {% with media as object %}
+            <div class="">
+                {% include "includes/share_buttons.html" %}
+            </div>
+        {% endwith %}
+    </div>
+
+{% endblock %}
 
 {% block page_content %}
-    {{ media.title }}
-    {% if media.poster_url %}
-        {{ media.poster_url }}
-    {% endif %}
-
-    {{ media.publish_date|date:"j F, Y" }}
 
     {% if media.description %}
-        {{ media.description }}
+        <p>
+            {{ media.description }}
+        </p>
     {% endif %}
 
-    <br><br>
+    <div class="embed-responsive">
+        <video controls id="video-js-playlist" class="video-js vjs-ircam-skin" data-title="{{ media.title }}" {% if media.poster_url %}poster="{{ media.poster_url }}"{% endif %}>
+        </video>
+    </div>
+    <ol class="video-playlist">
+        {% spaceless %}
+            <li class="video-playlist__item{% if forloop.first %} playing{% endif %}"><a href="#" data-poster="{{media.poster_url }}" data-src="{% for transcoded in media.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.url }}{% if forloop.last %}{% endif %}{% endfor %}" data-mime="{% for transcoded in media.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.mime_type }}{% if forloop.last %}{% endif %}{% endfor %}"><span>{{ media.title }}</span>{% if media.description %}<small> {{ media.description }}</small>{% endif %}</a></li>
+        {% endspaceless %}
+    </ol>
 
-    {% with media.transcoded.all as media_transcoded %}
-        {% if media_transcoded %}
-            {# WEBM #}
-            {{ media_transcoded.0.url }}
-            {{ media_transcoded.0.mime_type }}
-            <br><br>
-            {# MP4 #}
-            {{ media_transcoded.1.url }}
-            {{ media_transcoded.1.mime_type }}
-            <br><br>
-            {# OGG #}
-            {{ media_transcoded.2.url }}
-            {{ media_transcoded.2.mime_type }}
-        {% endif %}
-    {% endwith %}
 {% endblock %}

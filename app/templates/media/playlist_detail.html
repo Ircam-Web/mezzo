@@ -15,17 +15,9 @@
     playlist
 {% endblock %}
 
-{% block breadcrumb_menu %}
-    {{ block.super }}
-    <li class="breadcrumb__item">
-        <a class="breadcrumb__link" href="{% url 'organization-playlist-list' %}" title="{% trans "Media" %}">{% trans "Media" %}</a>
-    </li>
-    <li class="breadcrumb__item active">{{ playlist.title }}</li>
-{% endblock %}
-
 {% block page_title %}
     {% editable person.title %}
-        <h1 class="dotted">{{ playlist.title }}</h1>
+        <h1 class="section-title section-title--uppercase section-title--main">{{ playlist.title }}</h1>
     {% endeditable %}
 {% endblock %}
 
