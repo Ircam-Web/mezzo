@@ -22,28 +22,10 @@
     {% endif %}
 {% endblock %}
 
-{% block breadcrumb_menu %}
-    {{ block.super }}
-    <li class="breadcrumb__item active">{{ article.title }}</li>
-{% endblock %}
-
-{% block page_tags %}
-
-    {% if department_name %}
-        <div class="tag dashed dashed--gray">
-          {{ department_name }}
-        </div>
-    {% endif %}
-    <div class="tag tag--category">
-        {% trans 'News' %}
-    </div>
-
-{% endblock %}
-
 {% block page_title %}
 
     {% editable article.title %}
-        <h1 class="dotted">{{ article.title }}</h1>
+        <h1 class="section-title section-title--uppercase section-title--main">{{ article.title }}</h1>
     {% endeditable %}
 
     {% if article.sub_title %}
@@ -122,7 +104,9 @@
         {% endif %}
 
         {% with article as object %}
-            {% include "includes/share_buttons.html" %}
+            <div class="mt2">
+                {% include "includes/share_buttons.html" %}
+            </div>
         {% endwith %}
     </div>
 

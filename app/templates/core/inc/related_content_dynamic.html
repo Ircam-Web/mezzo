@@ -1,23 +1,26 @@
 {% load i18n mezzanine_tags keyword_tags organization_tags pages_tags %}
 {% if concrete_objects %}
-    <hr class="mt0 mb0" />
-    <div class="white-bg pb2">
+    <div class="pb2">
         <div class="container">
             <div class="row tac">
-                <div class="col-xs-12">
-                    <h2 class="dashed dashed--center mt2">{% if object.related_title.title %}{{ object.related_title.title }}{% else %}{% trans "Also discover" %}{% endif %}</h2>
+                <div class="col-xs-16">
+                    <h2 class="section-title section-title--underline section-title--uppercase section-title--main">{% if object.related_title.title %}{{ object.related_title.title }}{% else %}{% trans "Also discover" %}{% endif %}</h2>
                 </div>
             </div>
-            <div class="row tac">
-                {% for concrete_object in concrete_objects %}
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
-                        {% with app_label=concrete_object|app_label_short classname=concrete_object|classname|lower object=concrete_object  %}
-                            {% with app_label|add:"/"|add:classname|add:"/includes/"|add:classname|add:"_card.html" as template %}
-                                {% include template %}
-                            {% endwith %}
-                        {% endwith %}
+            <div class="row">
+                <div class="col-md-10 col-md-push-3 col-xxs-16">
+                    <div class="row">
+                        {% for concrete_object in concrete_objects %}
+                            <div class="col-xs-8">
+                                {% with app_label=concrete_object|app_label_short classname=concrete_object|classname|lower object=concrete_object  %}
+                                    {% with app_label|add:"/"|add:classname|add:"/includes/"|add:classname|add:"_card.html" as template %}
+                                        {% include template %}
+                                    {% endwith %}
+                                {% endwith %}
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
+                </div>
             </div>
         </div>
     </div>

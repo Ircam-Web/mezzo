@@ -97,7 +97,7 @@ main p, main ul.unstyled-list, main ul:not([class]), main td {
 		z-index: 1;
 		text-decoration: none;
 		border-bottom: 1px solid $color-main;
-		color: $color-main;
+		color: white;
 		@include transition(all 0.15s ease-in-out);
 
 		&:hover {
