@@ -33,7 +33,12 @@ EXCLUDED_MODELS = ("organizationplaylist", "personplaylist")
 class MediaDetailView(SlugMixin, DetailView):
 
     model = Media
-    template_name='media/media_detail.html'
+    context_object_name = 'media'
+    
+    def get_template_names(self):
+        templates = super(MediaDetailView, self).get_template_names()
+        templates.insert(0,'media/'+self.kwargs['type'].lower()+'/'+self.kwargs['type'].lower()+'_detail.html')
+        return templates
 
 
 class PlaylistDetailView(SlugMixin, DetailView):

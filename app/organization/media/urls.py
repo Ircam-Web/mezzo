@@ -34,7 +34,7 @@ from organization.media.views import *
 
 urlpatterns = [
     url("^video/overlay/(?P<slug>.*)/$", MediaOverlayView.as_view(), name="organization-media-overlay"),
-    url("^media/detail/(?P<slug>.*)/$", MediaDetailView.as_view(), name="organization-media-detail"),
+    url("^(?P<type>.*)/detail/(?P<slug>.*)/$", MediaDetailView.as_view(), name="organization-media-detail"),
     url("^playlist/list/$", PlaylistListView.as_view(), name="organization-playlist-list"),
     url("^playlist/list/(?P<type>.*)$", PlaylistListView.as_view(), name="organization-playlist-list"),
     url("^playlist/detail/(?P<slug>.*)/$", PlaylistDetailView.as_view(), name="organization-playlist-detail"),

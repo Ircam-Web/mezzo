@@ -38,6 +38,7 @@ from organization.network.models import DepartmentPage
 from organization.pages.models import CustomPage, DynamicContentPage
 from organization.core.views import SlugMixin, autocomplete_result_formatting
 from django.template.defaultfilters import slugify
+from itertools import chain
 
 
 class ArticleDetailView(SlugMixin, DetailView):
@@ -177,3 +178,26 @@ class DynamicContentArticleView(Select2QuerySetSequenceView):
     def get_results(self, context):
         results = autocomplete_result_formatting(self, context)
         return results
+
+
+class ArticleListView(SlugMixin, ListView):
+
+    model = Article
+    template_name='magazine/article/article_list.html'
+    context_object_name = 'objects'
+
+    def get_queryset(self):
+        qs = super(ArticleListView, self).get_queryset()
+        qs = qs.filter(status=2)
+        medias = Media.objects.published()
+
+        qs = sorted(
+            chain(qs, medias),
+            key=lambda instance: instance.created,
+            reverse=True)
+
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleListView, self).get_context_data(**kwargs)
+        return context

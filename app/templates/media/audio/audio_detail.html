@@ -1,0 +1,30 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags keyword_tags i18n organization_tags %}
+
+{% block meta_title %}{% trans "Media" %}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for person as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block page_class %}
+    media
+{% endblock %}
+
+
+{% block page_title %}
+    {% editable person.title %}
+        <h1 class="dotted">{{ media.title }}</h1>
+    {% endeditable %}
+{% endblock %}
+
+
+
+{% block page_content %}
+
+
+{% endblock %}

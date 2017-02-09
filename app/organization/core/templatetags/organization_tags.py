@@ -22,6 +22,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 import calendar
+from re import match
 from django.http import QueryDict
 from mezzanine.pages.models import Page
 from mezzanine.blog.models import BlogPost
@@ -29,7 +30,6 @@ from mezzanine.template import Library
 from mezzanine_agenda.models import Event
 from mezzanine.conf import settings
 from random import shuffle
-
 from organization.magazine.models import *
 from organization.projects.models import *
 
@@ -216,3 +216,13 @@ def format_wp(work_packages):
 @register.filter
 def format_percent(percent):
     return str(percent * 100) + ' %'
+
+@register.filter
+def get_media_type(media):
+    mime_type = media.transcoded.first().mime_type
+    media_type = ""
+    if match('video', mime_type):
+        media_type = "Video"
+    elif match('audio', mime_type):
+        media_type = "Audio"
+    return media_type
