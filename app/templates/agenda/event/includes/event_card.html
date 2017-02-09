@@ -66,7 +66,7 @@
         {% for price in object.prices.all %}
             {% if forloop.first %}
                 <div class="article-box__btn">
-                    <object><a href="{% url 'event_booking' content.content_object.slug %}" class="button button--small mr0">{% trans "Reserve" %}</a></object>
+                    <object><a href="{% url 'event_booking' content.content_object.slug %}" class="button button--small button--accent mr0">{% trans "Reserve" %}</a></object>
                 </div>
             {% endif %}
         {% endfor %}
