@@ -30,6 +30,7 @@
 }
 
 #container {
+    margin-top: 57px;
     @include mq($until: sm) {
         margin-top: $header-height-tablet;
     }
