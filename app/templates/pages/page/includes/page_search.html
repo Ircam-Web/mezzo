@@ -10,28 +10,20 @@
 {% block tags %}
     {% with page.get_ascendants|last as top_level_parent %}
         {% if top_level_parent.get_content_model.title %}
-            <div class="event-line-box__tags">
-                <div class="tag tag--small dashed">
-                    {{ top_level_parent.get_content_model.title }}
-                </div>
+            <div class="search-box__tags">
+                {{ top_level_parent.get_content_model.title }}
             </div>
         {% elif page.departmentpage %}
-            <div class="event-line-box__tags">
-                <div class="tag tag--small dashed">
-                    {{ page.departmentpage.title }}
-                </div>
+            <div class="search-box__tags">
+                {{ page.departmentpage.title }}
             </div>
         {% elif page|classname == "Project"  %}
-            <div class="event-line-box__tags">
-                <div class="tag tag--small dashed">
-                    {% trans 'Project' %}
-                </div>
+            <div class="search-box__tags">
+                {% trans 'Project' %}
             </div>
         {% else %}
-            <div class="event-line-box__tags">
-                <div class="tag tag--small dashed dashed--gray">
-                    {% trans 'Page' %}
-                </div>
+            <div class="search-box__tags">
+                {% trans 'Page' %}
             </div>
         {% endif %}
     {% endwith %}

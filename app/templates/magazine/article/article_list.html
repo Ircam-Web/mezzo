@@ -50,16 +50,12 @@
                                 </div>
                             {% endfor %}
                         </div>
-                        <div class="row">
-                            <div class="col-xxs-16">
-                                {% pagination_for objects %}
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {% pagination_for objects %}
 </div>
 
 {% endblock %}

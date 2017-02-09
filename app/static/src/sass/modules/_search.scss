@@ -84,10 +84,11 @@ $module: ".search";
         border: 0;
         outline: none;
         background: none;
-        border-bottom: 1px solid $color-black;
+        border-bottom: 1px solid $color-main;
 
         padding: 1rem 3rem 1rem 0;
         width: 100%;
+        color: white;
 
         @include font-size(xxl);
         @include typeface(serif);
@@ -109,6 +110,8 @@ $module: ".search";
         background: none;
         outline: 0;
         cursor: pointer;
+
+        color: white;
 
         @include font-size(xxl);
 

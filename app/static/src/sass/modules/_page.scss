@@ -349,16 +349,22 @@ $module: ".page";
 
     &--organization {
 
-        margin-top: -327px;
+        margin-top: -80px;
 
         @include mq($until: xs) {
-            margin-top: -123px;
+
         }
 
         .map {
             width: 100%;
-            height: 900px;
+            height: 950px;
         }
+
+    }
+
+    &--search {
+
+        margin-top: 8rem;
 
     }
 

@@ -25,6 +25,7 @@ $module: ".pagination";
     list-style-type: none;
     margin: 0;
     padding: 0;
+    text-align: right;
 
     @include typeface(sans-serif);
 
@@ -49,15 +50,17 @@ $module: ".pagination";
         font-weight: weight(regular);
 
         display: block;
-        background: $color-main;
-        color: $color-black;
+        background: #001B42;
+        color: white;
+
+        border: 1px solid black;
 
         @include padding(.15 .5);
         @include transition(all .25s ease-in-out);
 
         &.active, &:hover {
-            background: $color-black;
-            color: $color-main;
+            background: #002C6B;
+            color: white;
         }
 
     }

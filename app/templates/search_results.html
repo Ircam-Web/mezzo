@@ -8,34 +8,24 @@
 <meta name="robots" content="noindex">
 {% endblock %}
 
-{% block breadcrumb_menu %}
-    <li class="breadcrumb__item">
-        <a href="{% url "home" %}">{% trans "Home" %}</a>
-    </li>
-    <li class="breadcrumb__item active">{% trans "Search Results" %}</li>
-{% endblock %}
-
 {% block main %}
-
-    <div class="page">
+    <div class="page page--search">
         <div class="container">
-
             <div class="row">
-                <div class="col-sm-9 col-sm-push-3 col-lg-9 col-lg-push-2 white-bg mb2">
-
-                    <form action="{% url "search" %}" role="search" class="search-form">
+                <div class="col-sm-16 col-md-10 col-md-push-3 tac">
+                    <form action="{% url "search" %}" role="search" class="search-form mb4">
                         <input class="form-control" placeholder="{% trans "Type something" %}" type="text" name="q" value="{{ request.GET.q }}">
                         <button type="submit">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </button>
                     </form>
-
-
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm-3 col-lg-2 page__sidebar">
+
+                <div class="col-md-3 page__sidebar" style="display: none;">
+
                     <div style="position: relative;">
                         <ul class="nav-tree nav-tree--level-0" data-sticky data-sticky-parent="row" data-sticky-offset="100" data-sticky-detach-at="971">
                             {% for key,value in filter_dict.items %}
@@ -47,42 +37,46 @@
                             {% endfor %}
                         </ul>
                     </div>
+
                 </div>
 
-                <div class="mb2 col-sm-9 col-lg-8 white-bg page__content">
+                <div class="col-md-10 col-md-push-3 page__content" data-summary-content>
+                    <div class="page__content">
+                        {% for result in results.object_list %}
+                            {# result|classname #}
+                            {% if result|classname == 'Event' %}
+                                {% with result as event %}
+                                    {% include 'agenda/includes/event_search.html' %}
+                                {% endwith %}
+                            {% elif result|classname == 'Playlist' %}
+                                {% with result as playlist %}
+                                    {% include 'media/inc/playlist_search.html' %}
+                                {% endwith %}
+                            {% elif result|classname == 'Product' %}
+                                {% with result as product %}
+                                    {% include 'shop/product/includes/product_search.html' %}
+                                {% endwith %}
+                            {% else %}
+                                {% with result as page %}
+                                    {% include 'pages/page/includes/page_search.html' %}
+                                {% endwith %}
+                            {% endif %}
+                        {% endfor %}
+                        <p>
+                            {% if results.paginator.count == 0 %}
+                            {% blocktrans %}No results were found matching your query: {{ query }}{% endblocktrans %}
+                            {% endif %}
+                        </p>
 
-                    {% for result in results.object_list %}
-                        {# result|classname #}
-                        {% if result|classname == 'Event' %}
-                            {% with result as event %}
-                                {% include 'agenda/includes/event_search.html' %}
-                            {% endwith %}
-                        {% elif result|classname == 'Playlist' %}
-                            {% with result as playlist %}
-                                {% include 'media/inc/playlist_search.html' %}
-                            {% endwith %}
-                        {% elif result|classname == 'Product' %}
-                            {% with result as product %}
-                                {% include 'shop/product/includes/product_search.html' %}
-                            {% endwith %}
-                        {% else %}
-                            {% with result as page %}
-                                {% include 'pages/page/includes/page_search.html' %}
-                            {% endwith %}
-                        {% endif %}
-                    {% endfor %}
-                    <p>
-                        {% if results.paginator.count == 0 %}
-                        {% blocktrans %}No results were found matching your query: {{ query }}{% endblocktrans %}
-                        {% endif %}
-                    </p>
+                    </div>
                 </div>
+
             </div>
+
 
         </div>
 
         {% pagination_for results %}
 
     </div>
-
 {% endblock %}

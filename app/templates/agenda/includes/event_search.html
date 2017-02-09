@@ -44,12 +44,15 @@
     {% keywords_for event as tags %}
     {% if event.departments.all.0 or tags %}
         {% if event.departments.all.0 %}
-            <div class="event-line-box__tags">
-                <div class="tag tag--small dashed">
-                  {{ event.departments.all.0.department.name }}
-                </div>
+            <div class="search-box__tags">
+                {{ event.departments.all.0.department.name }}
             </div>
         {% endif %}
+    {% endif %}
+    {% if event.category %}
+        <div class="search-box__tags">
+            {{ event.category|truncatechars:15 }}
+        </div>
     {% endif %}
 {% endblock %}
 
