@@ -7,10 +7,10 @@
 <ul class="tweets">
     {% for tweet in tweets %}
     <li class="tweets__tweet">
-        <div class="col-sm-3">
+        <div class="col-xxs-3">
             <img class="tweets__tweet-image" src="{{ tweet.profile_image_url|cut:"http:" }}" alt="{{ tweet.full_name }}">
         </div>
-        <div class="col-sm-13 tweets__tweet-content">
+        <div class="col-xxs-13 tweets__tweet-content">
             <h4 class="tweets__tweet-author">
                 {{ tweet.full_name }} <a href="http://twitter.com/{{ tweet.user_name }}" title="{{ tweet.full_name }}">@{{ tweet.user_name }}</a>
                 <span>{% blocktrans with sometime=tweet.created_at|timesince %}{{ sometime }} ago{% endblocktrans %}</span>
