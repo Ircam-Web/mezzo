@@ -50,4 +50,16 @@ $module: ".share-links";
 
     }
 
+    .overlay & {
+
+        #{$module}__item {
+
+            display: inline-block;
+            @include margin-right(.25);
+            font-size: 1.3rem;
+
+        }
+
+    }
+
 }

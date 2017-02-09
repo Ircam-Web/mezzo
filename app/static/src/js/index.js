@@ -18,6 +18,7 @@ var LazyLoadInit = require('./modules/lazyload-init');
 var HomeMenu = require('./modules/home-menu');
 var Audio = require('./modules/audio');
 var Video = require('./modules/video');
+var VideoOverlay = require('./modules/video-overlay');
 
 //
 // Init all the modules
@@ -38,4 +39,5 @@ window[LightSliderNetworkInit] = new LightSliderNetworkInit();
 window[LazyLoadInit] = new LazyLoadInit();
 window[HomeMenu] = new HomeMenu();
 window[Audio] = new Audio();
-window[Video] = new Video();
+window['Video'] = new Video();
+window[VideoOverlay] = new VideoOverlay();

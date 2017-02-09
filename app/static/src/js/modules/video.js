@@ -15,6 +15,10 @@ Video.prototype.init = function() {
 
     var that = this;
 
+    if(that.player) {
+        that.player.dispose();
+    }
+
     that.player = videojs('video-js-playlist', {
         aspectRatio:"905:520"
     });

@@ -1,28 +1,59 @@
-{{ media.title }}
-{% if media.poster_url %}
-    {{ media.poster_url }}
-{% endif %}
+{% load mezzanine_tags keyword_tags i18n organization_tags %}
 
-{{ media.publish_date|date:"j F, Y" }}
+<div class="container">
 
-{% if media.description %}
-    {{ media.description }}
-{% endif %}
+    <div class="row">
 
-<br><br>
+        <div class="mb1 col-md-10 col-md-push-3 page__content" data-summary-content>
 
-{% with media.transcoded.all as media_transcoded %}
-    {% if media_transcoded %}
-        {# WEBM #}
-        {{ media_transcoded.0.url }}
-        {{ media_transcoded.0.mime_type }}
-        <br><br>
-        {# MP4 #}
-        {{ media_transcoded.1.url }}
-        {{ media_transcoded.1.mime_type }}
-        <br><br>
-        {# OGG #}
-        {{ media_transcoded.2.url }}
-        {{ media_transcoded.2.mime_type }}
-    {% endif %}
-{% endwith %}
+            <div class="embed-responsive">
+                <video controls id="video-js-playlist" class="video-js vjs-ircam-skin" data-title="{{ media.title }}" {% if media.poster_url %}poster="{{ media.poster_url }}"{% endif %}>
+                </video>
+            </div>
+            <ol class="video-playlist">
+                {% spaceless %}
+                    <li class="video-playlist__item{% if forloop.first %} playing{% endif %}"><a href="#" data-poster="{{media.poster_url }}" data-src="{% for transcoded in media.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.url }}{% if forloop.last %}{% endif %}{% endfor %}" data-mime="{% for transcoded in media.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.mime_type }}{% if forloop.last %}{% endif %}{% endfor %}"><span>{{ media.title }}</span>{% if media.description %}<small> {{ media.description }}</small>{% endif %}</a></li>
+                {% endspaceless %}
+            </ol>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3 page__sidebar">
+            <div style="position: relative;">
+                <div class="page__meta" data-sticky data-sticky-parent="row" data-sticky-offset="100" data-sticky-detach-at="971">
+                    <div class="page__meta-title">
+                        {% trans 'Publish date' %}
+                    </div>
+                    {% editable media.publish_date %}
+                        <div class="page__meta-text">
+                            {{ media.publish_date|date:"DATE_FORMAT" }}
+                        </div>
+                    {% endeditable %}
+
+                    {% with media as object %}
+                        <div class="mt1">
+                            {% include "includes/share_buttons.html" %}
+                        </div>
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-16 col-md-10 page__content" data-summary-content>
+
+            <h2 class="mt0">{{ media.title }}</h2>
+            {% if media.description %}
+                <p>
+                    {{ media.description }}
+                </p>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
