@@ -33,7 +33,7 @@
                         </li>
                     {% else %}
                         <li class="nav-header__item">
-                            <a class="nav-header__item-link" href="{{ page.get_absolute_url }}"{% if 'http' in page.link.slug %} target="_blank"{% endif %} title="{{ page.title }}">{{ page.title }}</a>
+                            <a class="nav-header__item-link{% if page.is_current_or_ascendant %} active{% endif %}" href="{{ page.get_absolute_url }}"{% if 'http' in page.link.slug %} target="_blank"{% endif %} title="{{ page.title }}">{{ page.title }}</a>
                         </li>
                     {% endif %}
                 {% endwith %}
