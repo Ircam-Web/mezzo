@@ -29,10 +29,6 @@
     }
 }
 
-.section {
-    @include margin-top(5);
-}
-
 #container {
     @include mq($until: sm) {
         margin-top: $header-height-tablet;

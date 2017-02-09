@@ -12,7 +12,7 @@ $module: ".section-title";
     line-height: 1.5em;
 
     @include margin-bottom(4);
-    @include margin-top(0);
+    @include margin-top(5);
 
     i {
         display: inline-block;
