@@ -23,7 +23,6 @@ $module: ".page";
 #{$module} {
 
     min-height: 500px;
-    @include margin-top(3);
 
     @include mq($until: sm) {
         min-height: 0;
@@ -130,19 +129,35 @@ $module: ".page";
 
     }
 
+    &__block-title {
+        text-align: left;
+    }
+
     &__block {
 
         @include padding-bottom(1);
 
+        h2:first-child {
+            @include font-size(l);
+            @include line-height(1);
+            @include typeface(serif);
+            font-weight: weight(bold);
+        }
+
         &--yellow {
+
+            #{$module}__block-title {
+                text-align: center;
+            }
 
             background-color: $color-main;
             @include padding-top(2);
             @include padding-bottom(2);
             @include margin(2 0 0 0);
+            color: $color-background;
 
             h2:first-child {
-                margin-top: 0;
+
             }
 
             & + hr {
@@ -158,16 +173,58 @@ $module: ".page";
         		position: relative;
         		z-index: 1;
         		text-decoration: none;
-                border-color: $color-black;
-                border-bottom: 1px solid $color-black;
+                border-color: $color-background;
+                border-bottom: 1px solid $color-background;
+                color: $color-background;
                 @include transition(all 0.15s ease-in-out);
 
                 &:hover {
-                    box-shadow: inset 0 -30px $color-black;
+                    box-shadow: inset 0 -30px $color-background;
                     color: $color-main;
                 }
 
         	}
+
+        }
+
+        &--white {
+
+            background-color: white;
+            color: $color-background;
+            @include padding-top(2);
+            @include padding-bottom(2);
+            @include margin(2 0 0 0);
+
+            #{$module}__block-title {
+                text-align: center;
+            }
+
+            a:not(.button) {
+
+                color: $color-background;
+        		position: relative;
+        		z-index: 1;
+        		text-decoration: none;
+                border-color: $color-background;
+
+                &:hover {
+                    box-shadow: none;
+                    color: $color-background;
+                }
+
+        	}
+
+            h2:first-child {
+
+            }
+
+            & + hr {
+                margin-top: 1px;
+            }
+
+            & + .page__block {
+                @include margin-top(2);
+            }
 
         }
 
@@ -178,6 +235,10 @@ $module: ".page";
             @include padding-top(2);
             @include padding-bottom(2);
             @include margin(2 0 0 0);
+
+            #{$module}__block-title {
+                text-align: center;
+            }
 
             a:not(.button) {
 
@@ -195,7 +256,7 @@ $module: ".page";
         	}
 
             h2:first-child {
-                margin-top: 0;
+
             }
 
             & + hr {
@@ -216,8 +277,35 @@ $module: ".page";
             @include padding-bottom(2);
             @include margin(2 0);
 
+            #{$module}__block-title {
+                text-align: center;
+            }
+
+            a:not(.button) {
+
+                color: white;
+        		position: relative;
+        		z-index: 1;
+        		text-decoration: none;
+                border-color: white;
+
+                &:hover {
+                    box-shadow: none;
+                    color: white;
+                }
+
+        	}
+
             h2:first-child {
-                margin-top: 0;
+
+            }
+
+            & + hr {
+                margin-top: 1px;
+            }
+
+            & + .page__block {
+                @include margin-top(2);
             }
 
         }

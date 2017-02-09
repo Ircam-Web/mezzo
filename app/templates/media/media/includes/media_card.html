@@ -1,20 +1,26 @@
 {% load mezzanine_tags keyword_tags i18n organization_tags staticfiles %}
 
 <div class="">
-    <a class="media-box" href="{% url 'organization-media-detail' object|get_media_type|lower object.slug %}">
-        <figure class="media-box__image media-box__image--video">
-            {% if object.poster_url %}
-                <img src="{{ object.poster_url }}">
-            {% else %}
-                <img src="{% static "img/placeholder-media.png" %}">
+    <a class="media-box media-box--{{object|get_media_type|lower}}" href="{% url 'organization-media-detail' object|get_media_type|lower object.slug %}">
+        <div class="media-box__image-container">
+            <figure class="media-box__image media-box__image--video">
+                {% if object.poster_url %}
+                    <img src="{{ object.poster_url }}">
+                {% else %}
+                    <div class="media-box__placeholder"></div>
+                {% endif %}
+            </figure>
+        </div>
+        <div class="media-box__content">
+            <h2 class="media-box__title">{{ object.title }}</h2>
+            <div class="media-box__type">
+                {{ object|get_media_type }}
+            </div>
+            {% if object.description %}
+                <div class="media-box__desc">
+                    {{ object.description|richtext_filters|safe|truncatechars_html:200 }}
+                </div>
             {% endif %}
-        </figure>
-
-        {{ object|get_media_type }}
-
-        <h2 class="media-box__title">{{ object.title }}</h2>
-        <div class="media-box__desc">
-            {{ object.description|richtext_filters|safe|truncatechars_html:200 }}
         </div>
     </a>
 </div>

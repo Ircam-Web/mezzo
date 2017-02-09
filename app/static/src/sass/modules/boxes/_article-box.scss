@@ -159,24 +159,6 @@ $module: ".article-box";
             height: auto;
         }
 
-        /*&:after {
-
-            @include mq($until: xs) {
-                display: none;
-            }
-
-            content: "";
-            display: block;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background-color: rgba(255,255,255,0);
-            @include filter-gradient(#ffffff, #ffffff, vertical);
-            @include background-image(linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%));
-        }*/
-
         .slider-home & {
             @include padding(0);
         }
@@ -261,8 +243,8 @@ $module: ".article-box";
 
         @include margin-top(2);
         position: relative;
-
-
+        border: 0;
+        @include padding(0);
 
         &:after {
 
@@ -270,7 +252,7 @@ $module: ".article-box";
             display: block;
             height: 1px;
             width: 100%;
-            background: #979797;
+            background: $color-main;
             position: absolute;
             bottom: -24px;
             left: 0;
@@ -319,11 +301,22 @@ $module: ".article-box";
                 left: 0;
                 right: 0;
                 height: 100px;
-                background-color: rgba(255,255,255,0);
-                @include filter-gradient(#ffffff, #ffffff, vertical);
-                @include background-image(linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%));
+                background-color: rgba($color-background, 0);
+                @include filter-gradient(rgba($color-background, 1), rgba($color-background, 1), vertical);
+                @include background-image(linear-gradient(top, rgba($color-background, 0) 0%, rgba($color-background, 1) 50%));
             }
 
+        }
+
+        &:hover {
+            border: 0;
+            background-color: $color-background;
+            #{$module}__title {
+                color: $color-main;
+            }
+            #{$module}__desc {
+                color: white;
+            }
         }
 
     }

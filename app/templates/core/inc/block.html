@@ -1,9 +1,6 @@
 {% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
 {% if blocks %}
     <div class="pb2">
-        {% if blocks.first %}
-        <hr class="mt0" />
-        {% endif %}
         {% for block in blocks %}
             {% if block.content %}
                 {% if not forloop.first and block.with_separator %}
@@ -14,7 +11,9 @@
                         <div class="row" data-summary-content>
                             <div class="col-sm-16 col-md-10 col-md-push-3">
                                 {% editable block.title %}
-                                    <h2 class="dotted">{{ block.title }}</h2>
+                                    <div class="page__block-title">
+                                        <h2 class="">{{ block.title }}</h2>
+                                    </div>
                                 {% endeditable %}
                                 {% if block.description %}
                                     <div class="chapo">

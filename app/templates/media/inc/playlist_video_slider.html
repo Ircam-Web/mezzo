@@ -7,7 +7,9 @@
             <div class="row">
                 <div class="col-sm-16 col-md-10 col-md-push-3">
                     {% if playlist.title %}
-                        <h3 class="mt0">{{playlist.title}}</h3>
+                        <div class="tac">
+                            <h3 class="section-title section-title--uppercase section-title--main section-title--underline">{{playlist.title}}</h3>
+                        </div>
                     {% endif %}
                     {% if playlist.description %}
                         <p>

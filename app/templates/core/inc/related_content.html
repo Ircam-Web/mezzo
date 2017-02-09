@@ -1,25 +1,28 @@
 {% load i18n mezzanine_tags keyword_tags organization_tags pages_tags %}
 {% if dynamic_content.first.content_object %}
-    <hr class="mt0 mb0" />
     <div class="pb2">
         <div class="container">
             <div class="row tac">
                 <div class="col-xs-16">
-                    <h2 class="dashed dashed--center mt2">{% if object.related_title.title %}{{ object.related_title.title }}{% else %}{% trans "Also discover" %}{% endif %}</h2>
+                    <h2 class="section-title section-title--underline section-title--uppercase section-title--main">{% if object.related_title.title %}{{ object.related_title.title }}{% else %}{% trans "Also discover" %}{% endif %}</h2>
                 </div>
             </div>
-            <div class="row tac">
-                {% for content in dynamic_content %}
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
-                        {% if content.content_type.model == "article" %}
-                            {% include "magazine/article/includes/article_card.html" with object=content.content_object  %}
-                        {% elif content.content_type.model == "event" %}
-                            {% include "agenda/event/includes/event_card.html" with object=content.content_object %}
-                        {% elif content.content_type.model == "custompage" %}
-                            {% include "pages/page/includes/page_card.html" with object=content.content_object %}
-                        {% endif %}
+            <div class="row">
+                <div class="col-md-10 col-md-push-3 col-xxs-16">
+                    <div class="row">
+                        {% for content in dynamic_content %}
+                            <div class="col-xs-8">
+                                {% if content.content_type.model == "article" %}
+                                    {% include "magazine/article/includes/article_card.html" with object=content.content_object  %}
+                                {% elif content.content_type.model == "event" %}
+                                    {% include "agenda/event/includes/event_card.html" with object=content.content_object %}
+                                {% elif content.content_type.model == "custompage" %}
+                                    {% include "pages/page/includes/page_card.html" with object=content.content_object %}
+                                {% endif %}
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
+                </div>
             </div>
         </div>
     </div>

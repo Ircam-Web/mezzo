@@ -24,76 +24,117 @@ $module: ".media-box";
 
     position: relative;
     display: block;
-    @include margin-bottom(2);
-    @include padding-bottom(.5);
-    @include transition(all 0.25s ease-in-out);
+    @include margin-bottom(1);
+    @include transition(all 0.5s ease-in-out);
+
+    border: 1px solid rgba($color-main, 0.35);
+    @include padding(1);
 
     &:hover {
-        box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.17);
+
+        border: 1px solid rgba($color-main, 1);
+        background: $color-main;
+
+        .media-box__image-container {
+            background: black;
+        }
+
         .media-box__image {
 
             img {
-                @include transform(scale(1.1));
+                -webkit-filter: grayscale(0);
+                filter: grayscale(0);
             }
 
-            &:after {
-                background: $color-black;
-                color: white;
-            }
+        }
+
+        .media-box__title {
+            color: $color-background;
+        }
+        .media-box__type {
+            color: $color-background;
+        }
+        .media-box__subtitle {
+            color: $color-background;
+        }
+        .media-box__desc {
+            color: $color-background;
+        }
+    }
+
+    &__image-container {
+        background: $color-background;
+        @include transition(all 0.5s ease-in-out);
+    }
+
+    &__placeholder {
+
+        background: $color-main;
+
+    }
+
+    &__content {
+        @include padding(.25 .25 .25 .25);
+
+        position: relative;
+        overflow: hidden;
+
+        @include mq($until: xs) {
+            height: auto;
+        }
+
+        .slider-home & {
+            @include padding(0);
         }
     }
 
     &__image {
-
-        @include fluid-aspect(320 190);
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        position: relative;
         overflow: hidden;
 
+        @include fluid-aspect(427 286);
+
         img {
-            @include transition(all 0.3s ease-in-out);
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+
+            @include transition(all 0.5s ease-in-out);
+
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+            mix-blend-mode: screen;
         }
 
         &:after {
-            @include transition(all 0.5s ease-in-out);
-
-            font-family: FontAwesome;
-            display: block;
             content: "\f04b";
-            background: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50px;
-
-            font-size: 25px;
-
+            text-indent: 0px;
+            color: white;
+            font-family: FontAwesome;
+            font-size: 50px;
             position: absolute;
             top: 50%;
             left: 50%;
-            margin-top: -25px;
-            margin-left: -25px;
 
-            line-height: 50px;
-            text-align: center;
-            text-indent: 3px;
-
-        }
-
-        &--audio {
-            &:after {
-                content: "\f028";
-                text-indent: 0px;
-            }
+            @include transform(translateX(-50%) translateY(-50%));
         }
 
     }
 
     &__type {
 
-        @include font-size(m);
+        text-transform: uppercase;
+        @include font-size(s);
         @include line-height(1.25);
         @include typeface(sans-serif);
-        @include margin(.25 0 0 0);
-
-        @include padding(0 .25);
+        @include margin(0 0 0 0);
+        font-weight: weight(regular);
+        color: $color-main;
+        @include transition(color 0.5s ease-in-out);
 
     }
 
@@ -102,9 +143,10 @@ $module: ".media-box";
         @include font-size(xl);
         @include line-height(1.25);
         @include typeface(sans-serif);
-        @include margin(0 0 .25 0);
-
-        @include padding(0 .25);
+        @include margin(.5 0 0 0);
+        font-weight: weight(bold);
+        color: $color-main;
+        @include transition(color 0.5s ease-in-out);
 
     }
 
@@ -115,8 +157,8 @@ $module: ".media-box";
         @include typeface(serif);
         @include margin(1 0 .25 0);
         font-weight: weight(light);
-
-        @include padding(0 .25);
+        color: white;
+        @include transition(color 0.5s ease-in-out);
 
     }
 

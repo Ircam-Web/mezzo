@@ -1,16 +1,18 @@
 {% load organization_tags mezzanine_tags i18n %}
 {% if person_list_block.title %}
 
-    <div class="white-bg pb2">
+    <div class="pb2">
 
-        <hr class="mt0" />
         <div class="container">
 
             <div class="row">
 
-                <div class="col-sm-9 col-sm-push-3 col-lg-8 col-lg-push-2" data-summary-content>
+                <div class="col-xxs-16 col-md-10 col-md-push-3" data-summary-content>
 
-                    <h2 class="dotted">{{ person_list_block.title }}</h2>
+                    <div class="tac">
+                        <h2 class="section-title section-title--uppercase section-title--main section-title--underline">{{ person_list_block.title }}</h2>
+                    </div>
+
                     {% if person_list_block.description %}
                         <p>{{ person_list_block.description }}</p>
                     {% endif %}
@@ -25,7 +27,7 @@
 
             <div class="row">
 
-                <div class="col-sm-9 col-sm-push-3 col-lg-8 col-lg-push-2">
+                <div class="col-xxs-16 col-md-10 col-md-push-3" data-summary-content>
 
                     {% for person_list_block_inline in person_list_block.person_list_block_inlines.all %}
                         {% with person_list_block_inline.person as person %}

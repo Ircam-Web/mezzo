@@ -128,4 +128,30 @@ $module: ".hero";
 
     }
 
+    &--small {
+
+        @include margin-bottom(4);
+        @include mq($until: xs) {
+            @include margin-bottom(4);
+        }
+
+        &:after {
+            display: none;
+        }
+
+        #{$module}__logo {
+
+            @include margin-top(15);
+            text-align: center;
+            @include mq($until: xs) {
+                @include margin-top(8);
+                img {
+                    width: 159px;
+                }
+            }
+
+        }
+
+    }
+
 }
