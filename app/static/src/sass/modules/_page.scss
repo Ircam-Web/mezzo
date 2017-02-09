@@ -126,13 +126,13 @@ $module: ".page";
 
     hr + #{$module}__block--yellow {
 
-        @include margin-top(-2);
+        //@include margin-top(-2);
 
     }
 
     hr + #{$module}__block--black {
 
-        @include margin-top(-2);
+        //@include margin-top(-2);
 
     }
 
@@ -153,6 +153,26 @@ $module: ".page";
 
         &--yellow {
 
+            position: relative;
+            &:before {
+        		content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba($color-main, 0.5);
+        		width: 100%;
+        		top: -4px;
+        		position: absolute;
+        	}
+            &:after {
+                content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba($color-main, 0.5);
+        		width: 100%;
+        		bottom: -4px;
+        		position: absolute;
+            }
+
             #{$module}__block-title {
                 text-align: center;
             }
@@ -168,11 +188,11 @@ $module: ".page";
             }
 
             & + hr {
-                margin-top: 1px;
+                //margin-top: 1px;
             }
 
             & + .page__block {
-                @include margin-top(2);
+                //@include margin-top(2);
             }
 
             a:not(.button) {
@@ -202,6 +222,26 @@ $module: ".page";
             @include padding-bottom(2);
             @include margin(2 0 0 0);
 
+            position: relative;
+            &:before {
+        		content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba($color-main, 0.5);
+        		width: 100%;
+        		top: -4px;
+        		position: absolute;
+        	}
+            &:after {
+                content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba($color-main, 0.5);
+        		width: 100%;
+        		bottom: -4px;
+        		position: absolute;
+            }
+
             #{$module}__block-title {
                 text-align: center;
             }
@@ -226,11 +266,11 @@ $module: ".page";
             }
 
             & + hr {
-                margin-top: 1px;
+                //margin-top: 1px;
             }
 
             & + .page__block {
-                @include margin-top(2);
+                //@include margin-top(2);
             }
 
         }
@@ -242,6 +282,26 @@ $module: ".page";
             @include padding-top(2);
             @include padding-bottom(2);
             @include margin(2 0 0 0);
+
+            position: relative;
+            &:before {
+        		content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba(255, 255, 255, 0.5);
+        		width: 100%;
+        		top: -4px;
+        		position: absolute;
+        	}
+            &:after {
+                content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba(255, 255, 255, 0.5);
+        		width: 100%;
+        		bottom: -4px;
+        		position: absolute;
+            }
 
             #{$module}__block-title {
                 text-align: center;
@@ -267,11 +327,11 @@ $module: ".page";
             }
 
             & + hr {
-                margin-top: 1px;
+                //margin-top: 1px;
             }
 
             & + .page__block {
-                @include margin-top(2);
+                //@include margin-top(2);
             }
 
         }
@@ -283,6 +343,26 @@ $module: ".page";
             @include padding-top(2);
             @include padding-bottom(2);
             @include margin(2 0);
+
+            position: relative;
+            &:before {
+        		content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba(255, 255, 255, 0.5);
+        		width: 100%;
+        		top: -4px;
+        		position: absolute;
+        	}
+            &:after {
+                content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba(255, 255, 255, 0.5);
+        		width: 100%;
+        		bottom: -4px;
+        		position: absolute;
+            }
 
             #{$module}__block-title {
                 text-align: center;
@@ -308,11 +388,11 @@ $module: ".page";
             }
 
             & + hr {
-                margin-top: 1px;
+                //margin-top: 1px;
             }
 
             & + .page__block {
-                @include margin-top(2);
+                //@include margin-top(2);
             }
 
         }

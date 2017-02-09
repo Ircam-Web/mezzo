@@ -3,7 +3,7 @@
     <div class="pb2">
         {% for block in blocks %}
             {% if block.content %}
-                {% if not forloop.first and block.with_separator %}
+                {% if block.with_separator %}
                     <hr />
                 {% endif %}
                 <div class="page__block{% if block.background_color %} page__block--{{ block.background_color }}{% endif %}">
