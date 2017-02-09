@@ -35,6 +35,28 @@ $module: ".event-line-box";
         @include margin-bottom(1);
     }
 
+    &:after {
+
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Rectangle 3: */
+        background-image: -webkit-linear-gradient(right, rgba(0,15,36,0.00) 0%, rgba(0,15,36,0.90) 99%);
+        background-image: -o-linear-gradient(right, rgba(0,15,36,0.00) 0%, rgba(0,15,36,0.90) 99%);
+        background-image: linear-gradient(to left, rgba(0,15,36,0.00) 0%, rgba(0,15,36,0.90) 99%);
+
+        z-index: 1;
+
+        @include mq($until: sm) {
+            display: none;
+        }
+
+    }
+
     &:hover {
 
         border: 1px solid rgba($color-main, 1);
@@ -69,6 +91,7 @@ $module: ".event-line-box";
         height: 100%;
         width: 100%;
         text-align: left;
+        z-index: 2;
 
         @include mq($until: sm) {
             position: static;
