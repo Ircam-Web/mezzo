@@ -36,8 +36,6 @@ db:
   image: postgres:9.5
   volumes_from:
     - var
-  volumes:
-    - ./var/lib/postgresql/data:/var/lib/postgresql/data
   environment:
     - POSTGRES_PASSWORD=noodFof2Kna
 
