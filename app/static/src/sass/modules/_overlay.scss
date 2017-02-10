@@ -107,4 +107,34 @@ $module: ".overlay";
 
     }
 
+    &__loader {
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        margin-left: -30px;
+        margin-top: -30px;
+
+        .loading {
+
+            height: 60px;
+            width: 60px;
+            display: block;
+            animation: rotation 1s infinite linear;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-top-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            margin: auto;
+
+        }
+
+    }
+
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
 }

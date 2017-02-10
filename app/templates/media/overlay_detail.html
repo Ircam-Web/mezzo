@@ -36,7 +36,17 @@
 
                     {% with media as object %}
                         <div class="mt1">
-                            {% include "includes/share_buttons.html" %}
+                            <ul class="share-links">
+                                <li class="share-links__item share-links__item--facebook">
+                                    <a target="_blank" href="http://facebook.com/sharer.php?u={{ request.META.HTTP_HOST }}{{ request.scheme }}{{ '://'|urlencode }}{% url 'organization-media-detail' object|get_media_type|lower object.slug %}&amp;t={{ object.title|urlencode }}" title="{% trans "Share on Facebook" %}"><i class="fa fa-facebook-square"></i></a>
+                                </li>
+                                <li class="share-links__item share-links__item--twitter">
+                                    <a target="_blank" href="http://twitter.com/home?status={{ object.title|urlencode }}%20{{ request.scheme }}{{ '://'|urlencode }}{{ request.META.HTTP_HOST }}{% url 'organization-media-detail' object|get_media_type|lower object.slug %}" title="{% trans "Share on Twitter" %}"><i class="fa fa-twitter-square"></i></a>
+                                </li>
+                                <li class="share-links__item share-links__item--email">
+                                    <a href="mailto:?subject={{ object.title }}&amp;body={{ request.scheme }}{{ '://'|urlencode }}{{ request.META.HTTP_HOST }}{% url 'organization-media-detail' object|get_media_type|lower object.slug %}" title="{% trans "Share by email" %}"> <i class="fa fa-envelope-square"></i></a>
+                                </li>
+                            </ul>
                         </div>
                     {% endwith %}
                 </div>

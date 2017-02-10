@@ -2,6 +2,8 @@ var VideoOverlay = function() {
 
     this.$overlay = $('#overlay');
     this.$overlayContent = $('#overlayContent');
+    this.$overlayClose = $('#overlayClose');
+    this.$overlayLoader = $('#overlayLoader');
 
     //
     // Init
@@ -14,9 +16,30 @@ VideoOverlay.prototype.init = function() {
 
     var that = this;
 
+    $(document).keyup(function(e) {
+
+        if(e.keyCode === 27) {
+
+            that.closeOverlay();
+
+        }
+
+    });
+
+    that.$overlayClose.bind('click', function(e) {
+
+        e.preventDefault();
+
+        that.closeOverlay();
+
+        return false;
+
+    });
+
     $('[data-video-overlay]').click(function(e) {
         e.preventDefault();
 
+        that.$overlayLoader.show();
         that.openOverlay(this.href);
 
         return false;
@@ -34,10 +57,23 @@ VideoOverlay.prototype.openOverlay = function(url) {
 
         window['Video'].init();
         setTimeout(function() {
+            that.$overlayLoader.hide();
             that.$overlayContent.addClass('loaded');
         }, 2000);
 
     });
+
+};
+
+VideoOverlay.prototype.closeOverlay = function(url) {
+
+    var that = this;
+
+    that.$overlayContent.removeClass('loaded');
+    setTimeout(function() {
+        that.$overlayContent.html('');
+        that.$overlay.removeClass('open');
+    }, 1000);
 
 };
 
