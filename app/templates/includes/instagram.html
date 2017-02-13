@@ -1,0 +1,14 @@
+{% load instagram_client %}
+
+{% instagram_user_recent_media ircam_paris %}
+
+<div id="django_recent_media_wall">
+    {% for media in recent_media|slice:"3" %}
+        <div class="django_instagram_media_wall_item">
+            <a href="{{ media.display_src }}" target="_blank" title="{{ media.caption }}">
+                <img src="{{ media.thumbnail_src }}"/>
+                <span>{{ media.caption }}</span>
+            </a>
+        </div>
+    {% endfor %}
+</div>
