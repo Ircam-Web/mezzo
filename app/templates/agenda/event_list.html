@@ -33,14 +33,18 @@
                     <h1 class="section-title section-title--uppercase section-title--main">{% trans "Events" %}</h1>
                 </div>
             </div>
-
             <div class="row">
-
+                {% now "c" as todays_date %}
                 <div class="mb2 col-md-12 col-md-push-2 page__content" data-summary-content>
                     <div class="page__content">
                         <div class="container">
                             {% for event in events.object_list %}
-                                {% include 'agenda/includes/event_linecard.html' %}
+                                {% if event.start|date:"c" > todays_date %}
+                                    {% include 'agenda/includes/event_linecard.html' %}
+                                {% else %}
+                                    <h2>{% trans "Past Events" %}</h2>
+                                    {% include 'agenda/includes/event_linecard.html' %}
+                                {% endif %}
                             {% endfor %}
                         </div>
                     </div>
