@@ -81,3 +81,7 @@
         {% endif %}
     {% endwith %}
 {% endblock %}
+
+{% block page_related_content %}
+    {% include "core/inc/related_content_dynamic.html" with concrete_objects=related_content %}
+{% endblock %}
