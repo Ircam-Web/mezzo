@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+from datetime import datetime
 from django.views.generic.base import TemplateView
 from mezzanine.conf import settings
 from dal import autocomplete
@@ -26,7 +27,9 @@ from dal_select2_queryset_sequence.views import Select2QuerySetSequenceView
 from organization.magazine.models import Article
 from organization.pages.models import CustomPage
 from mezzanine_agenda.models import Event
+from mezzanine_agenda.views import EventListView
 from organization.core.views import autocomplete_result_formatting
+from django.db.models import Q
 
 
 class ConfirmationView(TemplateView):
@@ -66,3 +69,17 @@ class DynamicContentEventView(Select2QuerySetSequenceView):
     def get_results(self, context):
         results = autocomplete_result_formatting(self, context)
         return results
+
+
+class CustomEventListView(EventListView):
+    past_events = []
+
+    def get_queryset(self, tag=None):
+        qs = super(CustomEventListView, self).get_queryset(tag=None)
+        self.past_events = Event.objects.filter(Q(start__lt=datetime.now()) | Q(end__lt=datetime.now())).order_by("start")
+        return qs
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(CustomEventListView, self).get_context_data(**kwargs)
+        context['past_events'] = self.past_events
+        return context
