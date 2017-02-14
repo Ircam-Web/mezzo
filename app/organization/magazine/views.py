@@ -34,7 +34,7 @@ from mezzanine_agenda.models import Event
 from mezzanine.utils.views import paginate
 from mezzanine.conf import settings
 from organization.magazine.models import *
-from organization.network.models import DepartmentPage
+from organization.network.models import DepartmentPage, Person
 from organization.pages.models import CustomPage, DynamicContentPage
 from organization.core.views import SlugMixin, autocomplete_result_formatting
 from django.template.defaultfilters import slugify
@@ -157,13 +157,15 @@ class DynamicContentArticleView(Select2QuerySetSequenceView):
         articles = Article.objects.all()
         events = Event.objects.all()
         pages = CustomPage.objects.all()
+        persons = Person.objects.published()
 
         if self.q:
             articles = articles.filter(title__icontains=self.q)
             events = events.filter(title__icontains=self.q)
             pages = pages.filter(title__icontains=self.q)
+            persons = persons.filter(title__icontains=self.q)
 
-        qs = autocomplete.QuerySetSequence(articles, events, pages)
+        qs = autocomplete.QuerySetSequence(articles, events, pages, persons)
 
         if self.q:
             # This would apply the filter on all the querysets
