@@ -1,5 +1,5 @@
 {% extends "pages/page.html" %}
-{% load mezzanine_tags comment_tags keyword_tags rating_tags i18n future disqus_tags event_tags organization_tags %}
+{% load mezzanine_tags comment_tags keyword_tags rating_tags i18n future disqus_tags event_tags organization_tags pages_tags %}
 
 {% block meta_title %}{{ event.meta_title }}{% endblock %}
 
@@ -112,15 +112,15 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 col-md-push-4">
+                    <div class="col-md-12 col-md-push-2 tac">
                         <div class="row">
                             <div>
                                 {% for person in event.persons.all %}
-                                        {% with person.person as person %}
-                                            <div class="col-md-8">
-                                                {% include "network/inc/person/person_card_square.html" %}
-                                            </div>
-                                        {% endwith %}
+                                    {% with person.person as person %}
+                                        <div class="col-md-5">
+                                            {% include "network/inc/person/person_card_square.html" %}
+                                        </div>
+                                    {% endwith %}
                                 {% endfor %}
                             </div>
                         </div>
