@@ -25,10 +25,17 @@ $module: ".map-infowindow";
     @include padding(1);
     @include clearfix;
 
+    margin-right: -23px;
+    color: $color-background;
+
     &__content {
 
         //float: left;
-        @include margin-left(1);
+        text-align: center;
+
+        p {
+            @include margin(0);
+        }
 
     }
 
@@ -37,7 +44,8 @@ $module: ".map-infowindow";
         @include font-size(m);
         @include line-height(.75);
         @include typeface(sans-serif);
-        font-weight: weight(bold);
+        text-transform: uppercase;
+        font-weight: weight(regular);
 
     }
 
@@ -48,7 +56,11 @@ $module: ".map-infowindow";
         @include font-size(xs);
         @include line-height(.5);
         @include typeface(serif);
-        font-weight: weight(bold);
+        font-weight: weight(regular);
+
+        & + p {
+            @include margin-top(.5);
+        }
 
     }
 

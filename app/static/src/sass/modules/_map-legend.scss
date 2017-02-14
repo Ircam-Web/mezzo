@@ -41,6 +41,7 @@ $module: ".map-legend";
         color: $color-black;
         display: inline-block;
         line-height: 22px;
+        @include margin-right(.5);
 
         &:last-child {
             @include margin-right(0);
