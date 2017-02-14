@@ -58,8 +58,12 @@
     </div>
     <ol class="video-playlist">
         {% spaceless %}
-            <li class="video-playlist__item{% if forloop.first %} playing{% endif %}"><a href="#" data-poster="{{media.poster_url }}" data-src="{% for transcoded in media.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.url }}{% if forloop.last %}{% endif %}{% endfor %}" data-mime="{% for transcoded in media.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.mime_type }}{% if forloop.last %}{% endif %}{% endfor %}"><span>{{ media.title }}</span>{% if media.description %}<small> {{ media.description }}</small>{% endif %}</a></li>
+            <li class="video-playlist__item{% if forloop.first %} playing{% endif %}"><a href="#" data-poster="{{media.poster_url }}" data-src="{% for transcoded in media.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.url }}{% if forloop.last %}{% endif %}{% endfor %}" data-mime="{% for transcoded in media.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.mime_type }}{% if forloop.last %}{% endif %}{% endfor %}"><span>{{ media.title }}</span></a></li>
         {% endspaceless %}
     </ol>
+
+{% endblock %}
+
+{% block page_video %}
 
 {% endblock %}

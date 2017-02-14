@@ -238,6 +238,11 @@ $module: ".event-line-box";
 
         @include margin-top(1);
 
+        span {
+            display: block;
+            @include font-size(m);
+        }
+
     }
 
     &__desc {

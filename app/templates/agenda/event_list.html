@@ -44,19 +44,24 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="mb2 col-md-12 col-md-push-2 page__content" data-summary-content>
-                    <div class="page__content">
-                        <div class="container">
-                            <h2>{% trans "Past Events" %}</h2>
-                            {% for event in past_events %}
-                                {% include 'agenda/includes/event_linecard.html' %}
-                            {% endfor %}
+            {% if past_events %}
+                <div class="row">
+                    <div class="col-sm-16 col-md-10 col-md-push-3 tac">
+                        <h1 class="section-title section-title--uppercase section-title--main">{% trans "Past events" %}</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb2 col-md-12 col-md-push-2 page__content" data-summary-content>
+                        <div class="page__content">
+                            <div class="container">
+                                {% for event in past_events %}
+                                    {% include 'agenda/includes/event_linecard.html' %}
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
+            {% endif %}
         </div>
     </div>
 {% endblock %}

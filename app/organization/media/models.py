@@ -61,7 +61,7 @@ class Media(Displayable):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("organization-media-detail", kwargs={"slug": self.slug})
+        return reverse("organization-media-detail", kwargs={"type": self.type, "slug": self.slug})
 
     @property
     def uri(self):
@@ -70,6 +70,14 @@ class Media(Displayable):
     def get_html(self):
         r = requests.get(self.uri)
         return r.content
+
+    @property
+    def type(self):
+        for transcoded in self.transcoded.all():
+            if 'video' in transcoded.mime_type:
+                return 'video'
+            if 'audio' in transcoded.mime_type:
+                return 'audio'
 
 
 def create_media(instance, created, raw, **kwargs):
