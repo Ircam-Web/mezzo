@@ -24,6 +24,7 @@ from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import TemplateView
 from django.views.generic import View
+from django.db.models.fields.related import ForeignKey
 from mezzanine.conf import settings
 from django.core.urlresolvers import reverse
 from dal import autocomplete
@@ -50,6 +51,41 @@ class PersonDetailView(SlugMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(PersonDetailView, self).get_context_data(**kwargs)
+
+        # Person events : this type is separated from the other because
+        # this is not managed by list of person by person in inlines directly
+        events = self.object.events.all()
+        events = (item.event for item in events)
+
+        # All other related models
+        person_list_block_inlines = self.object.person_list_block_inlines.all()
+        related_instances = []
+
+        # for each person list to which the person belongs to...
+        for person_list_block_inline in person_list_block_inlines:
+            related_objects = person_list_block_inline.person_list_block._meta.get_all_related_objects()
+            for related_object in related_objects:
+                if hasattr(person_list_block_inline.person_list_block, related_object.name):
+                    # getting relating inlines like ArticlePersonListBlockInline, PageCustomPersonListBlockInline etc...
+                    related_inlines = getattr(person_list_block_inline.person_list_block, related_object.name).all()
+                    for related_inline in related_inlines:
+                        if not isinstance(related_inline, person_list_block_inline.__class__):  #and not isinstance(person_list_block_inline.person_list_block.__class__):
+                            fields = related_inline._meta.get_fields()
+                            for field in fields:
+                                # check if it is a ForeignKey
+                                if isinstance(field, ForeignKey) :
+                                    instance = getattr(related_inline, field.name)
+                                    # get only article, custom page etc...
+                                    if not isinstance(instance, person_list_block_inline.person_list_block.__class__) :  #and not isinstance(person_list_block_inline.person_list_block.__class__):
+                                        related_instances.append(instance)
+
+        # appends events
+        related_instances += events
+
+        # sort by date
+        related_instances.sort(key=lambda x: x.created)
+
+        context["related_content"] = related_instances
         context["person_email"] = self.object.email if self.object.email else self.object.slug.replace('-', '.')+" (at) ircam.fr"
         return context
 
