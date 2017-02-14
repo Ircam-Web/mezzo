@@ -34,7 +34,7 @@ class MediaDetailView(SlugMixin, DetailView):
 
     model = Media
     context_object_name = 'media'
-    
+
     def get_template_names(self):
         templates = super(MediaDetailView, self).get_template_names()
         templates.insert(0,'media/'+self.kwargs['type'].lower()+'/'+self.kwargs['type'].lower()+'_detail.html')
@@ -112,5 +112,11 @@ class PlayListMediaView(autocomplete.Select2QuerySetView):
 
 class MediaOverlayView(SlugMixin, DetailView):
     model = Media
-    template_name='media/overlay_detail.html'
+    template_name='media/media/media_overlay.html'
     context_object_name = 'media'
+
+
+class PlaylistOverlayView(SlugMixin, DetailView):
+    model = Playlist
+    template_name='media/playlist_overlay.html'
+    context_object_name = 'playlist'
