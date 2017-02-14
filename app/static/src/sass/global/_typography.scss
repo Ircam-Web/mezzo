@@ -70,6 +70,13 @@ h3 {
     @include typeface(serif);
     @include margin-bottom(1);
     @include margin-top(1);
+
+	.page__content &, .page__block & {
+		text-transform: uppercase;
+		line-height: 2rem;
+		@include padding(0 5);
+	}
+
 }
 
 p + h3 {
