@@ -277,7 +277,7 @@ $module: ".page";
 
         &--black {
 
-            background-color: $color-black;
+            background-color: $color-background;
             color: white;
             @include padding-top(2);
             @include padding-bottom(2);
@@ -288,7 +288,7 @@ $module: ".page";
         		content: "";
         		display: block;
         		height: 1px;
-        		background: rgba(255, 255, 255, 0.5);
+        		background: rgba($color-main, 0.5);
         		width: 100%;
         		top: -4px;
         		position: absolute;
@@ -297,7 +297,7 @@ $module: ".page";
                 content: "";
         		display: block;
         		height: 1px;
-        		background: rgba(255, 255, 255, 0.5);
+        		background: rgba($color-main, 0.5);
         		width: 100%;
         		bottom: -4px;
         		position: absolute;
