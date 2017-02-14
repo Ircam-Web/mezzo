@@ -38,7 +38,12 @@
             {% else %}
                 {% trans "and" %}
             {% endif %}
-            {{ event.end|date:"DATE_EVENT_FORMAT" }}
+            {{ event.end|date:"DATE_EVENT_FORMAT" }},
+            {% if event.end and event.end|date:"H:i" != "23:59" %}
+                <br />{{ event.start|time:"TIME_FORMAT" }} - {{ event.end|time:"TIME_FORMAT" }}
+            {% else %}
+                <br />{{ event.start|time:"TIME_FORMAT" }}
+            {% endif %}
         <!-- Start and end date are completely different  -->
         {% else %}
             {{ event.start|date:"DATE_EVENT_FORMAT" }} {% trans "through" %} {{ event.end|date:"DATE_EVENT_FORMAT" }},<br>
