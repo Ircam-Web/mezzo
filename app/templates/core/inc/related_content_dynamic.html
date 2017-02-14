@@ -8,17 +8,29 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-10 col-md-push-3 col-xxs-16">
-                    <div class="row">
+                <div class="col-xxs-16">
+                    <div data-slider-related>
+
                         {% for concrete_object in concrete_objects %}
-                            <div class="col-xs-8">
+                            {% if forloop.counter0 == 0 or forloop.counter|divisibleby:3 %}
+                                <div class="container">
+                                    <div class="row">
+                            {% endif %}
+
+                            <div class="col-xs-6 col-xs-push-2">
                                 {% with app_label=concrete_object|app_label_short classname=concrete_object|classname|lower object=concrete_object  %}
                                     {% with app_label|add:"/"|add:classname|add:"/includes/"|add:classname|add:"_card.html" as template %}
                                         {% include template %}
                                     {% endwith %}
                                 {% endwith %}
                             </div>
+
+                            {% if forloop.last or forloop.counter|divisibleby:2 %}
+                                </div>
+                                </div>
+                            {% endif %}
                         {% endfor %}
+
                     </div>
                 </div>
             </div>
