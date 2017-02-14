@@ -51,16 +51,15 @@ class PersonDetailView(SlugMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(PersonDetailView, self).get_context_data(**kwargs)
-
+        context["related"] = {}
         # Person events : this type is separated from the other because
         # this is not managed by list of person by person in inlines directly
-        events = self.object.events.all()
-        events = (item.event for item in events)
-
+        person_events = self.object.events.all()
+        events = [item.event for item in person_events]
+        context["related"]["event"] = events
         # All other related models
         person_list_block_inlines = self.object.person_list_block_inlines.all()
         related_instances = []
-
         # for each person list to which the person belongs to...
         for person_list_block_inline in person_list_block_inlines:
             related_objects = person_list_block_inline.person_list_block._meta.get_all_related_objects()
@@ -77,15 +76,10 @@ class PersonDetailView(SlugMixin, DetailView):
                                     instance = getattr(related_inline, field.name)
                                     # get only article, custom page etc...
                                     if not isinstance(instance, person_list_block_inline.person_list_block.__class__) :  #and not isinstance(person_list_block_inline.person_list_block.__class__):
-                                        related_instances.append(instance)
+                                        if not instance._meta.model_name in context["related"]:
+                                            context["related"][instance._meta.model_name] = []
+                                        context["related"][instance._meta.model_name].append(instance)
 
-        # appends events
-        related_instances += events
-
-        # sort by date
-        related_instances.sort(key=lambda x: x.created)
-
-        context["related_content"] = related_instances
         context["person_email"] = self.object.email if self.object.email else self.object.slug.replace('-', '.')+" (at) ircam.fr"
         return context
 
