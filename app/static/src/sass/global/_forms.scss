@@ -20,26 +20,34 @@
 
 $module: ".form";
 
+
 #{$module} {
 
-    @include margin-top(2);
+    p {
+        @include margin(0);
+    }
+
+    .form-group {
+        @include margin-bottom(.5);
+    }
 
     input[type="submit"] {
         @extend .button;
-        margin-left: 200px !important;
+        width: 100%;
         display: inline-block;
     }
 
     label {
-        width: 200px;
-        text-align: right;
-        display: inline-block;
+        text-align: left;
+        display: block;
         vertical-align: top;
 
         @include padding(0.25 1 0.25 0);
-        @include font-size(m);
+        @include font-size(s);
         @include line-height(1);
         @include typeface(sans-serif);
+        font-weight: weight(bold);
+        text-transform: uppercase;
 
         @include mq($until: xs) {
             width: 100%;
@@ -48,20 +56,22 @@ $module: ".form";
         }
     }
 
-    .errorlist {
-        list-style-type: none;
-        padding: 0;
-        padding-left: 200px;
-        @include margin-left(1);
-        margin: 0;
-
-        color: red;
+    .help-block {
         @include font-size(xs);
-        @include line-height(1);
 
-        @include mq($until: xs) {
-            padding-left: 0;
+        .has-error & {
+            color: $color-accent;
         }
+    }
+
+    .has-error  {
+        .help-block, label {
+            color: $color-accent;
+        }
+        input[type="text"], input[type="email"], input[type="password"], textarea, select {
+            border-color: $color-accent;
+        }
+
     }
 
     input[type="text"], input[type="email"], input[type="password"], textarea {
@@ -69,12 +79,17 @@ $module: ".form";
         @include font-size(m);
         @include line-height(1);
         @include padding(.25 .25);
+        display: block;
 
         @include transition(all 0.25s ease-in-out);
 
         outline: 0;
-        border: 1px solid $color-black;
-        width: calc(100% - 220px);
+        border: 0;
+        border-bottom: 1px solid white;
+        width: 100%;
+        color: white;
+
+        background: rgba(#50E3C2, 0.05);
 
         &:focus {
             border-color: $color-main;
@@ -86,4 +101,48 @@ $module: ".form";
 
     }
 
+    select {
+
+        @include font-size(m);
+        @include line-height(1);
+        @include padding(.25 .25);
+
+       width: 100%;
+       overflow: hidden;
+       white-space: nowrap;
+       text-overflow: ellipsis;
+       padding-right: 28px;
+       border-radius: 0;
+       border: 0;
+       border-bottom: 1px solid white;
+       outline: 0;
+       -webkit-appearance: none;
+       background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#FFFFFF" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>') center right no-repeat;
+
+       &:focus {
+           border-bottom: 1px solid $color-main;
+           background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#{$color-main}" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>') center right no-repeat;
+       }
+
+    }
+
+    select::-ms-expand {
+        display: none;
+    }
+
+}
+
+.form-errors {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    @include margin-bottom(1);
+
+    @include font-size(s);
+    @include line-height(1);
+
+    @include mq($until: xs) {
+        padding-left: 0;
+    }
 }
