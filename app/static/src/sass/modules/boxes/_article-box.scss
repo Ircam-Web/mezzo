@@ -292,13 +292,11 @@ $module: ".article-box";
 
         #{$module}__content {
 
-            height: 350px;
-
             @include mq($until: xs) {
                 height: auto;
             }
 
-            &:after {
+            /*&:after {
 
                 @include mq($until: xs) {
                     display: none;
@@ -314,7 +312,7 @@ $module: ".article-box";
                 background-color: rgba($color-background, 0);
                 @include filter-gradient(rgba($color-background, 1), rgba($color-background, 1), vertical);
                 @include background-image(linear-gradient(top, rgba($color-background, 0) 0%, rgba($color-background, 1) 50%));
-            }
+            }*/
 
         }
 
