@@ -65,4 +65,17 @@ $module: ".section-title";
         @include margin-bottom(.5);
     }
 
+    &--big {
+
+        color: $color-main;
+        @include font-size(xxxl);
+        text-transform: none;
+        @include margin-bottom(1);
+
+        &:before {
+            display: none;
+        }
+
+    }
+
 }

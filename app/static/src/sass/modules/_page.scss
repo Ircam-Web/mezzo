@@ -55,6 +55,23 @@ $module: ".page";
 
     }
 
+    &__image-container {
+        background: $color-background;
+        @include transition(all 0.5s ease-in-out);
+        @include margin-bottom(3);
+
+        img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+            mix-blend-mode: screen;
+        }
+    }
+
     &__meta-separator {
 
         height: 1px;

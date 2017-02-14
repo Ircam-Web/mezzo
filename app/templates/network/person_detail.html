@@ -22,8 +22,16 @@
 
 {% block page_title %}
     {% editable person.title %}
-        <h1 class="dotted">{{ person.title }}</h1>
+        <h1 class="section-title section-title--big section-title--uppercase section-title--main">{{ person.title }}</h1>
     {% endeditable %}
+
+    {% with person.images.all|get_type:'page_featured' as card_images %}
+        {% if card_images %}
+            <div class="page__image-container">
+                <img style="width:100%;" class="lazyload" src="{{ MEDIA_URL }}{% thumbnail card_images.first 1030 400 top=0.5 %}" alt="person"/>
+            </div>
+        {% endif %}
+    {% endwith %}
 {% endblock %}
 
 {% block page_content %}
@@ -62,15 +70,9 @@
 {% endblock %}
 
 {% block page_sidebar %}
-    {% if person.images.all %}
-        {% with person.images.all|get_type:'page_featured' as images %}
-            {% if images.first %}
-                <figure class="person-list-box__image">
-                    <img src="{{ MEDIA_URL }}{% thumbnail images.first 135 135 top=0.5 %}" alt="person"/>
-                </figure>
-            {% endif %}
-        {% endwith %}
-    {% endif%}
+    <div class="" data-sticky data-sticky-parent="row" data-sticky-offset="100" data-sticky-detach-at="971">
+        {% include "includes/share_buttons.html" %}
+    </div>
 {% endblock %}
 
 {% block page_link %}
