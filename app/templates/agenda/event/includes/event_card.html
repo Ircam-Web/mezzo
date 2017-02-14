@@ -18,7 +18,7 @@
         {% with object.images.all|get_type:'card' as images %}
             {% if images %}
                 <figure class="article-box__image">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="{{ MEDIA_URL }}{% thumbnail images.0.file 427 286 top=0.5 left=article.photo_alignment|get_photo_alignment %}" class="lazyload" />
+                    <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 427 286 top=0.5 left=article.photo_alignment|get_photo_alignment %}" class="lazyload" />
                 </figure>
             {% else %}
                 <figure class="article-box__image">
@@ -54,7 +54,7 @@
 
 {% block subtitle %}
     <strong>
-        {% include 'agenda/includes/event_date_line.html' %}
+        {% include 'agenda/includes/event_date_card.html' %}
     </strong>
     {% if object.location %}
          <br /><span>{{ object.location }}</span>

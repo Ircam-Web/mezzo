@@ -254,6 +254,8 @@ $module: ".article-box";
         border: 0;
         @include padding(0);
 
+        height: auto;
+
         &:after {
 
             content: "";
