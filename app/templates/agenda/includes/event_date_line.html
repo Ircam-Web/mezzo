@@ -2,31 +2,31 @@
 {% with event.periods.all as periods %}
     <!-- Start date only  -->
     {% if event.start and not event.end %}
-        {{ event.start|date:"DATE_EVENT_FORMAT" }},<br>
+        {{ event.start|date:"DATE_EVENT_FORMAT" }}
         <!-- Start date with hour  -->
         {% if event.start and event.start|date:"H:i" != "23:59" %}
-            {{ event.start|time:"TIME_FORMAT" }}
+            <span>{{ event.start|time:"TIME_FORMAT" }}</span>
         {% endif %}
     <!-- Start and end date  -->
     {% else %}
         <!-- Start and end date is the same day  -->
         {% if event.start|date:"d.m.y" == event.end|date:"d.m.y" %}
             {% if not periods %}
-                {{ event.start|date:"DATE_EVENT_FORMAT" }},<br>
+                {{ event.start|date:"DATE_EVENT_FORMAT" }}
                 <!-- Start date with hour  -->
                 {% if event.end and event.end|date:"H:i" != "23:59" %}
-                    {{ event.start|time:"TIME_FORMAT" }} - {{ event.end|time:"TIME_FORMAT" }}
+                    <span>{{ event.start|time:"TIME_FORMAT" }} - {{ event.end|time:"TIME_FORMAT" }}</span>
                 {% else %}
-                    {{ event.start|time:"TIME_FORMAT" }}
+                    <span>{{ event.start|time:"TIME_FORMAT" }}</span>
                 {% endif %}
             {% else %}
-                {{ event.start|date:"DATE_EVENT_FORMAT" }},<br>
+                {{ event.start|date:"DATE_EVENT_FORMAT" }}
                 {% for period in periods %}
                     {% if period.date_to and period.date_to|date:"H:i" != "23:59" %}
-                        {{ period.date_from|time:"TIME_FORMAT" }} - {{ period.date_to|time:"TIME_FORMAT" }}
+                        <span>{{ period.date_from|time:"TIME_FORMAT" }} - {{ period.date_to|time:"TIME_FORMAT" }}</span>
                     {% else %}
-                        {% if forloop.last or periods|length == 2 %} {% trans "and"%} {% elif not forloop.first %}, {% endif %}
-                        {{ period.date_from|time:"TIME_FORMAT" }}
+                        <span>{% if forloop.last or periods|length == 2 %} {% trans "and"%} {% elif not forloop.first %}, {% endif %}
+                        {{ period.date_from|time:"TIME_FORMAT" }}</span>
                     {% endif %}
                 {% endfor %}
             {% endif %}
@@ -38,20 +38,20 @@
             {% else %}
                 {% trans "and" %}
             {% endif %}
-            {{ event.end|date:"DATE_EVENT_FORMAT" }},
+            {{ event.end|date:"DATE_EVENT_FORMAT" }}
             {% if event.end and event.end|date:"H:i" != "23:59" %}
-                <br />{{ event.start|time:"TIME_FORMAT" }} - {{ event.end|time:"TIME_FORMAT" }}
+                <span>{{ event.start|time:"TIME_FORMAT" }} - {{ event.end|time:"TIME_FORMAT" }}</span>
             {% else %}
-                <br />{{ event.start|time:"TIME_FORMAT" }}
+                <span>{{ event.start|time:"TIME_FORMAT" }}</span>
             {% endif %}
         <!-- Start and end date are completely different  -->
         {% else %}
-            {{ event.start|date:"DATE_EVENT_FORMAT" }} {% trans "through" %} {{ event.end|date:"DATE_EVENT_FORMAT" }},<br>
+            {{ event.start|date:"DATE_EVENT_FORMAT" }} {% trans "through" %} {{ event.end|date:"DATE_EVENT_FORMAT" }}
             <!-- Start date with hour  -->
             {% if event.end and event.end|date:"H:i" != "23:59" %}
-                {{ event.start|time:"TIME_FORMAT" }} - {{ event.end|time:"TIME_FORMAT" }}
+                <span>{{ event.start|time:"TIME_FORMAT" }} - {{ event.end|time:"TIME_FORMAT" }}</span>
             {% else %}
-                {{ event.start|time:"TIME_FORMAT" }}
+                <span>{{ event.start|time:"TIME_FORMAT" }}</span>
             {% endif %}
         {% endif %}
 

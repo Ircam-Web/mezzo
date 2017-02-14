@@ -229,7 +229,7 @@ $module: ".event-line-box";
 
     &__date {
 
-        @include font-size(m);
+        @include font-size(l);
         @include line-height(1.25);
         @include typeface(sans-serif);
         font-weight: weight(regular);
@@ -237,6 +237,11 @@ $module: ".event-line-box";
         @include transition(all 0.5s ease-in-out);
 
         @include margin-top(1);
+
+        span {
+            display: block;
+            @include font-size(m);
+        }
 
     }
 
