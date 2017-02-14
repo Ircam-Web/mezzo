@@ -114,13 +114,15 @@
                 <div class="row">
                     <div class="col-md-8 col-md-push-4">
                         <div class="row">
-                            {% for person in event.persons.all %}
-                                    {% with person.person as person %}
-                                        <div class="col-md-8">
-                                            {% include "network/inc/person/person_card_square.html" %}
-                                        </div>
-                                    {% endwith %}
-                            {% endfor %}
+                            <div>
+                                {% for person in event.persons.all %}
+                                        {% with person.person as person %}
+                                            <div class="col-md-8">
+                                                {% include "network/inc/person/person_card_square.html" %}
+                                            </div>
+                                        {% endwith %}
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>

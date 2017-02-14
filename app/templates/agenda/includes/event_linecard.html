@@ -56,7 +56,12 @@
 
                 <div class="event-line-box__body">
                     {% if event.location %}
-                        <div class="event-line-box__location">{{ event.location }}</div>
+                        <div class="event-line-box__location">
+                            {{ event.location }}
+                            {% if event.location.room %}
+                                 / {{ event.location.room }}
+                            {% endif %}
+                        </div>
                     {% endif %}
                     <h3 class="event-line-box__title">
                         {{ event.title }}

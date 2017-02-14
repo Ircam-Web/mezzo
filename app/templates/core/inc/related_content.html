@@ -8,21 +8,32 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-10 col-md-push-3 col-xxs-16">
-                    <div class="row">
+                <div class="col-xxs-16">
+                    <div data-slider-related>
+
                         {% for content in dynamic_content %}
-                            <div class="col-xs-8">
-                                {% if content.content_type.model == "article" %}
-                                    {% include "magazine/article/includes/article_card.html" with object=content.content_object  %}
-                                {% elif content.content_type.model == "event" %}
-                                    {% include "agenda/event/includes/event_card.html" with object=content.content_object %}
-                                {% elif content.content_type.model == "custompage" %}
-                                    {% include "pages/page/includes/page_card.html" with object=content.content_object %}
-                                {% endif %}
-                            </div>
+                            {% if forloop.counter0 == 0 or forloop.counter|divisibleby:3 %}
+                                <div class="container">
+                                    <div class="row">
+                            {% endif %}
+                                <div class="col-xs-6 col-xs-push-2">
+                                    {% if content.content_type.model == "article" %}
+                                        {% include "magazine/article/includes/article_card.html" with object=content.content_object  %}
+                                    {% elif content.content_type.model == "event" %}
+                                        {% include "agenda/event/includes/event_card.html" with object=content.content_object %}
+                                    {% elif content.content_type.model == "custompage" %}
+                                        {% include "pages/page/includes/page_card.html" with object=content.content_object %}
+                                    {% endif %}
+                                </div>
+                            {% if forloop.last or forloop.counter|divisibleby:2 %}
+                                </div>
+                                </div>
+                            {% endif %}
                         {% endfor %}
+
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

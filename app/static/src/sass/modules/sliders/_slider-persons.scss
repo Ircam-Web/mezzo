@@ -18,30 +18,12 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-.lSAction {
+$module: ".slider-persons";
 
-    > a {
-        opacity: 1;
-        @include transition(all 0.15s ease-in-out);
-        &:hover {
-            width: 60px;
-        }
-    }
+#{$module} {
 
-}
+    //
+    // Overrides lightSlider
+    //
 
-.lSAction {
-    > a {
-        background: transparent;
-        &:before {
-            color: #F2EDDC;
-            font-size: 40px;
-        }
-    }
-    > a.lSPrev {
-
-    }
-    > a.lSNext {
-
-    }
 }
