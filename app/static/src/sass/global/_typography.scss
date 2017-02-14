@@ -67,9 +67,15 @@ p + h2 {
 
 h3 {
     @include typeset(heading-3);
-    @include typeface(sans-serif);
+    @include typeface(serif);
     @include margin-bottom(1);
     @include margin-top(1);
+}
+
+p + h3 {
+
+	@include margin-top(2);
+
 }
 
 .page__content ul, .page__block ul {
