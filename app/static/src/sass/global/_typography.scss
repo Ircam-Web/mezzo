@@ -74,6 +74,9 @@ h3 {
 	.page__content &, .page__block & {
 		text-transform: uppercase;
 		line-height: 2rem;
+	}
+
+	.page__block & {
 		@include padding(0 5);
 	}
 
