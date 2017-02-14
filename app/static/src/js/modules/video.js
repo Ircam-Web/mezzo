@@ -56,9 +56,9 @@ Video.prototype.init = function() {
         });
 
     });
-    console.log(playlist);
 
     that.player.playlist(playlist);
+    return that.player;
 
 };
 

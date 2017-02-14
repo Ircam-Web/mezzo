@@ -55,8 +55,9 @@ VideoOverlay.prototype.openOverlay = function(url) {
 
     that.$overlayContent.load(url, function() {
 
-        window['Video'].init();
+        var player = window['Video'].init();
         setTimeout(function() {
+            player.play();
             that.$overlayLoader.hide();
             that.$overlayContent.addClass('loaded');
         }, 2000);

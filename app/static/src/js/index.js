@@ -19,6 +19,7 @@ var HomeMenu = require('./modules/home-menu');
 var Audio = require('./modules/audio');
 var Video = require('./modules/video');
 var VideoOverlay = require('./modules/video-overlay');
+var Instagram = require('./modules/instagram');
 
 //
 // Init all the modules
@@ -41,3 +42,4 @@ window[HomeMenu] = new HomeMenu();
 window[Audio] = new Audio();
 window['Video'] = new Video();
 window[VideoOverlay] = new VideoOverlay();
+window[Instagram] = new Instagram();
