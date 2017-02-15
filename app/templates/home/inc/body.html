@@ -16,6 +16,8 @@
                             {% include "agenda/event/includes/event_card.html" with object=content.content_object %}
                         {% elif content.content_type.model == "custompage" %}
                             {% include "pages/page/includes/page_card.html" with  object=content.content_object %}
+                        {% elif content.content_type.model == "media" %}
+                            {% include "media/media/includes/media_card.html" with  object=content.content_object %}
                         {% endif %}
                     </div>
                 {% endfor %}

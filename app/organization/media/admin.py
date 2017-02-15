@@ -31,10 +31,15 @@ class MediaTranscodedAdmin(TabularDynamicInlineAdmin):
     model = MediaTranscoded
 
 
+class MediaImageInline(TabularDynamicInlineAdmin):
+
+    model = MediaImage
+
+    
 class MediaAdmin(BaseTranslationModelAdmin):
 
     model = Media
-    inlines = (MediaTranscodedAdmin,)
+    inlines = (MediaTranscodedAdmin, MediaImageInline)
     list_display = ['title',]
 
 

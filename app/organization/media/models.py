@@ -122,6 +122,16 @@ class MediaTranscoded(models.Model):
         return self.url
 
 
+class MediaImage(Image):
+
+    media = models.ForeignKey(Media, verbose_name=_('media'), related_name='images', blank=True, null=True, on_delete=models.SET_NULL)
+
+    class Meta:
+        verbose_name = _("image")
+        verbose_name_plural = _("images")
+        order_with_respect_to = "media"
+
+
 class MediaCategory(Slugged, Description):
     """Media Category"""
 
