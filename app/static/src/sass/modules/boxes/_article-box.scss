@@ -36,6 +36,10 @@ $module: ".article-box";
         height: auto;
     }
 
+    @include mq($until: md) {
+        @include padding(.5);
+    }
+
     .slider-home & {
         @include margin(0);
         max-width: none;

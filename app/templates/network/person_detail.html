@@ -80,6 +80,82 @@
 
 {% endblock %}
 
+{% block page_related_content %}
+
+{% if related.event %}
+    <div class="pb2">
+        <div class="container">
+            <div class="row tac">
+                <div class="col-xs-16">
+                    <h2 class="section-title section-title--underline section-title--uppercase section-title--main">{% trans "Linked events" %}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xxs-16">
+                    <div data-slider-related>
+
+                        {% for event in related.event %}
+                            <div>
+
+                                <div class="row">
+
+                                    <div class="col-md-12 col-md-push-2">
+                                        {% include 'agenda/includes/event_linecard.html' %}
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% if related.other %}
+    <div class="pb2">
+        <div class="container">
+            <div class="row tac">
+                <div class="col-xs-16">
+                    <h2 class="section-title section-title--underline section-title--uppercase section-title--main">{% trans "Linked contents" %}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xxs-16">
+                    <div data-slider-related>
+
+                        {% for concrete_object in related.other %}
+                            {% if forloop.counter0 == 0 or forloop.counter|divisibleby:3 %}
+                                <div class="container">
+                                    <div class="row">
+                            {% endif %}
+
+                            <div class="col-xs-6 col-xs-push-2">
+                                {% with app_label=concrete_object|app_label_short classname=concrete_object|classname|lower object=concrete_object  %}
+                                    {% with app_label|add:"/"|add:classname|add:"/includes/"|add:classname|add:"_card.html" as template %}
+                                        {% include template %}
+                                    {% endwith %}
+                                {% endwith %}
+                            </div>
+
+                            {% if forloop.last or forloop.counter|divisibleby:2 %}
+                                </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}
+
 {% block page_sidebar %}
     <div class="" data-sticky data-sticky-parent="row" data-sticky-offset="100" data-sticky-detach-at="971">
         {% include "includes/share_buttons.html" %}
