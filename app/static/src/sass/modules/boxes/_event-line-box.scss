@@ -35,6 +35,10 @@ $module: ".event-line-box";
         @include margin-bottom(1);
     }
 
+    .lightSlider & {
+        margin-bottom: 0 !important;
+    }
+
     &:after {
 
         content: "";
