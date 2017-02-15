@@ -67,6 +67,22 @@
         </ul>
       {% endif %}
     {% endwith %}
+
+    <h2>{% trans 'Related Events' %}</h2>
+    {% for event in related.event %}
+        {{ event }}<br>
+    {% endfor %}
+
+    <h2>{% trans 'Related Articles' %}</h2>
+    {% for article in related.article %}
+        {{ article }}<br>
+    {% endfor %}
+
+    <h2>{% trans 'Related Pages' %}</h2>
+    {% for custompage in related.custompage %}
+        {{ custompage }}<br>
+    {% endfor %}
+
 {% endblock %}
 
 {% block page_sidebar %}
@@ -82,8 +98,4 @@
             {% include 'core/inc/link.html' %}
         {% endif %}
     {% endwith %}
-{% endblock %}
-
-{% block page_related_content %}
-    {% include "core/inc/related_content_dynamic.html" with concrete_objects=related_content %}
 {% endblock %}
