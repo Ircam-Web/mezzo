@@ -14,6 +14,17 @@ $module: ".section-title";
     @include margin-bottom(4);
     @include margin-top(5);
 
+    @include mq($until: md) {
+
+        @include margin-bottom(1);
+        @include margin-top(1.25);
+
+        .page__slider & {
+            @include margin-top(0);
+        }
+
+    }
+
     i {
         display: inline-block;
         @include margin-right(.5);

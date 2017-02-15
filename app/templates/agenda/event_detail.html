@@ -43,34 +43,36 @@
 {% endblock %}
 
 {% block page_link %}
-    <div class="mt4">
-        <div class="row">
-            {% if child %}
-                {% with child.links.all as links %}
-                    {% if links %}
-                        <div class="col-xs-8">
-                            {% include 'core/inc/link.html' %}
-                        </div>
-                    {% endif %}
-                {% endwith %}
-            {% else %}
-                {% with event.links.all as links %}
-                    {% if links %}
-                        <div class="col-xs-8">
-                            {% include 'core/inc/link.html' %}
-                        </div>
-                    {% endif %}
-                {% endwith %}
-            {% endif %}
-            {% if event.mentions %}
-                <div class="col-xs-8">
-                    <div class="small-text">
-                        {{ event.mentions }}
-                   </div>
-                </div>
-            {% endif %}
+    {% if event.mentions or event.links.all|length > 0 %}
+        <div class="mt4">
+            <div class="row">
+                {% if child %}
+                    {% with child.links.all as links %}
+                        {% if links %}
+                            <div class="col-xs-8">
+                                {% include 'core/inc/link.html' %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                {% else %}
+                    {% with event.links.all as links %}
+                        {% if links %}
+                            <div class="col-xs-8">
+                                {% include 'core/inc/link.html' %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                {% endif %}
+                {% if event.mentions %}
+                    <div class="col-xs-8">
+                        <div class="small-text">
+                            {{ event.mentions }}
+                       </div>
+                    </div>
+                {% endif %}
+            </div>
         </div>
-    </div>
+    {% endif %}
 {% endblock %}
 
 {% block page_audio %}
@@ -117,7 +119,7 @@
                             <div>
                                 {% for person in event.persons.all %}
                                     {% with person.person as person %}
-                                        <div class="col-md-5">
+                                        <div class="col-md-5 col-xs-8">
                                             {% include "network/inc/person/person_card_square.html" %}
                                         </div>
                                     {% endwith %}

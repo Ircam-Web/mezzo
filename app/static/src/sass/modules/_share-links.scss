@@ -34,7 +34,7 @@ $module: ".share-links";
         @include margin-bottom(.5);
         color: white;
 
-        @include mq($until: sm) {
+        @include mq($until: md) {
             display: inline-block;
             @include margin-right(.5);
         }
