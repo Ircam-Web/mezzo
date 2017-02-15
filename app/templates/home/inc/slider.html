@@ -46,6 +46,10 @@
                                                                                         {{ slider.content_object.category }}
                                                                                     </div>
                                                                                 {% endif %}
+                                                                            {% elif slider.content_type.model == 'media' %}
+                                                                                <div class="article-box__tags">
+                                                                                    {{ slider.content_object|get_media_type }}
+                                                                                </div>
                                                                             {% endif %}
 
                                                                             <div class="article-box__subtitle">
