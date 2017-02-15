@@ -92,7 +92,7 @@
 {% endif %}
 
 {% load i18n pages_tags mezzanine_tags media_tags organization_tags %}
-<div class="container hide-from-xs">
+<div class="container hide-from-sm">
     <div class="row">
         <div class="col-sm-12 col-sm-push-2 tac">
             <div class="row">
@@ -108,6 +108,10 @@
                                     {% include "agenda/event/includes/event_card.html" with object=slider.content_object %}
                                 {% elif slider.content_type.model == "custompage" %}
                                     {% include "pages/page/includes/page_card.html" with object=slider.content_object %}
+                                {% elif slider.content_type.model == "media" %}
+                                    {% include "media/media/includes/media_card.html" with  object=slider.content_object %}
+                                {% elif slider.content_type.model == "person" %}
+                                    {% include "network/person/includes/person_card.html" with  object=slider.content_object %}
                                 {% endif %}
                             </div>
                         {% endif %}
