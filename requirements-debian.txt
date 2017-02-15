@@ -10,3 +10,4 @@ vim
 python-sphinx
 ruby
 ruby-dev
+gettext
