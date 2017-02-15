@@ -36,6 +36,10 @@ $module: ".media-box";
         height: auto;
     }
 
+    @include mq($until: md) {
+        @include padding(.5);
+    }
+
     &--audio {
 
         #{$module}__placeholder {
