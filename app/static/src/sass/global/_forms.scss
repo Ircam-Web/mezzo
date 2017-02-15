@@ -29,6 +29,10 @@ $module: ".form";
 
     .form-group {
         @include margin-bottom(.5);
+
+        ul {
+            list-style-type: none;
+        }
     }
 
     input[type="submit"] {
@@ -41,6 +45,7 @@ $module: ".form";
         text-align: left;
         display: block;
         vertical-align: top;
+        float: left;
 
         @include padding(0.25 1 0.25 0);
         @include font-size(s);
@@ -50,10 +55,12 @@ $module: ".form";
         text-transform: uppercase;
 
         @include mq($until: xs) {
-            width: 100%;
-            display: block;
-            text-align: left;
+
         }
+    }
+
+    span.help-block {
+        float: right;
     }
 
     .help-block {
