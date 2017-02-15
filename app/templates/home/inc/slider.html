@@ -20,6 +20,17 @@
                                                             </div>
                                                             <div class="col-sm-8">
                                                                 <div class="slider-home__content">
+
+                                                                    {% if slider.content_object.prices.all.0|floatformat != '0' and slider.content_object.prices.all|length > 0 %}
+                                                                        {% for price in slider.content_object.prices.all %}
+                                                                            {% if forloop.first %}
+                                                                                <div class="article-box__btn">
+                                                                                    <object><a href="{% url 'event_booking' slider.content_object.slug %}" class="button button--small button--accent mr0">{% trans "Reserve" %}</a></object>
+                                                                                </div>
+                                                                            {% endif %}
+                                                                        {% endfor %}
+                                                                    {% endif %}
+
                                                                     <div class="article-box article-box--inline" href="{{ slider.content_object.get_absolute_url }}" title="{{ slider.content_object.title }}">
 
                                                                         <div class="article-box__content tal">

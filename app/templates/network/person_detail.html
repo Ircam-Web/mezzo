@@ -89,7 +89,7 @@
 {% block page_link %}
     {% with person.links.all as links %}
         {% if links %}
-            <h2 class="dotted">{% trans 'Links' %}</h2>
+            <h3>{% trans 'Links' %}</h3>
             {% include 'core/inc/link.html' %}
         {% endif %}
     {% endwith %}
