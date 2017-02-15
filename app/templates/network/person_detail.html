@@ -68,16 +68,6 @@
       {% endif %}
     {% endwith %}
 
-    <h2>{% trans 'Related Events' %}</h2>
-    {% for event in related.event %}
-        {{ event }}<br>
-    {% endfor %}
-
-    <h2>{% trans 'Related Content' %}</h2>
-    {% for other in related.other %}
-        {{ other }}<br>
-    {% endfor %}
-
 {% endblock %}
 
 {% block page_related_content %}
