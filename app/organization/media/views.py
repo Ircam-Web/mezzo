@@ -46,7 +46,6 @@ class PlaylistDetailView(SlugMixin, DetailView):
     model = Playlist
     template_name='media/playlist_detail.html'
     context_object_name = 'playlist'
-    
     def get_context_data(self, **kwargs):
         context = super(PlaylistDetailView, self).get_context_data(**kwargs)
         self.related_objects = []
@@ -115,6 +114,11 @@ class MediaOverlayView(SlugMixin, DetailView):
     model = Media
     template_name='media/media/media_overlay.html'
     context_object_name = 'media'
+
+    def get_template_names(self):
+        templates = super(MediaOverlayView, self).get_template_names()
+        templates.insert(0,'media/'+self.object.type.lower()+'/'+self.object.type.lower()+'_overlay.html')
+        return templates
 
 
 class PlaylistOverlayView(SlugMixin, DetailView):
