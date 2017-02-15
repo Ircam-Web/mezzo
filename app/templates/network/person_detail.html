@@ -73,14 +73,9 @@
         {{ event }}<br>
     {% endfor %}
 
-    <h2>{% trans 'Related Articles' %}</h2>
-    {% for article in related.article %}
-        {{ article }}<br>
-    {% endfor %}
-
-    <h2>{% trans 'Related Pages' %}</h2>
-    {% for custompage in related.custompage %}
-        {{ custompage }}<br>
+    <h2>{% trans 'Related Content' %}</h2>
+    {% for other in related.other %}
+        {{ other }}<br>
     {% endfor %}
 
 {% endblock %}

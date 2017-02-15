@@ -59,7 +59,7 @@ class PersonDetailView(SlugMixin, DetailView):
         context["related"]["event"] = events
         # All other related models
         person_list_block_inlines = self.object.person_list_block_inlines.all()
-        related_instances = []
+        context["related"]["other"] = []
         # for each person list to which the person belongs to...
         for person_list_block_inline in person_list_block_inlines:
             related_objects = person_list_block_inline.person_list_block._meta.get_all_related_objects()
@@ -76,10 +76,9 @@ class PersonDetailView(SlugMixin, DetailView):
                                     instance = getattr(related_inline, field.name)
                                     # get only article, custom page etc...
                                     if not isinstance(instance, person_list_block_inline.person_list_block.__class__) :  #and not isinstance(person_list_block_inline.person_list_block.__class__):
-                                        if not instance._meta.model_name in context["related"]:
-                                            context["related"][instance._meta.model_name] = []
-                                        context["related"][instance._meta.model_name].append(instance)
+                                        context["related"]["other"].append(instance)
 
+        context["related"]["other"].sort(key=lambda x: x.created, reverse=True)
         context["person_email"] = self.object.email if self.object.email else self.object.slug.replace('-', '.')+" (at) ircam.fr"
         return context
 
