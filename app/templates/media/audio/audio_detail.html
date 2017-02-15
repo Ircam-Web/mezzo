@@ -17,14 +17,35 @@
 
 
 {% block page_title %}
-    {% editable person.title %}
-        <h1 class="dotted">{{ media.title }}</h1>
+    {% editable media.title %}
+        <h1 class="section-title section-title--uppercase section-title--main">{{ media.title }}</h1>
     {% endeditable %}
 {% endblock %}
 
 
+{% block page_sidebar %}
 
-{% block page_content %}
+    <div class="page__meta" data-sticky data-sticky-parent="row" data-sticky-offset="100" data-sticky-detach-at="971">
+        <div class="page__meta-title">
+            {% trans 'Publish date' %}
+        </div>
+        {% editable media.publish_date %}
+            <div class="page__meta-text">
+                {{ media.publish_date|date:"DATE_FORMAT" }}
+            </div>
+        {% endeditable %}
+        <div class="page__meta-separator">
 
+        </div>
+        {% with media as object %}
+            <div class="">
+                {% include "includes/share_buttons.html" %}
+            </div>
+        {% endwith %}
+    </div>
+
+{% endblock %}
+
+{% block page_video %}
 
 {% endblock %}

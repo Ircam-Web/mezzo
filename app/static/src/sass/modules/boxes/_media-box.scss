@@ -24,6 +24,8 @@ $module: ".media-box";
 
     position: relative;
     display: block;
+    text-align: left;
+    
     @include margin-bottom(1);
     @include transition(all 0.5s ease-in-out);
 
@@ -34,6 +36,18 @@ $module: ".media-box";
 
     @include mq($until: xs) {
         height: auto;
+    }
+
+    @include mq($until: md) {
+        @include padding(.5);
+    }
+
+    &--audio {
+
+        #{$module}__placeholder {
+            background: rgba($color-main, 0.35);
+        }
+
     }
 
     &:hover {
