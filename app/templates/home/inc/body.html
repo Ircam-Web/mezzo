@@ -6,23 +6,6 @@
                 Autres articles
             </div>
             <div class="row">
-                {% for slider in home.dynamiccontenthomeslider_set.all %}
-                    {% with slider.content_object.images.all|get_type:'slider' as images %}
-                        {% if images %}
-                            <div class="col-xs-8 hide-from-xs">
-                                {% if slider.content_type.model == "brief" %}
-                                    {% include "magazine/brief/inc/brief_card.html" %}
-                                {% elif slider.content_type.model == "article" %}
-                                    {% include "magazine/article/includes/article_card.html" with object=slider.content_object %}
-                                {% elif slider.content_type.model == "event" %}
-                                    {% include "agenda/event/includes/event_card.html" with object=slider.content_object %}
-                                {% elif slider.content_type.model == "custompage" %}
-                                    {% include "pages/page/includes/page_card.html" with object=slider.content_object %}
-                                {% endif %}
-                            </div>
-                        {% endif %}
-                    {% endwith %}
-                {% endfor %}
                 {% for content in home.dynamiccontenthomebody_set.all %}
                     <div class="col-xs-8{% if forloop.counter > 3 %} hide-until-xs{% endif %}">
                         {% if content.content_type.model == "brief" %}
