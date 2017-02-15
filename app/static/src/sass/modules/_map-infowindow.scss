@@ -22,19 +22,22 @@ $module: ".map-infowindow";
 
 #{$module} {
 
-    @include padding(1);
+    padding: 24px;
+    padding-right: 1px;
+
     @include clearfix;
 
-    margin-right: -23px;
     color: $color-background;
 
     &__content {
 
         //float: left;
         text-align: center;
+        max-width: 200px;
 
         p {
             @include margin(0);
+            line-height: 1.1rem;
         }
 
     }

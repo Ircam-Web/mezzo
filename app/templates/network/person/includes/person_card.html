@@ -35,5 +35,5 @@
 {% endblock %}
 
 {% block content %}
-    {{ object.bio|richtext_filters|safe|truncatechars_html:200 }}
+    {{ object.description|richtext_filters|safe|truncatechars_html:200 }}
 {% endblock %}

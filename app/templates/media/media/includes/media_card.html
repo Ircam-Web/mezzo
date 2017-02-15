@@ -2,7 +2,7 @@
 <div class="">
     <div class="media-box media-box--{{object|get_media_type|lower}}">
         <a class="media-box__image-container" href="{% url 'organization-media-overlay' object.type object.slug %}" data-video-overlay>
-            <figure class="media-box__image media-box__image--video">
+            <figure class="media-box__image media-box__image--{{ object|get_media_type|lower }}">
                 {% with object.images.all|get_type:'card' as images %}
                     {% if object.poster_url %}
                         <img src="{{ object.poster_url }}">

@@ -1,3 +1,6 @@
+var Audio = require('./audio');
+var Video = require('./video');
+
 var VideoOverlay = function() {
 
     this.$overlay = $('#overlay');
@@ -55,7 +58,12 @@ VideoOverlay.prototype.openOverlay = function(url) {
 
     that.$overlayContent.load(url, function() {
 
-        var player = window['Video'].init();
+        if($('video', that.$overlay).length > 0) {
+            var player = new Video(that.$overlay);
+        } else {
+            var player = new Audio(that.$overlay);
+        }
+
         setTimeout(function() {
             player.play();
             that.$overlayLoader.hide();

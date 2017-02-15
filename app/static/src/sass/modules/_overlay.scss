@@ -21,7 +21,6 @@ $module: ".overlay";
     &.open {
 
         height: 100%;
-        display: table;
         opacity: 1;
         @include transition(opacity .5s ease-in-out, height 0s);
 
@@ -77,20 +76,20 @@ $module: ".overlay";
 
     &__container {
 
-        display: table;
+        display: block;
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         z-index: 1;
+        overflow: scroll;
 
     }
 
     &__content {
 
-        display: table-cell;
-        vertical-align: middle;
+        @include padding(5 0);
 
     }
 

@@ -1,12 +1,14 @@
-var Audio = function() {
+var Audio = function(context) {
+
+    this.context = context || $('body');
+
+    this.audios = [];
+    this.playlists = [];
 
     //
     // Init
     //
     this.init();
-
-    this.audios = [];
-    this.playlists = [];
 
 };
 
@@ -116,5 +118,11 @@ Audio.prototype.setTitle = function(audio, title, subtitle) {
     audio.title.html(html);
 
 };
+
+Audio.prototype.play = function(e) {
+
+    this.audios[0].play();
+
+}
 
 module.exports = Audio;
