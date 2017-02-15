@@ -1,14 +1,17 @@
-{% load mezzanine_tags keyword_tags i18n organization_tags staticfiles %}
-
+{% load i18n future mezzanine_tags event_tags keyword_tags disqus_tags organization_tags %}
 <div class="">
     <div class="media-box media-box--{{object|get_media_type|lower}}">
         <a class="media-box__image-container" href="{% url 'organization-media-overlay' object.type object.slug %}" data-video-overlay>
             <figure class="media-box__image media-box__image--video">
-                {% if object.poster_url %}
-                    <img src="{{ object.poster_url }}">
-                {% else %}
-                    <div class="media-box__placeholder"></div>
-                {% endif %}
+                {% with object.images.all|get_type:'card' as images %}
+                    {% if object.poster_url %}
+                        <img src="{{ object.poster_url }}">
+                    {% elif images %}
+                        <img class="lazyload" src="{{ MEDIA_URL }}{% thumbnail images.0.file 720 435 %}" data-original="">
+                    {% else %}
+                        <div class="media-box__placeholder"></div>
+                    {% endif %}
+                {% endwith %}
             </figure>
         </a>
         <a class="media-box__content" href="{% url 'organization-media-detail' object|get_media_type|lower object.slug %}">
