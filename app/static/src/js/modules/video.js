@@ -1,11 +1,12 @@
-var Video = function() {
+var Video = function(context) {
 
     this.player = null;
+    this.context = context || $('body');
 
     //
     // Init
     //
-    if($('#video-js-playlist').length > 0) {
+    if($('#video-js-playlist', this.context).length > 0) {
         this.init();
     }
 
@@ -61,6 +62,12 @@ Video.prototype.init = function() {
     return that.player;
 
 };
+
+Video.prototype.play = function(e) {
+
+    this.player.play();
+
+}
 
 Video.prototype.open = function(e) {
 

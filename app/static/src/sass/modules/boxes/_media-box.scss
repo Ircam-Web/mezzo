@@ -129,6 +129,13 @@ $module: ".media-box";
             left: 50%;
 
             @include transform(translateX(-50%) translateY(-50%));
+
+        }
+
+        &--audio {
+            &:after {
+                content: "\f028";
+            }
         }
 
     }

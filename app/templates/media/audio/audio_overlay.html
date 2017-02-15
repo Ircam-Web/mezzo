@@ -6,14 +6,16 @@
 
         <div class="mb1 col-md-10 col-md-push-3 page__content" data-summary-content>
 
-            <div class="embed-responsive">
-                <video controls id="video-js-playlist" class="video-js vjs-ircam-skin" data-title="{{ media.title }}" {% if media.poster_url %}poster="{{ media.poster_url }}"{% endif %}>
-                </video>
-            </div>
-            <ol class="video-playlist">
-                {% spaceless %}
-                    <li class="video-playlist__item{% if forloop.first %} playing{% endif %}"><a href="#" data-poster="{{media.poster_url }}" data-src="{% for transcoded in media.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.url }}{% if forloop.last %}{% endif %}{% endfor %}" data-mime="{% for transcoded in media.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.mime_type }}{% if forloop.last %}{% endif %}{% endfor %}"><span>{{ media.title }}</span></a></li>
-                {% endspaceless %}
+            <audio preload="true"></audio>
+
+            <ol class="audio-playlist">
+                <li class="audio-playlist__item">
+                    {% for transcoded in media.transcoded.all %}
+                        {% if transcoded.mime_type == "audio/mp4" or transcoded.mime_type == "audio/mp3" %}
+                            <a href="#" data-src="{{ transcoded.url }}"><span>{{ media.title }}</span>{% if media.description %}<small> {{ media.description }}</small>{% endif %}</a>
+                        {% endif %}
+                    {% endfor %}
+                </li>
             </ol>
 
         </div>
