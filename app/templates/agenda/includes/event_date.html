@@ -65,7 +65,10 @@
             {% else %}
                 {% trans "and" %}
             {% endif %}
-            {{ event.end|date:"DATE_EVENT_FORMAT" }},<br> {{ event.start|time:"TIME_FORMAT" }} - {{ event.end|time:"TIME_FORMAT" }}
+            {{ event.end|date:"DATE_EVENT_FORMAT" }},<br> {{ event.start|time:"TIME_FORMAT" }}
+            {% if event.end and event.end|date:"H:i" != "23:59" %}
+            - {{ event.end|time:"TIME_FORMAT" }}
+            {% endif %}
           {% endif %}
         <!-- Start and end date are completely different  -->
         {% else %}
