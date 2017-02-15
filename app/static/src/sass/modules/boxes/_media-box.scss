@@ -24,6 +24,8 @@ $module: ".media-box";
 
     position: relative;
     display: block;
+    text-align: left;
+    
     @include margin-bottom(1);
     @include transition(all 0.5s ease-in-out);
 
