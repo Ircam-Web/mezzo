@@ -127,8 +127,8 @@ msgid "person"
 msgstr "personne"
 
 #: organization/agenda/models.py:70
-msgid "persons"
-msgstr "personnes"
+msgid "curators"
+msgstr "intervenants"
 
 #: organization/agenda/models.py:78 organization/core/models.py:209
 #: organization/pages/models.py:75 organization/pages/models.py:99
@@ -2603,8 +2603,8 @@ msgstr "Équipe"
 #: templates/network/person_detail.html:71
 #, fuzzy
 #| msgid "Related events"
-msgid "Related Events"
-msgstr "Événements associés"
+msgid "Related Event"
+msgstr "Évènement associé"
 
 #: templates/network/person_detail.html:76
 #, fuzzy
