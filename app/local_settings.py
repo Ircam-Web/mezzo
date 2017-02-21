@@ -151,6 +151,7 @@ GRAPPELLI_ADMIN_TITLE = 'IRCAM Admin'
 SEARCH_MODEL_CHOICES = ('organization-pages.CustomPage',
                         'organization-network.DepartmentPage',
                         'organization-network.TeamPage',
+                        'organization-network.Person',
                         'organization-projects.ProjectTopicPage',
                         'pages.Page',
                         'organization-media.Playlist',
