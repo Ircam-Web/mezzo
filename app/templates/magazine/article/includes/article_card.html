@@ -10,15 +10,15 @@
 {% endblock %}
 
 {% block url %}
-  {% if object.content|removetags:"p"|slice:':4' == 'http' %}
-    {{ object.content|removetags:"p" }}
+  {% if object.content|removetags:"p div"|slice:':4' == 'http' %}
+    {{ object.content|removetags:"p div" }}
   {% else %}
     {% url 'magazine-article-detail' object.slug %}
   {% endif %}
 {% endblock %}
 
 {% block target %}
-  {% if object.content|removetags:"p"|slice:':4' == 'http' %}target="_blank"{% endif %}
+  {% if object.content|removetags:"p div"|slice:':4' == 'http' %}target="_blank"{% endif %}
 {% endblock %}
 
 {% block image %}
