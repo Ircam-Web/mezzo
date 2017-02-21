@@ -32,6 +32,8 @@ $module: ".form";
 
         ul {
             list-style-type: none;
+            clear: both;
+            padding: 0;
         }
     }
 
@@ -46,6 +48,7 @@ $module: ".form";
         display: block;
         vertical-align: top;
         float: left;
+        width: 80%;
 
         @include padding(0.25 1 0.25 0);
         @include font-size(s);
@@ -78,6 +81,12 @@ $module: ".form";
         input[type="text"], input[type="email"], input[type="password"], textarea, select {
             border-color: $color-accent;
         }
+
+    }
+
+    .form-actions {
+
+        @include margin-top(4);
 
     }
 
