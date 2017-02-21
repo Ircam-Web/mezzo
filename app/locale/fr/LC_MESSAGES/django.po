@@ -2193,7 +2193,7 @@ msgstr "Réserver"
 #, fuzzy
 #| msgid "Related events"
 msgid "Back to events"
-msgstr "Événements associés"
+msgstr "Revenir aux événements"
 
 #: templates/agenda/event_detail.html:30
 msgid "Agenda"
@@ -2204,8 +2204,8 @@ msgid "Trainers"
 msgstr "Encadrants"
 
 #: templates/agenda/event_detail.html:107
-msgid "Persons"
-msgstr "Personnes"
+msgid "Speakers"
+msgstr "Intervenants"
 
 #: templates/agenda/event_list.html:48
 #, fuzzy
@@ -2291,11 +2291,11 @@ msgstr "Mots clés"
 
 #: templates/base.html:75
 msgid "Instagram feed"
-msgstr ""
+msgstr "Fil Instagram"
 
 #: templates/base.html:85
 msgid "Twitter feed"
-msgstr ""
+msgstr "Fil Twitter"
 
 #: templates/core/inc/related_content.html:7
 #: templates/core/inc/related_content_dynamic.html:7
