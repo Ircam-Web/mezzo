@@ -8,6 +8,9 @@ var VideoOverlay = function() {
     this.$overlayClose = $('#overlayClose');
     this.$overlayLoader = $('#overlayLoader');
 
+    this.player = null;
+    this.type = null;
+
     //
     // Init
     //
@@ -59,13 +62,15 @@ VideoOverlay.prototype.openOverlay = function(url) {
     that.$overlayContent.load(url, function() {
 
         if($('video', that.$overlay).length > 0) {
-            var player = new Video(that.$overlay);
+            that.player = new Video(that.$overlay);
+            that.type = 'video';
         } else {
-            var player = new Audio(that.$overlay);
+            that.player = new Audio(that.$overlay);
+            that.type = 'audio';
         }
 
         setTimeout(function() {
-            player.play();
+            that.player.play();
             that.$overlayLoader.hide();
             that.$overlayContent.addClass('loaded');
         }, 2000);
@@ -80,6 +85,11 @@ VideoOverlay.prototype.closeOverlay = function(url) {
 
     that.$overlayContent.removeClass('loaded');
     setTimeout(function() {
+        if(that.type == 'video') {
+            that.player.player.dispose();
+        } else {
+
+        }
         that.$overlayContent.html('');
         that.$overlay.removeClass('open');
     }, 1000);
