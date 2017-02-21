@@ -33,11 +33,11 @@ from organization.media.views import *
 
 
 urlpatterns = [
-    url("^(?P<type>.*)/overlay/(?P<slug>.*)/$", MediaOverlayView.as_view(), name="organization-media-overlay"),
-    url("^(?P<type>.*)/detail/(?P<slug>.*)/$", MediaDetailView.as_view(), name="organization-media-detail"),
-    url("^playlist/list/$", PlaylistListView.as_view(), name="organization-playlist-list"),
     url("^playlist/overlay/(?P<slug>.*)/$", PlaylistOverlayView.as_view(), name="organization-playlist-overlay"),
-    url("^playlist/list/(?P<type>.*)$", PlaylistListView.as_view(), name="organization-playlist-list"),
+    url("^(?P<type>.*)/detail/(?P<slug>.*)/$", MediaDetailView.as_view(), name="organization-media-detail"),
+    url("^(?P<type>.*)/overlay/(?P<slug>.*)/$", MediaOverlayView.as_view(), name="organization-media-overlay"),
     url("^playlist/detail/(?P<slug>.*)/$", PlaylistDetailView.as_view(), name="organization-playlist-detail"),
+    url("^playlist/list/$", PlaylistListView.as_view(), name="organization-playlist-list"),
+    url("^playlist/list/(?P<type>.*)$", PlaylistListView.as_view(), name="organization-playlist-list"),
     url("^playlist-media-autocomplete/$",  permission_required('playlist.can_edit')(PlayListMediaView.as_view()), name='media-autocomplete'),
 ]
