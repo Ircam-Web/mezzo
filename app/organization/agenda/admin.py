@@ -82,6 +82,11 @@ class EventRelatedTitleAdmin(TranslationTabularInline):
     model = EventRelatedTitle
 
 
+class EventRankAdmin(TranslationTabularInline):
+
+    model = EventRank
+
+
 class EventPriceDescriptionAdmin(TranslationTabularInline):
 
     model = EventPriceDescription
@@ -109,13 +114,16 @@ class CustomEventAdmin(EventAdmin):
 
     fieldsets = deepcopy(EventAdminBase.fieldsets)
     exclude = ("short_url", )
-    list_display = ["title", "start", "end", "user", "status", "admin_link"]
+    list_display = ["title", "start", "end", "rank", "user", "status", "admin_link"]
     if settings.EVENT_USE_FEATURED_IMAGE:
         list_display.insert(0, "admin_thumb")
     list_filter = deepcopy(DisplayableAdmin.list_filter) + ("location", "category")
-    inlines = [EventPeriodInline, EventBlockInline, EventImageInline, EventDepartmentInline,
+    inlines = [EventRankAdmin, EventPeriodInline, EventBlockInline, EventImageInline, EventDepartmentInline,
                 EventPersonInline, EventLinkInline, EventPlaylistInline, EventTrainingInline,
                 EventRelatedTitleAdmin, DynamicContentEventInline]
+
+    def rank(self, obj):
+        return obj.event_rank.rank
 
     def save_form(self, request, form, change):
         """
