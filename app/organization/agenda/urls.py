@@ -35,7 +35,7 @@ from organization.agenda.views import *
 
 urlpatterns = [
     url("^%s/" % settings.EVENT_SLUG, include("mezzanine_agenda.urls")),
-    url("^%s/list/$" % settings.EVENT_SLUG, CustomEventListView.as_view(), name="custom_event_list"),
+    url("^%s-list/$" % settings.EVENT_SLUG, CustomEventListView.as_view(), name="custom_event_list"),
     url("^%s/confirmation/(?P<transaction_id>[0-9]*)$" % settings.EVENT_SLUG, ConfirmationView.as_view(), name="organization-agenda-confirmation"),
     url("^dynamic-content-event/$",  permission_required('event.can_edit')(DynamicContentEventView.as_view()), name='dynamic-content-event'),
 ]
