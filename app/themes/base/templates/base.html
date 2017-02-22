@@ -39,71 +39,58 @@
 <body id="{% block body_id %}body{% endblock %}" class="{% block body_class %}{% endblock %}">
     {% spaceless %}
 
-    <div class="pushy pushy-left">
-        {% include "includes/sidebar.html" %}
-    </div>
+    {% block sidebar %}
+        <div class="pushy pushy-left">
+            {% include "includes/sidebar.html" %}
+        </div>
+    {% endblock %}
 
-    <div class="site-overlay">
-    </div>
+    {% block site_overlay %}
+        <div class="site-overlay">
+        </div>
+    {% endblock %}
 
-    <div class="header push">
-
-        <div class="container">
-            <div class="row header__nav">
-                <div class="col-md-16 tal">
-                    <div id="navHeader">
-                        {% page_menu "pages/menus/header.html" %}
+    {% block header %}
+        <div class="header push">
+            <div class="container">
+                <div class="row header__nav">
+                    <div class="col-md-16 tal">
+                        <div id="navHeader">
+                            {% page_menu "pages/menus/header.html" %}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    {% endblock %}
 
-    </div>
+    {% block container %}
+        <div id="container">
+            <main class="main" role="main">
+                {% block content_header %}{% endblock %}
+                {% block main %}{% endblock %}
+                {% block content_footer %}{% endblock %}
+            </main>
 
-    <div id="container">
-        <main class="main" role="main">
-            {% block content_header %}{% endblock %}
-            {% block main %}{% endblock %}
-            {% block content_footer %}{% endblock %}
-        </main>
+            {% block social %}
+                {% include "includes/social.html" %}
+            {% endblock %}
 
-        <div class="section container">
-            <div class="row">
-
-                <div class="col-sm-8 tac">
-                    <div class="section-title section-title--uppercase section-title--underline section-title--accent">
-                        {% trans "Instagram feed" %} <a class="fcw" href="https://www.instagram.com/explore/tags/ircam/" target="_blank">#ircam</a>
-                    </div>
-
-                    <div>
-                        {% include "includes/instagram.html" %}
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-sm-push-1 tac">
-                    <div class="section-title section-title--uppercase section-title--underline section-title--main">
-                        {% trans "Twitter feed" %}
-                    </div>
-                    <div>
-                        {% include "twitter/tweets.html" %}
-                    </div>
-                </div>
-
-            </div>
+            {% block footer %}
+                <footer class="footer" role="footer">
+                    {% include "includes/footer.html" %}
+                </footer>
+            {% endblock %}
         </div>
+    {% endblock %}
 
-        <footer class="footer" role="footer">
-            {% include "includes/footer.html" %}
-        </footer>
-    </div>
-
+    {% block overlay_container %}
     <div class="overlay" id="overlay">
         <a href="#" id="overlayClose" class="overlay__close">
         </a>
         <div class="overlay__container">
             <div class="overlay__content">
                 <div id="overlayContent">
-
                 </div>
                 <div class="overlay__loader" id="overlayLoader">
                     <i class="loading"></i>
@@ -111,9 +98,14 @@
             </div>
         </div>
     </div>
+    {% endblock %}
 
     {% search_form %}
-    {% include "includes/footer_scripts.html" %}
+
+    {% block footer_scripts %}
+        {% include "includes/footer_scripts.html" %}
+    {% endblock %}
+
     {% endspaceless %}
 
 </body>
