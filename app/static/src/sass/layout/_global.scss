@@ -31,6 +31,9 @@
 
 #container {
     margin-top: 57px;
+    @include mq($until: lg) {
+        margin-top: 48px;
+    }
     @include mq($until: sm) {
         margin-top: $header-height-tablet;
     }
