@@ -2190,8 +2190,6 @@ msgid "Reserve"
 msgstr "Réserver"
 
 #: templates/agenda/event_detail.html:23
-#, fuzzy
-#| msgid "Related events"
 msgid "Back to events"
 msgstr "Revenir aux événements"
 
@@ -2208,10 +2206,8 @@ msgid "Speakers"
 msgstr "Intervenants"
 
 #: templates/agenda/event_list.html:48
-#, fuzzy
-#| msgid "Related events"
 msgid "Past events"
-msgstr "Événements associés"
+msgstr "Événements passés"
 
 #: templates/agenda/event_location_detail.html:40
 #: templates/agenda/includes/event_location.html:15
@@ -2601,10 +2597,8 @@ msgid "Team"
 msgstr "Équipe"
 
 #: templates/network/person_detail.html:71
-#, fuzzy
-#| msgid "Related events"
-msgid "Related Event"
-msgstr "Évènement associé"
+msgid "Related Events"
+msgstr "Événements liés"
 
 #: templates/network/person_detail.html:76
 #, fuzzy
@@ -2616,7 +2610,7 @@ msgstr "Événement associé"
 #, fuzzy
 #| msgid "Related events"
 msgid "Linked events"
-msgstr "Événements associés"
+msgstr "Événements liés"
 
 #: templates/network/person_detail.html:123
 msgid "Linked contents"
@@ -2757,15 +2751,13 @@ msgstr "Pages"
 
 #: templates/search_results.html:5 templates/search_results.html:6
 msgid "Search Results"
-msgstr "Resultats de recherche"
+msgstr "Resultats de la recherche"
 
 #: templates/search_results.html:67
 #, fuzzy, python-format
 #| msgid "No results were found matching your query: %(query)s"
 msgid "No results were found matching your query: %(query)s"
-msgstr ""
-"Votre recherche ne donne aucun résultat. Veuillez réessayer avec d'autres "
-"termes."
+msgstr "Votre recherche ne donne aucun résultat. Veuillez réessayer avec d'autres termes."
 
 #: templates/shop/billing_shipping.html:17
 #, python-format
