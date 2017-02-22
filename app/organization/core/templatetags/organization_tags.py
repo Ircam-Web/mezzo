@@ -226,3 +226,15 @@ def get_media_type(media):
     elif match('audio', mime_type):
         media_type = "Audio"
     return media_type
+
+@register.filter
+def filter_content(dynamic_contents):
+    dict = {}
+    dict["event"] = []
+    dict["other"] = []
+    for dc in dynamic_contents:
+        if dc.content_object._meta.model_name== "event":
+            dict["event"].append(dc)
+        else :
+            dict["other"].append(dc)
+    return dict
