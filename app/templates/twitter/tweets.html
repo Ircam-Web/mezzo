@@ -17,9 +17,9 @@
         <div class="col-xxs-13 tweets__tweet-content">
             <h4 class="tweets__tweet-author">
                 {% if tweet.retweeter_full_name %}
-                    <a href="http://twitter.com/{{ tweet.retweeter_user_name }}" title="{{ tweet.retweeter_full_name }}">{{ tweet.retweeter_full_name }} @{{ tweet.retweeter_user_name }}</a>
+                    <a href="http://twitter.com/{{ tweet.retweeter_user_name }}" title="{{ tweet.retweeter_full_name }}">{{ tweet.retweeter_full_name }}   @{{ tweet.retweeter_user_name }}</a>
                 {% else %}
-                    <a href="http://twitter.com/{{ tweet.user_name }}" title="{{ tweet.full_name }}">{{ tweet.full_name }} @{{ tweet.user_name }}</a>
+                    <a href="http://twitter.com/{{ tweet.user_name }}" title="{{ tweet.full_name }}">{{ tweet.full_name }}   @{{ tweet.user_name }}</a>
                 {% endif %}
                     <span>{% blocktrans with sometime=tweet.created_at|timesince %}{{ sometime }} ago{% endblocktrans %}</span>
             </h4>
