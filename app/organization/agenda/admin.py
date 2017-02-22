@@ -103,12 +103,20 @@ class DynamicContentEventInline(TabularDynamicInlineAdmin):
         )
 
 
-    def save_form(self, request, form, change):
-        """
-        Super class ordering is important here - user must get saved first.
-        """
-        OwnableAdmin.save_form(self, request, form, change)
-        return DisplayableAdmin.save_form(self, request, form, change)
+class CustomEventAdmin(EventAdmin):
+    """
+    Admin class for events.
+    """
+
+    fieldsets = deepcopy(EventAdminBase.fieldsets)
+    exclude = ("short_url", )
+    list_display = ["title", "start", "end", "rank", "user", "status", "admin_link"]
+    if settings.EVENT_USE_FEATURED_IMAGE:
+        list_display.insert(0, "admin_thumb")
+    list_filter = deepcopy(DisplayableAdmin.list_filter) + ("location", "category")
+    inlines = [EventPeriodInline, EventBlockInline, EventImageInline, EventDepartmentInline,
+                EventPersonInline, EventLinkInline, EventPlaylistInline, EventTrainingInline,
+                EventRelatedTitleAdmin, DynamicContentEventInline]
 
 
 class CustomEventCategoryAdmin(BaseTranslationModelAdmin):
@@ -127,9 +135,11 @@ class EventTrainingLevelAdmin(BaseTranslationModelAdmin):
 
 
 
+admin.site.unregister(Event)
 admin.site.unregister(EventPrice)
 admin.site.unregister(EventCategory)
 admin.site.register(EventPublicType, EventPublicTypeAdmin)
 admin.site.register(EventTrainingLevel, EventTrainingLevelAdmin)
+admin.site.register(Event, CustomEventAdmin)
 admin.site.register(EventCategory, CustomEventCategoryAdmin)
 admin.site.register(EventPrice, CustomEventPriceAdmin)
