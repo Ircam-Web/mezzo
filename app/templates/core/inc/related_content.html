@@ -1,5 +1,28 @@
 {% load i18n mezzanine_tags keyword_tags organization_tags pages_tags %}
-{% if dynamic_content.first.content_object %}
+
+{% if dynamic_content.event|length > 0 %}
+
+<div class="container">
+    <div class="row tac">
+        <div class="col-xs-16">
+            <h2 class="section-title section-title--underline section-title--uppercase section-title--main">{% trans "Linked events" %}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-md-push-2">
+            {% for content in dynamic_content.event %}
+                {% with event=content.content_object %}
+                    {% include 'agenda/includes/event_linecard.html' %}
+                {% endwith %}
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+{% endif %}
+
+{% if dynamic_content.other|length > 0 %}
     <div class="pb2">
         <div class="container">
             <div class="row tac">
@@ -11,7 +34,7 @@
                 <div class="col-xxs-16">
                     <div data-slider-related>
 
-                        {% for content in dynamic_content %}
+                        {% for content in dynamic_content.other %}
                             {% if forloop.counter0 == 0 or forloop.counter|divisibleby:3 %}
                                 <div class="container">
                                     <div class="row">

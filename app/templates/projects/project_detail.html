@@ -345,7 +345,7 @@
 {% endblock %}
 
 {% block page_related_content %}
-    {% with dynamic_content=object.dynamic_content_object.all object=object %}
+    {% with dynamic_content=object.dynamic_content_object.all|filter_content object=object %}
         {% include "core/inc/related_content.html" %}
     {% endwith %}
 {% endblock %}
