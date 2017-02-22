@@ -82,11 +82,6 @@ class EventRelatedTitleAdmin(TranslationTabularInline):
     model = EventRelatedTitle
 
 
-class EventRankAdmin(TranslationTabularInline):
-
-    model = EventRank
-
-
 class EventPriceDescriptionAdmin(TranslationTabularInline):
 
     model = EventPriceDescription
@@ -107,23 +102,6 @@ class DynamicContentEventInline(TabularDynamicInlineAdmin):
             static("mezzanine/js/admin/dynamic_inline.js"),
         )
 
-class CustomEventAdmin(EventAdmin):
-    """
-    Admin class for events.
-    """
-
-    fieldsets = deepcopy(EventAdminBase.fieldsets)
-    exclude = ("short_url", )
-    list_display = ["title", "start", "end", "rank", "user", "status", "admin_link"]
-    if settings.EVENT_USE_FEATURED_IMAGE:
-        list_display.insert(0, "admin_thumb")
-    list_filter = deepcopy(DisplayableAdmin.list_filter) + ("location", "category")
-    inlines = [EventRankAdmin, EventPeriodInline, EventBlockInline, EventImageInline, EventDepartmentInline,
-                EventPersonInline, EventLinkInline, EventPlaylistInline, EventTrainingInline,
-                EventRelatedTitleAdmin, DynamicContentEventInline]
-
-    def rank(self, obj):
-        return obj.event_rank.rank
 
     def save_form(self, request, form, change):
         """
@@ -149,11 +127,9 @@ class EventTrainingLevelAdmin(BaseTranslationModelAdmin):
 
 
 
-admin.site.unregister(Event)
 admin.site.unregister(EventPrice)
 admin.site.unregister(EventCategory)
 admin.site.register(EventPublicType, EventPublicTypeAdmin)
 admin.site.register(EventTrainingLevel, EventTrainingLevelAdmin)
-admin.site.register(Event, CustomEventAdmin)
 admin.site.register(EventCategory, CustomEventCategoryAdmin)
 admin.site.register(EventPrice, CustomEventPriceAdmin)

@@ -106,9 +106,3 @@ class EventPriceDescriptionTranslationOptions(TranslationOptions):
 class EventPriceTranslationOptions(TranslationOptions):
 
     fields = ()
-
-
-@register(EventRank)
-class EventRankTranslationOptions(TranslationOptions):
-
-    fields = ()

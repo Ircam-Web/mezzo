@@ -69,19 +69,3 @@ class DynamicContentEventView(Select2QuerySetSequenceView):
     def get_results(self, context):
         results = autocomplete_result_formatting(self, context)
         return results
-
-
-class CustomEventListView(EventListView):
-    past_events = []
-    paginate_by = settings.EVENT_PER_PAGE
-
-    def get_queryset(self, tag=None):
-        qs = super(CustomEventListView, self).get_queryset(tag=None)
-        qs = qs.order_by("event_rank__rank", "start") # loosing start ordering. Had to regive it.
-        self.past_events = Event.objects.filter(Q(start__lt=datetime.now()) | Q(end__lt=datetime.now())).order_by("start")
-        return qs
-
-    def get_context_data(self, *args, **kwargs):
-        context = super(CustomEventListView, self).get_context_data(**kwargs)
-        context['past_events'] = self.past_events
-        return context
