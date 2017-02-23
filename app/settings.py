@@ -66,11 +66,11 @@ DEBUG = True if os.environ.get('DEBUG') == 'True' else False
 
 PAGE_MENU_TEMPLATES = (
     (1, _("Action"), "pages/menus/action.html"),
-    (2, _("Departement"), "pages/menus/header.html"),
+    (2, _("Header"), "pages/menus/header.html"),
     (3, _("Footer vertical"), "pages/menus/footer_vertical.html"),
     (4, _("Footer horizontal"), "pages/menus/footer_horizontal.html"),
     (5, _("Magazine"), "pages/menus/magazine.html"),
-    (6, _("Vous êtes"), "pages/menus/vous_etes.html"),
+    (6, _("You are"), "pages/menus/vous_etes.html"),
 
 )
 
@@ -138,7 +138,7 @@ LOCALE_PATHS = ['locale',]
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
-SITE_ID = 2
+SITE_ID = 3
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
