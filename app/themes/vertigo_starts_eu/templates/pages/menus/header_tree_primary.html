@@ -1,0 +1,31 @@
+{% load i18n pages_tags mezzanine_tags media_tags organization_tags staticfiles %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+{% spaceless %}
+{% if page_branch_in_menu %}
+    <div class="nav-header__submenu">
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    {{ page.departmentpage.description|richtext_filters|safe|truncatechars:415 }}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            {% for page in page_branch %}
+                {% if page.in_menu %}
+                    <ul class="unstyled-list col-sm-3 col-md-3">
+                        <li class="nav-header__item-sub nav-header__item-sub--first{% if page.is_current_or_ascendant %} active{% endif %}">
+                            <a class="" href="{{ page.get_absolute_url }}" title="{{ page.title }}">{{ page.title }}</a>
+
+                {% endif %}
+                {% if page.has_children_in_menu %}
+                    {% page_menu page "pages/menus/header_tree_secondary.html" %}
+                {% endif %}
+                        </li>
+                    </ul>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+{% endspaceless %}

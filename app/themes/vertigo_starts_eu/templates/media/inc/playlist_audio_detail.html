@@ -1,0 +1,26 @@
+{% load mezzanine_tags keyword_tags i18n organization_tags %}
+
+{% if playlist.title %}
+    <h3>{{playlist.title}}</h3>
+{% endif %}
+{% if playlist.description %}
+    <p>
+        {{playlist.description}}
+    </p>
+{% endif %}
+
+<audio preload="true"></audio>
+
+<ol class="audio-playlist">
+    {% for media in playlist.medias.all %}
+        <li class="audio-playlist__item">
+            {% with media.media as media %}
+                {% for transcoded in media.transcoded.all %}
+                    {% if transcoded.mime_type == "audio/mp4" or transcoded.mime_type == "audio/mp3" %}
+                        <a href="#" data-src="{{ transcoded.url }}"><span>{{ media.title }}</span>{% if media.description %}<small> {{ media.description }}</small>{% endif %}</a>
+                    {% endif %}
+                {% endfor %}
+            {% endwith %}
+        </li>
+    {% endfor %}
+</ol>

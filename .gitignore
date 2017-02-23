@@ -45,10 +45,10 @@ bower_components
 node_modules
 .sass-cache
 .bundle
-app/static/js
-app/static/css
-app/static/img
-app/static/vendors
+app/themes/base/static/js
+app/themes/base/static/css
+app/themes/base/static/img
+app/themes/base/static/vendors
 
 ### SublimeText ###
 ###################

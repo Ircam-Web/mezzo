@@ -1,0 +1,31 @@
+{% load i18n pages_tags %}
+
+{% if on_home %}
+    <li>{% trans "Home" %}</li>
+{% else %}
+    {% for page in page_branch %}
+
+        {% if not has_home and page.is_primary and forloop.first %}
+            <li class="breadcrumb__item" id="breadcrumb-menu-home">
+                <a class="breadcrumb__link" href="{% url "home" %}">{% trans "Home" %}</a>
+            </li>
+        {% endif %}
+
+        {% if page.is_current_or_ascendant %}
+            {% if page.is_current %}
+                <li class="breadcrumb__item" id="breadcrumb-menu-{{ page.html_id }}"
+                    class="active">{{ page.title }}</li>
+            {% else %}
+                <li class="breadcrumb__item" id="breadcrumb-menu-{{ page.html_id }}">
+                    <a class="breadcrumb__link" href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+                </li>
+            {% endif %}
+            {% if page.has_children %}
+                {% page_menu page %}
+            {% else %}
+                
+            {% endif %}
+        {% endif %}
+
+    {% endfor %}
+{% endif %}
