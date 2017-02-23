@@ -1,0 +1,39 @@
+{% extends "vertigo_starts_eu/pages/page.html" %}
+{% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
+
+{% block meta_title %}{% trans "Candidacies" %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ candidacy.description }}
+{% endmetablock %}{% endblock %}
+
+{% block breadcrumb_menu %}
+    {{block.super}}
+    <li class="breadcrumb__item active">
+        {% trans "Candidacies" %}
+    </li>
+{% endblock %}
+
+{% block page_class %}
+    candidacy
+{% endblock %}
+
+{% block page_title %}
+  <h1 class="dotted">{% trans "Candidacies" %}</h1>
+{% endblock %}
+
+{% block page_content %}
+
+    {% if candidacy %}
+
+        {% for content in candidacy %}
+            {% include "job/inc/candidacy_card.html" %}
+        {% endfor %}
+
+    {% else %}
+
+        <p>{% trans "Please come back later. There is no candidacy at the moment." %}</p>
+
+    {% endif %}
+
+{% endblock %}

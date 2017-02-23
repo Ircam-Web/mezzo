@@ -1,0 +1,60 @@
+{% extends "core/inc/search_card.html" %}
+{% load i18n mezzanine_tags organization_tags %}
+
+{% block title %}
+    {{ result }}
+{% endblock %}
+
+{% block icon %}file-{{playlist.type}}-o{% endblock %}
+
+{% block tags %}
+    <div class="search-box__tags">
+        {{playlist.type}}
+    </div>
+{% endblock %}
+
+{% block url %}
+    {{ playlist.get_absolute_url }}
+{% endblock %}
+
+{% block content %}
+    {% if playlist.description != playlist|stringformat:"s" %}
+        {{ playlist.description|truncatewords_html:200|safe }}
+    {% endif %}
+{% endblock %}
+
+{% with playlist.get_absolute_url as playlist_url %}
+    {% if playlist.medias.first.media.poster_url %}
+        <!-- url of the media is distant. We can't generate back side thumbnail. Do it with css pliz -->
+        <img src="{{playlist.medias.first.media.poster_url }}" width="200" height="150">
+    {% else %}
+        <!--placeholder picture-->
+    {% endif %}
+
+    {{ playlist.type }}
+
+    <h5>
+        {% if playlist_url %}
+            <a href="{{ playlist_url }}">{{ playlist.title }}</a>
+        {% else %}
+            {{ playlist }}
+        {% endif %}
+    </h5>
+    {% if playlist.description != playlist|stringformat:"s" %}
+        <p>{{ playlist.description|truncatewords_html:200|safe }}</p>
+    {% endif %}
+    {% if playlist_url %}
+        <a href="{{ playlist_url }}">{% trans "read more" %}</a>
+    {% endif %}
+    <br>
+{% endwith %}
+
+{% block image %}
+    {% if playlist.medias.all.0.media.poster_url %}
+        <a href="{{ playlist.get_absolute_url }}" class="search-box__image-wrapper">
+            <figure class="search-box__image search-box__image--playlist search-box__image--{{playlist.type}}">
+                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="{{ playlist.medias.all.0.media.poster_url }}">
+            </figure>
+        </a>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% load i18n mezzanine_tags accounts_tags %}
+
+{% if request.user.is_authenticated %}
+    <div class="user__panel">
+        {% trans "Logged in as: " %}
+        {% url "profile" request.user.username as profile_url %}
+        {% if profile_url %}
+            <a href="{{ profile_url }}">{{ request.user|username_or:"email" }}</a>
+        </p>
+            <a href="{% url "profile_update" %}" class="btn btn-small">
+                <span class="icon icon__pencil"></span>
+                {% trans "Update profile" %}
+            </a>
+        {% else %}
+            <a href="{% url "profile_update" %}">{{ request.user|username_or:"email" }}</a>
+        </p>
+        {% endif %}
+        <a href="{% url "logout" %}?next={{ request.path }}" class="btn btn-full">
+            <span class="icon icon__sign-out"></span>
+            {% trans "Log out" %}
+        </a>
+    </div>
+{% else %}
+    <div class="user__panel">
+        <div class="this-or-this">
+            <a href="{% url "login" %}?next={{ request.path }}" class="this-or-this__this">
+                {% trans "Log in" %}
+            </a>
+           <span class="this-or-this__or  one-fifth">
+               {% trans "or" %}
+           </span>
+           <a href="{% url "signup" %}?next={{ request.path }}" class="this-or-this__this  two-fifths">
+               {% trans "Sign up" %}
+           </a>
+        </div>
+    </div>
+{% endif %}

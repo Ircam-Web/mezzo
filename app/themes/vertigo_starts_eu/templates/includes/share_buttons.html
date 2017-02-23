@@ -1,0 +1,28 @@
+{% load i18n event_tags %}
+
+<ul class="share-links">
+    <li class="share-links__item share-links__item--facebook">
+        <a target="_blank" href="http://facebook.com/sharer.php?u={{ request.build_absolute_uri }}&amp;t={{ object.title|urlencode }}" title="{% trans "Share on Facebook" %}"><i class="fa fa-facebook-square"></i></a>
+    </li>
+    <li class="share-links__item share-links__item--twitter">
+        <a target="_blank" href="http://twitter.com/home?status={{ object.title|urlencode }}%20{{ request.build_absolute_uri }}" title="{% trans "Share on Twitter" %}"><i class="fa fa-twitter-square"></i></a>
+    </li>
+    <li class="share-links__item share-links__item--email">
+        <a href="mailto:?subject={{ object.title }}&amp;body={{ request.build_absolute_uri }}" title="{% trans "Share by email" %}"> <i class="fa fa-envelope-square"></i></a>
+    </li>
+    <li class="share-links__item share-links__item--print">
+        <a href="javascript:window.print()" title="{% trans "Print this page" %}"><i class="fa fa-print"></i></a>
+    </li>
+    {% if is_event %}
+        <li class="share-links__item">
+            <a href='{{ event|google_calendar_url }}' target="_blank" title="{% trans "Add to" %} Google Calendar">
+                <i class="fa fa-google"></i>
+            </a>
+        </li>
+        <li class="share-links__item">
+            <a href='{% icalendar_url %}' class="push__calendar__item" title="{% trans "Add to" %} Outlook/iCal">
+                <i class="fa fa-calendar"></i>
+            </a>
+        </li>
+    {% endif %}
+</ul>

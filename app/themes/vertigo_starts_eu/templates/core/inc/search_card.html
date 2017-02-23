@@ -1,0 +1,29 @@
+<div class="search-box">
+
+    {% block image %}
+    {% endblock %}
+
+    <div class="search-box__right">
+
+        <a href="{% block url %}{% endblock %}" target="_blank">
+            <h2 class="search-box__title">
+                {% block title %}
+                {% endblock %}
+                <i class="fa fa-{% block icon %}{% endblock %}"></i>
+            </h2>
+        </a>
+
+        {% block tags %}
+        {% endblock %}
+
+        {% block subtitle %}
+        {% endblock %}
+
+        <div class="search-box__content">
+
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+</div>

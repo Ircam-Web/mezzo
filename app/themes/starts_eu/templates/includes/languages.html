@@ -1,0 +1,9 @@
+{% load i18n pages_tags mezzanine_tags staticfiles keyword_tags event_tags organization_tags %}
+{% if settings.USE_MODELTRANSLATION and languages|length > 1 %}
+    {% nevercache %}
+        {% include "includes/language_selector.html" %}
+    {% endnevercache %}
+    {% for language in languages %}
+        <a data-lang="{{ language.code }}" href="#" class="nav-header__item-link nav-header__item-link--no-dot {% if language.code == LANGUAGE_CODE %} active{% endif %}">{{ language.code|title }}</a>
+    {% endfor %}
+{% endif %}

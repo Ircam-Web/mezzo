@@ -1,0 +1,21 @@
+{% load mezzanine_tags i18n %}
+<div class="search" id="search" data-open-button-target="search" data-close-button-target="search" data-close-escape>
+    <a href="#" data-close-button="search" class="search__close">
+    </a>
+    <div class="search__container">
+        <div class="search__content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                        <form action="{% url "search" %}" role="search" class="search-form">
+                            <input class="form-control" placeholder="{% trans "Type something" %}" type="text" name="q" value="">
+                            <button type="submit">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

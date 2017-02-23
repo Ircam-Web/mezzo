@@ -1,0 +1,90 @@
+{% extends "starts_eu/pages/page.html" %}
+{% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
+
+{% block meta_title %}{% trans "Network" %}{% endblock %}
+
+{% block meta_description %}
+    {% metablock %}
+        {{ organization.description }}
+    {% endmetablock %}
+{% endblock %}
+
+{% block page_class %}
+    organization
+{% endblock %}
+
+{% block breadcrumb_menu %}
+    {{ block.super }}
+    <li class="breadcrumb__item active">{% trans "Network" %}</li>
+{% endblock %}
+
+{% block page_slider %}
+
+    <div style="position: relative;">
+        <div class="map" id="network-map">
+        </div>
+        <div class="map-legend">
+            {% for type in organization_types %}
+                <div class="map-legend__item map-legend__item--{{ type.1 }}">{{ type.0 }}</div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container hide">
+        <div class="row">
+            <div class="col-xs-12 col-md-10 col-md-push-1">
+                <div class="slider-network">
+                    <ul class="slider-network__slider" data-slider-network>
+                        {% for organization in organizations %}
+                            <li class="slider-network__slide" data-marker-url="{{organization.url}}" data-marker-color="{{ organization.type.css_class }}" {% with organization.images.all|get_type:'logo' as images %}{% if images %}data-marker-image="{{ MEDIA_URL }}{{images.first.file}}"{% endif %}{% endwith %} data-marker-idx="{{forloop.counter0}}" data-marker-lat="{{ organization.lat }}" data-marker-lng="{{ organization.lon }}">
+                                <div class="slider-network__slide-image"
+                                    {% with organization.images.all|get_type:'logo' as images %}
+                                        {% if images %}
+                                            style="background-image: url('{{ MEDIA_URL }}{{images.first.file}}');"
+                                        {% endif %}
+                                    {% endwith %}
+                                >
+                                </div>
+                                <div class="slider-network__slide-title" data-marker-title>
+                                    {{ organization.name }}
+                                </div>
+                                <div class="slider-network__slide-subtitle" data-marker-subtitle>
+                                    {{ organization.city }}, {{ organization.country.name }}
+                                </div>
+                                <div class="">
+                                    {{ organization.type }}, {{ organization.type.css_class }}
+                                </div>
+                                <div class="slider-network__slide-description" data-marker-description>
+                                    {{ organization.description }}
+                                </div>
+                            </li>
+
+                            {% comment %}
+                                {{ organization.name }}<br>
+                                {{ organization.lat }}<br>
+                                {{ organization.lon }}<br>
+                                {{ organization.city }}<br>
+                                {{ organization.country.name }}<br>
+
+                                <!-- optional -->
+                                {% with organization.links|get_type_link:'link' as links %}
+                                    {% if links %}
+                                        {{ links.first }}
+                                    {% endif %}
+                                {% endwith %}
+                                <br>
+                                <!-- optional -->
+                                {% with organization.images.all|get_type:'logo' as images %}
+                                    {% if images %}
+                                        <img src="{{ MEDIA_URL }}{% thumbnail images.first.file 100 0 left=0 top=0 %}" alt="logo {{ organization.name }}" />
+                                    {% endif %}
+                                {% endwith %}
+                                <br><br>
+                            {% endcomment %}
+
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

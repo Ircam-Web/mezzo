@@ -1,0 +1,51 @@
+{% extends "shop/starts_eu/base.html" %}
+{% load mezzanine_tags shop_tags i18n %}
+
+{% block meta_title %}{% trans "Order History" %}{% endblock %}
+{% block title %}{% trans "Order History" %}{% endblock %}
+
+{% block breadcrumb_menu %}
+{{ block.super }}
+<li>{% trans "Order History" %}</li>
+{% endblock %}
+
+{% block main %}
+
+{% if orders %}
+
+<table class="table table-striped order-history">
+    <thead>
+        <th class="left">ID</th>
+        <th class="left">{% trans "Date" %}</th>
+        <th class="right">{% trans "Qty" %}</th>
+        <th class="right">{% trans "Paid" %}</th>
+        <th>&nbsp;</th>
+    </thead>
+    <tbody>
+    {% for order in orders.object_list %}
+    <tr>
+        <td class="left">{{ order.id }}</td>
+        <td class="left">{{ order.time|date:"SHORT_DATE_FORMAT" }}</td>
+        <td class="right">{{ order.quantity_total }}</td>
+        <td class="right">{{ order.total|currency }}</td>
+        <td class="right">
+            <form class="order-history-form" method="post" action="{% url "shop_invoice_resend" order.id %}?next={{ request.path }}">
+                {% csrf_token %}
+                {% if has_pdf %}
+                <a class="btn btn-sm btn-primary" href="{% url "shop_invoice" order.id %}?format=pdf">{% trans "Download PDF" %}</a>
+                {% endif %}
+                <a class="btn btn-sm btn-default" target="_blank" href="{% url "shop_invoice" order.id %}">{% trans "View invoice" %}</a>
+                <input type="submit" class="btn btn-sm btn-default" value="{% trans "Re-send order email" %}">
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% pagination_for orders %}
+
+{% else %}
+<p>{% trans "You have not ordered anything from us yet." %}</p>
+{% endif %}
+
+{% endblock %}

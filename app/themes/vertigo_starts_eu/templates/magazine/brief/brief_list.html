@@ -1,0 +1,9 @@
+{% for brief in briefs|slice:":8" %}
+    <div class="col-xs-3">
+        <div class="home__shutter-item">
+            <h2>{{ brief.title }}</h2>
+            <p>{{ brief.description|truncatechars:100 }}</p>
+            <a href="{{ brief.external_content }}" title="brief.title">{{ brief.text_button }}</a>
+        </div>
+    </div>
+{% endfor %}

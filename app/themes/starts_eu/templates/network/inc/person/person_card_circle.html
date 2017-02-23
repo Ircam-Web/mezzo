@@ -1,0 +1,43 @@
+{% load organization_tags mezzanine_tags i18n %}
+
+<div class="row">
+    <div class="person-list-box">
+
+        <div class="col-xxs-3 tac">
+
+            <a href="{{ person.get_absolute_url }}" title="{{ person.first_name }}&nbsp;{{ person.last_name }}">
+                <figure class="person-list-box__image">
+
+                    {% with person.images.all|get_type:'card' as card_images %}
+                        {% if card_images %}
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="{{ MEDIA_URL }}{% thumbnail card_images.first 135 135 top=0.5 %}" class="lazyload" alt="person"/>
+                        {% endif %}
+                    {% endwith %}
+
+                </figure>
+            </a>
+
+        </div>
+
+        <div class="col-xxs-13">
+
+            <h3 class="mt0 fsxl">{{ person.first_name }}&nbsp;{{ person.last_name }}</h3>
+
+            {% if person.description %}
+                <div class="person-list-box__desc">{{ person.description|richtext_filters|safe }}</div>
+            {% elif person.bio %}
+                <div class="person-list-box__desc">{{ person.bio|richtext_filters|safe }}</div>
+            {% endif %}
+            {% if person.files.first %}
+                <a href="{{ person.files.first.file.url }}" class="button button--small">{% trans "resume" %}</a>
+            {% endif %}
+            {% for link in person.links.all %}
+                {% if link %}
+                    <a href="{{ link }}" title="Site Web" class="button button--small" target="_blank"><i class="fa fa-{{ link.link_type.slug }}"></i>{% firstof link.title link.link_type.name %}</a>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>

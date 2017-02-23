@@ -1,0 +1,12 @@
+{% load i18n pages_tags staticfiles %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+{% spaceless %}
+{% if page_branch_in_menu %}
+    {% for page in page_branch %}
+        {% if page.in_menu %}
+            {% include "home/inc/shutter_card.html" with title=page.title description=page.description url_pattern=page.content_model|add:"-detail" slug=page.slug %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% endspaceless %}

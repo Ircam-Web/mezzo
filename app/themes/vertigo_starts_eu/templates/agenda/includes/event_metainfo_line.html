@@ -1,0 +1,35 @@
+{% load i18n mezzanine_tags event_tags organization_tags %}
+
+<div class="page__meta-date">
+    <a href="{{ event.get_absolute_url }}">
+        {% include 'agenda/includes/event_date_line.html' with object=event %}
+    </a>
+</div>
+
+<div class="page__meta-separator page__meta-separator--small"></div>
+
+{% if event.location %}
+    <div class="page__meta-title">{{ event.location }}</div>
+{% endif %}
+
+{% if unit_booking %}
+
+    {% if event.prices.all and not is_archive %}
+        <p>
+            {% if event.trainings.all|length %}
+                {% with event.links.all as links %}
+                    {% if links %}
+                        <a class="button mt1" href="{{ links|get_type_link:'link'|first }}" class="event__meta__btn">
+                            {% trans "Reserve" %}
+                        </a>
+                    {% endif %}
+                {% endwith %}
+            {% else %}
+                <a class="button mt1" href="{% url 'event_booking' event.slug %}" class="event__meta__btn">
+                    {% trans "Reserve" %}
+                </a>
+            {% endif %}
+        </p>
+    {% endif %}
+
+{% endif %}

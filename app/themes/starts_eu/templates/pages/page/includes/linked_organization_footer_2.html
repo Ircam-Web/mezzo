@@ -1,0 +1,8 @@
+{% load organization_tags %}
+<ul class="unstyled-list">
+    {% for lof in linked_organization_footer_2 %}
+        <li>
+            <a class="footer__link" href="{{ lof.url }}" target="_blank" title="{{ lof.name }}">{{ lof.name}} </a>
+        </li>
+    {% endfor %}
+</ul>

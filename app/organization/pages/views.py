@@ -35,6 +35,7 @@ from organization.pages.models import Home
 from organization.agenda.models import Event
 from organization.media.models import Playlist, Media
 from organization.network.models import Person
+from django.shortcuts import redirect
 
 
 class HomeView(SlugMixin, ListView):
@@ -54,6 +55,13 @@ class HomeView(SlugMixin, ListView):
         context = super(HomeView, self).get_context_data(**kwargs)
         context['briefs'] = self.briefs
         return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if not self.get_queryset():
+            page = CustomPage.objects.first()
+            return redirect(reverse_lazy('page', kwargs={'slug': page.slug}))
+        else:
+            return super(HomeView, self).dispatch(request, *args, **kwargs)
 
 
 class DynamicContentHomeSliderView(Select2QuerySetSequenceView):

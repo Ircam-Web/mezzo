@@ -23,6 +23,8 @@ from django.conf import settings # import the settings file
 from datetime import datetime, date
 from organization.pages.models import Page
 from organization.network.models import Organization, OrganizationLinkedInline
+from mezzanine.utils.sites import current_site_id
+
 
 def settings(request):
     date_now = datetime.now()

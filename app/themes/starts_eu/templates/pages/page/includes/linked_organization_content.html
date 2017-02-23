@@ -1,0 +1,18 @@
+{% load organization_tags %}
+<div class="row">
+    <div class="pull-right">
+        <ul class="linked-organizations">
+            {% for loc in linked_organization_content %}
+                {% if loc.images.all %}
+                    {% with loc.images|get_type:"logo_black"|first as img %}
+                    <li class="linked-organizations__item">
+                        <a href="{{ loc.url }}" title="{{ loc.title }}" target="_blank">
+                            <img src="{{ MEDIA_URL }}{{ img }}" title="{{ img.title }}" />
+                        </a>
+                    </li>
+                    {% endwith %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+{% extends "vertigo_starts_eu/pages/page.html" %}
+{% load mezzanine_tags keyword_tags i18n organization_tags %}
+
+{% block breadcrumb_menu %}
+
+    {{ block.super }}
+    <li class="breadcrumb__item active">{{ job_offer.title }}</li>
+
+{% endblock %}
+
+{% block page_title %}
+
+    {% editable job_offer.title %}
+        <h1 class="dotted">{{ job_offer.title }}</h1>
+    {% endeditable %}
+
+{% endblock %}
+
+{% block page_content %}
+
+    {% include "core/inc/messages.html" %}
+
+    {% comment %}
+        <p>{% trans "Category" %} : {{ job_offer.type }}</p>
+    {% endcomment %}
+    {% editable job_offer.content %}
+        {{ job_offer.content|richtext_filters|safe }}
+    {% endeditable %}
+
+
+    {% with form as job_offer.job_response %}
+        {% include "job/inc/job_response_form.html" %}
+    {% endwith %}
+{% endblock %}

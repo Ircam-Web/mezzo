@@ -1,0 +1,7 @@
+{% load i18n pages_tags mezzanine_tags %}
+<div>
+    <a href="{% url "topic-detail" topic.slug %}" title="{{ topic.name }}" >
+      <h3>{{ topic.title }}</h3>
+      <p>{{ topic.description|slice:":255" }}</p>
+    </a>
+</div>
