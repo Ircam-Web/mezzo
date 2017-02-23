@@ -127,6 +127,7 @@ class Organization(Named, Address, URL, AdminThumbRelatedMixin, Orderable):
     opening_times = models.TextField(_('opening times'), blank=True)
     subway_access = models.TextField(_('subway access'), blank=True)
     bio = models.TextField(_('bio'), blank=True)
+    site = models.ForeignKey("sites.Site", blank=True, null=True, on_delete=models.SET_NULL)
     admin_thumb_type = 'logo'
 
     class Meta:
