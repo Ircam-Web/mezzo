@@ -1,0 +1,12 @@
+{% load i18n %}
+{% load event_tags %}
+
+{% if object.start and not object.end %}
+    {{ object.start|date:"l j F" }}<br>
+{% else %}
+    {% if object.start|date:"d.m.y" == object.end|date:"d.m.y" %}
+        {{ object.start|date:"l j F" }}<br>
+    {% else %}
+        {{ object.start|date:"j F" }} {% trans "to" %} {{ object.end|date:"j F" }}
+    {% endif %}
+{% endif %}

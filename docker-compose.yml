@@ -47,6 +47,7 @@ app:
   volumes:
     - ./app:/srv/app
     - ./gulpfile.js:/srv/gulpfile.js
+    - ./.bowerrc:/srv/.bowerrc
     - ./lib/mezzanine-agenda:/srv/lib/mezzanine-agenda
     # - ./lib/grappelli-safe:/srv/lib/grappelli-safe
     # - ./lib/mezzanine/:/srv/lib/mezzanine
