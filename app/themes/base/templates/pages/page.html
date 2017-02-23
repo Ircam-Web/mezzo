@@ -163,7 +163,7 @@
     <div>
 
         {% block page_related_content %}
-            {% with dynamic_content=page.dynamic_content_pages.all object=page %}
+            {% with dynamic_content=page.dynamic_content_pages.all|filter_content object=page %}
                 {% include "core/inc/related_content.html" %}
             {% endwith %}
         {% endblock %}

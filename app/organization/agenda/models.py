@@ -70,16 +70,6 @@ class EventPerson(models.Model):
         verbose_name_plural = _("persons")
 
 
-class EventRank(models.Model):
-
-    event = models.OneToOneField(Event, verbose_name=_('event'), related_name='event_rank', blank=True, null=True, on_delete=models.SET_NULL)
-    rank = models.IntegerField(verbose_name=_('rank'), blank=True, null=True)
-
-    class Meta:
-        verbose_name = _("rank")
-        verbose_name_plural = _("ranks")
-
-
 class EventLink(Link):
 
     event = models.ForeignKey(Event, verbose_name=_('event'), related_name='links', blank=True, null=True, on_delete=models.SET_NULL)

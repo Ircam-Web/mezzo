@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 14:29+0100\n"
+"POT-Creation-Date: 2017-02-22 15:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -128,7 +128,7 @@ msgstr "personne"
 
 #: organization/agenda/models.py:70
 msgid "persons"
-msgstr "personnes"
+msgstr "personne"
 
 #: organization/agenda/models.py:78 organization/core/models.py:209
 #: organization/pages/models.py:75 organization/pages/models.py:99
@@ -616,10 +616,8 @@ msgid "February"
 msgstr ""
 
 #: organization/network/models.py:85
-#, fuzzy
-#| msgid "Search"
 msgid "March"
-msgstr "Rechercher"
+msgstr ""
 
 #: organization/network/models.py:86
 msgid "April"
@@ -2190,8 +2188,6 @@ msgid "Reserve"
 msgstr "Réserver"
 
 #: templates/agenda/event_detail.html:23
-#, fuzzy
-#| msgid "Related events"
 msgid "Back to events"
 msgstr "Revenir aux événements"
 
@@ -2204,14 +2200,14 @@ msgid "Trainers"
 msgstr "Encadrants"
 
 #: templates/agenda/event_detail.html:107
-msgid "Speakers"
-msgstr "Intervenants"
+#, fuzzy
+#| msgid "Person"
+msgid "Persons"
+msgstr "Personne"
 
 #: templates/agenda/event_list.html:48
-#, fuzzy
-#| msgid "Related events"
 msgid "Past events"
-msgstr "Événements associés"
+msgstr "Événements passés"
 
 #: templates/agenda/event_location_detail.html:40
 #: templates/agenda/includes/event_location.html:15
@@ -2237,7 +2233,7 @@ msgstr "et"
 
 #: templates/agenda/includes/event_date.html:41
 #: templates/agenda/includes/event_date.html:64
-#: templates/agenda/includes/event_date.html:72
+#: templates/agenda/includes/event_date.html:75
 #: templates/agenda/includes/event_date_line.html:37
 #: templates/agenda/includes/event_date_line.html:49
 #: templates/agenda/includes/event_date_slider.html:37
@@ -2289,15 +2285,14 @@ msgstr "Archive"
 msgid "Tags"
 msgstr "Mots clés"
 
-#: templates/base.html:75
-msgid "Instagram feed"
-msgstr "Fil Instagram"
+#: templates/core/inc/related_content.html:8
+#: templates/network/person_detail.html:80
+#, fuzzy
+#| msgid "Related events"
+msgid "Linked events"
+msgstr "Événements liés"
 
-#: templates/base.html:85
-msgid "Twitter feed"
-msgstr "Fil Twitter"
-
-#: templates/core/inc/related_content.html:7
+#: templates/core/inc/related_content.html:30
 #: templates/core/inc/related_content_dynamic.html:7
 msgid "Also discover"
 msgstr "À découvrir aussi"
@@ -2405,7 +2400,7 @@ msgid "Sorry, an error occurred."
 msgstr "Une erreur s'est produite."
 
 #: templates/generic/includes/comment.html:22
-#: templates/generic/includes/comment.html:59 templates/twitter/tweets.html:16
+#: templates/generic/includes/comment.html:59 templates/twitter/tweets.html:24
 #, python-format
 msgid "%(sometime)s ago"
 msgstr ""
@@ -2528,6 +2523,14 @@ msgstr "Imprimer cette page"
 msgid "Add to"
 msgstr "Ajouter à"
 
+#: templates/includes/social.html:7
+msgid "Instagram feed"
+msgstr "Fil Instagram"
+
+#: templates/includes/social.html:15
+msgid "Twitter feed"
+msgstr "Fil Twitter"
+
 #: templates/job/candidacy_list.html:4 templates/job/candidacy_list.html:13
 #: templates/job/candidacy_list.html:22
 msgid "Candidacies"
@@ -2561,6 +2564,7 @@ msgstr ""
 "Merci de revenir plus tard. Il n'y a pas d'offre d'emploi pour le moment."
 
 #: templates/magazine/article/article_detail.html:85
+#: templates/media/audio/audio_detail.html:30
 #: templates/media/audio/audio_overlay.html:31
 #: templates/media/video/video_detail.html:28
 #: templates/media/video/video_overlay.html:29
@@ -2600,29 +2604,11 @@ msgstr ""
 msgid "Team"
 msgstr "Équipe"
 
-#: templates/network/person_detail.html:71
-#, fuzzy
-#| msgid "Related events"
-msgid "Related Events"
-msgstr "Événements associés"
-
-#: templates/network/person_detail.html:76
-#, fuzzy
-#| msgid "Related event"
-msgid "Related Content"
-msgstr "Événement associé"
-
-#: templates/network/person_detail.html:90
-#, fuzzy
-#| msgid "Related events"
-msgid "Linked events"
-msgstr "Événements associés"
-
-#: templates/network/person_detail.html:123
+#: templates/network/person_detail.html:113
 msgid "Linked contents"
 msgstr ""
 
-#: templates/network/person_detail.html:168
+#: templates/network/person_detail.html:158
 #: templates/network/person_detail_multiple_activities.html:106
 msgid "Links"
 msgstr "Liens"
@@ -2757,7 +2743,7 @@ msgstr "Pages"
 
 #: templates/search_results.html:5 templates/search_results.html:6
 msgid "Search Results"
-msgstr "Resultats de recherche"
+msgstr "Resultats de la recherche"
 
 #: templates/search_results.html:67
 #, fuzzy, python-format
@@ -3059,6 +3045,15 @@ msgstr ""
 #: templates/styles.html:4 templates/styles.html:6 templates/styles.html:12
 msgid "Styles"
 msgstr ""
+
+#~ msgid "curators"
+#~ msgstr "intervenants"
+
+#~ msgid "Speakers"
+#~ msgstr "Intervenants"
+
+#~ msgid "Related Events"
+#~ msgstr "Événements liés"
 
 #~ msgid "Rendez-vous in Paris"
 #~ msgstr "Rendez-vous à Paris"

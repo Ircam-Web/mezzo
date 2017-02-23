@@ -146,7 +146,7 @@
 {% endblock %}
 
 {% block page_related_content %}
-    {% with dynamic_content=event.dynamic_content_event.all object=event %}
+    {% with dynamic_content=event.dynamic_content_event.all|filter_content object=event %}
         {% include "core/inc/related_content.html" %}
     {% endwith %}
 {% endblock %}

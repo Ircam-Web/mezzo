@@ -82,11 +82,6 @@ class EventRelatedTitleAdmin(TranslationTabularInline):
     model = EventRelatedTitle
 
 
-class EventRankAdmin(TranslationTabularInline):
-
-    model = EventRank
-
-
 class EventPriceDescriptionAdmin(TranslationTabularInline):
 
     model = EventPriceDescription
@@ -107,6 +102,7 @@ class DynamicContentEventInline(TabularDynamicInlineAdmin):
             static("mezzanine/js/admin/dynamic_inline.js"),
         )
 
+
 class CustomEventAdmin(EventAdmin):
     """
     Admin class for events.
@@ -118,19 +114,9 @@ class CustomEventAdmin(EventAdmin):
     if settings.EVENT_USE_FEATURED_IMAGE:
         list_display.insert(0, "admin_thumb")
     list_filter = deepcopy(DisplayableAdmin.list_filter) + ("location", "category")
-    inlines = [EventRankAdmin, EventPeriodInline, EventBlockInline, EventImageInline, EventDepartmentInline,
+    inlines = [EventPeriodInline, EventBlockInline, EventImageInline, EventDepartmentInline,
                 EventPersonInline, EventLinkInline, EventPlaylistInline, EventTrainingInline,
                 EventRelatedTitleAdmin, DynamicContentEventInline]
-
-    def rank(self, obj):
-        return obj.event_rank.rank
-
-    def save_form(self, request, form, change):
-        """
-        Super class ordering is important here - user must get saved first.
-        """
-        OwnableAdmin.save_form(self, request, form, change)
-        return DisplayableAdmin.save_form(self, request, form, change)
 
 
 class CustomEventCategoryAdmin(BaseTranslationModelAdmin):
