@@ -23,13 +23,13 @@ var:
   volumes:
     - ./var/media:/srv/media
     - ./var/backup:/srv/backup
+    - ./var/static:/srv/static
     - ./var/log/uwsgi:/var/log/uwsgi
     - ./var/log/nginx:/var/log/nginx
     - ./var/log/app:/var/log/app
     - ./bin:/srv/bin
     - ./doc:/srv/doc
     - /srv/bower
-    - /srv/static
   command: "true"
 
 db:
