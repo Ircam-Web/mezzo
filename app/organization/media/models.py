@@ -79,30 +79,21 @@ class Media(Displayable):
             if 'audio' in transcoded.mime_type:
                 return 'audio'
 
+    def save(self, *args, **kwargs):
+        q = pq(self.get_html())
+        sources = q('source')
+        video = q('video')
+        if len(video):
+            if 'poster' in video[0].attrib.keys():
+                self.poster_url = video[0].attrib['poster']
 
-def create_media(instance, created, raw, **kwargs):
-    # Ignore fixtures and saves for existing courses.
+        super(Media, self).save(*args, **kwargs)
 
-    if not created or raw:
-        return
-
-    q = pq(instance.get_html())
-    sources = q('source')
-
-    video = q('video')
-    if len(video):
-        if 'poster' in video[0].attrib.keys():
-            instance.poster_url = video[0].attrib['poster']
-
-    for source in sources:
-        mime_type = source.attrib['type']
-        transcoded = MediaTranscoded(media=instance, mime_type=mime_type)
-        transcoded.url = source.attrib['src']
-        transcoded.save()
-
-    instance.save()
-
-models.signals.post_save.connect(create_media, sender=Media, dispatch_uid='create_media')
+        for source in sources:
+            mime_type = source.attrib['type']
+            transcoded, c = MediaTranscoded.objects.get_or_create(media=self, mime_type=mime_type)
+            transcoded.url = source.attrib['src']
+            transcoded.save()
 
 
 class MediaTranscoded(models.Model):
