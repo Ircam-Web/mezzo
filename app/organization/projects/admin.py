@@ -86,6 +86,11 @@ class ProjectAdmin(admin.ModelAdmin):
     model = Project
 
 
+class ICTProjectAdmin(admin.ModelAdmin):
+
+    model = ICTProject
+
+
 class ProjectRelatedTitleAdmin(TranslationTabularInline):
 
     model = ProjectRelatedTitle
@@ -119,6 +124,23 @@ class ProjectAdminDisplayable(DisplayableAdmin):
     list_display = ['title', 'external_id', 'date_from', 'date_to', 'status', 'admin_link']
 
 
+class ICTProjectAdminDisplayable(DisplayableAdmin):
+
+    fieldsets = deepcopy(ICTProjectAdmin.fieldsets)
+    inlines = [ ProjectBlockInline,
+                ProjectImageInline,
+                ProjectWorkPackageInline,
+                ProjectPlaylistInline,
+                ProjectLinkInline,
+                ProjectFileInline,
+                ProjectRelatedTitleAdmin,
+                DynamicContentProjectInline,
+                ProjectBlogPageInline,]
+    filter_horizontal = ['contact']
+    list_filter = ['validation_status', null_filter('external_id')]
+    list_display = ['title', 'external_id', 'date_from', 'date_to', 'status', 'admin_link']
+
+
 class ProjectTopicAdmin(BaseTranslationModelAdmin):
 
     model = ProjectTopic
@@ -146,6 +168,11 @@ class ProjectWorkPackageAdmin(BaseTranslationModelAdmin):
     list_filter = ['project', 'date_from', 'date_to', 'lead_organization' ]
 
 
+class ICTProjectAdmin(admin.ModelAdmin):
+
+    model = ICTProject
+
+
 admin.site.register(Project, ProjectAdminDisplayable)
 admin.site.register(ProjectProgram, ProjectProgramAdmin)
 admin.site.register(ProjectProgramType, ProjectProgramTypeAdmin)
@@ -155,3 +182,4 @@ admin.site.register(ProjectDemo, ProjectDemoAdmin)
 admin.site.register(Repository)
 admin.site.register(RepositorySystem)
 admin.site.register(ProjectWorkPackage, ProjectWorkPackageAdmin)
+admin.site.register(ICTProject, ICTProjectAdmin)

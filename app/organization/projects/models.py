@@ -45,6 +45,12 @@ ACCESS_CHOICES = [
     ('private', _('private')),
 ]
 
+PROJECT_STATUS_CHOICES = (
+    (0, _('pending')),
+    (1, _('accepted')),
+    (2, _('rejected')),
+    (3, _('in process'))
+)
 
 class Project(Displayable, Period, RichText):
     """(Project description)"""
@@ -279,3 +285,42 @@ class ProjectBlogPage(Displayable, RichText):
 
     def get_absolute_url(self):
         return reverse("organization-project-blogpage-detail", kwargs={"slug": self.slug})
+
+
+class ICTProject(Displayable, Period, RichText):
+
+    # Public
+    # Already in Displayable #name = models.CharField(_('name'), blank=True, max_length=512)
+    # Already in Displayable #website = models.URLField(_('website'), max_length=512, blank=True)
+    affiliation = models.CharField(_('affiliation'), blank=True, max_length=512)
+    short_description = models.TextField(_('short description'), blank=True, max_length=128)
+    # Already in Displayable #project_description  = models.TextField(_('project description'), blank=True, max_length=128)
+    technology_description = models.TextField(_('technology description'), blank=True, max_length=256)
+    challenges_description = models.TextField(_('challenges description'), blank=True, max_length=256)
+    objectives_description = models.TextField(_('challenges description'), blank=True, max_length=256)
+    resources_description = models.TextField(_('resources description'), blank=True, max_length=256)
+    # Defined as objectives_description # What the project is looking to gain from the collaboration and what kind of artist would be suitable (100 – 150 words)
+    # Defined as resources_description # Resources available to the artist (50 – 100 words)  -- e.g. office facility, studio facility, technical equipment, internet connection, laboratory, and periods of availability for artistic production, staff possibly allocated to the project, available budget for travel, consumables and equipments, etc.).
+    # Already in Displayable # 5 key words to describe project and challenge
+    #TODO: Inherit from ProjectImage or in inlines? # 3 key images for inspiring the artists + any video content available
+    # Already in Period # Possible period of implementation -- (must be part of the project implementation workplan)
+
+    # Private
+    contact = models.ManyToManyField('organization-network.Person', verbose_name=_('Contact Person'), related_name='ict_projects_contact_person', blank=True)
+    letter = models.TextField(_('letter of commitment'), blank=True, max_length=1024)
+    external_id = models.CharField(_('external ID'), blank=True, null=True, max_length=128)
+    validation_status = models.IntegerField(_('validation status'), choices=PROJECT_STATUS_CHOICES)
+
+    class Meta:
+        verbose_name = _('ICT project')
+        verbose_name_plural = _('ICT projects')
+        ordering = ['-date_from', '-date_to']
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("ict-project-detail", kwargs={"slug": self.slug})
+
+    def project_status(self):
+        return self.validation_status
