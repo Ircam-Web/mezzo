@@ -24,6 +24,7 @@ from datetime import datetime, date
 from organization.pages.models import Page
 from organization.network.models import Organization, OrganizationLinkedInline
 from mezzanine.utils.sites import current_site_id
+from django.contrib.sites.models import Site
 
 
 def settings(request):
@@ -39,7 +40,15 @@ def settings(request):
         newsletter_subscribing_url = newsletter_page.first().get_absolute_url()
 
     # HOST ORGANIZATIONS
-    host_org = Organization.objects.filter(is_host=True).first()
+    try:
+        site = Site.objects.get(id=current_site_id())
+        host_org = Organization.objects.get(site=site)
+    except:
+        try:
+            host_org = Organization.objects.filter(is_host=True).first()
+        except:
+            host_org = Organization.objects.first()
+
     organization_lists = []
 
     for orga_linked_block in host_org.organization_linked_block.all():

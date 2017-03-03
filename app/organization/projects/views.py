@@ -26,6 +26,7 @@ from dal_select2_queryset_sequence.views import Select2QuerySetSequenceView
 from mezzanine_agenda.models import Event
 from mezzanine.conf import settings
 from organization.projects.models import *
+from organization.projects.forms import *
 from organization.core.views import *
 from organization.magazine.views import Article
 from organization.pages.models import CustomPage
@@ -106,3 +107,29 @@ class ProjectBlogPageView(SlugMixin, ProjectMixin, DetailView):
 
     model = ProjectBlogPage
     template_name='projects/project_blogpage_detail.html'
+
+
+class ProjectICTDetailView(SlugMixin,DetailView):
+
+    model = Project
+    template_name='projects/project_ict_detail.html'
+
+
+class ProjectICTCreateView(CreateWithInlinesView):
+
+    model = Project
+    form_class = ProjectForm
+    template_name='projects/project_ict_create.html'
+    inlines = [ProjectICTDataInline, ProjectSimpleImageInline, ProjectContactInline,]
+
+
+class ProjectCallDetailView(SlugMixin, DetailView):
+
+    model = ProjectCall
+    template_name='projects/project_call_detail.html'
+
+
+class ProjectCallListView(SlugMixin, ListView):
+
+    model = ProjectCall
+    template_name='projects/project_call_list.html'

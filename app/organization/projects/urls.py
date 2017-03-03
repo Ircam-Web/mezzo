@@ -35,4 +35,7 @@ urlpatterns = [
     url("^dynamic-content-project/$",  permission_required('project.can_edit')(DynamicContentProjectView.as_view()), name='dynamic-content-project'),
     url("^project/demo/(?P<slug>.*)/$", ProjectDemoDetailView.as_view(), name='organization-project-demo-detail'),
     url("^project/blog/(?P<slug>.*)/$", ProjectBlogPageView.as_view(), name='organization-project-blogpage-detail'),
+    url("^project/ict/create/$", ProjectICTCreateView.as_view(), name='organization-project-create'),
+    url("^call/detail/(?P<slug>.*)/$", ProjectCallDetailView.as_view(), name='organization-call-detail'),
+    url("^call/list/$", ProjectCallListView.as_view(), name='organization-call-list'),
 ]

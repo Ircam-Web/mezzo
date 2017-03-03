@@ -124,6 +124,7 @@ ADMIN_MENU_ORDER = (
                      'organization-network.PersonActivityTimeSheet'
                     )),
     (_('Projects'), ('organization-projects.Project',
+                    'organization-projects.ProjectCall',
                     'organization-projects.ProjectProgram',
                     'organization-projects.ProjectProgramType',
                     'organization-projects.ProjectTopic',
