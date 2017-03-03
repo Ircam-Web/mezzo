@@ -42,6 +42,12 @@ class ProjectImageTranslationOptions(TranslationOptions):
     pass
 
 
+@register(ProjectSimpleImage)
+class ProjectSimpleImageTranslationOptions(TranslationOptions):
+
+    pass
+
+
 @register(ProjectFile)
 class ProjectFileTranslationOptions(TranslationOptions):
 
@@ -112,3 +118,44 @@ class ProjectRelatedTitleTranslationOptions(TranslationOptions):
 class DynamicContentProjectTranslationOptions(TranslationOptions):
 
     fields = ()
+
+
+@register(ProjectICTData)
+class ProjectICTDataTranslationOptions(TranslationOptions):
+
+    pass
+
+
+@register(ProjectCall)
+class ProjectCallTranslationOptions(TranslationOptions):
+
+    fields = ('title', 'description', 'content')
+
+
+@register(ProjectCallBlock)
+class ProjectCallBlockTranslationOptions(TranslationOptions):
+
+    fields = ('title', 'description', 'content')
+
+
+@register(ProjectCallImage)
+class ProjectCallImageTranslationOptions(TranslationOptions):
+
+    pass
+
+
+@register(ProjectCallLink)
+class ProjectCallLinkTranslationOptions(TranslationOptions):
+
+    fields = ('title',)
+
+
+@register(ProjectCallFile)
+class ProjectCallFileTranslationOptions(TranslationOptions):
+
+    pass
+
+@register(ProjectContact)
+class ProjectContactTranslationOptions(TranslationOptions):
+
+    pass

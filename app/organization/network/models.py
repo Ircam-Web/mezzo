@@ -302,7 +302,7 @@ class TeamLink(Link):
     team = models.ForeignKey(Team, verbose_name=_('team'), related_name='links', blank=True, null=True, on_delete=models.SET_NULL)
 
 
-class Person(Displayable, AdminThumbMixin):
+class Person(Displayable, AdminThumbMixin, Address):
     """(Person description)"""
 
     user = models.OneToOneField(User, verbose_name=_('user'), blank=True, null=True, on_delete=models.SET_NULL)

@@ -32,7 +32,8 @@ from organization.magazine.models import Article, Topic, Brief
 from organization.pages.models import CustomPage
 from organization.agenda.models import Event, DynamicContentEvent
 from organization.media.models import Playlist
-from organization.projects.models import DynamicContentProject
+from organization.projects.models import *
+from extra_views import InlineFormSet
 
 
 class DynamicContentProjectForm(autocomplete.FutureModelForm):
@@ -50,3 +51,38 @@ class DynamicContentProjectForm(autocomplete.FutureModelForm):
     class Meta:
         model = DynamicContentProject
         fields = ('content_object',)
+
+
+class ProjectForm(ModelForm):
+
+    class Meta:
+        model = Project
+        fields = ('title', 'description', 'keywords', 'website')
+
+
+class ProjectICTForm(ModelForm):
+
+    class Meta:
+        model = Project
+        exclude = ('external_id', '_meta_title')
+
+
+class ProjectICTDataInline(InlineFormSet):
+
+    max_num = 1
+    model = ProjectICTData
+    exclude = ('validation_status', )
+
+
+class ProjectSimpleImageInline(InlineFormSet):
+
+    max_num = 3
+    model = ProjectSimpleImage
+    fields = ('file', 'credits')
+
+
+class ProjectContactInline(InlineFormSet):
+
+    max_num = 1
+    model = ProjectContact
+    fields = ('gender', 'person_title', 'first_name', 'last_name', 'address', 'email', 'telephone', 'bio', 'address', 'postal_code', 'city', 'country')

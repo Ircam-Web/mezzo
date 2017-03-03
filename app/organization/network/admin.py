@@ -35,6 +35,7 @@ from organization.pages.admin import PageImageInline, PageBlockInline, PagePlayl
 from organization.shop.models import PageProductList
 from organization.network.utils import TimesheetXLS, set_timesheets_validation_date
 
+
 class OrganizationAdminInline(StackedDynamicInlineAdmin):
 
     model = OrganizationLinkedInline

@@ -26,3 +26,4 @@ xlwt==1.2.0
 DateTimeRange==0.2.8
 workalendar==1.0.0
 django-instagram==0.2.0a1
+django-extra-views==0.8.0
