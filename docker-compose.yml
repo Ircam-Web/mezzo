@@ -71,19 +71,19 @@ nginx:
     - var
   links:
     - app
-
-cron:
-  image: panubo/cron
-  volumes:
-    - ./etc/crontab:/crontab
-  volumes_from:
-    - var
-    - app
-    - db
-  links:
-    - app
-    - db
-  environment:
-    - TZ=Europe/Paris
-    - SMTP_HOST=smtp.ircam.fr
-    - SMTP_PORT=25
+# 
+# cron:
+#   image: panubo/cron
+#   volumes:
+#     - ./etc/crontab:/crontab
+#   volumes_from:
+#     - var
+#     - app
+#     - db
+#   links:
+#     - app
+#     - db
+#   environment:
+#     - TZ=Europe/Paris
+#     - SMTP_HOST=smtp.ircam.fr
+#     - SMTP_PORT=25
