@@ -16,7 +16,7 @@
                           {% with host_organization.images|get_type:"logo_header" as images %}
                             {% if images %}
                              {% with images|first as img %}
-                              <img src="{{ MEDIA_URL }}{{ img }}" title="{{ img.title }}" />
+                              <img src="{{ MEDIA_URL }}{{ img }}" title="{{ img.title }}" width="120" />
                              {% endwith %}
                             {% endif %}
                           {% endwith %}
