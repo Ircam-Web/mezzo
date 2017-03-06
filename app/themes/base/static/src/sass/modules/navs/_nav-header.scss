@@ -144,7 +144,7 @@ $module: ".nav-header";
                 @include margin(0);
                 text-align: center;
                 img {
-                    width: auto;
+                    // width: auto;
                     height: 70px;
                     display: block;
                     margin: 0 auto;
@@ -154,7 +154,7 @@ $module: ".nav-header";
             @include mq($until: xs) {
 
                 img {
-                    width: 200px;
+                    // width: 200px;
                     height: auto;
                     display: block;
                     margin: 0 auto;
