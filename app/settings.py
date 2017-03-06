@@ -305,7 +305,7 @@ if not DEBUG:
     TEMPLATES[0]['APP_DIRS'] = False
 
 HOST_THEMES = [
-    ('starts.eu', 'themes.starts_eu'),
+    ('www.starts.eu', 'themes.starts_eu'),
     ('vertigo.starts.eu', 'themes.vertigo_starts_eu'),
     ('vertigo.ircam.fr', 'themes.base'),
 ]
