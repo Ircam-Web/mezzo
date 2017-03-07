@@ -129,7 +129,7 @@ class ProjectICTDataTranslationOptions(TranslationOptions):
 @register(ProjectCall)
 class ProjectCallTranslationOptions(TranslationOptions):
 
-    fields = ('title', 'description', 'content')
+    fields = ('title', 'description', 'content',)
 
 
 @register(ProjectCallBlock)

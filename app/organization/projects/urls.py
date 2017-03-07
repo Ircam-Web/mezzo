@@ -31,11 +31,26 @@ from mezzanine.conf import settings
 from organization.projects.views import *
 
 urlpatterns = [
-    url("^project/detail/(?P<slug>.*)/$", ProjectDetailView.as_view(), name='organization-project-detail'),
     url("^dynamic-content-project/$",  permission_required('project.can_edit')(DynamicContentProjectView.as_view()), name='dynamic-content-project'),
-    url("^project/demo/(?P<slug>.*)/$", ProjectDemoDetailView.as_view(), name='organization-project-demo-detail'),
-    url("^project/blog/(?P<slug>.*)/$", ProjectBlogPageView.as_view(), name='organization-project-blogpage-detail'),
-    url("^project/ict/create/$", ProjectICTCreateView.as_view(), name='organization-project-create'),
-    url("^call/detail/(?P<slug>.*)/$", ProjectCallDetailView.as_view(), name='organization-call-detail'),
-    url("^call/list/$", ProjectCallListView.as_view(), name='organization-call-list'),
+
+    url("^project/detail/(?P<slug>.*)/$", ProjectDetailView.as_view(), name='organization-project-detail'),
+    url("^projects/demo/(?P<slug>.*)/$", ProjectDemoDetailView.as_view(), name='organization-project-demo-detail'),
+    url("^projects/blog/(?P<slug>.*)/$", ProjectBlogPageView.as_view(), name='organization-project-blogpage-detail'),
+
+    url("^calls/list/$", ProjectCallListView.as_view(), name='organization-call-list'),
+    url("^calls/detail/(?P<slug>.*)/$", ProjectCallDetailView.as_view(), name='organization-call-detail'),
+
+    url("^calls/detail/(?P<slug>.*)/projects/submission/$", ProjectICTCreateView.as_view(), name='organization-project-create'),
+    url("^calls/detail/(?P<call_slug>.*)/projects/detail/(?P<slug>.*)/$", ProjectICTDetailView.as_view(), name='organization-project-detail'),
+    url("^calls/detail/(?P<call_slug>.*)/projects/lists/$", ProjectICTListView.as_view(), name='organization-project-list'),
+
+    url("^calls/detail/(?P<slug>.*)/producers/submission/$", ProducerCreateView.as_view(), name='organization-producer-create'),
+    url("^calls/detail/(?P<call_slug>.*)/producers/detail/(?P<slug>.*)/$", ProducerDetailView.as_view(), name='organization-producer-detail'),
+    url("^calls/detail/(?P<call_slug>.*)/producers/lists/$", ProducerListView.as_view(), name='organization-producer-list'),
+
+    url("^calls/detail/(?P<slug>.*)/residencies/submission/$", ProjectResidencyCreateView.as_view(), name='organization-residency-create'),
+    url("^calls/detail/(?P<call_slug>.*)/residencies/detail/(?P<slug>.*)/$", ProjectResidencyDetailView.as_view(), name='organization-residency-detail'),
+    url("^calls/detail/(?P<call_slug>.*)/residencies/lists/$", ProjectResidencyListView.as_view(), name='organization-residency-list'),
+
+
 ]

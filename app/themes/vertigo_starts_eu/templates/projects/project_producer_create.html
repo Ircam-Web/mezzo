@@ -19,20 +19,11 @@
 
 {% block page_title %}
     {% editable object.title %}
-        <h1 class="dotted">{% trans "New project form" %}</h1>
+        <h1 class="dotted">{% trans "New producer form" %}</h1>
     {% endeditable %}
 {% endblock %}
 
 {% block page_content %}
-
-    <div class="row">
-        {% if object.content %}
-            {% editable object.content %}
-                {{ call.project_form_content|richtext_filters|safe }}
-            {% endeditable %}
-        {% endif %}
-    </div>
-
     <div class="row">
         {% errors_for form %}
         <form class="mezzanine-form form" method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>

@@ -86,3 +86,17 @@ class ProjectContactInline(InlineFormSet):
     max_num = 1
     model = ProjectContact
     fields = ('gender', 'person_title', 'first_name', 'last_name', 'address', 'email', 'telephone', 'bio', 'address', 'postal_code', 'city', 'country')
+
+
+class ProducerForm(ModelForm):
+
+    class Meta:
+        model = Organization
+        fields = '__all__'
+
+
+class ProjectResidencyForm(ModelForm):
+
+    class Meta:
+        model = ProjectResidency
+        fields = '__all__'
