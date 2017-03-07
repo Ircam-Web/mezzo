@@ -135,7 +135,8 @@ class ProjectICTCreateView(CreateWithInlinesView):
     inlines = [ProjectICTDataInline, ProjectSimpleImageInline, ProjectContactInline,]
 
     def get_context_data(self, **kwargs):
-        context['call'] = get_object_or_404(ProjectCall, slug=self.kwargs['call_slug'])
+        context = super(ProjectICTCreateView, self).get_context_data(**kwargs)
+        context['call'] = get_object_or_404(ProjectCall, slug=self.kwargs['slug'])
         return context
 
 class ProjectICTListView(ListView):
