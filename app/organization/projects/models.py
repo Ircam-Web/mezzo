@@ -179,16 +179,27 @@ class ProjectTopicPage(Page, SubTitled):
 
 class ProjectCall(Displayable, Period, RichText, NamedOnly):
 
+    project_form_content = RichTextField(_("Project form content"), blank=True, null=True)
+    residency_form_content = RichTextField(_("Residency form content"), blank=True, null=True)
+    producer_form_content = RichTextField(_("Producer form content"), blank=True, null=True)
+
     class Meta:
         verbose_name = _('project call')
         verbose_name_plural = _("project calls")
-        ordering = ['title', 'name',]
+        ordering = ['title',]
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse("organization-call-detail", kwargs={"slug": self.slug})
+
+    def save(self, *args, **kwargs):
+        if not self.name and self.title:
+            self.name = self.title
+        if not self.title and self.name:
+            self.title = self.name
+        super(ProjectCall, self).save(args, kwargs)
 
 
 class ProjectCallBlock(Block):
@@ -348,3 +359,24 @@ class ProjectContact(Person):
     class Meta:
         verbose_name = 'Project contact'
         verbose_name_plural = 'Project contacts'
+
+
+class ProjectResidency(Displayable, Period, RichText):
+
+    project = models.ForeignKey(Project, verbose_name=_('project'), related_name='residencies', blank=True, null=True, on_delete=models.SET_NULL)
+    artist = models.ForeignKey(Person, verbose_name=_('artist'), related_name='residencies', blank=True, null=True, on_delete=models.SET_NULL)
+    producer = models.ForeignKey('organization-network.Organization', verbose_name=_('producer'), related_name='residencies', blank=True, null=True, on_delete=models.SET_NULL)
+    validated = models.BooleanField(default=False)
+    producer_commitment = models.TextField(_('producer commitment'), help_text="")
+
+    class Meta:
+        verbose_name = 'Project residency'
+        verbose_name_plural = 'Project residencies'
+
+    def get_absolute_url(self):
+        return reverse("organization-residency-detail", kwargs={"slug": self.slug})
+
+
+class ProjectResidencyFile(File):
+
+    residency = models.ForeignKey(ProjectResidency, verbose_name=_('project residency file'), related_name='files', blank=True, null=True, on_delete=models.SET_NULL)

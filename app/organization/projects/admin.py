@@ -198,7 +198,8 @@ class ProjectCallAdminDisplayable(DisplayableAdmin):
                 ProjectCallLinkInline,
                 ProjectCallFileInline,
                 ]
-    list_display = ['title', 'date_from', 'date_to', 'status', 'admin_link']
+    # list_filter = ['type', 'program', 'program_type', null_filter('external_id')]
+    # list_display = ['title', 'date_from', 'date_to', 'status', 'admin_link']
 
 
 admin.site.register(Project, ProjectAdminDisplayable)
@@ -210,4 +211,4 @@ admin.site.register(ProjectDemo, ProjectDemoAdmin)
 admin.site.register(Repository)
 admin.site.register(RepositorySystem)
 admin.site.register(ProjectWorkPackage, ProjectWorkPackageAdmin)
-# admin.site.register(ProjectCall, ProjectCallAdminDisplayable)
+admin.site.register(ProjectCall, ProjectCallAdminDisplayable)

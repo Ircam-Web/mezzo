@@ -68,6 +68,18 @@ class ProjectDetailView(SlugMixin, ProjectMixin, DetailView):
     template_name='projects/project_detail.html'
 
 
+class ProjectICTDetailView(SlugMixin, ProjectMixin, DetailView):
+
+    model = Project
+    template_name='projects/project_ict_detail.html'
+
+
+class ProjectListView(ListView):
+
+    model = Project
+    template_name='projects/project_list.html'
+
+
 class DynamicContentProjectView(Select2QuerySetSequenceView):
 
     paginate_by = settings.DAL_MAX_RESULTS
@@ -122,6 +134,15 @@ class ProjectICTCreateView(CreateWithInlinesView):
     template_name='projects/project_ict_create.html'
     inlines = [ProjectICTDataInline, ProjectSimpleImageInline, ProjectContactInline,]
 
+    def get_context_data(self, **kwargs):
+        context['call'] = get_object_or_404(ProjectCall, slug=self.kwargs['call_slug'])
+        return context
+
+class ProjectICTListView(ListView):
+
+    model = Project
+    template_name='projects/project_ict_list.html'
+
 
 class ProjectCallDetailView(SlugMixin, DetailView):
 
@@ -129,7 +150,47 @@ class ProjectCallDetailView(SlugMixin, DetailView):
     template_name='projects/project_call_detail.html'
 
 
-class ProjectCallListView(SlugMixin, ListView):
+class ProjectCallListView(ListView):
 
     model = ProjectCall
     template_name='projects/project_call_list.html'
+
+
+class ProducerDetailView(SlugMixin, DetailView):
+
+    model = Organization
+    template_name='projects/project_producer_detail.html'
+
+
+class ProducerListView(ListView):
+
+    model = Organization
+    template_name='projects/project_producer_list.html'
+
+
+class ProducerCreateView(CreateWithInlinesView):
+
+    model = Organization
+    form_class = ProducerForm
+    template_name='projects/project_producer_create.html'
+    # inlines = [OrganizationICTDataInline, OrganizationSimpleImageInline, OrganizationContactInline,]
+
+
+class ProjectResidencyDetailView(SlugMixin, DetailView):
+
+    model = ProjectResidency
+    template_name='projects/project_residency_detail.html'
+
+
+class ProjectResidencyListView(ListView):
+
+    model = ProjectResidency
+    template_name='projects/project_residency_list.html'
+
+
+class ProjectResidencyCreateView(CreateWithInlinesView):
+
+    model = ProjectResidency
+    form_class = ProjectResidencyForm
+    template_name='projects/project_residency_create.html'
+    inlines = []

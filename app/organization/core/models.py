@@ -34,7 +34,9 @@ from django_countries.fields import CountryField
 
 
 COLOR_CHOICES = (('black', _('black')), ('yellow', _('yellow')), ('red', _('red')), ('white', _('white')),)
+
 ALIGNMENT_CHOICES = (('left', _('left')), ('center', _('center')), ('right', _('right')))
+
 IMAGE_TYPE_CHOICES = (('logo', _('logo')), ('logo_white', _('logo white')), ('logo_black', _('logo black')), ('logo_header', _('logo header')), ('logo_footer', _('logo footer')), ('slider', _('slider')), ('card', _('card')), ('page_slider', _('page - slider')), ('page_featured', _('page - featured')))
 
 
@@ -50,7 +52,20 @@ class Description(models.Model):
 class NamedOnly(models.Model):
     """Abstract model providing a name field only"""
 
+    name = models.CharField(_('name'), max_length=512, blank=True)
+
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        return self.name
+
+
+class Named(models.Model):
+    """Abstract model providing a name field and a description"""
+
     name = models.CharField(_('name'), max_length=512)
+    description = models.TextField(_('description'), blank=True)
 
     class Meta:
         abstract = True
@@ -61,17 +76,7 @@ class NamedOnly(models.Model):
 
     @property
     def slug(self):
-        return slugify(self.__unicode__())
-
-
-class Named(NamedOnly):
-    """Abstract model providing a name field and a description"""
-
-    description = models.TextField(_('description'), blank=True)
-
-    class Meta:
-        abstract = True
-        ordering = ['name',]
+        return slugify(self.__str__())
 
 
 class Titled(models.Model):
