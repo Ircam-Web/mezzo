@@ -33,11 +33,11 @@ from organization.media.views import *
 
 
 urlpatterns = [
-    url("^playlist/overlay/(?P<slug>.*)/$", PlaylistOverlayView.as_view(), name="organization-playlist-overlay"),
-    url("^media/(?P<type>.*)/detail/(?P<slug>.*)/$", MediaDetailView.as_view(), name="organization-media-detail"),
-    url("^media/(?P<type>.*)/overlay/(?P<slug>.*)/$", MediaOverlayView.as_view(), name="organization-media-overlay"),
-    url("^playlist/detail/(?P<slug>.*)/$", PlaylistDetailView.as_view(), name="organization-playlist-detail"),
-    url("^playlist/list/$", PlaylistListView.as_view(), name="organization-playlist-list"),
-    url("^playlist/list/(?P<type>.*)$", PlaylistListView.as_view(), name="organization-playlist-list"),
+    url("^medias/(?P<type>.*)/(?P<slug>.*)/detail/$", MediaDetailView.as_view(), name="organization-media-detail"),
+    url("^medias/(?P<type>.*)/(?P<slug>.*)/overlay/$", MediaOverlayView.as_view(), name="organization-media-overlay"),
+    url("^playlists/(?P<slug>.*)/detail/$", PlaylistDetailView.as_view(), name="organization-playlist-detail"),
+    url("^playlists/list/$", PlaylistListView.as_view(), name="organization-playlist-list"),
+    url("^playlists/list/(?P<type>.*)$", PlaylistListView.as_view(), name="organization-playlist-list"),
+    url("^playlists/overlay/(?P<slug>.*)/$", PlaylistOverlayView.as_view(), name="organization-playlist-overlay"),
     url("^playlist-media-autocomplete/$",  permission_required('playlist.can_edit')(PlayListMediaView.as_view()), name='media-autocomplete'),
 ]
