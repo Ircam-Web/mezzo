@@ -1,7 +1,6 @@
-APP=vertigo
-LOG=/srv/$APP/var/log
-PATH=$PATH/usr/sbin:/sbin:/bin:/srv/$APP/bin/
+APP=/srv/vertigo                                                                                                                                                 LOG=/srv/vertigo/var/log/cron
+PATH=$PATH:/usr/sbin:/sbin:/bin:/usr/local/bin
 
-0    */6  * * *  root push.sh >> $LOG/push.log 2>&1
-*/10 * 	  * * *  root poll_twitter.sh >> $LOG/pull_twitter.log 2>&1
-#0,30 *    * * * root upgrade.sh >> $LOG/upgrade.log 2>&1
+0    */6  * * *  root cd $APP; bin/push.sh >> $LOG/push.log
+*    *    * * *  root cd $APP; bin/poll_twitter.sh; touch $LOG/pull_twitter.log
+#0,30 *    * * * root upgrade.sh >> $LOG/upgrade.log
