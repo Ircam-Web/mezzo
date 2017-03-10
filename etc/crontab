@@ -1,3 +1,0 @@
-0    */6  * * *  push.sh >> $LOG/push.log 2>&1
-*/10 * 	  * * *  poll_twitter.sh >> $LOG/pull_twitter.log 2>&1
-#0,30 *    * * *  upgrade.sh >> $LOG/vertigo-upgrade.log 2>&1
