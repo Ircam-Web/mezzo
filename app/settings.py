@@ -124,12 +124,12 @@ USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "fr"
+LANGUAGE_CODE = "en"
 
 # Supported languages
 LANGUAGES = (
-    ('fr', _('French')),
     ('en', _('English')),
+    ('fr', _('French')),
 )
 
 LOCALE_PATHS = ['locale',]

@@ -83,8 +83,9 @@ class ProjectContactInline(InlineFormSet):
     model = ProjectContact
     prefix = 'Contact'
     can_delete = False
-    fields = ['gender', 'person_title', 'first_name', 'last_name', 'address', 'email',
+    fields = ['first_name', 'last_name', 'address', 'email',
                  'telephone', 'address', 'postal_code', 'city', 'country']
+
 
 class ProducerForm(ModelForm):
 
