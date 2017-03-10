@@ -19,26 +19,29 @@
 
 {% block page_title %}
     {% editable object.title %}
-        <h1 class="dotted">{% trans "New project form" %}</h1>
+        <h1 class="dotted">{% trans "Framework and submission process for hosting R&D Projects" %}</h1>
     {% endeditable %}
 {% endblock %}
 
 {% block page_content %}
 
     <div class="row">
-        {% if object.content %}
-            {% editable object.content %}
+        {% if call.project_form_content %}
+            {% editable call.project_form_content %}
                 {{ call.project_form_content|richtext_filters|safe }}
             {% endeditable %}
         {% endif %}
     </div>
 
     <div class="row">
+        <h2 class="dotted">{% trans "Project submission form" %}</h2>
         {% errors_for form %}
         <form class="mezzanine-form form" method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
             {% fields_for form %}
             {% for formset in inlines %}
                 {{ formset.management_form }}
+                <hr>
+                <h2>{{ formset.prefix }}</h2>
                 {% for form in formset %}
                    {% fields_for form %}
                 {% endfor %}

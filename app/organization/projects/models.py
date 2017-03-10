@@ -47,10 +47,10 @@ REPOSITORY_ACCESS_CHOICES = [
 ]
 
 PROJECT_STATUS_CHOICES = (
-    (0, _('pending')),
-    (1, _('accepted')),
-    (2, _('rejected')),
-    (3, _('in process'))
+    (0, _('rejected')),
+    (1, _('pending')),
+    (2, _('in process')),
+    (3, _('accepted')),
 )
 
 
@@ -70,6 +70,7 @@ class Project(Displayable, Period, RichText):
     topic = models.ForeignKey('ProjectTopic', verbose_name=_('topic'), related_name='projects', blank=True, null=True)
     referring_person = models.ManyToManyField('organization-network.Person', verbose_name=_('Referring Person'), related_name='projects_referring_person', blank=True)
     manager =  models.ManyToManyField('organization-network.Person', verbose_name=_('Manager'), related_name='projects_manager', blank=True)
+    validation_status = models.IntegerField(_('validation status'), choices=PROJECT_STATUS_CHOICES, default=1)
 
     class Meta:
         verbose_name = _('project')
@@ -345,7 +346,6 @@ class ProjectICTData(models.Model):
 
     # Private
     letter = models.TextField(_('letter of commitment'))
-    validation_status = models.IntegerField(_('validation status'), choices=PROJECT_STATUS_CHOICES)
 
     class Meta:
         verbose_name = 'Project ICT data'

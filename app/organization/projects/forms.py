@@ -60,33 +60,31 @@ class ProjectForm(ModelForm):
         fields = ('title', 'description', 'keywords', 'website')
 
 
-class ProjectICTForm(ModelForm):
-
-    class Meta:
-        model = Project
-        exclude = ('external_id', '_meta_title')
-
-
 class ProjectICTDataInline(InlineFormSet):
 
     max_num = 1
     model = ProjectICTData
-    exclude = ('validation_status', )
-
+    prefix = 'ICT data'
+    can_delete = False
+    fields = '__all__'
 
 class ProjectSimpleImageInline(InlineFormSet):
 
-    max_num = 3
+    max_num = 4
     model = ProjectSimpleImage
-    fields = ('file', 'credits')
+    prefix = 'Images'
+    can_delete = False
+    fields = ['file', 'credits']
 
 
 class ProjectContactInline(InlineFormSet):
 
     max_num = 1
     model = ProjectContact
-    fields = ('gender', 'person_title', 'first_name', 'last_name', 'address', 'email', 'telephone', 'bio', 'address', 'postal_code', 'city', 'country')
-
+    prefix = 'Contact'
+    can_delete = False
+    fields = ['gender', 'person_title', 'first_name', 'last_name', 'address', 'email',
+                 'telephone', 'address', 'postal_code', 'city', 'country']
 
 class ProducerForm(ModelForm):
 
