@@ -132,7 +132,7 @@ class ProjectICTCreateView(CreateWithInlinesView):
     model = Project
     form_class = ProjectForm
     template_name='projects/project_ict_create.html'
-    inlines = [ProjectICTDataInline, ProjectSimpleImageInline, ProjectContactInline,]
+    inlines = [ProjectICTDataInline, ProjectUserImageInline, ProjectContactInline,]
 
     def get_context_data(self, **kwargs):
         context = super(ProjectICTCreateView, self).get_context_data(**kwargs)
@@ -168,13 +168,23 @@ class ProducerListView(ListView):
     model = Organization
     template_name='projects/project_producer_list.html'
 
+    def get_queryset(self):
+        qs = Organization.objects.filter(role='producer')
+        return qs
+
 
 class ProducerCreateView(CreateWithInlinesView):
 
     model = Organization
     form_class = ProducerForm
     template_name='projects/project_producer_create.html'
-    # inlines = [OrganizationICTDataInline, OrganizationSimpleImageInline, OrganizationContactInline,]
+    # inlines = [OrganizationICTDataInline, OrganizationUserImageInline, OrganizationContactInline,]
+
+    def forms_valid(self, form, inlines):
+        self.object = form.save()
+        self.object.role = 'producer'
+        self.object.save()
+        return super(ProducerCreateView, self).form_valid(form)
 
 
 class ProjectResidencyDetailView(SlugMixin, DetailView):

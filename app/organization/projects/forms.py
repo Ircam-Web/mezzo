@@ -68,10 +68,10 @@ class ProjectICTDataInline(InlineFormSet):
     can_delete = False
     fields = '__all__'
 
-class ProjectSimpleImageInline(InlineFormSet):
+class ProjectUserImageInline(InlineFormSet):
 
     max_num = 4
-    model = ProjectSimpleImage
+    model = ProjectUserImage
     prefix = 'Images'
     can_delete = False
     fields = ['file', 'credits']

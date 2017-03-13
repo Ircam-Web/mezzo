@@ -138,7 +138,7 @@ class Image(Titled, Orderable):
         return value
 
 
-class SimpleImage(Titled, Orderable):
+class UserImage(Titled, Orderable):
 
     file = models.FileField(_("Image"), max_length=1024, upload_to="images")
     credits = models.CharField(_('credits'), max_length=256, blank=True, null=True)

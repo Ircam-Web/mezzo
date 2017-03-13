@@ -42,8 +42,8 @@ class ProjectImageTranslationOptions(TranslationOptions):
     pass
 
 
-@register(ProjectSimpleImage)
-class ProjectSimpleImageTranslationOptions(TranslationOptions):
+@register(ProjectUserImage)
+class ProjectUserImageTranslationOptions(TranslationOptions):
 
     pass
 

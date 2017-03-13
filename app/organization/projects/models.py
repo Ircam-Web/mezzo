@@ -154,9 +154,9 @@ class ProjectImage(Image):
     project = models.ForeignKey(Project, verbose_name=_('project'), related_name='images', blank=True, null=True, on_delete=models.SET_NULL)
 
 
-class ProjectSimpleImage(SimpleImage):
+class ProjectUserImage(UserImage):
 
-    project = models.ForeignKey(Project, verbose_name=_('project'), related_name='simple_images', blank=True, null=True, on_delete=models.SET_NULL)
+    project = models.ForeignKey(Project, verbose_name=_('project'), related_name='user_images', blank=True, null=True, on_delete=models.SET_NULL)
 
 
 class ProjectFile(File):

@@ -81,9 +81,9 @@ class ProjectBlogPageInline(StackedDynamicInlineAdmin):
     model = ProjectBlogPage
 
 
-class ProjectSimpleImageInline(StackedDynamicInlineAdmin):
+class ProjectUserImageInline(StackedDynamicInlineAdmin):
 
-    model = ProjectSimpleImage
+    model = ProjectUserImage
 
 
 class ProjectContactInline(StackedDynamicInlineAdmin):
@@ -122,7 +122,7 @@ class ProjectAdminDisplayable(DisplayableAdmin):
     fieldsets = deepcopy(ProjectAdmin.fieldsets)
     inlines = [ ProjectBlockInline,
                 ProjectContactInline,
-                ProjectSimpleImageInline,
+                ProjectUserImageInline,
                 ProjectImageInline,
                 ProjectICTDataInline,
                 ProjectWorkPackageInline,
