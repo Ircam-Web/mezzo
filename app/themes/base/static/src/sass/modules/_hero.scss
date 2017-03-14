@@ -1,5 +1,6 @@
 $module: ".hero";
 
+
 #{$module} {
 
     background-image: url(../img/vertigo/hero.jpg);
@@ -9,6 +10,43 @@ $module: ".hero";
     height: 560px;
     margin-bottom: 350px;
     position: relative;
+
+    &.large-title {
+        margin-bottom: 500px;
+
+        #{$module}__title {
+            img {
+                max-width: 73%;
+            }
+            margin: 0 auto;
+            position: relative;
+
+            @include mq($until: lg) {
+                padding-top: 60px;
+            }
+            @include mq($until: md) {
+                padding-top: 97px;
+            }
+            @include mq($until: sm) {
+                padding-top: 115px;
+            }
+            @include mq($until: xs) {
+                padding-top: 120px;
+            }
+        }
+        @include mq($until: lg) {
+            margin-bottom: 450px;
+        }
+        @include mq($until: md) {
+            margin-bottom: 350px;
+        }
+        @include mq($until: sm) {
+            margin-bottom: 300px;
+        }
+        @include mq($until: xs) {
+            margin-bottom: 90px;
+        }
+    }
 
     @include mq($until: xs) {
         height: 346px;
