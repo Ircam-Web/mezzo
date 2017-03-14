@@ -341,7 +341,7 @@ class ProjectPublicData(models.Model):
     objectives_description = models.TextField(_('objectives description'), help_text="What the project is looking to gain from the collaboration and what kind of artist would be suitable (100 – 150 words).")
     resources_description = models.TextField(_('resource description'), help_text="Resources available to the artist -- e.g. office facility, studio facility, technical equipment, internet connection, laboratory, and periods of availability for artistic production, staff possibly allocated to the project, available budget for travel, consumables and equipment, etc... (50 – 100 words).")
     period = models.CharField(_('period of implementation'), max_length=128, help_text="Possible period of implementation (must be part of the project implementation workplan)")
-    image = models.FileField(_("Image"), max_length=1024, upload_to="images", help_text="Representing the project")
+    image = models.FileField(_("Image"), max_length=1024, upload_to="user/images/%Y/%m/%d/", help_text="Representing the project")
     image_credits = models.CharField(_('Image credits'), max_length=256, blank=True, null=True)
 
     class Meta:
@@ -355,7 +355,7 @@ class ProjectPrivateData(models.Model):
 
     description = models.TextField(_('project description'), help_text="(500 - 1000 words)")
     affiliation = models.CharField(_('affiliation'), max_length=512)
-    commitment_letter = models.FileField(_("letter of commitment by the project coordinator"), max_length=1024, upload_to="Documents/%Y/%m/%d/", help_text="Written on behalf of the whole project consortium, this letter will commit in implementing the collaboration of a residency application selected by the VERTIGO jury, on the conditions set by the project (in annex of letter: synthesis of all related information entered by project).")
+    commitment_letter = models.FileField(_("letter of commitment by the project coordinator"), max_length=1024, upload_to="user/documents/%Y/%m/%d/", help_text="Written on behalf of the whole project consortium, this letter will commit in implementing the collaboration of a residency application selected by the VERTIGO jury, on the conditions set by the project (in annex of letter: synthesis of all related information entered by project).")
     persons = models.CharField(_('persons'), max_length=512, help_text="First name and last name of the persons from organization / project who will be part preliminary of the project team (separated by a comma)")
 
     class Meta:
