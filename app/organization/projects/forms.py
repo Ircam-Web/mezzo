@@ -89,6 +89,7 @@ class ProjectUserImageInline(InlineFormSet):
     extra = 3
     model = ProjectUserImage
     prefix = 'Private images'
+    text = "To be published only for ICT-Projects selected by the consortium"
     can_delete = False
     fields = ['file', 'credits']
 

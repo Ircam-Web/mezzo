@@ -33,6 +33,13 @@
                 {{ formset.management_form }}
                 <hr>
                 <h2>{{ formset.prefix }}</h2>
+                {% if "Private data" in formset.prefix %}
+                    <h5>To be available only to Vertigo partners and artists upon successfully obtaining the residency (except letter reserved to VERTIGO)</h5>
+                {% elif "Public data" in formset.prefix %}
+                    <h5>To be published only for ICT-Projects selected by the consortium</h5>
+                {% elif "Private images" in formset.prefix %}
+                    <h5>3 key images for inspiring artist + any video content available</h5>
+                {% endif %}
                 {% for form in formset %}
                    {% fields_for form %}
                 {% endfor %}
