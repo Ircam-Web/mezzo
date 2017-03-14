@@ -11,12 +11,12 @@
                         <span class="first"></span>
                         <span class="second"></span>
                     </li>
-                    <li class="nav-header__item nav-header__item--image-big">
+                    <li class="nav-header__item nav-header__item--image-big translated">
                         <a href="{% url "home" %}" title="{% trans 'Home' %}">
                           {% with host_organization.images|get_type:"logo_header" as images %}
                             {% if images %}
                              {% with images|first as img %}
-                              <img src="{{ MEDIA_URL }}{{ img }}" title="{{ img.title }}" />
+                              <img class="logo-translated" src="{{ MEDIA_URL }}{{ img }}" title="{{ img.title }}" />
                              {% endwith %}
                             {% endif %}
                           {% endwith %}

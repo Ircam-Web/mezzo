@@ -33,12 +33,34 @@ $module: ".nav-header";
         @include margin(0);
     }
 
+    .logo-translated {
+        margin-left: -75px;
+        height: 194px;
+
+        @include mq($until: lg) {
+            margin-left: -107px;
+
+        }
+        /*@include mq($until: lg) {
+            margin-left : auto;
+            margin-right : auto;
+            width : 50px;
+            height: 5Opx;
+        }*/
+    }
+
+    .translated {
+         width: 196px;
+    }
+
+
     &__item {
 
         display: inline-block;
         color: black;
         vertical-align: top;
         position: relative;
+
 
         &:before {
             content: "";
