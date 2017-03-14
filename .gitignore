@@ -47,7 +47,7 @@ node_modules
 .bundle
 app/themes/base/static/js
 app/themes/base/static/css
-app/themes/base/static/img
+app/themes/base/static/img/favicons
 app/themes/base/static/vendors
 
 ### SublimeText ###
