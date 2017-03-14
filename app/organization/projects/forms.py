@@ -57,7 +57,7 @@ class ProjectForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ProjectForm, self).__init__(*args, **kwargs)
-        self.fields['title'].label = "Name"
+        self.fields['title'].label = "Project name"
         self.fields['keywords'].help_text = "5 comma separated keywords"
 
     class Meta:
@@ -77,6 +77,7 @@ class ProjectPublicDataInline(InlineFormSet):
 
 class ProjectPrivateDataInline(InlineFormSet):
 
+    max_num = 1
     model = ProjectPrivateData
     prefix = "Private data"
     can_delete = False

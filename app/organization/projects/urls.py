@@ -40,10 +40,11 @@ urlpatterns = [
     url("^calls/list/$", ProjectCallListView.as_view(), name='organization-call-list'),
     url("^calls/(?P<slug>.*)/detail/$", ProjectCallDetailView.as_view(), name='organization-call-detail'),
 
-    # url("^calls/(?P<slug>.*[^\/])/projects/submission/$", ProjectICTSubmissionView.as_view(), name='organization-project-submission'),
-    url("^calls/(?P<slug>.*)/detail/projects/submission/$", ProjectICTSubmissionView.as_view(), name='organization-project-submission'),
+    url("^calls/(?P<slug>.*)/detail/projects/submission/$", ProjectCallDetailView.as_view(), name='organization-project-submission-hack1'), #HACK
+    url("^calls/detail/(?P<slug>.*)/projects/submission/$", ProjectCallDetailView.as_view(), name='organization-project-submission-hack2'), #HACK
+
     url("^calls/(?P<slug>.*)/detail/projects/create/$", ProjectICTCreateView.as_view(), name='organization-project-create'),
-    url("^calls/(?P<slug>.*)/detail/projects/validation/$", ProjectICTSubmissionView.as_view(), name='organization-project-validation'),
+    url("^calls/(?P<slug>.*)/detail/projects/validation/$", ProjectICTValidationView.as_view(), name='organization-project-validation'),
 
     url("^calls/(?P<call_slug>.*)/projects/detail/(?P<slug>.*)/$", ProjectICTDetailView.as_view(), name='organization-project-detail'),
     url("^calls/(?P<call_slug>.*)/projects/list/$", ProjectICTListView.as_view(), name='organization-project-list'),
