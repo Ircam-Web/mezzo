@@ -42,6 +42,12 @@ PLAYLIST_TYPE_CHOICES = [
     ('video', _('video')),
 ]
 
+LIVE_STREAMING_TYPE_CHOICES = [
+    ('html5', _('html5')),
+    ('youtube', _('youtube')),
+]
+
+
 class Media(Displayable):
     """Media"""
 
@@ -169,3 +175,21 @@ class PlaylistRelated(models.Model):
     class Meta:
         verbose_name = _('playlist')
         verbose_name_plural = _('playlists')
+
+
+class LiveStreaming(Displayable):
+    """Live streaming"""
+
+    html5_url = models.URLField(_('html5 url'), max_length=1024, blank=True)
+    youtube_id = models.CharField(_('youtube id'), max_length=64, blank=True, null=True)
+    type = models.CharField(_('type'), max_length=32, choices=LIVE_STREAMING_TYPE_CHOICES, default='html5')
+
+    class Meta:
+        verbose_name = "live streaming"
+        verbose_name_plural = "live streamings"
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("organization-streaming-detail", kwargs={"slug": self.slug})

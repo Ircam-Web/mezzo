@@ -111,6 +111,7 @@ class PlayListMediaView(autocomplete.Select2QuerySetView):
 
 
 class MediaOverlayView(SlugMixin, DetailView):
+
     model = Media
     template_name='media/media/media_overlay.html'
     context_object_name = 'media'
@@ -122,6 +123,13 @@ class MediaOverlayView(SlugMixin, DetailView):
 
 
 class PlaylistOverlayView(SlugMixin, DetailView):
+
     model = Playlist
     template_name='media/playlist_overlay.html'
     context_object_name = 'playlist'
+
+
+class LiveStreamingDetailView(SlugMixin, DetailView):
+
+    model = LiveStreaming
+    template_name='media/live_streaming_detail.html'
