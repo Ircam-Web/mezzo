@@ -132,9 +132,15 @@ class DynamicContentHomeMediaInline(TabularDynamicInlineAdmin):
     form = DynamicContentHomeMediaForm
 
 
+class HomeImageInline(TabularDynamicInlineAdmin):
+
+    model = HomeImage
+
+
 class HomeAdminDisplayable(BaseTranslationModelAdmin):
 
-    inlines = [ DynamicContentHomeSliderInline,
+    inlines = [ HomeImageInline,
+                DynamicContentHomeSliderInline,
                 DynamicContentHomeMediaInline,
                 DynamicContentHomeBodyInline,
                 ]

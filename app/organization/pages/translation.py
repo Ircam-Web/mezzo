@@ -89,9 +89,15 @@ class DynamicContentPageTranslationOptions(TranslationOptions):
 class LinkImageTranslationOptions(TranslationOptions):
 
     pass
-    
+
 
 @register(PageRelatedTitle)
 class PageRelatedTitleTranslationOptions(TranslationOptions):
 
     fields = ('title',)
+
+
+@register(HomeImage)
+class HomeImageTranslationOptions(TranslationOptions):
+
+    fields = ()
