@@ -77,6 +77,7 @@ class ProjectPublicDataInline(InlineFormSet):
 
 class ProjectPrivateDataInline(InlineFormSet):
 
+    max_num = 1
     model = ProjectPrivateData
     prefix = "Private data"
     can_delete = False
