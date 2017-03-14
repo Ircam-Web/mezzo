@@ -112,11 +112,6 @@ BOX_SIZE_CHOICES = [
     (6, 6),
 ]
 
-ORGANIZATION_ROLE_CHOICES = [
-    ('coordinator', _('coordinator')),
-    ('producer', _('producer')),
-]
-
 
 class Organization(Named, Address, URL, AdminThumbRelatedMixin, Orderable):
     """(Organization description)"""
@@ -134,7 +129,6 @@ class Organization(Named, Address, URL, AdminThumbRelatedMixin, Orderable):
     bio = models.TextField(_('bio'), blank=True)
     site = models.ForeignKey("sites.Site", blank=True, null=True, on_delete=models.SET_NULL)
     admin_thumb_type = 'logo'
-    role = models.CharField(_('role'), max_length=128, blank=True, null=True, choices=ORGANIZATION_ROLE_CHOICES)
 
     class Meta:
         verbose_name = _('organization')
@@ -169,10 +163,6 @@ class Organization(Named, Address, URL, AdminThumbRelatedMixin, Orderable):
             self.mappable_location = mappable_location
             self.lat = lat
             self.lon = lon
-
-    def save(self, **kwargs):
-        self.clean()
-        super(Organization, self).save()
 
 
 class Team(Named, URL):
@@ -223,6 +213,7 @@ class Person(Displayable, AdminThumbMixin, Address):
     register_id = models.CharField(_('register ID'), blank=True, null=True, max_length=128)
     birthday = models.DateField(_('birthday'), blank=True, null=True)
     bio = RichTextField(_('biography'), blank=True)
+    role = models.CharField(_('role'), max_length=256, blank=True, null=True)
     external_id = models.CharField(_('external ID'), blank=True, null=True, max_length=128)
 
     class Meta:

@@ -120,8 +120,14 @@ class DynamicContentProjectTranslationOptions(TranslationOptions):
     fields = ()
 
 
-@register(ProjectICTData)
-class ProjectICTDataTranslationOptions(TranslationOptions):
+@register(ProjectPublicData)
+class ProjectPublicDataTranslationOptions(TranslationOptions):
+
+    pass
+
+
+@register(ProjectPrivateData)
+class ProjectPrivateDataTranslationOptions(TranslationOptions):
 
     pass
 

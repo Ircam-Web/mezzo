@@ -27,6 +27,7 @@ from mezzanine_agenda.models import Event
 from mezzanine.conf import settings
 from organization.projects.models import *
 from organization.projects.forms import *
+from organization.network.forms import *
 from organization.core.views import *
 from organization.magazine.views import Article
 from organization.pages.models import CustomPage
@@ -127,17 +128,47 @@ class ProjectICTDetailView(SlugMixin,DetailView):
     template_name='projects/project_ict_detail.html'
 
 
-class ProjectICTCreateView(CreateWithInlinesView):
+class ProjectCallMixin(object):
+
+    def get_context_data(self, **kwargs):
+        context = super(ProjectCallMixin, self).get_context_data(**kwargs)
+        self.call = ProjectCall.objects.get(slug=self.kwargs['slug'])
+        context['call'] = self.call
+        return context
+
+
+class ProjectICTSubmissionView(ProjectCallMixin, TemplateView):
+
+    model = Project
+    template_name='projects/project_ict_submission.html'
+
+
+
+class ProjectICTCreateView(ProjectCallMixin, CreateWithInlinesView):
 
     model = Project
     form_class = ProjectForm
     template_name='projects/project_ict_create.html'
-    inlines = [ProjectICTDataInline, ProjectUserImageInline, ProjectContactInline,]
+    inlines = [ProjectPublicDataInline, ProjectPrivateDataInline, ProjectUserImageInline, ProjectContactInline,]
+    topic = 'ICT'
 
-    def get_context_data(self, **kwargs):
-        context = super(ProjectICTCreateView, self).get_context_data(**kwargs)
-        context['call'] = get_object_or_404(ProjectCall, slug=self.kwargs['slug'])
-        return context
+
+    def forms_valid(self, form, inlines):
+        self.object = form.save()
+        self.object.call = self.call
+        self.object.topic, c = ProjectTopic.objects.get_or_create(name='ICT')
+        self.object.save()
+        return super(ProjectICTCreateView, self).forms_valid(form, inlines)
+
+    def get_success_url(self):
+        return reverse_lazy('organization-project-validation', kwargs={'slug':self.call.slug})
+
+
+class ProjectICTValidationView(ProjectCallMixin, TemplateView):
+
+    model = Project
+    template_name='projects/project_ict_validation.html'
+
 
 class ProjectICTListView(ListView):
 
@@ -169,22 +200,26 @@ class ProducerListView(ListView):
     template_name='projects/project_producer_list.html'
 
     def get_queryset(self):
-        qs = Organization.objects.filter(role='producer')
+        type, c = OrganizationType.objects.get_or_create(name='Producer')
+        qs = Organization.objects.filter(type=type)
         return qs
 
 
 class ProducerCreateView(CreateWithInlinesView):
 
     model = Organization
-    form_class = ProducerForm
+    form_class = OrganizationForm
     template_name='projects/project_producer_create.html'
-    # inlines = [OrganizationICTDataInline, OrganizationUserImageInline, OrganizationContactInline,]
+    inlines = [OrganizationContactInline, OrganizationUserImageInline]
 
     def forms_valid(self, form, inlines):
         self.object = form.save()
-        self.object.role = 'producer'
+        self.object.type, c = OrganizationType.objects.get_or_create(name='Producer')
         self.object.save()
-        return super(ProducerCreateView, self).form_valid(form)
+        return super(ProducerCreateView, self).forms_valid(form, inlines)
+
+    def get_success_url(self):
+        return reverse_lazy('organization-producer-detail', kwargs={'slug':self.slug})
 
 
 class ProjectResidencyDetailView(SlugMixin, DetailView):

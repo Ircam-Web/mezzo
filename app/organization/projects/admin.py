@@ -96,9 +96,14 @@ class ProjectAdmin(admin.ModelAdmin):
     model = Project
 
 
-class ProjectICTDataInline(StackedDynamicInlineAdmin):
+class ProjectPublicDataInline(StackedDynamicInlineAdmin):
 
-    model = ProjectICTData
+    model = ProjectPublicData
+
+
+class ProjectPrivateDataInline(StackedDynamicInlineAdmin):
+
+    model = ProjectPrivateData
 
 
 class ProjectRelatedTitleAdmin(TranslationTabularInline):
@@ -124,7 +129,8 @@ class ProjectAdminDisplayable(DisplayableAdmin):
                 ProjectContactInline,
                 ProjectUserImageInline,
                 ProjectImageInline,
-                ProjectICTDataInline,
+                ProjectPublicDataInline,
+                ProjectPrivateDataInline,
                 ProjectWorkPackageInline,
                 ProjectPlaylistInline,
                 ProjectLinkInline,

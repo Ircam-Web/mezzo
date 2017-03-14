@@ -74,6 +74,11 @@ class OrganizationImageInline(TabularDynamicInlineAdmin):
     model = OrganizationImage
 
 
+class OrganizationUserImageInline(TabularDynamicInlineAdmin):
+
+    model = OrganizationUserImage
+
+
 class OrganizationBlockInline(StackedDynamicInlineAdmin):
 
     model = OrganizationBlock
@@ -95,7 +100,7 @@ class OrganizationAdmin(BaseTranslationOrderedModelAdmin):
                 OrganizationLinkedBlockInlineAdmin
                  ]
     list_display = ['name', 'type', 'admin_thumb']
-    list_filter = ['is_on_map',]
+    list_filter = ['is_on_map', 'type']
     search_fields = ['name',]
     first_fields = ['name',]
 

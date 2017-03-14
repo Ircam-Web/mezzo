@@ -37,7 +37,6 @@ from organization.network.models import *
 PROJECT_TYPE_CHOICES = [
     ('internal', _('internal')),
     ('external', _('external')),
-    ('ICT', _('ICT')),
 ]
 
 REPOSITORY_ACCESS_CHOICES = [
@@ -332,24 +331,36 @@ class ProjectBlogPage(Displayable, RichText):
         return reverse("organization-project-blogpage-detail", kwargs={"slug": self.slug})
 
 
-class ProjectICTData(models.Model):
+class ProjectPublicData(models.Model):
 
-    project = models.ForeignKey(Project, verbose_name=_('project'), related_name='ict_data', blank=True, null=True, on_delete=models.SET_NULL)
+    project = models.ForeignKey(Project, verbose_name=_('project'), related_name='public_data', blank=True, null=True, on_delete=models.SET_NULL)
 
-    # Public
-    affiliation = models.CharField(_('affiliation'), max_length=512)
-    short_description = models.CharField(_('short description'), max_length=110, help_text="Very short description of challenge / technology (110 characters max)")
-    technology_description = models.TextField(_('technology description'), help_text="Description of the project technology to be made available to artists + challenges it produces (100-200 words) ")
-    challenges_description = models.TextField(_('challenges description'), help_text="Description of the  challenges faced by the ICT-Project (100-150 words).")
-    objectives_description = models.TextField(_('objectives description'), help_text="What the project is looking to gain from the collaboration and what kind of artist would be suitable (100 – 150 words)")
-    resources_description = models.TextField(_('resources description'), help_text="Resources available to the artist (50 – 100 words)  -- e.g. office facility, studio facility, technical equipment, internet connection, laboratory, and periods of availability for artistic production, staff possibly allocated to the project, available budget for travel, consumables and equipments, etc.).")
-
-    # Private
-    letter = models.TextField(_('letter of commitment'))
+    brief_description = models.CharField(_('brief description'), max_length=110, help_text="Brief description of the challenges faced by the project to be used for wider communication strategy (e.g. Twitter) (110 characters max).")
+    challenges_description = models.TextField(_('full description'), help_text="Full description of the challenges faced by the project (100-150 words).")
+    technology_description = models.TextField(_('technology description'), help_text="Must include the elements to be made available to the artist with sufficient functional and implementation details for enabling him/her to elaborate his/her technical approach (100-200 words).")
+    objectives_description = models.TextField(_('objective description'), help_text="What the project is looking to gain from the collaboration and what kind of artist would be suitable (100 – 150 words).")
+    resources_description = models.TextField(_('resource description'), help_text="Resources available to the artist -- e.g. office facility, studio facility, technical equipment, internet connection, laboratory, and periods of availability for artistic production, staff possibly allocated to the project, available budget for travel, consumables and equipment, etc... (50 – 100 words).")
+    period = models.CharField(_('period of implementation'), max_length=128, help_text="Possible period of implementation (must be part of the project implementation workplan)")
+    image = models.FileField(_("Image"), max_length=1024, upload_to="images", help_text="Representing the project")
+    image_credits = models.CharField(_('Image credits'), max_length=256, blank=True, null=True)
 
     class Meta:
-        verbose_name = 'Project ICT data'
-        verbose_name_plural = 'Project ICT data'
+        verbose_name = 'Project public data'
+        verbose_name_plural = 'Project public data'
+
+
+class ProjectPrivateData(models.Model):
+
+    project = models.ForeignKey(Project, verbose_name=_('project'), related_name='private_data', blank=True, null=True, on_delete=models.SET_NULL)
+
+    description = models.TextField(_('project description'), help_text="(500 - 1000 words)")
+    affiliation = models.CharField(_('affiliation'), max_length=512)
+    commitment_letter = models.FileField(_("letter of commitment by the project coordinator"), max_length=1024, upload_to="Documents/%Y/%m/%d/", help_text="Written on behalf of the whole project consortium, this letter will commit in implementing the collaboration of a residency application selected by the VERTIGO jury, on the conditions set by the project (in annex of letter: synthesis of all related information entered by project).")
+    persons = models.CharField(_('persons'), max_length=512, help_text="First name and last name of the persons from organization / project who will be part preliminary of the project team (separated by a comma)")
+
+    class Meta:
+        verbose_name = 'Project private data'
+        verbose_name_plural = 'Project private data'
 
 
 class ProjectContact(Person):

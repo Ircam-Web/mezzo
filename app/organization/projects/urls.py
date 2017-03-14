@@ -40,13 +40,17 @@ urlpatterns = [
     url("^calls/list/$", ProjectCallListView.as_view(), name='organization-call-list'),
     url("^calls/(?P<slug>.*)/detail/$", ProjectCallDetailView.as_view(), name='organization-call-detail'),
 
-    url("^calls/(?P<slug>.*)/projects/submission/$", ProjectICTCreateView.as_view(), name='organization-project-create'),
+    # url("^calls/(?P<slug>.*[^\/])/projects/submission/$", ProjectICTSubmissionView.as_view(), name='organization-project-submission'),
+    url("^calls/(?P<slug>.*)/detail/projects/submission/$", ProjectICTSubmissionView.as_view(), name='organization-project-submission'),
+    url("^calls/(?P<slug>.*)/detail/projects/create/$", ProjectICTCreateView.as_view(), name='organization-project-create'),
+    url("^calls/(?P<slug>.*)/detail/projects/validation/$", ProjectICTSubmissionView.as_view(), name='organization-project-validation'),
+
     url("^calls/(?P<call_slug>.*)/projects/detail/(?P<slug>.*)/$", ProjectICTDetailView.as_view(), name='organization-project-detail'),
     url("^calls/(?P<call_slug>.*)/projects/list/$", ProjectICTListView.as_view(), name='organization-project-list'),
 
-    url("^calls/(?P<slug>.*)/producers/submission/$", ProducerCreateView.as_view(), name='organization-producer-create'),
-    url("^calls/(?P<call_slug>.*)/producers/(?P<slug>.*)/detail/$", ProducerDetailView.as_view(), name='organization-producer-detail'),
-    url("^calls/(?P<call_slug>.*)/producers/list/$", ProducerListView.as_view(), name='organization-producer-list'),
+    url("^producers/submission/$", ProducerCreateView.as_view(), name='organization-producer-create'),
+    url("^producers/(?P<slug>.*)/detail/$", ProducerDetailView.as_view(), name='organization-producer-detail'),
+    url("^producers/list/$", ProducerListView.as_view(), name='organization-producer-list'),
 
     url("^calls/(?P<slug>.*)/residencies/submission/$", ProjectResidencyCreateView.as_view(), name='organization-residency-create'),
     url("^calls/(?P<call_slug>.*)/residencies/(?P<slug>.*)/detail/$", ProjectResidencyDetailView.as_view(), name='organization-residency-detail'),

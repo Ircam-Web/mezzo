@@ -19,29 +19,16 @@
 
 {% block page_title %}
     {% editable object.title %}
-        <h1 class="dotted">{% trans "Project submission form" %}</h1>
+        <h1 class="dotted">{% trans "Project submission validation" %}</h1>
     {% endeditable %}
         <h3>All fields are required</h3>
 {% endblock %}
 
 {% block page_content %}
     <div class="row">
-        {% errors_for form %}
-        <form class="mezzanine-form form" method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
-            {% fields_for form %}
-            {% for formset in inlines %}
-                {{ formset.management_form }}
-                <hr>
-                <h2>{{ formset.prefix }}</h2>
-                {% for form in formset %}
-                   {% fields_for form %}
-                {% endfor %}
-            {% endfor %}
-          <div class="form-actions">
-              <input class="btn btn-primary btn-lg" type="submit"
-                  value="{% if page.form.button_text %}{{ page.form.button_text }}{% else %}{% trans "Submit" %}{% endif %}">
-          </div>
-        </form>
+        {% editable call.project_form_content %}
+            {{ call.project_validation_content|richtext_filters|safe }}
+        {% endeditable %}
     </div>
 {% endblock %}
 

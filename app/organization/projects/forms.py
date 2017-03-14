@@ -55,24 +55,39 @@ class DynamicContentProjectForm(autocomplete.FutureModelForm):
 
 class ProjectForm(ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        super(ProjectForm, self).__init__(*args, **kwargs)
+        self.fields['title'].label = "Name"
+        self.fields['keywords'].help_text = "5 comma separated keywords"
+
     class Meta:
         model = Project
-        fields = ('title', 'description', 'keywords', 'website')
+        fields = ('title', 'keywords', 'website')
 
 
-class ProjectICTDataInline(InlineFormSet):
+
+class ProjectPublicDataInline(InlineFormSet):
 
     max_num = 1
-    model = ProjectICTData
-    prefix = 'ICT data'
+    model = ProjectPublicData
+    prefix = "Public data"
     can_delete = False
     fields = '__all__'
 
+
+class ProjectPrivateDataInline(InlineFormSet):
+
+    model = ProjectPrivateData
+    prefix = "Private data"
+    can_delete = False
+    fields = '__all__'
+
+
 class ProjectUserImageInline(InlineFormSet):
 
-    max_num = 4
+    extra = 3
     model = ProjectUserImage
-    prefix = 'Images'
+    prefix = 'Private images'
     can_delete = False
     fields = ['file', 'credits']
 
@@ -81,17 +96,36 @@ class ProjectContactInline(InlineFormSet):
 
     max_num = 1
     model = ProjectContact
-    prefix = 'Contact'
+    prefix = 'Private project contact'
     can_delete = False
     fields = ['first_name', 'last_name', 'address', 'email',
                  'telephone', 'address', 'postal_code', 'city', 'country']
 
 
-class ProducerForm(ModelForm):
+class OrganizationContactInline(InlineFormSet):
+
+    max_num = 1
+    model = OrganizationContact
+    prefix = 'Contact'
+    can_delete = False
+    fields = ['person_title', 'first_name', 'last_name', 'email', 'telephone', 'role']
+
+
+class OrganizationUserImageInline(InlineFormSet):
+
+    max_num = 4
+    model = OrganizationUserImage
+    prefix = 'Images'
+    can_delete = False
+    fields = ['file', 'credits']
+
+
+class OrganizationForm(ModelForm):
 
     class Meta:
         model = Organization
-        fields = '__all__'
+        fields = ['name', 'description', 'url', 'address',
+                  'address', 'postal_code', 'city', 'country',]
 
 
 class ProjectResidencyForm(ModelForm):
