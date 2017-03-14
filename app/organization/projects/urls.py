@@ -40,7 +40,7 @@ urlpatterns = [
     url("^calls/list/$", ProjectCallListView.as_view(), name='organization-call-list'),
     url("^calls/(?P<slug>.*)/detail/$", ProjectCallDetailView.as_view(), name='organization-call-detail'),
 
-    url("^calls/(?P<slug>.*)/detail/projects/submission/$", ProjectCallDetailView.as_view().as_view(), name='organization-project-submission'), #HACK
+    url("^calls/(?P<slug>.*)/detail/projects/submission/$", ProjectCallDetailView.as_view().as_view(), name='organization-project-submission'),
     url("^calls/(?P<slug>.*)/detail/projects/create/$", ProjectICTCreateView.as_view(), name='organization-project-create'),
     url("^calls/(?P<slug>.*)/detail/projects/validation/$", ProjectICTValidationView.as_view(), name='organization-project-validation'),
 
