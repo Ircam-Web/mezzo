@@ -1,15 +1,11 @@
 {% load i18n pages_tags mezzanine_tags staticfiles keyword_tags event_tags organization_tags %}
 
 {% with home.images.all|get_type:'page_featured' as images %}
-    {% if images %}
-        <div class="hero" style="background-image: url({{ MEDIA_URL}}{{ images.first.file }})">
-    {% else %}
-        <div class="hero">
-    {% endif %}
-
-    <div class="Background">
-        <canvas class="Background-canvas"></canvas>
-    </div>
+{% if images %}
+<div class="hero" style="background-image: url({{ MEDIA_URL}}{{ images.first.file }})">
+{% else %}
+<div class="hero">
+{% endif %}
 
     <div class="container">
 
