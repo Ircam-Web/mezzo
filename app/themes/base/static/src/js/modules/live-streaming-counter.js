@@ -48,7 +48,7 @@ function CountDownTimer(dt_begin, dt_end, id, video_id/*, video_url*/)
         function showRemaining() {
             var now = new Date();
             var distance_out = begin - now;
-            console.log("distance_out", distance_out)
+            // console.log("distance_out", distance_out)
 
             if (distance_out < 0) {
                 //clearInterval(timer);
@@ -79,7 +79,7 @@ function CountDownTimer(dt_begin, dt_end, id, video_id/*, video_url*/)
         function nextEvent() {
             var now = new Date();
             var distance_in = end - now;
-            console.log("distance_in", distance_in)
+            //console.log("distance_in", distance_in)
 
             if (distance_in < 0) {
                 $('.countdown-overlay').show()
@@ -94,7 +94,7 @@ function CountDownTimer(dt_begin, dt_end, id, video_id/*, video_url*/)
             timer = setInterval(showRemaining, 1000);
         }
 
-        console.log("distance_in", distance_in)
+        //console.log("distance_in", distance_in)
         if (distance_in > 0) {
             timer = setInterval(nextEvent, 1000);
         }
