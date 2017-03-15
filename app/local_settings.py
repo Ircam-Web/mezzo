@@ -87,6 +87,7 @@ ADMIN_MENU_ORDER = (
                  'organization-core.LinkType')),
     (_('Media'), ('organization-media.Media',
                   'organization-media.Playlist',
+                  'organization-media.LiveStreaming',
                  'organization-media.MediaCategory',
                  (_('Media Library'), 'fb_browse'),
                  )),

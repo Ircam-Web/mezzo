@@ -32,7 +32,7 @@ function cleanCounter() {
     $('#countdown').html('<br />');
 }
 
-function CountDownTimer(dt, id, video_id, video_url)
+function CountDownTimer(dt, id, video_id/*, video_url*/)
     {
         var end = new Date(dt);
 
@@ -52,7 +52,7 @@ function CountDownTimer(dt, id, video_id, video_url)
                 $('#countdown-title').html('<br /><br />');
                 $('#'+id).html('<br />');
                 $('#live').html('- Live !');
-                switchVideo(video_id, video_url);
+                //switchVideo(video_id, video_url);
                 return;
             }
 
@@ -82,4 +82,3 @@ jQuery.fn.center = function () {
                                                 $(window).scrollLeft()) + "px");
     return this;
 }
-

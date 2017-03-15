@@ -25,6 +25,7 @@ from organization.media.models import *
 from organization.core.views import *
 from dal import autocomplete
 from django.core.exceptions import FieldDoesNotExist
+from datetime import datetime
 
 # temporarily excluse not ready models
 EXCLUDED_MODELS = ("organizationplaylist", "personplaylist")
@@ -132,4 +133,9 @@ class PlaylistOverlayView(SlugMixin, DetailView):
 class LiveStreamingDetailView(SlugMixin, DetailView):
 
     model = LiveStreaming
-    template_name='media/live_streaming_detail.html'
+    template_name='media/live_streaming/live_streaming_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(LiveStreamingDetailView, self).get_context_data(**kwargs)
+        context['next_event'] = Event.objects.filter(location=self.object.event_location).filter(start__gt=datetime.now()).first()
+        return context

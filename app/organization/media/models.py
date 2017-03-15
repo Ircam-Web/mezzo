@@ -30,7 +30,7 @@ from mezzanine.core.models import RichText, Displayable, Slugged
 from mezzanine.core.fields import RichTextField, OrderField, FileField
 from mezzanine.utils.models import AdminThumbMixin, upload_to
 from organization.core.models import *
-from mezzanine_agenda.models import Event
+from mezzanine_agenda.models import Event, EventLocation
 from django.conf import settings
 import requests
 
@@ -183,6 +183,7 @@ class LiveStreaming(Displayable):
     html5_url = models.URLField(_('html5 url'), max_length=1024, blank=True)
     youtube_id = models.CharField(_('youtube id'), max_length=64, blank=True, null=True)
     type = models.CharField(_('type'), max_length=32, choices=LIVE_STREAMING_TYPE_CHOICES, default='html5')
+    event_location = models.ForeignKey(EventLocation, verbose_name=_('Event Location'), related_name='live_streaming_location', blank=True, null=True, on_delete=models.SET_NULL)
 
     class Meta:
         verbose_name = "live streaming"
