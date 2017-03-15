@@ -137,5 +137,15 @@ class LiveStreamingDetailView(SlugMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(LiveStreamingDetailView, self).get_context_data(**kwargs)
+        print("LIVE_STREAMING_TYPE_CHOICES", LIVE_STREAMING_TYPE_CHOICES)
+        type_choices = []
+        for st in LIVE_STREAMING_TYPE_CHOICES:
+            type_choices.append(st[0])
+        if not self.kwargs['type'] in type_choices:
+            context['type'] = "html5"
+        else :
+            context['type'] = self.kwargs['type']
+
+        context['slug'] = self.object.slug        
         context['next_event'] = Event.objects.filter(location=self.object.event_location).filter(start__gt=datetime.now()).first()
         return context
