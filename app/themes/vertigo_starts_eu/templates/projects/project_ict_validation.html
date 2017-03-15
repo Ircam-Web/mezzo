@@ -21,14 +21,13 @@
     {% editable object.title %}
         <h1 class="dotted">{% trans "Project submission validation" %}</h1>
     {% endeditable %}
-        <h3>All fields are required</h3>
 {% endblock %}
 
 {% block page_content %}
     <div class="row">
-        {% editable call.project_form_content %}
-            {{ call.project_validation_content|richtext_filters|safe }}
-        {% endeditable %}
+        <p>Thank you for having submitted your project. It will evaluated in the next few days by the evaluation board and you will then receive an email notification for the result.</p>
+        <p>For the first call of 2017, you cannot update your project data on your own, so please <a href="mailto:">send an email</a> to the board if you need any modification.</p>
+        <p>See you soon!</p>
     </div>
 {% endblock %}
 
