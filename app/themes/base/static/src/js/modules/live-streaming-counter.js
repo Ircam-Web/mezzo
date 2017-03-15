@@ -32,10 +32,17 @@ function cleanCounter() {
     $('#countdown').html('<br />');
 }
 
-function CountDownTimer(dt_begin, dt_end, id, video_id/*, video_url*/)
+function CountDownTimer(json_event, curr_event_index, id, video_id/*, video_url*/)
     {
-        var begin = new Date(dt_begin);
-        var end = new Date(dt_end);
+        //console.log("json_event.length", Object.keys(json_event).length);
+        //console.log("curr_event_index", curr_event_index);
+        if (Object.keys(json_event).length <= curr_event_index) {
+            return ;
+        }
+
+        var curr_event = json_event[curr_event_index];
+        var begin = new Date(curr_event.begin);
+        var end = new Date(curr_event.end);
 
         var _second = 1000;
         var _minute = _second * 60;
@@ -43,12 +50,12 @@ function CountDownTimer(dt_begin, dt_end, id, video_id/*, video_url*/)
         var _day = _hour * 24;
         var timer;
         var distance_out = 1;
-        var distance_in = 0;
+        var distance_in = 1;
 
         function showRemaining() {
             var now = new Date();
             var distance_out = begin - now;
-            // console.log("distance_out", distance_out)
+            //console.log("distance_out", distance_out)
 
             if (distance_out < 0) {
                 //clearInterval(timer);
@@ -58,11 +65,11 @@ function CountDownTimer(dt_begin, dt_end, id, video_id/*, video_url*/)
                 //switchVideo(video_id, video_url);
                 $('.countdown-overlay').hide()
                 distance_in = 1;
-                nextEvent()
-                return;
+                hideRemaining()
+                //return;
             }
 
-            $('#countdown-title').html('Retransmission dans :');
+            $('#countdown-title').html('Prochain évènement :<br><br/><strong>'+ curr_event.title +'</strong><br/><br/> Retransmission dans :');
 
             var days = Math.floor(distance_out / _day);
             var hours = Math.floor((distance_out % _day) / _hour);
@@ -76,16 +83,36 @@ function CountDownTimer(dt_begin, dt_end, id, video_id/*, video_url*/)
 
         }
 
-        function nextEvent() {
+        function hideRemaining() {
             var now = new Date();
             var distance_in = end - now;
             //console.log("distance_in", distance_in)
 
             if (distance_in < 0) {
+                nextEvent()
+                distance_in = end - now;
                 $('.countdown-overlay').show()
-
             }
         }
+
+        function nextEvent() {
+            curr_event_index++;
+            if (shouldStreamingStop()) {
+                curr_event = json_event[curr_event_index]
+                begin = new Date(curr_event.begin);
+                end = new Date(curr_event.end);
+            }
+        }
+
+        function shouldStreamingStop() {
+            var bool = true;
+            if (json_event.length - 1 < curr_event_index) {
+                clearInterval(timer);
+                bool = false;
+            }
+            return bool;
+        }
+
 
         // calculer le diff avec le prochain évènement
         // réactiver le countdown
@@ -96,7 +123,7 @@ function CountDownTimer(dt_begin, dt_end, id, video_id/*, video_url*/)
 
         //console.log("distance_in", distance_in)
         if (distance_in > 0) {
-            timer = setInterval(nextEvent, 1000);
+            timer = setInterval(hideRemaining, 1000);
         }
     }
 

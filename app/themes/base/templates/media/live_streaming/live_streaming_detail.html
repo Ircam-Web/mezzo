@@ -52,8 +52,7 @@
     <script src="{% static "src/js/modules/live-streaming-counter.js" %}"></script>
 
     <script type="text/javascript">
-        var d_begin = '{{ next_event.start|format_iso }}';
-        var d_end = '{{ next_event.end|format_iso }}';
-        CountDownTimer(d_begin, d_end, 'countdown', 'live-streaming');
+        var json_event = {{ json_event|safe }}
+        CountDownTimer(json_event, {{ curr_event_index }}, 'countdown', 'live-streaming');
     </script>
 {% endblock %}

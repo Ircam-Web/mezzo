@@ -238,7 +238,3 @@ def filter_content(dynamic_contents):
         else :
             dict["other"].append(dc)
     return dict
-
-@register.filter
-def format_iso(date):
-    return date.isoformat()

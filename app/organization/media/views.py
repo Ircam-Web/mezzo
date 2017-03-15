@@ -18,7 +18,7 @@
 
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
-
+import json
 from django.shortcuts import render
 from collections import defaultdict
 from organization.media.models import *
@@ -26,6 +26,7 @@ from organization.core.views import *
 from dal import autocomplete
 from django.core.exceptions import FieldDoesNotExist
 from datetime import datetime
+from django.db.models import Q
 
 # temporarily excluse not ready models
 EXCLUDED_MODELS = ("organizationplaylist", "personplaylist")
@@ -137,7 +138,8 @@ class LiveStreamingDetailView(SlugMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(LiveStreamingDetailView, self).get_context_data(**kwargs)
-        print("LIVE_STREAMING_TYPE_CHOICES", LIVE_STREAMING_TYPE_CHOICES)
+
+        # check type choices
         type_choices = []
         for st in LIVE_STREAMING_TYPE_CHOICES:
             type_choices.append(st[0])
@@ -146,6 +148,25 @@ class LiveStreamingDetailView(SlugMixin, DetailView):
         else :
             context['type'] = self.kwargs['type']
 
-        context['slug'] = self.object.slug        
-        context['next_event'] = Event.objects.filter(location=self.object.event_location).filter(start__gt=datetime.now()).first()
+        # slug
+        context['slug'] = self.object.slug
+
+        # event data
+        all_events = Event.objects.filter(location=self.object.event_location)
+        curr_event = Event.objects.filter(location=self.object.event_location).filter(end__gte=datetime.now()).order_by('start').first()
+
+        events_data = {}
+        counter = 0
+        curr_event_index = len(all_events)
+        for event in all_events:
+            events_data[counter] = {}
+            events_data[counter]['title'] = event.title
+            events_data[counter]['begin'] = event.start.isoformat()
+            events_data[counter]['end'] = event.end.isoformat()
+            if curr_event:
+                if curr_event.id == event.id :
+                    curr_event_index = counter
+            counter += 1
+        context['curr_event_index'] = curr_event_index
+        context['json_event'] = json.dumps(events_data)
         return context
