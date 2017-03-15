@@ -336,9 +336,9 @@ class ProjectPublicData(models.Model):
     project = models.ForeignKey(Project, verbose_name=_('project'), related_name='public_data', blank=True, null=True, on_delete=models.SET_NULL)
 
     brief_description = models.CharField(_('brief description'), max_length=110, help_text="Brief description of the challenges faced by the project to be used for wider communication strategy (e.g. Twitter) (110 characters max).")
-    challenges_description = models.TextField(_('challenges description'), help_text="Full description of the challenges faced by the project (100-150 words).")
+    challenges_description = models.TextField(_('full description'), help_text="Full description of the challenges faced by the project (100-150 words).")
     technology_description = models.TextField(_('technology description'), help_text="Must include the elements to be made available to the artist with sufficient functional and implementation details for enabling him/her to elaborate his/her technical approach (100-200 words).")
-    objectives_description = models.TextField(_('objectives description'), help_text="What the project is looking to gain from the collaboration and what kind of artist would be suitable (100 – 150 words).")
+    objectives_description = models.TextField(_('objective description'), help_text="What the project is looking to gain from the collaboration and what kind of artist would be suitable (100 – 150 words).")
     resources_description = models.TextField(_('resource description'), help_text="Resources available to the artist -- e.g. office facility, studio facility, technical equipment, internet connection, laboratory, and periods of availability for artistic production, staff possibly allocated to the project, available budget for travel, consumables and equipment, etc... (50 – 100 words).")
     period = models.CharField(_('period of implementation'), max_length=128, help_text="Possible period of implementation (must be part of the project implementation workplan)")
     image = models.FileField(_("Image"), max_length=1024, upload_to="images", help_text="Representing the project")

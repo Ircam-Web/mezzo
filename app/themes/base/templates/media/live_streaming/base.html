@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% load i18n mezzanine_tags keyword_tags organization_tags pages_tags %}
+
+{% block meta_title %}{{ page.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for page as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ page.description }}
+{% endmetablock %}{% endblock %}
+
+{% block main %}
+
+    {% block hero %}
+    {% endblock %}
+
+    <div class="page page--{% spaceless %}{% block page_class %}{% endblock %}{% endspaceless %}">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm-16 col-md-12 col-md-push-2 tac">
+                    {% block page_title %}
+                        {{ page.title }}
+                    {% endblock %}
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-2 page__sidebar">
+
+                    <div style="position: relative;">
+                        {% block page_sidebar %}
+                        {% endblock %}
+                    </div>
+
+                </div>
+
+                <div class="mb2 col-sm-16 col-md-12 page__content" data-summary-content>
+                    {% block page_content %}
+                        {{ page.content }}
+                    {% endblock %}
+                    {% block page_link %}
+                        {% with object.links.all as links %}
+                            {% if links %}
+                                {% include 'core/inc/link.html' %}
+                            {% endif %}
+                        {% endwith %}
+                    {% endblock %}
+                    {% block page_file %}
+                        {% with object.files.all as files %}
+                            {% if files %}
+                                {% include 'core/inc/files.html' %}
+                            {% endif %}
+                        {% endwith %}
+                    {% endblock %}
+                    {% block page_audio %}
+                        {% for related in object.playlists.all %}
+                            {% with related.playlist as playlist %}
+                                {% if playlist.type == 'audio' %}
+                                    {% include 'media/inc/playlist_audio_detail.html' %}
+                                {% endif %}
+                            {% endwith %}
+                        {% endfor %}
+                    {% endblock %}
+                </div>
+
+            </div>
+
+        </div>
+
+        {% block page_slider %}
+        {% with object.images.all|get_type:'page_slider' as slider_images %}
+            {% if slider_images %}
+                {% include 'core/inc/slider.html' %}
+            {% endif %}
+        {% endwith %}
+        {% endblock %}
+
+        {% block page_video %}
+            {% for related in object.playlists.all %}
+                {% with related.playlist as playlist %}
+                    {% if playlist.type == 'video' %}
+                        {% include 'media/inc/playlist_video_slider.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        {% endblock %}
+
+        <div class="">
+
+            {% block page_person_list %}
+            {% endblock %}
+
+            {% block page_demo %}
+            {% endblock %}
+
+            {% block page_blog %}
+            {% endblock %}
+
+            {% block page_sub_content %}
+                {% with object.blocks.all as blocks %}
+                    {% include "core/inc/block.html" %}
+                {% endwith %}
+            {% endblock %}
+
+            {% block related_project %}
+            {% endblock %}
+
+            {% block products %}
+                {% if page.product_lists.all|length > 0 %}
+                    {% for page_product_list in page.product_lists.all %}
+                      {% with page_product_list.list as list %}
+                        {% with "shop/includes/product_list_"|add:list.style|add:"_style.html" as template %}
+                          {% include template %}
+                        {% endwith %}
+                      {% endwith %}
+                    {% endfor %}
+                {% endif %}
+            {% endblock %}
+
+            {% block page_sub_content_2 %}
+            {% endblock %}
+
+            {% block page_person_list_team %}
+            {% endblock %}
+
+            {% block page_sub_content_3 %}
+            {% endblock %}
+
+            {% block logo %}
+                {% with page.images.all|get_type:'logo' as images %}
+                    {% if images %}
+                        <div class="page__block{% if block.background_color %} page__block--{{ block.background_color }}{% endif %}">
+                            <div class="white-bg pb2">
+                                <div class="container">
+                                    <div class="row" data-summary-content>
+                                        <div class="col-sm-16">
+                                            <ul class="partners-list">
+                                                {% include 'core/inc/logo.html' %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            {% endblock %}
+
+        </div>
+
+    </div>
+
+    <div>
+
+        {% block page_related_content %}
+            {% with dynamic_content=page.dynamic_content_pages.all|filter_content object=page %}
+                {% include "core/inc/related_content.html" %}
+            {% endwith %}
+        {% endblock %}
+
+    </div>
+
+
+{% endblock %}

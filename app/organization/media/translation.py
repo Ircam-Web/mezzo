@@ -58,3 +58,9 @@ class MediaCategoryTranslationOptions(TranslationOptions):
 class MediaImageTranslationOptions(TranslationOptions):
 
     fields = ()
+
+
+@register(LiveStreaming)
+class LiveStreamingTranslationOptions(TranslationOptions):
+
+    fields = ('title', 'description', 'html5_url')

@@ -140,7 +140,7 @@ class Image(Titled, Orderable):
 
 class UserImage(Titled, Orderable):
 
-    file = models.FileField(_("Image"), max_length=1024, upload_to="images")
+    file = models.FileField(_("Image"), max_length=1024, upload_to="user/images/%Y/%m/%d/")
     credits = models.CharField(_('credits'), max_length=256, blank=True, null=True)
 
     class Meta:
@@ -157,7 +157,7 @@ class UserImage(Titled, Orderable):
 
 class File(Titled, Orderable):
 
-    file = FileField(_("document"), max_length=1024, upload_to="Documents/%Y/%m/%d/")
+    file = FileField(_("document"), max_length=1024, upload_to="documents")
 
     class Meta:
         abstract = True
