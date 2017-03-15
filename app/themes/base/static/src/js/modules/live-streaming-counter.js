@@ -42,14 +42,14 @@ function CountDownTimer(dt_begin, dt_end, id, video_id/*, video_url*/)
         var _hour = _minute * 60;
         var _day = _hour * 24;
         var timer;
-        var now = new Date();
-
+        var distance_out = 1;
+        var distance_in = 0;
 
         function showRemaining() {
+            var now = new Date();
+            var distance_out = begin - now;
 
-            var distance = begin - now;
-
-            if (distance < 0) {
+            if (distance_out < 0) {
                 clearInterval(timer);
                 // $('#countdown-title').html('<br /><br />');
                 // $('#'+id).html('<br />');
@@ -62,10 +62,10 @@ function CountDownTimer(dt_begin, dt_end, id, video_id/*, video_url*/)
 
             $('#countdown-title').html('Retransmission dans :');
 
-            var days = Math.floor(distance / _day);
-            var hours = Math.floor((distance % _day) / _hour);
-            var minutes = Math.floor((distance % _hour) / _minute);
-            var seconds = Math.floor((distance % _minute) / _second);
+            var days = Math.floor(distance_out / _day);
+            var hours = Math.floor((distance_out % _day) / _hour);
+            var minutes = Math.floor((distance_out % _hour) / _minute);
+            var seconds = Math.floor((distance_out % _minute) / _second);
 
             document.getElementById(id).innerHTML = days + 'jours ';
             document.getElementById(id).innerHTML += hours + 'hrs ';
@@ -75,9 +75,10 @@ function CountDownTimer(dt_begin, dt_end, id, video_id/*, video_url*/)
         }
 
         function nextEvent() {
-            var distance = end - now;
+            var now = new Date();
+            var distance_in = end - now;
 
-            if (distance < 0) {
+            if (distance_in < 0) {
                 $('.countdown-overlay').show()
 
             }
@@ -86,7 +87,12 @@ function CountDownTimer(dt_begin, dt_end, id, video_id/*, video_url*/)
         // calculer le diff avec le prochain évènement
         // réactiver le countdown
 
-        timer = setInterval(showRemaining, 1000);
+        if (distance_out > 0) {
+            timer = setInterval(showRemaining, 1000);
+        }
+        if (distance_in > 0) {
+            timer = setInterval(nextEvent, 1000);
+        }
     }
 
 
