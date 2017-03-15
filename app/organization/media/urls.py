@@ -40,5 +40,5 @@ urlpatterns = [
     url("^playlists/list/(?P<type>.*)$", PlaylistListView.as_view(), name="organization-playlist-list"),
     url("^playlists/overlay/(?P<slug>.*)/$", PlaylistOverlayView.as_view(), name="organization-playlist-overlay"),
     url("^playlist-media-autocomplete/$",  permission_required('playlist.can_edit')(PlayListMediaView.as_view()), name='media-autocomplete'),
-    url("^streams/(?P<slug>.*)/(?P<type>.*)/detail/$", LiveStreamingDetailView.as_view(), name="organization-streaming-detail"),
+    url("^streams/(?P<slu   g>.*)/(?P<type>.*)/detail/$", LiveStreamingDetailView.as_view(), name="organization-streaming-detail"),
 ]
