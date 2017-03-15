@@ -155,6 +155,7 @@ class ProjectICTCreateView(ProjectCallMixin, CreateWithInlinesView):
 
     def forms_valid(self, form, inlines):
         self.object = form.save()
+        self.call = ProjectCall.objects.get(slug=self.kwargs['slug'])
         self.object.call = self.call
         self.object.topic, c = ProjectTopic.objects.get_or_create(name='ICT')
         self.object.save()
