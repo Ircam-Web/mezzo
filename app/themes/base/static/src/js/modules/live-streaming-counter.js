@@ -32,27 +32,31 @@ function cleanCounter() {
     $('#countdown').html('<br />');
 }
 
-function CountDownTimer(dt, id, video_id/*, video_url*/)
+function CountDownTimer(dt_begin, dt_end, id, video_id/*, video_url*/)
     {
-        var end = new Date(dt);
+        var begin = new Date(dt_begin);
+        var end = new Date(dt_end);
 
         var _second = 1000;
         var _minute = _second * 60;
         var _hour = _minute * 60;
         var _day = _hour * 24;
         var timer;
+        var now = new Date();
+
 
         function showRemaining() {
 
-            var now = new Date();
-            var distance = end - now;
+            var distance = begin - now;
 
             if (distance < 0) {
                 clearInterval(timer);
-                $('#countdown-title').html('<br /><br />');
-                $('#'+id).html('<br />');
-                $('#live').html('- Live !');
+                // $('#countdown-title').html('<br /><br />');
+                // $('#'+id).html('<br />');
+                // $('#live').html('- Live !');
                 //switchVideo(video_id, video_url);
+                $('.countdown-overlay').hide()
+                nextEvent()
                 return;
             }
 
@@ -69,6 +73,18 @@ function CountDownTimer(dt, id, video_id/*, video_url*/)
             document.getElementById(id).innerHTML += seconds + 'secs';
 
         }
+
+        function nextEvent() {
+            var distance = end - now;
+
+            if (distance < 0) {
+                $('.countdown-overlay').show()
+
+            }
+        }
+
+        // calculer le diff avec le prochain évènement
+        // réactiver le countdown
 
         timer = setInterval(showRemaining, 1000);
     }
