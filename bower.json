@@ -29,6 +29,7 @@
     "video.js": "^5.12.5",
     "videojs-playlist": "^2.4.0",
     "jquery_lazyload": "jquery.lazyload#^1.9.7",
-    "waypoints": "^4.0.1"
+    "waypoints": "^4.0.1",
+    "moment": "*"
   }
 }
