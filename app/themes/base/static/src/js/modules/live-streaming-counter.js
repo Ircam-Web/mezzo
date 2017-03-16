@@ -34,7 +34,7 @@ function cleanCounter(timer) {
     $('.countdown-overlay').show();
 }
 
-function CountDownTimer(json_event, id, video_id)
+function CountDownTimer(json_event, id, video_id, video_container)
     {
 
         var curr_event;
@@ -48,8 +48,10 @@ function CountDownTimer(json_event, id, video_id)
         var timer;
         var distance_out = 1;
         var distance_in = 1;
+        var video_html;
 
         function init() {
+
             if (Object.keys(json_event).length > 0 ) {
                 curr_event = json_event[curr_event_index];
                 begin = moment(new Date(curr_event.begin));
@@ -65,24 +67,27 @@ function CountDownTimer(json_event, id, video_id)
             var distance_out = begin.diff(now);
             updateDisplay(distance_out);
             if (distance_out < 0) {
-                //clearInterval(timer);
-                // $('#countdown-title').html('<br /><br />');
-                // $('#'+id).html('<br />');
-                // $('#live').html('- Live !');
-                //switchVideo(video_id, video_url);
+                if ($(video_container).is(':empty')){
+                    $(video_container).html(video_html);
+                }
                 $('.countdown-overlay').hide();
                 hideRemaining();
+                distance_out = 0;
             }
 
         }
 
         function hideRemaining() {
-            var now = moment().tz("Europe/Paris").format(); //moment(new Date());
+            var now = moment().tz("Europe/Paris").format();
             var distance_in = end.diff(now);
             if (distance_in < 0) {
                 nextEvent();
                 showRemaining();
+                if (! $(video_container).is(':empty')){
+                    $(video_container).empty();
+                }
                 $('.countdown-overlay').show();
+                distance_in = 0;
             }
         }
 
@@ -111,19 +116,21 @@ function CountDownTimer(json_event, id, video_id)
         }
 
         function start() {
-                // out of event
-                if (distance_out > 0) {
-                    showRemaining();
-                }
+            // out of event
+            if (distance_out > 0) {
+                showRemaining();
+            }
 
-                // meanwhile an event
-                if (distance_in > 0) {
-                    hideRemaining();
-                }
+            // meanwhile an event
+            if (distance_in > 0) {
+                hideRemaining();
+            }
 
         }
 
         // initialize
+        video_html = $(video_container).html();
+        $(video_container).empty();
         init();
     }
 
