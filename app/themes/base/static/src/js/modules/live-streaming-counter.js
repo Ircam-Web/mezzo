@@ -27,21 +27,20 @@ function failed(e) {
 }
 
 
-function cleanCounter() {
+function cleanCounter(timer) {
+    clearInterval(timer);
     $('#countdown-title').html('<br /><br />');
     $('#countdown').html('<br />');
+    $('.countdown-overlay').show();
 }
 
-function CountDownTimer(json_event, curr_event_index, id, video_id/*, video_url*/)
+function CountDownTimer(json_event, id, video_id)
     {
-        if (Object.keys(json_event).length <= curr_event_index) {
-            return ;
-        }
 
         var curr_event;
         var begin;
         var end;
-
+        var curr_event_index = 0;
         var _second = 1000;
         var _minute = _second * 60;
         var _hour = _minute * 60;
@@ -51,46 +50,49 @@ function CountDownTimer(json_event, curr_event_index, id, video_id/*, video_url*
         var distance_in = 1;
 
         function init() {
-            if (curr_event_index < Object.keys(json_event).length ) {
+            if (Object.keys(json_event).length > 0 ) {
                 curr_event = json_event[curr_event_index];
                 begin = moment(new Date(curr_event.begin));
                 end = moment(new Date(curr_event.end)).add(30, 'm');
-                clearInterval(timer);
+                timer = setInterval(start, 1000);
+            } else {
+                cleanCounter(timer);
             }
         }
 
         function showRemaining() {
-            var now = moment(new Date());
+            var now = moment().tz("Europe/Paris").format();
             var distance_out = begin.diff(now);
+            updateDisplay(distance_out);
             if (distance_out < 0) {
                 //clearInterval(timer);
                 // $('#countdown-title').html('<br /><br />');
                 // $('#'+id).html('<br />');
                 // $('#live').html('- Live !');
                 //switchVideo(video_id, video_url);
-                $('.countdown-overlay').hide()
-                distance_in = 1;
-                hideRemaining()
-                //return;
+                $('.countdown-overlay').hide();
+                hideRemaining();
             }
 
-            updateDisplay(distance_out);
         }
 
         function hideRemaining() {
-            var now = moment(new Date());
+            var now = moment().tz("Europe/Paris").format(); //moment(new Date());
             var distance_in = end.diff(now);
             if (distance_in < 0) {
                 nextEvent();
-                distance_out = begin.diff(now);
-                updateDisplay(distance_out);
-                $('.countdown-overlay').show()
+                showRemaining();
+                $('.countdown-overlay').show();
             }
         }
 
         function nextEvent() {
             curr_event_index++;
-            init();
+            if (curr_event_index >= Object.keys(json_event).length ) {
+                cleanCounter(timer);
+            } else {
+                init();
+            }
         }
 
         function updateDisplay(time_remaining) {
@@ -108,18 +110,21 @@ function CountDownTimer(json_event, curr_event_index, id, video_id/*, video_url*
             document.getElementById(id).innerHTML +=  seconds + 'secs';
         }
 
+        function start() {
+                // out of event
+                if (distance_out > 0) {
+                    showRemaining();
+                }
+
+                // meanwhile an event
+                if (distance_in > 0) {
+                    hideRemaining();
+                }
+
+        }
+
         // initialize
         init();
-
-        // out of event
-        if (distance_out > 0) {
-            timer = setInterval(showRemaining, 1000);
-        }
-
-        // meanwhile an event
-        if (distance_in > 0) {
-            timer = setInterval(hideRemaining, 1000);
-        }
     }
 
 
