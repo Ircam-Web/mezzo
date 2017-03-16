@@ -54,7 +54,7 @@ function CountDownTimer(json_event, curr_event_index, id, video_id/*, video_url*
             if (curr_event_index < Object.keys(json_event).length ) {
                 curr_event = json_event[curr_event_index];
                 begin = moment(new Date(curr_event.begin));
-                end = moment(new Date(curr_event.end)).add(0, 'm');
+                end = moment(new Date(curr_event.end)).add(30, 'm');
                 clearInterval(timer);
             }
         }
