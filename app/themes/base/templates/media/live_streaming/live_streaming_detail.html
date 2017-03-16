@@ -49,6 +49,6 @@
 
     <script type="text/javascript">
         var json_event = {{ json_event|safe }}
-        CountDownTimer(json_event, {{ curr_event_index }}, 'countdown', 'live-streaming');
+        CountDownTimer(json_event, 'countdown', 'live-streaming');
     </script>
 {% endblock %}

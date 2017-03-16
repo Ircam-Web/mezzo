@@ -121,7 +121,7 @@ class MediaOverlayView(SlugMixin, DetailView):
     def get_template_names(self):
         templates = super(MediaOverlayView, self).get_template_names()
         templates.insert(0,'media/'+self.object.type.lower()+'/'+self.object.type.lower()+'_overlay.html')
-        return templates
+        return templatesc
 
 
 class PlaylistOverlayView(SlugMixin, DetailView):
@@ -152,8 +152,7 @@ class LiveStreamingDetailView(SlugMixin, DetailView):
         context['slug'] = self.object.slug
 
         # event data
-        all_events = Event.objects.filter(location=self.object.event_location)
-        curr_event = Event.objects.filter(location=self.object.event_location).filter(end__gte=datetime.now()).order_by('start').first()
+        all_events = Event.objects.filter(location=self.object.event_location).filter(end__gte=datetime.now()).order_by('start')
 
         events_data = {}
         counter = 0
@@ -163,10 +162,7 @@ class LiveStreamingDetailView(SlugMixin, DetailView):
             events_data[counter]['title'] = event.title
             events_data[counter]['begin'] = event.start.isoformat()
             events_data[counter]['end'] = event.end.isoformat()
-            if curr_event:
-                if curr_event.id == event.id :
-                    curr_event_index = counter
             counter += 1
-        context['curr_event_index'] = curr_event_index
+
         context['json_event'] = json.dumps(events_data)
         return context
