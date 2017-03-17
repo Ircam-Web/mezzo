@@ -25,6 +25,11 @@ $module: ".page--live-streaming";
     .intro {
         margin-bottom : 30px;
     }
+
+    & #video_container{
+        height: 720px;
+    }
+    
     & .page__content {
         text-align: center;
         height: 720px;
