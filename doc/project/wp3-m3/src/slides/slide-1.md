@@ -127,6 +127,7 @@ class: vertigo
 
 - Data models (should be fixed and specified ASAP)
 - Relationships of data models (should be fixed and specified ASAP)
+
 ---
 class: vertigo
 
@@ -150,6 +151,7 @@ class: vertigo
 
 - Integration
 - Development in parallel
+
 ---
 class: vertigo
 
@@ -199,36 +201,3 @@ class: center, middle, vertigo
 <hr>
 ### Plenary Meeting - 16/03/2017 - IRCAM
 <img src="img/vertigo_logo1.png" height="100px" />
-
----
-class: vertigo
-
-# TODO now
-
-- backoffice presentation and feature documentation
-- producer form ?
--
-
-# Call
-
-- projects selection criteria (not jury)
--
-
-#TODO
-
-project
-
-    - publish letter of commitment template on the form
-    - tests
-    - sent >
-    - 1 admin access for project readonly access
-    - (pdf export)
-
-producer
-
-    - form (w1)
-    - contact@vertigo_starts_eu
-    - private or public view
-
-Jury
-    Reviewer ??
