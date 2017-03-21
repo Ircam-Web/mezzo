@@ -14,7 +14,7 @@
 
 {% if unit_booking %}
 
-    {% if event.prices.all and not is_archive %}
+    {% if event.prices.all and not is_archive and not event.is_full %}
         <p>
             {% if event.trainings.all|length %}
                 {% with event.links.all as links %}

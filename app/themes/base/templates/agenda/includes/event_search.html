@@ -10,7 +10,7 @@
 {% block subtitle %}
     <div class="search-box__subtitle">
         {% include 'agenda/includes/event_date_line.html' with object=event %}
-        {% if event.prices.all.0|floatformat != '0' and event.prices.all|length > 0 and not is_archive %}
+        {% if event.prices.all.0|floatformat != '0' and event.prices.all|length > 0 and not is_archive and not event.is_full %}
             <a class="button button--small ml1" href="{% url 'event_booking' event.slug %}" class="event__meta__btn">
                 {% trans "Reserve" %}
             </a>
