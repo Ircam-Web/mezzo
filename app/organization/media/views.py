@@ -121,7 +121,7 @@ class MediaOverlayView(SlugMixin, DetailView):
     def get_template_names(self):
         templates = super(MediaOverlayView, self).get_template_names()
         templates.insert(0,'media/'+self.object.type.lower()+'/'+self.object.type.lower()+'_overlay.html')
-        return templatesc
+        return templates
 
 
 class PlaylistOverlayView(SlugMixin, DetailView):

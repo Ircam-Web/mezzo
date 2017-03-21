@@ -1,6 +1,6 @@
 class: center, middle, vertigo
 
-# Vertigo - WP3
+# Vertigo - WP3 (IRCAM)
 <hr>
 ### Plenary Meeting - 16/03/2017 - IRCAM
 <img src="img/vertigo_logo1.png" height="100px" />
@@ -46,28 +46,17 @@ class: vertigo
 ---
 class: vertigo
 
-# D3.1 (M3) Libelium
-
-https://taiga.ircam.fr/project/yomguy-vertigo/us/2?milestone=40
-
-- ...
-
----
-class: vertigo
-
 # Presentation of the preliminary VERTIGO / STARTS platform
 
 ### Web sites
 
-http://vertigo.ircam.fr
+- http://vertigo.ircam.fr
+- http://vertigo.starts.eu
+- http://www.starts.eu
 
-http://vertigo.starts.eu
+### Backoffice
 
-http://www.starts.eu  (sorry for yesterday bug!!)
-
-### Backoffice (admin)
-
-http://vertigo.starts.eu/admin/
+- http://vertigo.starts.eu/admin/
 
 ---
 class: vertigo
@@ -102,6 +91,113 @@ https://taiga.ircam.fr/project/yomguy-vertigo/us/79?no-milestone=1
 
 - Chat : https://social.ircam.fr (mattermost)
 - Collaborative pad : https://etherpad.ircam.fr/ (etherpad)
-- Collaborative document editing : on the cloud (owncloud)
+- Collaborative document editing : on the cloud (owncloud upgrade)
 
-Everything on the wiki!
+Every pratical info on the wiki!
+
+---
+class: center, middle, vertigo
+
+# Vertigo - WP3 (Libelium)
+<hr>
+### Plenary Meeting - 16/03/2017 - IRCAM
+<img src="img/vertigo_logo1.png" height="100px" />
+
+
+---
+class: vertigo
+
+# Vertigo - WP3
+<hr>
+### Development Plan  Discussion - 16/03/2017
+<img src="img/vertigo_logo1.png" height="100px" />
+
+---
+class: vertigo
+
+# Types of functionalities
+
+- Fixed functionalities: very well defined from the beggining
+- Functionalities that will change over time: flexible approach
+
+---
+class: vertigo
+
+# Data
+
+- Data models (should be fixed and specified ASAP)
+- Relationships of data models (should be fixed and specified ASAP)
+
+---
+class: vertigo
+
+# Milestones
+
+- Monthly
+- By tasks
+
+---
+class: vertigo
+
+# D3.3
+
+- Functions expected for M12
+- Functions that MAY be expected before M12
+
+---
+class: vertigo
+
+# Ulysses2
+
+- Integration
+- Development in parallel
+
+---
+class: vertigo
+
+# Mezzanine-organization
+
+- Continous development and integration in parallel?
+- Bugs encountered
+
+---
+class: vertigo
+
+# Feedback from partners
+
+- Who
+- When
+- How
+- Testing
+
+---
+class: vertigo
+
+# Web graphic design
+
+- FhG theme style
+- When should be ready?
+
+---
+class: vertigo
+
+# Web statistics
+
+- How to show it and to whom
+- Which kind of data should be collected
+- Should be fixed and defined ASAP
+
+---
+class: vertigo
+
+# Social network
+
+- Social functions for the web?
+
+---
+class: center, middle, vertigo
+
+# Vertigo - Plenary discussion / workgroup outputs
+<hr>
+### Plenary Meeting - 16/03/2017 - IRCAM
+<img src="img/vertigo_logo1.png" height="100px" />
