@@ -214,7 +214,7 @@ ROOT_URLCONF = "urls"
 ################
 
 INSTALLED_APPS = [
-    "themes.vertigo_ircam_fr",
+    "themes.base",
     'themes.vertigo_starts_eu',
     "themes.starts_eu",
 
