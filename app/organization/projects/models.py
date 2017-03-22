@@ -39,11 +39,18 @@ PROJECT_TYPE_CHOICES = [
     ('external', _('external')),
 ]
 
-ACCESS_CHOICES = [
+REPOSITORY_ACCESS_CHOICES = [
     ('public', _('public')),
     ('shared', _('shared')),
     ('private', _('private')),
 ]
+
+PROJECT_STATUS_CHOICES = (
+    (0, _('rejected')),
+    (1, _('pending')),
+    (2, _('in process')),
+    (3, _('accepted')),
+)
 
 
 class Project(Displayable, Period, RichText):
@@ -62,6 +69,7 @@ class Project(Displayable, Period, RichText):
     topic = models.ForeignKey('ProjectTopic', verbose_name=_('topic'), related_name='projects', blank=True, null=True)
     referring_person = models.ManyToManyField('organization-network.Person', verbose_name=_('Referring Person'), related_name='projects_referring_person', blank=True)
     manager =  models.ManyToManyField('organization-network.Person', verbose_name=_('Manager'), related_name='projects_manager', blank=True)
+    validation_status = models.IntegerField(_('validation status'), choices=PROJECT_STATUS_CHOICES, default=1)
 
     class Meta:
         verbose_name = _('project')
@@ -118,14 +126,6 @@ class ProjectProgramType(Named):
         ordering = ['name',]
 
 
-class ProjectCall(Named):
-
-    class Meta:
-        verbose_name = _('project call')
-        verbose_name_plural = _("project calls")
-        ordering = ['name',]
-
-
 class ProjectWorkPackage(Titled, Period):
 
     project = models.ForeignKey(Project, verbose_name=_('project'), related_name='work_packages')
@@ -153,6 +153,11 @@ class ProjectImage(Image):
     project = models.ForeignKey(Project, verbose_name=_('project'), related_name='images', blank=True, null=True, on_delete=models.SET_NULL)
 
 
+class ProjectUserImage(UserImage):
+
+    project = models.ForeignKey(Project, verbose_name=_('project'), related_name='user_images', blank=True, null=True, on_delete=models.SET_NULL)
+
+
 class ProjectFile(File):
 
     project = models.ForeignKey(Project, verbose_name=_('project'), related_name='files', blank=True, null=True, on_delete=models.SET_NULL)
@@ -170,6 +175,51 @@ class ProjectTopicPage(Page, SubTitled):
     class Meta:
         verbose_name = _('project topic page')
         verbose_name_plural = _("project topic pages")
+
+
+class ProjectCall(Displayable, Period, RichText, NamedOnly):
+
+    project_form_content = RichTextField(_("Project form content"), blank=True, null=True)
+    residency_form_content = RichTextField(_("Residency form content"), blank=True, null=True)
+    producer_form_content = RichTextField(_("Producer form content"), blank=True, null=True)
+
+    class Meta:
+        verbose_name = _('project call')
+        verbose_name_plural = _("project calls")
+        ordering = ['title',]
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("organization-call-detail", kwargs={"slug": self.slug})
+
+    def save(self, *args, **kwargs):
+        if not self.name and self.title:
+            self.name = self.title
+        if not self.title and self.name:
+            self.title = self.name
+        super(ProjectCall, self).save(args, kwargs)
+
+
+class ProjectCallBlock(Block):
+
+    call = models.ForeignKey(ProjectCall, verbose_name=_('project call blocks'), related_name='blocks', blank=True, null=True, on_delete=models.SET_NULL)
+
+
+class ProjectCallImage(Image):
+
+    call = models.ForeignKey(ProjectCall, verbose_name=_('project call image'), related_name='images', blank=True, null=True, on_delete=models.SET_NULL)
+
+
+class ProjectCallFile(File):
+
+    call = models.ForeignKey(ProjectCall, verbose_name=_('project call file'), related_name='files', blank=True, null=True, on_delete=models.SET_NULL)
+
+
+class ProjectCallLink(Link):
+
+    call = models.ForeignKey(ProjectCall, verbose_name=_('project call link'), related_name='links', blank=True, null=True, on_delete=models.SET_NULL)
 
 
 class ProjectDemo(Displayable, RichText, URL):
@@ -206,7 +256,7 @@ class ProjectDemo(Displayable, RichText, URL):
 class Repository(Named):
 
     system = models.ForeignKey('RepositorySystem', verbose_name=_('system'), related_name='repositories')
-    access = models.CharField(_('access'), max_length=64, choices=ACCESS_CHOICES, default='private')
+    access = models.CharField(_('access'), max_length=64, choices=REPOSITORY_ACCESS_CHOICES, default='private')
     branch = models.CharField(_('branch'), max_length=32, default='master')
     url = models.CharField(_('URL'), max_length=256, help_text='http(s) or ssh')
 
@@ -279,3 +329,65 @@ class ProjectBlogPage(Displayable, RichText):
 
     def get_absolute_url(self):
         return reverse("organization-project-blogpage-detail", kwargs={"slug": self.slug})
+
+
+class ProjectPublicData(models.Model):
+
+    project = models.ForeignKey(Project, verbose_name=_('project'), related_name='public_data', blank=True, null=True, on_delete=models.SET_NULL)
+
+    brief_description = models.CharField(_('brief description'), max_length=110, help_text="Brief description of the challenges faced by the project to be used for wider communication strategy (e.g. Twitter) (110 characters max).")
+    challenges_description = models.TextField(_('challenges description'), help_text="Full description of the challenges faced by the project (100-150 words).")
+    technology_description = models.TextField(_('technology description'), help_text="Must include the elements to be made available to the artist with sufficient functional and implementation details for enabling him/her to elaborate his/her technical approach (100-200 words).")
+    objectives_description = models.TextField(_('objectives description'), help_text="What the project is looking to gain from the collaboration and what kind of artist would be suitable (100 – 150 words).")
+    resources_description = models.TextField(_('resource description'), help_text="Resources available to the artist -- e.g. office facility, studio facility, technical equipment, internet connection, laboratory, and periods of availability for artistic production, staff possibly allocated to the project, available budget for travel, consumables and equipment, etc... (50 – 100 words).")
+    period = models.CharField(_('period of implementation'), max_length=128, help_text="Possible period of implementation (must be part of the project implementation workplan)")
+    image = models.FileField(_("Image"), max_length=1024, upload_to="user/images/%Y/%m/%d/", help_text="Representing the project")
+    image_credits = models.CharField(_('Image credits'), max_length=256, blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Project public data'
+        verbose_name_plural = 'Project public data'
+
+
+class ProjectPrivateData(models.Model):
+
+    project = models.ForeignKey(Project, verbose_name=_('project'), related_name='private_data', blank=True, null=True, on_delete=models.SET_NULL)
+
+    description = models.TextField(_('project description'), help_text="(500 - 1000 words)")
+    affiliation = models.CharField(_('affiliation'), max_length=512)
+    commitment_letter = models.FileField(_("letter of commitment by the project coordinator"), max_length=1024, upload_to="user/documents/%Y/%m/%d/", help_text="Written on behalf of the whole project consortium, this letter will commit in implementing the collaboration of a residency application selected by the VERTIGO jury, on the conditions set by the project (in annex of letter: synthesis of all related information entered by project).")
+    persons = models.CharField(_('persons'), max_length=512, help_text="First name and last name of the persons from organization / project who will be part preliminary of the project team (separated by a comma)")
+
+    class Meta:
+        verbose_name = 'Project private data'
+        verbose_name_plural = 'Project private data'
+
+
+class ProjectContact(Person):
+
+    project = models.ForeignKey(Project, verbose_name=_('project'), related_name='contacts', blank=True, null=True, on_delete=models.SET_NULL)
+
+    class Meta:
+        verbose_name = 'Project contact'
+        verbose_name_plural = 'Project contacts'
+
+
+class ProjectResidency(Displayable, Period, RichText):
+
+    project = models.ForeignKey(Project, verbose_name=_('project'), related_name='residencies', blank=True, null=True, on_delete=models.SET_NULL)
+    artist = models.ForeignKey(Person, verbose_name=_('artist'), related_name='residencies', blank=True, null=True, on_delete=models.SET_NULL)
+    producer = models.ForeignKey('organization-network.Organization', verbose_name=_('producer'), related_name='residencies', blank=True, null=True, on_delete=models.SET_NULL)
+    validated = models.BooleanField(default=False)
+    producer_commitment = models.TextField(_('producer commitment'), help_text="")
+
+    class Meta:
+        verbose_name = 'Project residency'
+        verbose_name_plural = 'Project residencies'
+
+    def get_absolute_url(self):
+        return reverse("organization-residency-detail", kwargs={"slug": self.slug})
+
+
+class ProjectResidencyFile(File):
+
+    residency = models.ForeignKey(ProjectResidency, verbose_name=_('project residency file'), related_name='files', blank=True, null=True, on_delete=models.SET_NULL)

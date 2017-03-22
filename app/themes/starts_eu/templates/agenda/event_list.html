@@ -1,0 +1,63 @@
+{% extends "starts_eu/pages/page.html" %}
+{% load i18n future mezzanine_tags event_tags keyword_tags disqus_tags organization_tags staticfiles pages_tags %}
+
+{% block meta_title %}
+    {% if page %}
+        {{ page.title }}
+    {% else %}
+        {% trans "Events" %}
+    {% endif %}
+{% endblock %}
+
+{% block meta_keywords %}
+    {% metablock %}
+        {% keywords_for page as keywords %}
+        {% for keyword in keywords %}
+            {% if not forloop.first %}, {% endif %}
+            {{ keyword }}
+        {% endfor %}
+    {% endmetablock %}
+{% endblock %}
+
+{% block meta_description %}
+    {% metablock %}
+        {{ page.description }}
+    {% endmetablock %}
+{% endblock %}
+
+{% block main %}
+    <div class="page page--{% spaceless %}{% block page_class %}{% endblock %}{% endspaceless %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-16 col-md-12 col-md-push-2 tac">
+                    <h1 class="section-title section-title--uppercase section-title--main">{% trans "Events" %}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb2 col-md-12 col-md-push-2 page__content" data-summary-content>
+                    <div class="page__content">
+                        {% for event in events %}
+                            {% include 'agenda/includes/event_linecard.html' %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% if past_events %}
+                <div class="row">
+                    <div class="col-sm-16 col-md-12 col-md-push-2 tac">
+                        <h1 class="section-title section-title--uppercase section-title--main">{% trans "Past events" %}</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb2 col-md-12 col-md-push-2 page__content" data-summary-content>
+                        <div class="page__content">
+                            {% for event in past_events %}
+                                {% include 'agenda/includes/event_linecard.html' %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

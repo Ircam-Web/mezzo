@@ -1,0 +1,67 @@
+// -*- coding: utf-8 -*-
+
+// Copyright (c) 2016-2017 Ircam
+// Copyright (c) 2016-2017 Jérémy Fabre
+
+// This file is part of mezzanine-organization.
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+
+// You should have received a copy of the GNU Affero General Public License
+// along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+$module: ".sidebar";
+
+#{$module} {
+
+    @include padding-bottom(1);
+    /* Rectangle 2: */
+    background-image: -webkit-linear-gradient(bottom, rgba(79,227,194,0.00) 0%, rgba(80,227,194,0.30) 100%);
+    background-image: -o-linear-gradient(bottom, rgba(79,227,194,0.00) 0%, rgba(80,227,194,0.30) 100%);
+    background-image: linear-gradient(to top, rgba(79,227,194,0.00) 0%, rgba(80,227,194,0.30) 100%);
+
+    &__menu {
+
+        @include padding(0 1);
+        text-align: left;
+        list-style-type: none;
+        margin: 0;
+
+    }
+
+    &__menu-item {
+
+        @include font-size(xl);
+        @include typeface(sans-serif);
+        @include line-height(2);
+        font-weight: weight(regular);
+
+        a {
+            color: black;
+            &:hover {
+                color: black;
+            }
+        }
+
+    }
+
+    .col-xs-3 {
+        &:first-of-type {
+            margin-top: 10px;
+        }
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+        display: block;
+        @include margin(0 0 .5 0);
+    }
+
+}

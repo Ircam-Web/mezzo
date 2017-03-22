@@ -33,8 +33,10 @@ from mezzanine.core.models import Displayable, Slugged, Orderable
 from django_countries.fields import CountryField
 
 
-COLOR_CHOICES = (('black', _('black')), ('yellow', _('yellow')), ('red', _('red')))
+COLOR_CHOICES = (('black', _('black')), ('yellow', _('yellow')), ('red', _('red')), ('white', _('white')),)
+
 ALIGNMENT_CHOICES = (('left', _('left')), ('center', _('center')), ('right', _('right')))
+
 IMAGE_TYPE_CHOICES = (('logo', _('logo')), ('logo_white', _('logo white')), ('logo_black', _('logo black')), ('logo_header', _('logo header')), ('logo_footer', _('logo footer')), ('slider', _('slider')), ('card', _('card')), ('page_slider', _('page - slider')), ('page_featured', _('page - featured')))
 
 
@@ -47,8 +49,20 @@ class Description(models.Model):
         abstract = True
 
 
+class NamedOnly(models.Model):
+    """Abstract model providing a name field only"""
+
+    name = models.CharField(_('name'), max_length=512, blank=True)
+
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        return self.name
+
+
 class Named(models.Model):
-    """Abstract model providing a name field"""
+    """Abstract model providing a name field and a description"""
 
     name = models.CharField(_('name'), max_length=512)
     description = models.TextField(_('description'), blank=True)
@@ -62,7 +76,7 @@ class Named(models.Model):
 
     @property
     def slug(self):
-        return slugify(self.__unicode__())
+        return slugify(self.__str__())
 
 
 class Titled(models.Model):
@@ -124,9 +138,26 @@ class Image(Titled, Orderable):
         return value
 
 
+class UserImage(Titled, Orderable):
+
+    file = models.FileField(_("Image"), max_length=1024, upload_to="user/images/%Y/%m/%d/")
+    credits = models.CharField(_('credits'), max_length=256, blank=True, null=True)
+
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        value = self.description
+        if not value:
+            value = self.file.name
+        if not value:
+            value = ""
+        return value
+
+
 class File(Titled, Orderable):
 
-    file = FileField(_("document"), max_length=1024, upload_to="Documents/%Y/%m/%d/")
+    file = FileField(_("document"), max_length=1024, upload_to="documents")
 
     class Meta:
         abstract = True

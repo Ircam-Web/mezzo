@@ -66,11 +66,11 @@ DEBUG = True if os.environ.get('DEBUG') == 'True' else False
 
 PAGE_MENU_TEMPLATES = (
     (1, _("Action"), "pages/menus/action.html"),
-    (2, _("Departement"), "pages/menus/header.html"),
+    (2, _("Header"), "pages/menus/header.html"),
     (3, _("Footer vertical"), "pages/menus/footer_vertical.html"),
     (4, _("Footer horizontal"), "pages/menus/footer_horizontal.html"),
     (5, _("Magazine"), "pages/menus/magazine.html"),
-    (6, _("Vous êtes"), "pages/menus/vous_etes.html"),
+    (6, _("You are"), "pages/menus/vous_etes.html"),
 
 )
 
@@ -124,12 +124,12 @@ USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "fr"
+LANGUAGE_CODE = "en"
 
 # Supported languages
 LANGUAGES = (
-    ('fr', _('French')),
     ('en', _('English')),
+    ('fr', _('French')),
 )
 
 LOCALE_PATHS = ['locale',]
@@ -138,7 +138,7 @@ LOCALE_PATHS = ['locale',]
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
-SITE_ID = 1
+SITE_ID = 3
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -193,10 +193,6 @@ STATIC_URL = "/static/"
 # STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
 STATIC_ROOT = '/srv/static/'
 
-STATICFILES_DIRS = [
-    '/srv/app/static',
-]
-
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
@@ -216,6 +212,10 @@ ROOT_URLCONF = "urls"
 ################
 
 INSTALLED_APPS = [
+    "themes.base",
+    "themes.starts_eu",
+    'themes.vertigo_starts_eu',
+
     "modeltranslation",
     "dal",
     "dal_select2",
@@ -253,6 +253,8 @@ INSTALLED_APPS = [
     "organization.agenda",
     "organization.shop",
     "organization.job",
+    "sorl.thumbnail", # required for thumbnail support
+    "django_instagram",
 ]
 
 
@@ -276,7 +278,6 @@ MIGRATION_MODULES = {
 
 TEMPLATES = [{'APP_DIRS': True,
                'BACKEND': 'django.template.backends.django.DjangoTemplates',
-               'DIRS': ('/srv/app/templates',),
                'OPTIONS': {'builtins': ['mezzanine.template.loader_tags'],
                            'context_processors': ('django.contrib.auth.context_processors.auth',
                                                   'django.contrib.messages.context_processors.messages',
@@ -302,6 +303,12 @@ TEMPLATE_LOADERS_OPTIONS = [('django.template.loaders.cached.Loader', [
 if not DEBUG:
     TEMPLATES[0]['OPTIONS']['loaders'] = TEMPLATE_LOADERS_OPTIONS
     TEMPLATES[0]['APP_DIRS'] = False
+
+HOST_THEMES = [
+    ('www.starts.eu', 'themes.starts_eu'),
+    ('vertigo.starts.eu', 'themes.vertigo_starts_eu'),
+    ('vertigo.ircam.fr', 'themes.base'),
+]
 
 # List of middleware classes to use. Order is important; in the request phase,
 # these middleware classes will be applied in the order given, and in the

@@ -1,0 +1,125 @@
+{% load event_tags keyword_tags i18n future %}
+
+{% block upcoming_events %}
+{% upcoming_events 5 as upcoming_events %}
+{% if upcoming_events %}
+<h2 class="sidebar__title">{% trans "Upcoming Events" %}</h2>
+<ul class="list-unstyled upcoming-events">
+{% for upcoming_event in upcoming_events %}
+    <li>
+        <h3 class="sidebar__entry">
+            <a href="{{ upcoming_event.get_absolute_url }}" class="sidebar__entry">{{ upcoming_event.title }}</a>
+        </h3>
+    </li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
+
+{% block recent_events %}
+{% recent_events 5 as recent_events %}
+{% if recent_events %}
+<h2 class="sidebar__title">{% trans "Recent Events" %}</h2>
+<ul class="list-unstyled recent-events">
+    {% for recent_event in recent_events %}
+    <li>
+        <h3 class="sidebar__entry">
+            <a href="{{ recent_event.get_absolute_url }}" class="sidebar__entry">{{ recent_event.title }}</a>
+        </h3>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
+
+{% block event_months %}
+{% event_months as months %}
+{% if months %}
+<h2 class="sidebar__title">{% trans "Archive" %}</h2>
+{% for month in months %}
+    {% ifchanged month.date.year %}
+        {% if not forloop.first %}</ul>{% endif %}
+        <h3 class="sidebar__entry">{{ month.date.year }}</h3>
+            <ul class="list-unstyled">
+                {% endifchanged %}
+                <li>
+                    <h4 class="sidebar__entry">
+                        <a href="{% url "event_list_month" year=month.date.year month=month.date.month %}" class="sidebar__entry">{{ month.date|date:"F" }}</a> ({{ month.event_count }})
+                    </h4>
+                </li>
+                {% endfor %}
+            </ul>
+{% endif %}
+{% endblock %}
+
+{% block event_locations %}
+{% event_locations as locations %}
+{% if locations %}
+<h2 class="sidebar__title">{% trans "Locations" %}</h2>
+<ul class="list-unstyled">
+{% for location in locations %}
+<li>
+    <h3 class="sidebar__entry">
+        <a href="{% url "event_list_location" location.slug %}" class="sidebar__entry">{{ location }}</a> ({{ location.event_count }})
+    </h3>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
+
+{% block event_keywords %}
+{% keywords_for mezzanine_agenda.event as tags %}
+{% if tags %}
+<h2 class="sidebar__title">{% trans "Tags" %}</h2>
+<ul class="list-inline tag-cloud">
+{% for tag in tags %}
+<li>
+    <h3 class="sidebar__entry">
+        <a href="{% url "event_list_tag" tag.slug %}" class="sidebar__entry sidebar__entry--{{ tag.weight }}">{{ tag }}</a>
+        ({{ tag.item_count }})
+    </h3>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
+
+{% comment %}
+{% block event_authors %}
+{% event_authors as authors %}
+{% if authors %}
+<h2 class="sidebar__title">{% trans "Authors" %}</h2>
+<ul class="list-unstyled">
+{% for author in authors %}
+    <li>
+        <h3 class="sidebar__entry">
+            <a href="{% url "event_list_author" author.username %}" class="sidebar__entry">{{ author.get_full_name|default:author.username }}</a>
+            ({{ author.event_count }})
+        </h3>
+    </li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
+
+{% block event_feeds %}
+<h2 class="sidebar__title">{% trans "Feeds" %}</h2><br>
+{% if tag %}
+    <a href="{% url "event_feed_tag" tag.slug "rss" %}" class="sidebar__entry">{% trans "RSS" %}</a> /
+    <a href="{% url "event_feed_tag" tag.slug "atom" %}" class="sidebar__entry">{% trans "Atom" %}</a>
+{% endif %}
+{% if location %}
+    <a href="{% url "event_feed_location" location.slug "rss" %}" class="sidebar__entry">{% trans "RSS" %}</a> /
+    <a href="{% url "event_feed_location" location.slug "atom" %}" class="sidebar__entry">{% trans "Atom" %}</a>
+{% endif %}
+{% if author %}
+    <a href="{% url "event_feed_author" author.username "rss" %}" class="sidebar__entry">{% trans "RSS" %}</a> /
+    <a href="{% url "event_feed_author" author.username "atom" %}" class="sidebar__entry">{% trans "Atom" %}</a>
+{% endif %}
+{% if not tag and not location and not author %}
+    <a href="{% url "event_feed" "rss" %}" class="sidebar__entry">{% trans "RSS" %}</a> /
+    <a href="{% url "event_feed" "atom" %}" class="sidebar__entry">{% trans "Atom" %}</a>
+{% endif %}
+{% endblock %}
+{% endcomment %}

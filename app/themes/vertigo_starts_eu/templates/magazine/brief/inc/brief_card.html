@@ -1,0 +1,20 @@
+{% load i18n mezzanine_tags %}
+
+<div class="brief-box brief-box--{{ content.content_object.style }}">
+    
+    <div class="brief-box__head">
+        {% trans 'Brief !' %}
+    </div>
+    <h3 class="brief-box__title">{{content.content_object.title }}</h3>
+    <div class="brief-box__desc">
+        {{content.content_object.content|richtext_filters|safe|truncatechars_html:150 }}
+    </div>
+    {% if content.content_object.external_content %}
+        <a class="brief-box__button" href="{{ content.content_object.external_content }}" title="{{ content.content_object.text_button }}">{{ content.content_object.text_button }}</a>
+    {% elif content.content_object.content_object %}
+        <a class="brief-box__button" href="{{ content.content_object.content_object.get_absolute_url }}" title="{{ content.content_object.text_button }}">{{ content.content_object.text_button }}</a>
+    {% else %}
+        <a class="brief-box__button" href="{{ content.content_object.get_absolute_url }}" title="{{ content.content_object.title }}">{{ content.content_object.title }}</a>
+    {% endif %}
+
+</div>

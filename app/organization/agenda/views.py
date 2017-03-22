@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+from datetime import datetime
 from django.views.generic.base import TemplateView
 from mezzanine.conf import settings
 from dal import autocomplete
@@ -26,7 +27,9 @@ from dal_select2_queryset_sequence.views import Select2QuerySetSequenceView
 from organization.magazine.models import Article
 from organization.pages.models import CustomPage
 from mezzanine_agenda.models import Event
+from mezzanine_agenda.views import EventListView
 from organization.core.views import autocomplete_result_formatting
+from django.db.models import Q
 
 
 class ConfirmationView(TemplateView):

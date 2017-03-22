@@ -35,6 +35,7 @@ from organization.pages.admin import PageImageInline, PageBlockInline, PagePlayl
 from organization.shop.models import PageProductList
 from organization.network.utils import TimesheetXLS, set_timesheets_validation_date
 
+
 class OrganizationAdminInline(StackedDynamicInlineAdmin):
 
     model = OrganizationLinkedInline
@@ -73,6 +74,11 @@ class OrganizationImageInline(TabularDynamicInlineAdmin):
     model = OrganizationImage
 
 
+class OrganizationUserImageInline(TabularDynamicInlineAdmin):
+
+    model = OrganizationUserImage
+
+
 class OrganizationBlockInline(StackedDynamicInlineAdmin):
 
     model = OrganizationBlock
@@ -94,7 +100,7 @@ class OrganizationAdmin(BaseTranslationOrderedModelAdmin):
                 OrganizationLinkedBlockInlineAdmin
                  ]
     list_display = ['name', 'type', 'admin_thumb']
-    list_filter = ['is_on_map',]
+    list_filter = ['is_on_map', 'type']
     search_fields = ['name',]
     first_fields = ['name',]
 

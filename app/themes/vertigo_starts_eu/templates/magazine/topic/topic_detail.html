@@ -1,0 +1,74 @@
+{% extends "vertigo_starts_eu/base.html" %}
+{% load i18n mezzanine_tags blog_tags keyword_tags disqus_tags %}
+
+{% block meta_title %}
+    {{ topic.title }} | {% trans "Magazine" %}
+{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+    {% keywords_for topic as keywords %}
+    {% for keyword in keywords %}
+        {% if not forloop.first %}, {% endif %}
+        {{ keyword }}
+    {% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+    {{ topic.description }}
+{% endmetablock %}{% endblock %}
+
+{% block title %}
+    {% if page %}
+        {% editable page.title %}{{ page.title }}{% endeditable %}
+    {% else %}
+        {% trans "Articles" %}
+    {% endif %}
+{% endblock %}
+
+{% block breadcrumb_menu %}
+    {{ block.super }}
+    <li class="breadcrumb__item">{% trans "Magazine" %}</li>
+    <li class="breadcrumb__item active">{{ topic.title }}</li>
+{% endblock %}
+
+{% block main %}
+    <div class="mb2 page page--{% spaceless %}{% block page_class %}{% endblock %}{% endspaceless %}">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-9 col-lg-8 col-lg-push-2 white-bg">
+                    {% editable topic.title %}
+                        <h1 class="dotted">{{ topic.title }}</h1>
+                    {% endeditable %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-9 col-lg-8 col-lg-push-2 white-bg page__content">
+                    {% if topic.description %}
+                        {% editable topic.description %}
+                            <div class="chapo">
+                                {{ topic.description|safe }}
+                            </div>
+                        {% endeditable %}
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% for article in articles %}
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+                    {% include 'magazine/article/includes/article_card.html' with object=article %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% pagination_for articles %}
+
+{% endblock %}

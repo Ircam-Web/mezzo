@@ -1,0 +1,30 @@
+{% extends "core/inc/search_card.html" %}
+{% load i18n mezzanine_tags organization_tags %}
+
+{% block title %}
+    {{ result.title }}
+{% endblock %}
+
+{% block icon %}files-o{% endblock %}
+
+{% block tags %}
+    <div class="event-line-box__tags">
+        <div class="tag tag--small dashed">
+            {% trans 'Software' %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block url %}
+    {% with product.links.all as products %}
+        {% if products %}
+            {{ products|get_type_link:'link'|first }}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block content %}
+    {% if result.description != result|stringformat:"s" %}
+        {{ result.description|truncatewords_html:200|safe }}
+    {% endif %}
+{% endblock %}

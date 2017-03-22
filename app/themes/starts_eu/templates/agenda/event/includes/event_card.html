@@ -1,0 +1,74 @@
+{% extends "core/inc/generic_card.html" %}
+{% load i18n pages_tags mezzanine_tags media_tags organization_tags %}
+
+{% block metatitle %}
+    {{ object.title }}
+{% endblock %}
+
+{% block title %}
+    {{ object.title }}
+{% endblock %}
+
+{% block url %}
+    {{ object.get_absolute_url }}
+{% endblock %}
+
+{% block image %}
+    <div class="article-box__image-container">
+        {% with object.images.all|get_type:'card' as images %}
+            {% if images %}
+                <figure class="article-box__image">
+                    <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 427 286 top=0.5 left=article.photo_alignment|get_photo_alignment %}" class="lazyload" />
+                </figure>
+            {% else %}
+                <figure class="article-box__image">
+                    {% if object.departments.first %}
+                        {% with object.departments.first as department %}
+                            <div class="article-box__placeholder {{department.department.name|slugify}}"></div>
+                        {% endwith %}
+                    {% else %}
+                        <div class="article-box__placeholder"></div>
+                    {% endif %}
+                </figure>
+            {% endif %}
+        {% endwith %}
+    </div>
+{% endblock %}
+
+{% block tags %}
+    <div class="article-box__tags">
+        {% if object.departments.first %}
+            {% with object.departments.first as department %}
+                {{ department.department.name }}
+            {% endwith %}
+        {% endif %}
+        {% if object.category %}
+            {{ object.category|truncatechars:15 }}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block content %}
+    {{ object.description|richtext_filters|safe|truncatechars_html:200 }}
+{% endblock %}
+
+{% block subtitle %}
+    <strong>
+        {% include 'agenda/includes/event_date_card.html' %}
+    </strong>
+    {% if object.location %}
+         <br /><span>{{ object.location }}</span>
+    {% endif %}
+{% endblock %}
+
+{% block btn %}
+    {% if object.prices.all.0|floatformat != '0' and object.prices.all|length > 0 %}
+        {% for price in object.prices.all %}
+            {% if forloop.first %}
+                <div class="article-box__btn">
+                    <object><a href="{% url 'event_booking' content.content_object.slug %}" class="button button--small button--accent mr0">{% trans "Reserve" %}</a></object>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "core/inc/search_card.html" %}
+{% load i18n mezzanine_tags organization_tags %}
+
+{% block title %}
+    {{ result.title }}
+{% endblock %}
+
+{% block icon %}files-o{% endblock %}
+
+{% block tags %}
+    {% with page.get_ascendants|last as top_level_parent %}
+        {% if top_level_parent.get_content_model.title %}
+            <div class="search-box__tags">
+                {{ top_level_parent.get_content_model.title }}
+            </div>
+        {% elif page.departmentpage %}
+            <div class="search-box__tags">
+                {{ page.departmentpage.title }}
+            </div>
+        {% elif page|classname == "Project"  %}
+            <div class="search-box__tags">
+                {% trans 'Project' %}
+            </div>
+        {% else %}
+            <div class="search-box__tags">
+                {% trans 'Page' %}
+            </div>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block url %}
+    {{ page.get_absolute_url }}
+{% endblock %}
+
+{% block content %}
+    {% if result.description != result|stringformat:"s" %}
+        {{ result.description|truncatewords_html:200|safe }}
+    {% endif %}
+{% endblock %}

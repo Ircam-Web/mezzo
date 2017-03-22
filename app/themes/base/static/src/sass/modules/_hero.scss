@@ -1,0 +1,195 @@
+$module: ".hero";
+
+
+#{$module} {
+
+    background-image: url(../img/vertigo/hero.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    height: 560px;
+    margin-bottom: 350px;
+    position: relative;
+
+    &.large-title {
+        margin-bottom: 500px;
+
+        #{$module}__title {
+            img {
+                max-width: 73%;
+            }
+            margin: 0 auto;
+            position: relative;
+
+            @include mq($until: lg) {
+                padding-top: 60px;
+            }
+            @include mq($until: md) {
+                padding-top: 97px;
+            }
+            @include mq($until: sm) {
+                padding-top: 115px;
+            }
+            @include mq($until: xs) {
+                padding-top: 120px;
+            }
+        }
+        @include mq($until: lg) {
+            margin-bottom: 450px;
+        }
+        @include mq($until: md) {
+            margin-bottom: 350px;
+        }
+        @include mq($until: sm) {
+            margin-bottom: 300px;
+        }
+        @include mq($until: xs) {
+            margin-bottom: 90px;
+        }
+    }
+
+    @include mq($until: xs) {
+        height: 346px;
+        margin-bottom: 140px;
+    }
+
+    .Background {
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	height: 563px;
+    	width: 100%;
+        @include mq($until: xs) {
+            height: 346px;
+        }
+    }
+
+    &:after {
+
+        content: '';
+        height: 1px;
+        width: 30px;
+        background: #F2EDDC;
+        position: absolute;
+        top: 825px;
+        left: 50%;
+        margin-left: -15px;
+
+        @include mq($until: xs) {
+            top: 440px;
+        }
+
+    }
+
+    &__title {
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+
+        @include transform(translateY(80%));
+
+        @include mq($until: sm) {
+            img {
+                width: 70%;
+            }
+        }
+
+        @include mq($until: xs) {
+            img {
+                width: 231px;
+            }
+        }
+
+    }
+
+    &__logo {
+
+        @include margin-top(2);
+        text-align: center;
+        @include mq($until: xs) {
+            @include margin-top(0);
+            img {
+                width: 159px;
+            }
+        }
+
+    }
+
+    &__left {
+
+        @include margin-top(4);
+        text-align: left;
+
+        @include mq($until: xs) {
+            @include margin-top(1);
+            text-align: center;
+            img {
+                width: 190px;
+            }
+        }
+
+    }
+
+    &__right {
+
+        @include margin-top(4);
+        text-align: right;
+
+        @include mq($until: xs) {
+            @include margin-top(.5);
+            text-align: center;
+
+            img {
+                width: 50px;
+            }
+        }
+
+    }
+
+    &__date {
+
+        display: block;
+        @include margin-top(2);
+        @include margin-left(2);
+
+        @include mq($until: xs) {
+            display: block;
+            text-align: center;
+            width: 120px !important;
+            @include margin(0 auto);
+            @include transform(translateY(-20px) translateX(-14px));
+
+        }
+
+    }
+
+    &--small {
+
+        @include margin-bottom(4);
+        @include mq($until: xs) {
+            @include margin-bottom(4);
+        }
+
+        &:after {
+            display: none;
+        }
+
+        #{$module}__logo {
+
+            @include margin-top(15);
+            text-align: center;
+            @include mq($until: xs) {
+                @include margin-top(8);
+                img {
+                    width: 159px;
+                }
+            }
+
+        }
+
+    }
+
+}

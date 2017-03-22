@@ -1,0 +1,106 @@
+{% extends "pages/page.html" %}
+{% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
+
+    {% with page.custompage as object %}
+    {% block page_class %}
+        custompage
+    {% endblock %}
+
+    {% block body_class %}
+        {% with page.get_ascendants|last as top_level_parent %}
+            {% if top_level_parent.get_content_model.weaving_css_class %}
+            pattern pattern-bg {{ top_level_parent.get_content_model.weaving_css_class }}
+            {% endif %}
+        {% endwith %}
+    {% endblock %}
+
+    {% block hero %}
+        {% include "home/inc/hero-small.html" %}
+    {% endblock %}
+
+    {% block page_title %}
+        {% editable page.custompage.title %}
+            <h1 class="hide">{{ page.custompage.title }}</h1>
+        {% endeditable %}
+    {% endblock %}
+
+    {% block page_content %}
+
+        {% with page.get_ascendants|last as top_level_parent %}
+            {% if linked_organization_content and research_slug == top_level_parent.slug %}
+                {% include 'pages/page/includes/linked_organization_content.html' %}
+            {% endif %}
+        {% endwith %}
+
+        {% if page.custompage.sub_title %}
+            {% editable page.custompage.sub_title %}
+                <div class="chapo">
+                    {{ page.custompage.sub_title }}
+                </div>
+            {% endeditable %}
+        {% endif %}
+
+        {% if page.custompage.content %}
+         {% editable page.custompage.content %}
+            {{ page.custompage.content|richtext_filters|safe }}
+         {% endeditable %}
+        {% endif %}
+
+        {% if page.get_ascendants|length == 1 %}
+            {% children_pages page.id as childrens %}
+            {% if childrens %}
+                <div class="page__childrens">
+                    {% for child in childrens %}
+                        {% if child.in_menus.0 %}
+                          {% with child as object %}
+                            {% include "pages/page/includes/page_box.html" %}
+                          {% endwith %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endif %}
+
+    {% endblock %}
+
+    {% block page_audio %}
+      {% with page.custompage as object %}
+          {{ block.super }}
+      {% endwith %}
+    {% endblock %}
+
+    {% block page_slider %}
+        {% with page.custompage as object %}
+            {{ block.super }}
+        {% endwith %}
+    {% endblock %}
+
+    {% block page_video %}
+      {% with page.custompage as object %}
+          {{ block.super }}
+      {% endwith %}
+    {% endblock %}
+
+    {% block page_person_list %}
+        {% for page_custom_person_list_block_inline in page.custompage.page_custom_person_list_block_inlines.all  %}
+            {% with page_custom_person_list_block_inline.person_list_block as person_list_block %}
+                {% with "network/inc/person/list_"|add:person_list_block.style|add:"_style.html" as template %}
+                    {% include template %}
+                {% endwith %}
+            {% endwith %}
+        {% endfor %}
+    {% endblock %}
+
+    {% block page_sub_content %}
+       {% with page.custompage.blocks.all as blocks %}
+         {% include "core/inc/block.html" %}
+      {% endwith %}
+    {% endblock %}
+
+    {% block page_related_content %}
+        {% with dynamic_content=page.dynamic_content_pages.all|filter_content object=page %}
+            {% include "core/inc/related_content.html" %}
+        {% endwith %}
+    {% endblock %}
+
+{% endwith %}

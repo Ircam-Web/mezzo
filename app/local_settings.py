@@ -31,8 +31,8 @@ ADMINS = (
 )
 
 # Make these unique, and don't share it with anybody.
-SECRET_KEY = "j1qa@u$5ktqr^0_kwh@-j@*-80t$)ht!4-=ybz1xc%@3+r(r&tzefoih"
-NEVERCACHE_KEY = "m)u^%r@uh#r3wu0&$=#$1ogx)uy4hv93^2lt%c3@xi=^gifoj8paozijdihazefd"
+SECRET_KEY = "j1qa@u$5kzeofiheoppoh@-j@*-80t$)ht!4-=ybz1xc%@3+r(r&tzefoih"
+NEVERCACHE_KEY = "m)u^%r@uez$ze##$1ogx)uy4hv93dbzt%c3@xi=^gifoj8paozijdihazefd"
 
 DATABASES = {
     'default': {
@@ -87,6 +87,7 @@ ADMIN_MENU_ORDER = (
                  'organization-core.LinkType')),
     (_('Media'), ('organization-media.Media',
                   'organization-media.Playlist',
+                  'organization-media.LiveStreaming',
                  'organization-media.MediaCategory',
                  (_('Media Library'), 'fb_browse'),
                  )),
@@ -124,6 +125,7 @@ ADMIN_MENU_ORDER = (
                      'organization-network.PersonActivityTimeSheet'
                     )),
     (_('Projects'), ('organization-projects.Project',
+                    'organization-projects.ProjectCall',
                     'organization-projects.ProjectProgram',
                     'organization-projects.ProjectProgramType',
                     'organization-projects.ProjectTopic',
@@ -151,6 +153,7 @@ GRAPPELLI_ADMIN_TITLE = 'IRCAM Admin'
 SEARCH_MODEL_CHOICES = ('organization-pages.CustomPage',
                         'organization-network.DepartmentPage',
                         'organization-network.TeamPage',
+                        'organization-network.Person',
                         'organization-projects.ProjectTopicPage',
                         'pages.Page',
                         'organization-media.Playlist',
@@ -187,7 +190,8 @@ EVENT_DOMAIN = "//eve.ircam.fr"
 EVENT_SHOP_URL = EVENT_DOMAIN+"/pub.php/event/%d/edit"
 EVENT_PASS_URL = EVENT_DOMAIN+"/pub.php/pass/"
 EVENT_CONFIRMATION_URL = EVENT_DOMAIN+"/pub.php/cart/done?transaction_id=%s"
-EVENT_EXCLUDE_TAG_LIST = ['tournees', ]
+EVENT_EXCLUDE_TAG_LIST = [ ]
+PAST_EVENTS = True
 
 TINYMCE_SETUP_JS = "/static/js/tinymce_setup.js"
 

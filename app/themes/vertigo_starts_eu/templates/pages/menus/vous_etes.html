@@ -1,0 +1,26 @@
+{% load pages_tags mezzanine_tags i18n %}
+
+{% if page_branch_in_menu %}
+    {% nevercache %}
+    <select style="display:none;">
+        <option value="">{% trans "You are" %}</option>
+        {% for page in page_branch %}
+            {% if page.in_menu %}
+                <option value="{{ page.get_absolute_url }}">{{ page.title }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    <ul class="role-switcher">
+        <li class="role-switcher__item active">
+            <a href="#">{% trans "You are" %}</a>
+        </li>
+        {% for page in page_branch %}
+            {% if page.in_menu %}
+                <li class="role-switcher__item">
+                    <a href="#" data-url="{{ page.get_absolute_url }}">{{ page.title }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% endnevercache %}
+{% endif %}

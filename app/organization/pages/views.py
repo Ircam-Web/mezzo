@@ -33,7 +33,10 @@ from organization.core.views import SlugMixin, autocomplete_result_formatting
 from organization.magazine.models import Article, Topic, Brief
 from organization.pages.models import Home
 from organization.agenda.models import Event
-from organization.media.models import Playlist
+from organization.media.models import Playlist, Media
+from organization.network.models import Person
+from django.shortcuts import redirect
+
 
 class HomeView(SlugMixin, ListView):
 
@@ -53,6 +56,13 @@ class HomeView(SlugMixin, ListView):
         context['briefs'] = self.briefs
         return context
 
+    def dispatch(self, request, *args, **kwargs):
+        if not self.get_queryset():
+            page = CustomPage.objects.first()
+            return redirect(reverse_lazy('page', kwargs={'slug': page.slug}))
+        else:
+            return super(HomeView, self).dispatch(request, *args, **kwargs)
+
 
 class DynamicContentHomeSliderView(Select2QuerySetSequenceView):
 
@@ -61,13 +71,17 @@ class DynamicContentHomeSliderView(Select2QuerySetSequenceView):
         articles = Article.objects.all()
         custompage = CustomPage.objects.all()
         events = Event.objects.all()
+        persons = Person.objects.published()
+        medias = Media.objects.all()
 
         if self.q:
             articles = articles.filter(title__icontains=self.q)
             custompage = custompage.filter(title__icontains=self.q)
             events = events.filter(title__icontains=self.q)
+            persons = persons.filter(title__icontains=self.q)
+            medias = medias.filter(title__icontains=self.q)
 
-        qs = autocomplete.QuerySetSequence(articles, custompage, events)
+        qs = autocomplete.QuerySetSequence(articles, custompage, events, persons, medias)
 
         if self.q:
             # This would apply the filter on all the querysets
@@ -94,14 +108,16 @@ class DynamicContentHomeBodyView(Select2QuerySetSequenceView):
         custompage = CustomPage.objects.all()
         events = Event.objects.all()
         briefs = Brief.objects.all()
+        medias = Media.objects.all()
 
         if self.q:
             articles = articles.filter(title__icontains=self.q)
             custompage = custompage.filter(title__icontains=self.q)
             events = events.filter(title__icontains=self.q)
             briefs = briefs.filter(title__icontains=self.q)
+            medias = medias.filter(title__icontains=self.q)
 
-        qs = autocomplete.QuerySetSequence(articles, custompage, briefs, events)
+        qs = autocomplete.QuerySetSequence(articles, custompage, briefs, events, medias)
 
         if self.q:
             # This would apply the filter on all the querysets
@@ -166,4 +182,4 @@ class DynamicContentPageView(Select2QuerySetSequenceView):
 
     def get_results(self, context):
         results = autocomplete_result_formatting(self, context)
-        return results    
+        return results

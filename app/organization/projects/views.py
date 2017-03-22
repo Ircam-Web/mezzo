@@ -26,6 +26,8 @@ from dal_select2_queryset_sequence.views import Select2QuerySetSequenceView
 from mezzanine_agenda.models import Event
 from mezzanine.conf import settings
 from organization.projects.models import *
+from organization.projects.forms import *
+from organization.network.forms import *
 from organization.core.views import *
 from organization.magazine.views import Article
 from organization.pages.models import CustomPage
@@ -67,6 +69,18 @@ class ProjectDetailView(SlugMixin, ProjectMixin, DetailView):
     template_name='projects/project_detail.html'
 
 
+class ProjectICTDetailView(SlugMixin, ProjectMixin, DetailView):
+
+    model = Project
+    template_name='projects/project_ict_detail.html'
+
+
+class ProjectListView(ListView):
+
+    model = Project
+    template_name='projects/project_list.html'
+
+
 class DynamicContentProjectView(Select2QuerySetSequenceView):
 
     paginate_by = settings.DAL_MAX_RESULTS
@@ -106,3 +120,124 @@ class ProjectBlogPageView(SlugMixin, ProjectMixin, DetailView):
 
     model = ProjectBlogPage
     template_name='projects/project_blogpage_detail.html'
+
+
+class ProjectICTDetailView(SlugMixin,DetailView):
+
+    model = Project
+    template_name='projects/project_ict_detail.html'
+
+
+class ProjectCallMixin(object):
+
+    def get_context_data(self, **kwargs):
+        context = super(ProjectCallMixin, self).get_context_data(**kwargs)
+        self.call = ProjectCall.objects.get(slug=self.kwargs['slug'])
+        context['call'] = self.call
+        return context
+
+
+class ProjectICTSubmissionView(ProjectCallMixin, TemplateView):
+
+    model = Project
+    template_name='projects/project_ict_submission.html'
+
+
+
+class ProjectICTCreateView(ProjectCallMixin, CreateWithInlinesView):
+
+    model = Project
+    form_class = ProjectForm
+    template_name='projects/project_ict_create.html'
+    inlines = [ProjectPublicDataInline, ProjectPrivateDataInline, ProjectUserImageInline, ProjectContactInline,]
+    topic = 'ICT'
+
+
+    def forms_valid(self, form, inlines):
+        self.object = form.save()
+        self.call = ProjectCall.objects.get(slug=self.kwargs['slug'])
+        self.object.call = self.call
+        self.object.topic, c = ProjectTopic.objects.get_or_create(name='ICT')
+        self.object.save()
+        return super(ProjectICTCreateView, self).forms_valid(form, inlines)
+
+    def get_success_url(self):
+        return reverse_lazy('organization-project-validation', kwargs={'slug':self.call.slug})
+
+
+class ProjectICTValidationView(ProjectCallMixin, TemplateView):
+
+    model = Project
+    template_name='projects/project_ict_validation.html'
+
+
+class ProjectICTListView(ListView):
+
+    model = Project
+    template_name='projects/project_ict_list.html'
+
+
+class ProjectCallDetailView(SlugMixin, DetailView):
+
+    model = ProjectCall
+    template_name='projects/project_call_detail.html'
+
+
+class ProjectCallListView(ListView):
+
+    model = ProjectCall
+    template_name='projects/project_call_list.html'
+
+
+class ProducerDetailView(SlugMixin, DetailView):
+
+    model = Organization
+    template_name='projects/project_producer_detail.html'
+
+
+class ProducerListView(ListView):
+
+    model = Organization
+    template_name='projects/project_producer_list.html'
+
+    def get_queryset(self):
+        type, c = OrganizationType.objects.get_or_create(name='Producer')
+        qs = Organization.objects.filter(type=type)
+        return qs
+
+
+class ProducerCreateView(CreateWithInlinesView):
+
+    model = Organization
+    form_class = OrganizationForm
+    template_name='projects/project_producer_create.html'
+    inlines = [OrganizationContactInline, OrganizationUserImageInline]
+
+    def forms_valid(self, form, inlines):
+        self.object = form.save()
+        self.object.type, c = OrganizationType.objects.get_or_create(name='Producer')
+        self.object.save()
+        return super(ProducerCreateView, self).forms_valid(form, inlines)
+
+    def get_success_url(self):
+        return reverse_lazy('organization-producer-detail', kwargs={'slug':self.slug})
+
+
+class ProjectResidencyDetailView(SlugMixin, DetailView):
+
+    model = ProjectResidency
+    template_name='projects/project_residency_detail.html'
+
+
+class ProjectResidencyListView(ListView):
+
+    model = ProjectResidency
+    template_name='projects/project_residency_list.html'
+
+
+class ProjectResidencyCreateView(CreateWithInlinesView):
+
+    model = ProjectResidency
+    form_class = ProjectResidencyForm
+    template_name='projects/project_residency_create.html'
+    inlines = []

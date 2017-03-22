@@ -127,6 +127,7 @@ class Organization(Named, Address, URL, AdminThumbRelatedMixin, Orderable):
     opening_times = models.TextField(_('opening times'), blank=True)
     subway_access = models.TextField(_('subway access'), blank=True)
     bio = models.TextField(_('bio'), blank=True)
+    site = models.ForeignKey("sites.Site", blank=True, null=True, on_delete=models.SET_NULL)
     admin_thumb_type = 'logo'
 
     class Meta:
@@ -163,9 +164,84 @@ class Organization(Named, Address, URL, AdminThumbRelatedMixin, Orderable):
             self.lat = lat
             self.lon = lon
 
-    def save(self, **kwargs):
-        self.clean()
-        super(Organization, self).save()
+
+class Team(Named, URL):
+    """(Team description)"""
+
+    organization = models.ForeignKey('Organization', verbose_name=_('organization'), related_name="teams", blank=True, null=True, on_delete=models.SET_NULL)
+    department = models.ForeignKey('Department', verbose_name=_('department'), related_name="teams", blank=True, null=True, on_delete=models.SET_NULL)
+    code = models.CharField(_('code'), max_length=64, blank=True, null=True)
+    is_legacy = models.BooleanField(_('is legacy'), default=False)
+    parent = models.ForeignKey('Team', verbose_name=_('parent team'), related_name="children", blank=True, null=True, on_delete=models.SET_NULL)
+
+    class Meta:
+        verbose_name = _('team')
+        ordering = ['name',]
+
+    def __str__(self):
+        if self.organization:
+            return ' - '.join((self.organization.name, self.name))
+        elif self.department:
+            if self.department.organization:
+                return ' - '.join((self.department.organization.name, self.department.name, self.name))
+            else:
+                return ' - '.join((self.department.name, self.name))
+        return self.name
+
+    @property
+    def short(self):
+        if self.organization:
+            return ' - '.join((self.organization.name, self.name))
+        elif self.department:
+            if self.department.organization:
+                return ' - '.join((self.department.organization.name, self.name))
+            else:
+                return ' - '.join((self.department.name, self.name))
+        return self.name
+
+
+class Person(Displayable, AdminThumbMixin, Address):
+    """(Person description)"""
+
+    user = models.OneToOneField(User, verbose_name=_('user'), blank=True, null=True, on_delete=models.SET_NULL)
+    person_title = models.CharField(_('title'), max_length=16, choices=TITLE_CHOICES, blank=True)
+    gender = models.CharField(_('gender'), max_length=16, choices=GENDER_CHOICES, blank=True)
+    first_name = models.CharField(_('first name'), max_length=255, blank=True, null=True)
+    last_name = models.CharField(_('last name'), max_length=255, blank=True, null=True)
+    email = models.EmailField(_('email'), blank=True, null=True)
+    telephone = models.CharField(_('telephone'), max_length=64, blank=True, null=True)
+    register_id = models.CharField(_('register ID'), blank=True, null=True, max_length=128)
+    birthday = models.DateField(_('birthday'), blank=True, null=True)
+    bio = RichTextField(_('biography'), blank=True)
+    role = models.CharField(_('role'), max_length=256, blank=True, null=True)
+    external_id = models.CharField(_('external ID'), blank=True, null=True, max_length=128)
+
+    class Meta:
+        verbose_name = _('person')
+        ordering = ['last_name',]
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("organization-network-person-detail", kwargs={'slug': self.slug})
+
+    def set_names(self):
+        names = self.title.split(' ')
+        if len(names) == 1:
+            self.first_name = ''
+            self.last_name = names[0]
+        elif len(names) == 2:
+            self.first_name = names[0]
+            self.last_name = names[1]
+        else:
+            self.first_name = names[0]
+            self.last_name = ' '.join(names[1:])
+
+    def save(self, *args, **kwargs):
+        super(Person, self).save(args, kwargs)
+        for activity in self.activities.all():
+            update_activity(activity)
 
 
 class OrganizationLinkedBlockInline(Titled, Orderable):
@@ -227,6 +303,20 @@ class OrganizationType(Named):
         ordering = ['name',]
 
 
+class OrganizationContact(Person):
+
+    organization = models.ForeignKey(Organization, verbose_name=_('organization'), related_name='contacts', blank=True, null=True, on_delete=models.SET_NULL)
+
+    class Meta:
+        verbose_name = 'Organization contact'
+        verbose_name_plural = 'Organization contacts'
+
+
+class OrganizationUserImage(UserImage):
+
+    organization = models.ForeignKey(Organization, verbose_name=_('organization'), related_name='user_images', blank=True, null=True, on_delete=models.SET_NULL)
+
+
 class Department(Named):
     """(Department description)"""
 
@@ -252,41 +342,6 @@ class DepartmentPage(Page, SubTitled, RichText):
         verbose_name = _('department page')
 
 
-class Team(Named, URL):
-    """(Team description)"""
-
-    organization = models.ForeignKey('Organization', verbose_name=_('organization'), related_name="teams", blank=True, null=True, on_delete=models.SET_NULL)
-    department = models.ForeignKey('Department', verbose_name=_('department'), related_name="teams", blank=True, null=True, on_delete=models.SET_NULL)
-    code = models.CharField(_('code'), max_length=64, blank=True, null=True)
-    is_legacy = models.BooleanField(_('is legacy'), default=False)
-    parent = models.ForeignKey('Team', verbose_name=_('parent team'), related_name="children", blank=True, null=True, on_delete=models.SET_NULL)
-
-    class Meta:
-        verbose_name = _('team')
-        ordering = ['name',]
-
-    def __str__(self):
-        if self.organization:
-            return ' - '.join((self.organization.name, self.name))
-        elif self.department:
-            if self.department.organization:
-                return ' - '.join((self.department.organization.name, self.department.name, self.name))
-            else:
-                return ' - '.join((self.department.name, self.name))
-        return self.name
-
-    @property
-    def short(self):
-        if self.organization:
-            return ' - '.join((self.organization.name, self.name))
-        elif self.department:
-            if self.department.organization:
-                return ' - '.join((self.department.organization.name, self.name))
-            else:
-                return ' - '.join((self.department.name, self.name))
-        return self.name
-
-
 class TeamPage(Page, SubTitled, RichText):
     """(Team description)"""
 
@@ -299,49 +354,6 @@ class TeamPage(Page, SubTitled, RichText):
 class TeamLink(Link):
 
     team = models.ForeignKey(Team, verbose_name=_('team'), related_name='links', blank=True, null=True, on_delete=models.SET_NULL)
-
-
-class Person(Displayable, AdminThumbMixin):
-    """(Person description)"""
-
-    user = models.OneToOneField(User, verbose_name=_('user'), blank=True, null=True, on_delete=models.SET_NULL)
-    person_title = models.CharField(_('title'), max_length=16, choices=TITLE_CHOICES, blank=True)
-    gender = models.CharField(_('gender'), max_length=16, choices=GENDER_CHOICES, blank=True)
-    first_name = models.CharField(_('first name'), max_length=255, blank=True, null=True)
-    last_name = models.CharField(_('last name'), max_length=255, blank=True, null=True)
-    email = models.EmailField(_('email'), blank=True, null=True)
-    telephone = models.CharField(_('telephone'), max_length=64, blank=True, null=True)
-    register_id = models.CharField(_('register ID'), blank=True, null=True, max_length=128)
-    birthday = models.DateField(_('birthday'), blank=True, null=True)
-    bio = RichTextField(_('biography'), blank=True)
-    external_id = models.CharField(_('external ID'), blank=True, null=True, max_length=128)
-
-    class Meta:
-        verbose_name = _('person')
-        ordering = ['last_name',]
-
-    def __str__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse("organization-network-person-detail", kwargs={'slug': self.slug})
-
-    def set_names(self):
-        names = self.title.split(' ')
-        if len(names) == 1:
-            self.first_name = ''
-            self.last_name = names[0]
-        elif len(names) == 2:
-            self.first_name = names[0]
-            self.last_name = names[1]
-        else:
-            self.first_name = names[0]
-            self.last_name = ' '.join(names[1:])
-
-    def save(self, *args, **kwargs):
-        super(Person, self).save(args, kwargs)
-        for activity in self.activities.all():
-            update_activity(activity)
 
 
 class PersonPlaylist(PlaylistRelated):

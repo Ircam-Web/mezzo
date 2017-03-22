@@ -1,0 +1,468 @@
+// -*- coding: utf-8 -*-
+
+// Copyright (c) 2016-2017 Ircam
+// Copyright (c) 2016-2017 Jérémy Fabre
+
+// This file is part of mezzanine-organization.
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+
+// You should have received a copy of the GNU Affero General Public License
+// along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+$module: ".page";
+
+#{$module} {
+
+    min-height: 500px;
+
+    @include mq($until: sm) {
+        min-height: 0;
+    }
+
+    &__sidebar {
+
+        @include mq($until: sm) {
+            //background: white;
+            text-align: center;
+            @include margin-bottom(2);
+        }
+
+    }
+
+    &__slider {
+
+        @include padding-top(2);
+        @include padding-bottom(2);
+
+        @include mq($until: sm) {
+            @include padding-top(1);
+        }
+
+    }
+
+    &__meta {
+
+        @include margin-bottom(2);
+
+    }
+
+    &__image-container {
+        background: $color-background;
+        @include transition(all 0.5s ease-in-out);
+        @include margin-bottom(3);
+
+        img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+            mix-blend-mode: screen;
+        }
+    }
+
+    &__meta-separator {
+
+        height: 1px;
+        background: $color-main;
+        width: 45px;
+
+        @include margin(1 0);
+
+        @include mq($until: sm) {
+            @include margin(1 auto);
+        }
+
+        &--small {
+            @include margin(.5 0);
+        }
+
+    }
+
+    &__meta-date {
+
+        @include font-size(m);
+        @include line-height(1);
+        @include typeface(serif);
+        font-weight: weight(heavy);
+
+        span {
+            font-size: 13px;
+            margin-top: 2px;
+            font-weight: weight(regular);
+            display: block;
+        }
+
+    }
+
+    &__meta-title {
+
+        @include font-size(s);
+        @include line-height(1);
+        @include typeface(sans-serif);
+        text-transform: uppercase;
+        font-weight: weight(regular);
+
+        &--small {
+            @include font-size(s);
+        }
+
+    }
+
+    &__meta-text {
+
+        font-size: 13px;
+        margin-top: 2px;
+        font-weight: weight(regular);
+        display: block;
+
+    }
+
+    &__filters {
+
+        @include margin(0 0 6 0);
+
+        @media screen and (max-height: 900px) {
+
+            @include margin(0 0 3 0);
+
+        }
+
+    }
+
+    hr + #{$module}__block--yellow {
+
+        //@include margin-top(-2);
+
+    }
+
+    hr + #{$module}__block--black {
+
+        //@include margin-top(-2);
+
+    }
+
+    &__block-title {
+        text-align: left;
+    }
+
+    &__block {
+
+        @include padding-bottom(1);
+
+        h2:first-child {
+            @include font-size(l);
+            @include line-height(1);
+            @include typeface(serif);
+            font-weight: weight(bold);
+        }
+
+        &--yellow {
+
+            position: relative;
+            &:before {
+        		content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba($color-main, 0.5);
+        		width: 100%;
+        		top: -4px;
+        		position: absolute;
+        	}
+            &:after {
+                content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba($color-main, 0.5);
+        		width: 100%;
+        		bottom: -4px;
+        		position: absolute;
+            }
+
+            #{$module}__block-title {
+                text-align: center;
+            }
+
+            background-color: $color-main;
+            @include padding-top(2);
+            @include padding-bottom(2);
+            @include margin(2 0 0 0);
+            color: $color-background;
+
+            h2:first-child {
+
+            }
+
+            & + hr {
+                //margin-top: 1px;
+            }
+
+            & + .page__block {
+                //@include margin-top(2);
+            }
+
+            a:not(.button) {
+
+        		position: relative;
+        		z-index: 1;
+        		text-decoration: none;
+                border-color: $color-background;
+                border-bottom: 1px solid $color-background;
+                color: $color-background;
+                @include transition(all 0.15s ease-in-out);
+
+                &:hover {
+                    box-shadow: inset 0 -30px $color-background;
+                    color: $color-main;
+                }
+
+        	}
+
+        }
+
+        &--white {
+
+            background-color: white;
+            color: $color-background;
+            @include padding-top(2);
+            @include padding-bottom(2);
+            @include margin(2 0 0 0);
+
+            position: relative;
+            &:before {
+        		content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba($color-main, 0.5);
+        		width: 100%;
+        		top: -4px;
+        		position: absolute;
+        	}
+            &:after {
+                content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba($color-main, 0.5);
+        		width: 100%;
+        		bottom: -4px;
+        		position: absolute;
+            }
+
+            #{$module}__block-title {
+                text-align: center;
+            }
+
+            a:not(.button) {
+
+                color: $color-background;
+        		position: relative;
+        		z-index: 1;
+        		text-decoration: none;
+                border-color: $color-background;
+
+                &:hover {
+                    box-shadow: none;
+                    color: $color-background;
+                }
+
+        	}
+
+            h2:first-child {
+
+            }
+
+            & + hr {
+                //margin-top: 1px;
+            }
+
+            & + .page__block {
+                //@include margin-top(2);
+            }
+
+        }
+
+        &--black {
+
+            background-color: $color-background;
+            color: white;
+            @include padding-top(2);
+            @include padding-bottom(2);
+            @include margin(2 0 0 0);
+
+            position: relative;
+            &:before {
+        		content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba($color-main, 0.5);
+        		width: 100%;
+        		top: -4px;
+        		position: absolute;
+        	}
+            &:after {
+                content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba($color-main, 0.5);
+        		width: 100%;
+        		bottom: -4px;
+        		position: absolute;
+            }
+
+            #{$module}__block-title {
+                text-align: center;
+            }
+
+            a:not(.button) {
+
+                color: white;
+        		position: relative;
+        		z-index: 1;
+        		text-decoration: none;
+                border-color: $color-main;
+
+                &:hover {
+                    box-shadow: none;
+                    color: $color-main;
+                }
+
+        	}
+
+            h2:first-child {
+
+            }
+
+            & + hr {
+                //margin-top: 1px;
+            }
+
+            & + .page__block {
+                //@include margin-top(2);
+            }
+
+        }
+
+        &--red {
+
+            background-color: red;
+            color: white;
+            @include padding-top(2);
+            @include padding-bottom(2);
+            @include margin(2 0);
+
+            position: relative;
+            &:before {
+        		content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba(255, 255, 255, 0.5);
+        		width: 100%;
+        		top: -4px;
+        		position: absolute;
+        	}
+            &:after {
+                content: "";
+        		display: block;
+        		height: 1px;
+        		background: rgba(255, 255, 255, 0.5);
+        		width: 100%;
+        		bottom: -4px;
+        		position: absolute;
+            }
+
+            #{$module}__block-title {
+                text-align: center;
+            }
+
+            a:not(.button) {
+
+                color: white;
+        		position: relative;
+        		z-index: 1;
+        		text-decoration: none;
+                border-color: white;
+
+                &:hover {
+                    box-shadow: none;
+                    color: white;
+                }
+
+        	}
+
+            h2:first-child {
+
+            }
+
+            & + hr {
+                //margin-top: 1px;
+            }
+
+            & + .page__block {
+                //@include margin-top(2);
+            }
+
+        }
+
+        &--accent {
+
+            background-color: $color-accent;
+            color: $color-background;
+            text-align: center;
+            font-family: $serif;
+
+            @include padding(2 0);
+
+            h2 {
+                font-family: $serif;
+                font-weight: weight(bold);
+                @include margin-bottom(1);
+                @include margin-top(0);
+            }
+
+            strong {
+                font-weight: weight(regular);
+            }
+
+        }
+
+        p:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+    }
+
+    &--organization {
+
+        margin-top: -80px;
+
+        @include mq($until: xs) {
+
+        }
+
+        .map {
+            width: 100%;
+            height: 950px;
+        }
+
+    }
+
+    &--search {
+
+        margin-top: 8rem;
+
+    }
+
+}

@@ -1,0 +1,65 @@
+{% load i18n pages_tags %}
+
+{% spaceless %}
+{% if page_branch_in_menu %}
+    {% with page as current_page %}
+        {% if branch_level == 0 %}
+            {% for page in page_branch %}
+                {% if forloop.first %}
+                    <ul class="nav-tree nav-tree--level-{{ branch_level }}" data-sticky data-sticky-parent="page" data-sticky-offset="100" data-sticky-detach-at="971">
+                {% endif %}
+                {% if page.in_menu and page.has_children_in_menu %}
+                    {% if page.is_primary and page.is_current_or_ascendant %}
+                        <li class="nav-tree__item">
+                            <a class="nav-tree__link{% if page.is_current %} active{% endif %}" href="{{ page.get_absolute_url }}">{% trans 'Home' %}</a>
+                        </li>
+                    {% endif %}
+                    {% if page.is_current_or_ascendant %}
+                        {% if page.has_children_in_menu %}
+                            {% page_menu page %}
+                        {% endif %}
+                    {% endif %}
+                    {% if page.is_primary and page.is_current_or_ascendant %}
+                    {% endif %}
+                {% elif page.in_menu and current_page.in_menus == page.in_menus %}
+                    <li class="nav-tree__item">
+                        <a class="nav-tree__link{% if page.is_current %} active{% endif %}" href="{{ page.get_absolute_url }}">{{page.title}}</a>
+                    </li>
+                {% endif %}
+                {% if forloop.last %}
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% if branch_level == 1 %}
+            {% for page in page_branch %}
+                <li class="nav-tree__item">
+                    <a class="nav-tree__link{% if page.is_current or page.is_current_or_ascendant %} active{% endif %}" href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+                    {% if page.is_current_or_ascendant and page.has_children_in_menu %}
+                        <ul class="nav-tree nav-tree--level-{{ branch_level }}">
+                            {% page_menu page %}
+                        </ul>
+                        <ul class="nav-tree" data-summary>
+                            {% include "pages/menus/current_tree_summary.html" %}
+                        </ul>
+                    {% endif %}
+                    {% if page.is_current_or_ascendant and not page.has_children_in_menu %}
+                        <ul class="nav-tree" data-summary>
+                            {% include "pages/menus/current_tree_summary.html" %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        {% endif %}
+        {% if branch_level == 2 %}
+            {% for page in page_branch %}
+                {% comment %}
+                <li class="nav-tree__item nav-tree__item--sub">
+                    <a class="nav-tree__link nav-tree__link--sub" href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+                </li>
+                {% endcomment %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+{% endif %}
+{% endspaceless %}

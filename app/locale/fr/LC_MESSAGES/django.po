@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-28 10:32+0100\n"
+"POT-Creation-Date: 2017-03-15 14:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,59 +18,108 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: local_settings.py:109
+#: local_settings.py:86
 msgid "Pages"
 msgstr "Pages"
 
-#: local_settings.py:111 templates/index.html:53
-#: templates/media/playlist_detail.html:4
-#: templates/media/playlist_detail.html:21
-#: templates/media/playlist_list.html:6 templates/media/playlist_list.html:11
-#: templates/media/playlist_list.html:15
+#: local_settings.py:88 themes/base/templates/media/audio/audio_detail.html:4
+#: themes/base/templates/media/playlist_detail.html:4
+#: themes/base/templates/media/playlist_list.html:6
+#: themes/base/templates/media/playlist_list.html:11
+#: themes/base/templates/media/playlist_list.html:15
+#: themes/base/templates/media/video/video_detail.html:4
+#: themes/starts_eu/templates/media/audio/audio_detail.html:4
+#: themes/starts_eu/templates/media/playlist_detail.html:4
+#: themes/starts_eu/templates/media/playlist_list.html:6
+#: themes/starts_eu/templates/media/playlist_list.html:11
+#: themes/starts_eu/templates/media/playlist_list.html:15
+#: themes/starts_eu/templates/media/video/video_detail.html:4
+#: themes/vertigo_starts_eu/templates/media/audio/audio_detail.html:4
+#: themes/vertigo_starts_eu/templates/media/playlist_detail.html:4
+#: themes/vertigo_starts_eu/templates/media/playlist_list.html:6
+#: themes/vertigo_starts_eu/templates/media/playlist_list.html:11
+#: themes/vertigo_starts_eu/templates/media/playlist_list.html:15
+#: themes/vertigo_starts_eu/templates/media/video/video_detail.html:4
 msgid "Media"
 msgstr "Media"
 
-#: local_settings.py:114
+#: local_settings.py:92
 msgid "Media Library"
 msgstr "Librairie media"
 
-#: local_settings.py:116
+#: local_settings.py:94 themes/base/templates/agenda/event_list.html:8
+#: themes/base/templates/agenda/event_list.html:33
+#: themes/starts_eu/templates/agenda/event_list.html:8
+#: themes/starts_eu/templates/agenda/event_list.html:33
+#: themes/vertigo_starts_eu/templates/agenda/event_list.html:8
+#: themes/vertigo_starts_eu/templates/agenda/event_list.html:33
 msgid "Events"
 msgstr "Événements"
 
-#: local_settings.py:124 settings.py:72 templates/includes/sidebar.html:10
-#: templates/index.html:33 templates/magazine/topic/topic_detail.html:5
-#: templates/magazine/topic/topic_detail.html:30
+#: local_settings.py:102 settings.py:72
+#: themes/base/templates/magazine/topic/topic_detail.html:5
+#: themes/base/templates/magazine/topic/topic_detail.html:30
+#: themes/starts_eu/templates/magazine/topic/topic_detail.html:5
+#: themes/starts_eu/templates/magazine/topic/topic_detail.html:30
+#: themes/vertigo_starts_eu/templates/magazine/topic/topic_detail.html:5
+#: themes/vertigo_starts_eu/templates/magazine/topic/topic_detail.html:30
 msgid "Magazine"
 msgstr "Magazine"
 
-#: local_settings.py:126 templates/network/organization_list.html:4
-#: templates/network/organization_list.html:18
+#: local_settings.py:104
+#: themes/base/templates/network/organization_list.html:4
+#: themes/base/templates/network/organization_list.html:18
+#: themes/starts_eu/templates/network/organization_list.html:4
+#: themes/starts_eu/templates/network/organization_list.html:18
+#: themes/vertigo_starts_eu/templates/network/organization_list.html:4
+#: themes/vertigo_starts_eu/templates/network/organization_list.html:18
 msgid "Network"
 msgstr "Réseaux"
 
-#: local_settings.py:135
+#: local_settings.py:113
 msgid "Activity"
 msgstr "Activité"
 
-#: local_settings.py:147
+#: local_settings.py:124
+#: themes/base/templates/network/person_activity_timesheet/person_activity_timesheet_create.html:4
+#: themes/base/templates/network/person_activity_timesheet/person_activity_timesheet_create.html:11
+#: themes/base/templates/network/person_activity_timesheet/person_activity_timesheet_list.html:4
+#: themes/base/templates/network/person_activity_timesheet/person_activity_timesheet_list.html:11
+#: themes/starts_eu/templates/network/person_activity_timesheet/person_activity_timesheet_create.html:4
+#: themes/starts_eu/templates/network/person_activity_timesheet/person_activity_timesheet_create.html:11
+#: themes/starts_eu/templates/network/person_activity_timesheet/person_activity_timesheet_list.html:4
+#: themes/starts_eu/templates/network/person_activity_timesheet/person_activity_timesheet_list.html:11
+#: themes/vertigo_starts_eu/templates/network/person_activity_timesheet/person_activity_timesheet_create.html:4
+#: themes/vertigo_starts_eu/templates/network/person_activity_timesheet/person_activity_timesheet_create.html:11
+#: themes/vertigo_starts_eu/templates/network/person_activity_timesheet/person_activity_timesheet_list.html:4
+#: themes/vertigo_starts_eu/templates/network/person_activity_timesheet/person_activity_timesheet_list.html:11
+msgid "Timesheet"
+msgstr ""
+
+#: local_settings.py:127
 msgid "Projects"
 msgstr "Projets"
 
-#: local_settings.py:156
+#: local_settings.py:138
 msgid "Shop"
 msgstr ""
 
-#: local_settings.py:162 templates/job/job_offer_list.html:4
-#: templates/job/job_offer_list.html:15
+#: local_settings.py:144 themes/base/templates/job/job_offer_list.html:4
+#: themes/base/templates/job/job_offer_list.html:15
+#: themes/starts_eu/templates/job/job_offer_list.html:4
+#: themes/starts_eu/templates/job/job_offer_list.html:15
+#: themes/vertigo_starts_eu/templates/job/job_offer_list.html:4
+#: themes/vertigo_starts_eu/templates/job/job_offer_list.html:15
 msgid "Jobs"
 msgstr "Offres d'emplois et stages"
 
-#: local_settings.py:163
+#: local_settings.py:145
 msgid "Users"
 msgstr ""
 
-#: local_settings.py:164 templates/admin/login.html:59
+#: local_settings.py:146 themes/base/templates/admin/login.html:59
+#: themes/starts_eu/templates/admin/login.html:59
+#: themes/vertigo_starts_eu/templates/admin/login.html:59
 msgid "Site"
 msgstr ""
 
@@ -91,18 +140,20 @@ msgid "blocks"
 msgstr ""
 
 #: organization/agenda/models.py:48 organization/magazine/models.py:64
-#: organization/pages/models.py:55
+#: organization/media/models.py:127 organization/pages/models.py:55
+#: organization/pages/models.py:137
 msgid "image"
 msgstr ""
 
 #: organization/agenda/models.py:49 organization/magazine/models.py:65
-#: organization/pages/models.py:56
+#: organization/media/models.py:128 organization/pages/models.py:56
+#: organization/pages/models.py:138
 msgid "images"
 msgstr "images"
 
 #: organization/agenda/models.py:56 organization/agenda/models.py:59
-#: organization/magazine/models.py:48 organization/network/models.py:222
-#: organization/network/models.py:234 organization/network/models.py:245
+#: organization/magazine/models.py:48 organization/network/models.py:172
+#: organization/network/models.py:326 organization/network/models.py:338
 msgid "department"
 msgstr "département"
 
@@ -111,35 +162,35 @@ msgid "departments"
 msgstr "départements"
 
 #: organization/agenda/models.py:66 organization/agenda/models.py:69
-#: organization/network/models.py:306 organization/network/models.py:338
-#: organization/network/models.py:343 organization/network/models.py:348
-#: organization/network/models.py:353 organization/network/models.py:358
-#: organization/network/models.py:481
+#: organization/network/models.py:220 organization/network/models.py:361
+#: organization/network/models.py:366 organization/network/models.py:371
+#: organization/network/models.py:376 organization/network/models.py:381
+#: organization/network/models.py:509
 msgid "person"
 msgstr "personne"
 
-#: organization/agenda/models.py:70
+#: organization/agenda/models.py:70 organization/projects/models.py:359
 msgid "persons"
-msgstr "personnes"
+msgstr "personne"
 
-#: organization/agenda/models.py:78 organization/core/models.py:208
+#: organization/agenda/models.py:78 organization/core/models.py:240
 #: organization/pages/models.py:75 organization/pages/models.py:99
 msgid "link"
 msgstr "lien"
 
-#: organization/agenda/models.py:79 organization/core/models.py:209
+#: organization/agenda/models.py:79 organization/core/models.py:241
 #: organization/pages/models.py:76
 msgid "links"
 msgstr "liens"
 
-#: organization/agenda/models.py:87 organization/media/models.py:134
-#: organization/media/models.py:147 organization/media/models.py:158
-#: organization/media/models.py:161 organization/pages/models.py:65
+#: organization/agenda/models.py:87 organization/media/models.py:149
+#: organization/media/models.py:162 organization/media/models.py:173
+#: organization/media/models.py:176 organization/pages/models.py:65
 msgid "playlist"
 msgstr "playlist"
 
-#: organization/agenda/models.py:88 organization/media/models.py:135
-#: organization/media/models.py:162 organization/pages/models.py:66
+#: organization/agenda/models.py:88 organization/media/models.py:150
+#: organization/media/models.py:177 organization/pages/models.py:66
 msgid "playlists"
 msgstr "playlists"
 
@@ -159,12 +210,12 @@ msgstr "type public"
 msgid "public types"
 msgstr "types publics"
 
-#: organization/agenda/models.py:111 organization/network/models.py:444
-#: organization/network/models.py:512
+#: organization/agenda/models.py:111 organization/network/models.py:467
+#: organization/network/models.py:540
 msgid "training level"
 msgstr ""
 
-#: organization/agenda/models.py:112 organization/network/models.py:445
+#: organization/agenda/models.py:112 organization/network/models.py:468
 msgid "training levels"
 msgstr ""
 
@@ -185,7 +236,7 @@ msgid "trainings"
 msgstr ""
 
 #: organization/agenda/models.py:132 organization/magazine/models.py:74
-#: organization/pages/models.py:85 organization/projects/models.py:237
+#: organization/pages/models.py:85 organization/projects/models.py:309
 msgid "related title"
 msgstr "titre de contenu lié"
 
@@ -193,8 +244,8 @@ msgstr "titre de contenu lié"
 msgid "event_price_description"
 msgstr ""
 
-#: organization/agenda/models.py:147 organization/core/models.py:44
-#: organization/core/models.py:54 organization/core/models.py:72
+#: organization/agenda/models.py:147 organization/core/models.py:46
+#: organization/core/models.py:68 organization/core/models.py:86
 msgid "description"
 msgstr "description"
 
@@ -210,166 +261,184 @@ msgstr ""
 msgid "red"
 msgstr ""
 
-#: organization/core/models.py:37 organization/network/models.py:83
+#: organization/core/models.py:36
+msgid "white"
+msgstr ""
+
+#: organization/core/models.py:38 organization/network/models.py:97
 msgid "left"
 msgstr "gauche"
 
-#: organization/core/models.py:37
+#: organization/core/models.py:38
 msgid "center"
 msgstr "centre"
 
-#: organization/core/models.py:37 organization/network/models.py:83
+#: organization/core/models.py:38 organization/network/models.py:97
 msgid "right"
 msgstr "droite"
 
-#: organization/core/models.py:38
+#: organization/core/models.py:40
 msgid "logo"
 msgstr ""
 
-#: organization/core/models.py:38
+#: organization/core/models.py:40
 msgid "logo white"
 msgstr ""
 
-#: organization/core/models.py:38
+#: organization/core/models.py:40
 msgid "logo black"
 msgstr ""
 
-#: organization/core/models.py:38
+#: organization/core/models.py:40
+msgid "logo header"
+msgstr ""
+
+#: organization/core/models.py:40
+msgid "logo footer"
+msgstr ""
+
+#: organization/core/models.py:40
 msgid "slider"
 msgstr ""
 
-#: organization/core/models.py:38
+#: organization/core/models.py:40
 msgid "card"
 msgstr ""
 
-#: organization/core/models.py:38
+#: organization/core/models.py:40
 msgid "page - slider"
 msgstr ""
 
-#: organization/core/models.py:38
+#: organization/core/models.py:40
 msgid "page - featured"
 msgstr "page- à la une"
 
-#: organization/core/models.py:53 organization/core/models.py:183
+#: organization/core/models.py:55 organization/core/models.py:67
+#: organization/core/models.py:215
 msgid "name"
 msgstr "nom"
 
-#: organization/core/models.py:71 organization/core/models.py:203
-#: organization/core/models.py:284 organization/network/models.py:294
+#: organization/core/models.py:85 organization/core/models.py:235
+#: organization/core/models.py:316 organization/network/models.py:207
 msgid "title"
 msgstr "titre"
 
-#: organization/core/models.py:83
+#: organization/core/models.py:97
 msgid "sub title"
 msgstr "sous-titre"
 
-#: organization/core/models.py:93
+#: organization/core/models.py:107
 msgid "custom category"
 msgstr "catégorie personnalisé"
 
-#: organization/core/models.py:102
+#: organization/core/models.py:116
 msgid "background color"
 msgstr ""
 
-#: organization/core/models.py:110 organization/network/models.py:200
-#: organization/pages/models.py:100
+#: organization/core/models.py:117
+msgid "login required"
+msgstr ""
+
+#: organization/core/models.py:125 organization/core/models.py:143
+#: organization/network/models.py:290 organization/pages/models.py:100
+#: organization/projects/models.py:344
 msgid "Image"
 msgstr ""
 
-#: organization/core/models.py:111
+#: organization/core/models.py:126 organization/core/models.py:144
 msgid "credits"
 msgstr "crédits"
 
-#: organization/core/models.py:112 organization/media/models.py:131
-#: organization/projects/models.py:52
+#: organization/core/models.py:127 organization/media/models.py:146
+#: organization/media/models.py:185 organization/projects/models.py:59
 msgid "type"
 msgstr "type"
 
-#: organization/core/models.py:128
+#: organization/core/models.py:160
 msgid "document"
 msgstr "document"
 
-#: organization/core/models.py:147
+#: organization/core/models.py:179
 msgid "content type"
 msgstr "type de contenu"
 
-#: organization/core/models.py:155 organization/job/models.py:76
+#: organization/core/models.py:187 organization/job/models.py:76
 #: organization/magazine/models.py:100
 msgid "related object"
 msgstr "contenu lié"
 
-#: organization/core/models.py:168 organization/media/models.py:104
-#: organization/projects/models.py:189
+#: organization/core/models.py:200 organization/media/models.py:109
+#: organization/projects/models.py:261
 msgid "URL"
 msgstr ""
 
-#: organization/core/models.py:184 organization/shop/models.py:80
+#: organization/core/models.py:216 organization/shop/models.py:80
 msgid "slug"
 msgstr ""
 
-#: organization/core/models.py:185
+#: organization/core/models.py:217
 msgid ""
 "Use this field to define a simple identifier that can be used to style the "
 "different link types (i.e. assign social media icons to them)"
 msgstr ""
 
-#: organization/core/models.py:190
+#: organization/core/models.py:222
 msgid "ordering"
 msgstr ""
 
-#: organization/core/models.py:191
+#: organization/core/models.py:223
 msgid "fontawesome icon name option"
 msgstr ""
 
-#: organization/core/models.py:204
+#: organization/core/models.py:236
 msgid "link type"
 msgstr "type de lien"
 
-#: organization/core/models.py:217 organization/core/models.py:226
+#: organization/core/models.py:249 organization/core/models.py:258
 msgid "begin date"
 msgstr "date de début"
 
-#: organization/core/models.py:218 organization/core/models.py:227
+#: organization/core/models.py:250 organization/core/models.py:259
 msgid "end date"
 msgstr "date de fin"
 
-#: organization/core/models.py:260
+#: organization/core/models.py:292
 msgid "creation date"
 msgstr "date de création"
 
-#: organization/core/models.py:261
+#: organization/core/models.py:293
 msgid "last modification date"
 msgstr ""
 
-#: organization/core/models.py:270
+#: organization/core/models.py:302
 msgid "address"
 msgstr "adresse"
 
-#: organization/core/models.py:271
+#: organization/core/models.py:303
 msgid "postal code"
 msgstr "code postal"
 
-#: organization/core/models.py:272
+#: organization/core/models.py:304
 msgid "city"
 msgstr ""
 
-#: organization/core/models.py:273
+#: organization/core/models.py:305
 msgid "country"
 msgstr "pays"
 
-#: organization/core/views.py:69
+#: organization/core/views.py:71
 msgid "Everything"
 msgstr "Tout"
 
-#: organization/job/models.py:32 organization/network/models.py:296
+#: organization/job/models.py:32 organization/network/models.py:209
 msgid "first name"
 msgstr ""
 
-#: organization/job/models.py:33 organization/network/models.py:297
+#: organization/job/models.py:33 organization/network/models.py:210
 msgid "last name"
 msgstr ""
 
-#: organization/job/models.py:34 organization/network/models.py:298
+#: organization/job/models.py:34 organization/network/models.py:211
 msgid "email"
 msgstr ""
 
@@ -455,7 +524,7 @@ msgstr "rubriques"
 msgid "article"
 msgstr "article"
 
-#: organization/magazine/models.py:85 organization/network/models.py:375
+#: organization/magazine/models.py:85 organization/network/models.py:398
 #: organization/shop/models.py:41
 msgid "style"
 msgstr ""
@@ -468,7 +537,7 @@ msgstr ""
 msgid "brief"
 msgstr "brève"
 
-#: organization/magazine/models.py:119 organization/projects/models.py:61
+#: organization/magazine/models.py:119 organization/projects/models.py:69
 msgid "topic"
 msgstr "rubrique"
 
@@ -476,473 +545,623 @@ msgstr "rubrique"
 msgid "Article"
 msgstr "Article"
 
-#: organization/magazine/models.py:125 organization/network/models.py:364
-#: organization/network/models.py:386
+#: organization/magazine/models.py:125 organization/network/models.py:387
+#: organization/network/models.py:409
 msgid "Person List Block"
 msgstr ""
 
-#: organization/magazine/models.py:128 organization/network/models.py:367
-#: organization/network/models.py:378 organization/pages/models.py:141
+#: organization/magazine/models.py:128 organization/network/models.py:390
+#: organization/network/models.py:401 organization/pages/models.py:151
 msgid "Person List"
 msgstr "Liste de personnes"
 
-#: organization/media/models.py:41 templates/media/playlist_list.html:21
+#: organization/media/models.py:41
+#: themes/base/templates/media/playlist_list.html:21
+#: themes/starts_eu/templates/media/playlist_list.html:21
+#: themes/vertigo_starts_eu/templates/media/playlist_list.html:21
 msgid "audio"
 msgstr ""
 
-#: organization/media/models.py:42 templates/media/playlist_list.html:26
+#: organization/media/models.py:42
+#: themes/base/templates/media/playlist_list.html:26
+#: themes/starts_eu/templates/media/playlist_list.html:26
+#: themes/vertigo_starts_eu/templates/media/playlist_list.html:26
 msgid "video"
 msgstr ""
 
-#: organization/media/models.py:48
+#: organization/media/models.py:46
+msgid "html5"
+msgstr ""
+
+#: organization/media/models.py:47
+msgid "youtube"
+msgstr ""
+
+#: organization/media/models.py:54
 msgid "media id"
 msgstr ""
 
-#: organization/media/models.py:49
+#: organization/media/models.py:55
 msgid "poster"
 msgstr ""
 
-#: organization/media/models.py:50
+#: organization/media/models.py:56
 msgid "category"
 msgstr "catégorie"
 
-#: organization/media/models.py:102 organization/media/models.py:148
-#: organization/media/models.py:151
+#: organization/media/models.py:107 organization/media/models.py:124
+#: organization/media/models.py:163 organization/media/models.py:166
 msgid "media"
 msgstr ""
 
-#: organization/media/models.py:103
+#: organization/media/models.py:108
 msgid "file"
 msgstr ""
 
-#: organization/media/models.py:105
+#: organization/media/models.py:110
 msgid "mime type"
 msgstr "type mime"
 
-#: organization/media/models.py:121
+#: organization/media/models.py:136
 msgid "media category"
 msgstr "catégorie de media"
 
-#: organization/media/models.py:122
+#: organization/media/models.py:137
 msgid "media categories"
 msgstr "Catégories de media"
 
-#: organization/media/models.py:152
+#: organization/media/models.py:167
 msgid "medias"
 msgstr ""
 
-#: organization/network/models.py:57
+#: organization/media/models.py:183
+msgid "html5 url"
+msgstr ""
+
+#: organization/media/models.py:184
+msgid "youtube id"
+msgstr ""
+
+#: organization/media/models.py:186
+#, fuzzy
+#| msgid "Locations"
+msgid "Event Location"
+msgstr "Lieux"
+
+#: organization/network/models.py:56
 msgid "Mr"
 msgstr "Mr"
 
-#: organization/network/models.py:58
+#: organization/network/models.py:57
 msgid "Ms"
 msgstr "Mme"
 
-#: organization/network/models.py:61
+#: organization/network/models.py:60
 msgid "male"
 msgstr "homme"
 
-#: organization/network/models.py:62
+#: organization/network/models.py:61
 msgid "female"
 msgstr "femme"
 
-#: organization/network/models.py:66 organization/shop/models.py:34
+#: organization/network/models.py:65 organization/shop/models.py:34
 msgid "square"
 msgstr ""
 
-#: organization/network/models.py:67 organization/shop/models.py:35
+#: organization/network/models.py:66 organization/shop/models.py:35
 msgid "circle"
 msgstr ""
 
-#: organization/network/models.py:71
+#: organization/network/models.py:70
 msgid "Dr"
 msgstr ""
 
-#: organization/network/models.py:72
+#: organization/network/models.py:71
 msgid "Prof"
 msgstr ""
 
-#: organization/network/models.py:73
+#: organization/network/models.py:72
 msgid "Prof Dr"
 msgstr ""
 
-#: organization/network/models.py:77
+#: organization/network/models.py:76
 msgid "circles"
 msgstr "cercles"
 
-#: organization/network/models.py:78
+#: organization/network/models.py:77
 msgid "squares"
 msgstr ""
 
-#: organization/network/models.py:79
+#: organization/network/models.py:78
 msgid "stripes"
 msgstr ""
 
-#: organization/network/models.py:80
+#: organization/network/models.py:79
 msgid "triangles"
 msgstr ""
 
+#: organization/network/models.py:83
+msgid "January"
+msgstr ""
+
+#: organization/network/models.py:84
+msgid "February"
+msgstr ""
+
+#: organization/network/models.py:85
+msgid "March"
+msgstr ""
+
 #: organization/network/models.py:86
-msgid "orange"
+msgid "April"
 msgstr ""
 
 #: organization/network/models.py:87
-msgid "blue"
+msgid "May"
 msgstr ""
 
 #: organization/network/models.py:88
+msgid "June"
+msgstr ""
+
+#: organization/network/models.py:89
+msgid "July"
+msgstr ""
+
+#: organization/network/models.py:90
+msgid "August"
+msgstr ""
+
+#: organization/network/models.py:91
+msgid "September"
+msgstr ""
+
+#: organization/network/models.py:92
+msgid "October"
+msgstr ""
+
+#: organization/network/models.py:93
+msgid "November"
+msgstr ""
+
+#: organization/network/models.py:94
+msgid "December"
+msgstr ""
+
+#: organization/network/models.py:100
+msgid "orange"
+msgstr ""
+
+#: organization/network/models.py:101
+msgid "blue"
+msgstr ""
+
+#: organization/network/models.py:102
 msgid "green"
 msgstr ""
 
-#: organization/network/models.py:108 organization/network/models.py:212
+#: organization/network/models.py:122 organization/network/models.py:302
 msgid "organization type"
 msgstr "type d'organisation"
 
-#: organization/network/models.py:109
+#: organization/network/models.py:123
 msgid "initials"
 msgstr ""
 
-#: organization/network/models.py:110
+#: organization/network/models.py:124
 msgid "is on map"
 msgstr ""
 
-#: organization/network/models.py:111
+#: organization/network/models.py:125
 msgid "is host"
 msgstr ""
 
-#: organization/network/models.py:112 organization/network/models.py:299
+#: organization/network/models.py:126 organization/network/models.py:212
 msgid "telephone"
 msgstr ""
 
-#: organization/network/models.py:113
+#: organization/network/models.py:127
 msgid "opening times"
 msgstr "horaires d'ouverture"
 
-#: organization/network/models.py:114
+#: organization/network/models.py:128
 msgid "subway access"
 msgstr "accès en transports"
 
-#: organization/network/models.py:115
+#: organization/network/models.py:129
 msgid "bio"
 msgstr ""
 
-#: organization/network/models.py:119 organization/network/models.py:159
-#: organization/network/models.py:174 organization/network/models.py:179
-#: organization/network/models.py:184 organization/network/models.py:189
-#: organization/network/models.py:194 organization/network/models.py:199
-#: organization/network/models.py:219 organization/network/models.py:244
+#: organization/network/models.py:134 organization/network/models.py:171
+#: organization/network/models.py:249 organization/network/models.py:264
+#: organization/network/models.py:269 organization/network/models.py:274
+#: organization/network/models.py:279 organization/network/models.py:284
+#: organization/network/models.py:289 organization/network/models.py:308
+#: organization/network/models.py:317 organization/network/models.py:323
 msgid "organization"
 msgstr "organisation"
 
-#: organization/network/models.py:158
+#: organization/network/models.py:173
+msgid "code"
+msgstr ""
+
+#: organization/network/models.py:174
+msgid "is legacy"
+msgstr ""
+
+#: organization/network/models.py:175
+msgid "parent team"
+msgstr ""
+
+#: organization/network/models.py:178 organization/network/models.py:348
+#: organization/network/models.py:356
+msgid "team"
+msgstr "équipe"
+
+#: organization/network/models.py:206
+msgid "user"
+msgstr ""
+
+#: organization/network/models.py:208
+msgid "gender"
+msgstr "genre"
+
+#: organization/network/models.py:213
+msgid "register ID"
+msgstr "matricule"
+
+#: organization/network/models.py:214
+msgid "birthday"
+msgstr "déte de naissance"
+
+#: organization/network/models.py:215
+msgid "biography"
+msgstr "biographie"
+
+#: organization/network/models.py:216
+msgid "role"
+msgstr "rôle"
+
+#: organization/network/models.py:217 organization/network/models.py:552
+#: organization/projects/models.py:60
+msgid "external ID"
+msgstr "ID externe"
+
+#: organization/network/models.py:248
 #, fuzzy
 #| msgid "organizations"
 msgid "organization list"
 msgstr "organisations"
 
-#: organization/network/models.py:165
+#: organization/network/models.py:255
 #, fuzzy
 #| msgid "Organization"
 msgid "Organization Linked"
 msgstr "Organisation"
 
-#: organization/network/models.py:173
+#: organization/network/models.py:263
 #, fuzzy
 #| msgid "organization type"
 msgid "organization linked"
 msgstr "type d'organisation"
 
-#: organization/network/models.py:201
+#: organization/network/models.py:291
 msgid "css color"
 msgstr ""
 
-#: organization/network/models.py:202
+#: organization/network/models.py:292
 msgid "css banner type"
 msgstr ""
 
-#: organization/network/models.py:203
+#: organization/network/models.py:293
 msgid "box size"
 msgstr ""
 
-#: organization/network/models.py:209
+#: organization/network/models.py:299
 msgid "class css"
 msgstr ""
 
-#: organization/network/models.py:235
+#: organization/network/models.py:339
 msgid "background pattern"
 msgstr ""
 
-#: organization/network/models.py:238
+#: organization/network/models.py:342
 msgid "department page"
 msgstr "page de département"
 
-#: organization/network/models.py:246
-msgid "code"
-msgstr ""
-
-#: organization/network/models.py:247
-msgid "is legacy"
-msgstr ""
-
-#: organization/network/models.py:248
-msgid "parent team"
-msgstr ""
-
-#: organization/network/models.py:251 organization/network/models.py:279
-#: organization/network/models.py:287
-msgid "team"
-msgstr "équipe"
-
-#: organization/network/models.py:282
+#: organization/network/models.py:351
 msgid "team page"
 msgstr "page d'équipe"
 
-#: organization/network/models.py:293
-msgid "user"
-msgstr ""
-
-#: organization/network/models.py:295
-msgid "gender"
-msgstr "genre"
-
-#: organization/network/models.py:300 organization/projects/models.py:53
-msgid "register ID"
-msgstr "matricule"
-
-#: organization/network/models.py:301
-msgid "birthday"
-msgstr "déte de naissance"
-
-#: organization/network/models.py:302
-msgid "biography"
-msgstr "biographie"
-
-#: organization/network/models.py:303 organization/network/models.py:524
-msgid "external ID"
-msgstr "ID externe"
-
-#: organization/network/models.py:363
-#: templates/pages/page/includes/page_search.html:33
+#: organization/network/models.py:386
+#: themes/base/templates/pages/page/includes/page_search.html:26
+#: themes/starts_eu/templates/pages/page/includes/page_search.html:26
+#: themes/vertigo_starts_eu/templates/pages/page/includes/page_search.html:26
 msgid "Page"
 msgstr "Page"
 
-#: organization/network/models.py:387
+#: organization/network/models.py:410
 msgid "Person"
 msgstr "Personne"
 
-#: organization/network/models.py:390
+#: organization/network/models.py:413
 msgid "Person autocomplete"
 msgstr ""
 
-#: organization/network/models.py:395
+#: organization/network/models.py:418
 msgid "order number"
 msgstr ""
 
-#: organization/network/models.py:396
+#: organization/network/models.py:419
 msgid "display on team page"
 msgstr "afficher sur la page d'équipe"
 
-#: organization/network/models.py:397
+#: organization/network/models.py:420
 msgid "parent"
 msgstr ""
 
-#: organization/network/models.py:400 organization/network/models.py:484
+#: organization/network/models.py:423 organization/network/models.py:512
 msgid "status"
 msgstr ""
 
-#: organization/network/models.py:407 organization/network/models.py:487
+#: organization/network/models.py:430 organization/network/models.py:515
 msgid "grade"
 msgstr ""
 
-#: organization/network/models.py:408
+#: organization/network/models.py:431
 msgid "grades"
 msgstr ""
 
-#: organization/network/models.py:414 organization/network/models.py:486
+#: organization/network/models.py:437 organization/network/models.py:514
 msgid "framework"
 msgstr "cadre"
 
-#: organization/network/models.py:415
+#: organization/network/models.py:438
 msgid "frameworks"
 msgstr "corps"
 
-#: organization/network/models.py:420 organization/network/models.py:488
+#: organization/network/models.py:443 organization/network/models.py:516
 msgid "function"
 msgstr "fonction"
 
-#: organization/network/models.py:421
+#: organization/network/models.py:444
 msgid "functions"
 msgstr "fonctions"
 
-#: organization/network/models.py:426
+#: organization/network/models.py:449
 msgid "budget code"
 msgstr ""
 
-#: organization/network/models.py:427
+#: organization/network/models.py:450
 msgid "budget codes"
 msgstr ""
 
-#: organization/network/models.py:432
+#: organization/network/models.py:455
 msgid "record piece"
 msgstr ""
 
-#: organization/network/models.py:433
+#: organization/network/models.py:456
 msgid "record pieces"
 msgstr ""
 
-#: organization/network/models.py:438 organization/network/models.py:511
+#: organization/network/models.py:461 organization/network/models.py:539
 msgid "training type"
 msgstr "type de formation"
 
-#: organization/network/models.py:439
+#: organization/network/models.py:462
 msgid "training types"
 msgstr "type de formation"
 
-#: organization/network/models.py:450 organization/network/models.py:513
+#: organization/network/models.py:473 organization/network/models.py:541
 msgid "training topic"
 msgstr ""
 
-#: organization/network/models.py:451
+#: organization/network/models.py:474
 msgid "training topics"
 msgstr "sujets de formation"
 
-#: organization/network/models.py:456 organization/network/models.py:514
+#: organization/network/models.py:479 organization/network/models.py:542
 msgid "training speciality"
 msgstr ""
 
-#: organization/network/models.py:457
+#: organization/network/models.py:480
 msgid "training specialities"
 msgstr "spécialités de formation"
 
-#: organization/network/models.py:462 organization/network/models.py:492
+#: organization/network/models.py:485 organization/network/models.py:520
 msgid "UMR"
 msgstr ""
 
-#: organization/network/models.py:467 organization/network/models.py:528
-msgid "monday hours"
+#: organization/network/models.py:490 organization/network/models.py:556
+msgid "monday AM"
 msgstr ""
 
-#: organization/network/models.py:468 organization/network/models.py:529
-msgid "tuesday hours"
+#: organization/network/models.py:491 organization/network/models.py:557
+msgid "monday PM"
 msgstr ""
 
-#: organization/network/models.py:469 organization/network/models.py:530
-msgid "wednesday hours"
+#: organization/network/models.py:492 organization/network/models.py:558
+msgid "tuesday AM"
 msgstr ""
 
-#: organization/network/models.py:470 organization/network/models.py:531
-msgid "thursday hours"
+#: organization/network/models.py:493 organization/network/models.py:559
+msgid "tuesday PM"
 msgstr ""
 
-#: organization/network/models.py:471 organization/network/models.py:532
-msgid "friday hours"
+#: organization/network/models.py:494 organization/network/models.py:560
+msgid "wednesday AM"
 msgstr ""
 
-#: organization/network/models.py:474
+#: organization/network/models.py:495 organization/network/models.py:561
+msgid "wednesday PM"
+msgstr ""
+
+#: organization/network/models.py:496 organization/network/models.py:562
+msgid "thursday AM"
+msgstr ""
+
+#: organization/network/models.py:497 organization/network/models.py:563
+msgid "thursday PM"
+msgstr ""
+
+#: organization/network/models.py:498 organization/network/models.py:564
+msgid "friday AM"
+msgstr ""
+
+#: organization/network/models.py:499 organization/network/models.py:565
+msgid "friday PM"
+msgstr ""
+
+#: organization/network/models.py:502
 msgid "Activity Weekly Hour Volume"
 msgstr ""
 
-#: organization/network/models.py:475
+#: organization/network/models.py:503
 msgid "Activity Weekly Hour Volumes"
 msgstr ""
 
-#: organization/network/models.py:483
+#: organization/network/models.py:511
 msgid "number of weeks"
 msgstr ""
 
-#: organization/network/models.py:485
+#: organization/network/models.py:513
 msgid "permanent"
 msgstr ""
 
-#: organization/network/models.py:490
+#: organization/network/models.py:518
 msgid "organizations (attachment or subscribed)"
 msgstr ""
 
-#: organization/network/models.py:491
+#: organization/network/models.py:519
 msgid "employers"
 msgstr ""
 
-#: organization/network/models.py:493 organization/projects/models.py:58
-#: templates/projects/project_detail.html:251
+#: organization/network/models.py:521 organization/projects/models.py:66
+#: themes/base/templates/projects/project_call_detail.html:251
+#: themes/base/templates/projects/project_detail.html:251
+#: themes/starts_eu/templates/projects/project_detail.html:251
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:251
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:251
 msgid "teams"
 msgstr "équipes"
 
-#: organization/network/models.py:494
+#: organization/network/models.py:522
 msgid "other team text"
 msgstr ""
 
-#: organization/network/models.py:496 organization/projects/models.py:65
+#: organization/network/models.py:524 organization/projects/models.py:76
 msgid "projects"
 msgstr "projets"
 
-#: organization/network/models.py:497
+#: organization/network/models.py:525
 msgid "R&D quota (float)"
 msgstr ""
 
-#: organization/network/models.py:498
+#: organization/network/models.py:526
 msgid "R&D quota (text)"
 msgstr ""
 
-#: organization/network/models.py:499
+#: organization/network/models.py:527
 msgid "R&D program"
 msgstr "Programme"
 
-#: organization/network/models.py:502
+#: organization/network/models.py:530
 msgid "supervisors"
 msgstr ""
 
-#: organization/network/models.py:504
+#: organization/network/models.py:532
 msgid "doctoral school"
 msgstr ""
 
-#: organization/network/models.py:505
+#: organization/network/models.py:533
 msgid "PhD directors"
 msgstr ""
 
-#: organization/network/models.py:506
+#: organization/network/models.py:534
 msgid "PhD defense date"
 msgstr ""
 
-#: organization/network/models.py:507
+#: organization/network/models.py:535
 msgid "PhD title"
 msgstr "titre de docteur"
 
-#: organization/network/models.py:508
+#: organization/network/models.py:536
 msgid "post-doctoral situation"
 msgstr ""
 
-#: organization/network/models.py:509
+#: organization/network/models.py:537
 msgid "HDR"
 msgstr ""
 
-#: organization/network/models.py:515
+#: organization/network/models.py:543
 msgid "Training title"
 msgstr ""
 
-#: organization/network/models.py:519
+#: organization/network/models.py:547
 msgid "add date"
 msgstr "ajouter une date"
 
-#: organization/network/models.py:520
+#: organization/network/models.py:548
 msgid "modification date"
 msgstr ""
 
-#: organization/network/models.py:521
+#: organization/network/models.py:549
 msgid "manual modification date"
 msgstr ""
 
-#: organization/network/models.py:523
+#: organization/network/models.py:551
 msgid "comments"
 msgstr "commentaires"
 
-#: organization/network/models.py:535
+#: organization/network/models.py:568 organization/network/models.py:586
+#: organization/network/models.py:608
 msgid "activity"
 msgstr "activité"
 
-#: organization/network/models.py:536
+#: organization/network/models.py:569
 msgid "activities"
 msgstr "activités"
+
+#: organization/network/models.py:587 organization/projects/models.py:75
+#: organization/projects/models.py:131 organization/projects/models.py:143
+#: organization/projects/models.py:148 organization/projects/models.py:153
+#: organization/projects/models.py:158 organization/projects/models.py:163
+#: organization/projects/models.py:168 organization/projects/models.py:227
+#: organization/projects/models.py:306 organization/projects/models.py:315
+#: organization/projects/models.py:323 organization/projects/models.py:336
+#: organization/projects/models.py:354 organization/projects/models.py:368
+#: organization/projects/models.py:377
+msgid "project"
+msgstr "projets"
+
+#: organization/network/models.py:588 organization/projects/models.py:136
+msgid "work package"
+msgstr ""
+
+#: organization/network/models.py:589
+#, python-format
+msgid "% of work time on the project"
+msgstr ""
+
+#: organization/network/models.py:590
+msgid "month"
+msgstr ""
+
+#: organization/network/models.py:591
+msgid "year"
+msgstr ""
+
+#: organization/network/models.py:600
+#, fuzzy
+#| msgid "activities"
+msgid "activity timesheet"
+msgstr "activités"
+
+#: organization/network/models.py:601
+#, fuzzy
+#| msgid "activity status"
+msgid "activity timesheets"
+msgstr "status de l'activité"
 
 #: organization/network/nationalities/nationalities.py:27
 msgid "Afghan"
@@ -1141,7 +1360,7 @@ msgstr ""
 msgid "Salvadorean"
 msgstr ""
 
-#: organization/network/nationalities/nationalities.py:77 settings.py:132
+#: organization/network/nationalities/nationalities.py:77 settings.py:131
 msgid "English"
 msgstr ""
 
@@ -1165,7 +1384,7 @@ msgstr ""
 msgid "Finnish"
 msgstr ""
 
-#: organization/network/nationalities/nationalities.py:83 settings.py:131
+#: organization/network/nationalities/nationalities.py:83 settings.py:132
 msgid "French"
 msgstr ""
 
@@ -1631,7 +1850,8 @@ msgid "link images"
 msgstr "lien d'images"
 
 #: organization/pages/models.py:110 organization/pages/models.py:118
-#: organization/pages/models.py:126 organization/pages/models.py:135
+#: organization/pages/models.py:126 organization/pages/models.py:134
+#: organization/pages/models.py:145
 msgid "home"
 msgstr ""
 
@@ -1639,7 +1859,7 @@ msgstr ""
 msgid "Body"
 msgstr ""
 
-#: organization/pages/models.py:136
+#: organization/pages/models.py:146
 msgid "homes"
 msgstr ""
 
@@ -1663,149 +1883,306 @@ msgstr ""
 msgid "private"
 msgstr ""
 
-#: organization/projects/models.py:54
-msgid "project program"
-msgstr "programme du projet"
-
-#: organization/projects/models.py:55
-msgid "project program type"
-msgstr ""
-
-#: organization/projects/models.py:56
-msgid "lead team"
-msgstr "équipe principale"
-
-#: organization/projects/models.py:57
-msgid "lead organization"
-msgstr "organisation principale"
-
-#: organization/projects/models.py:59
-msgid "organizations"
-msgstr "organisations"
-
-#: organization/projects/models.py:60
-msgid "website"
-msgstr ""
-
-#: organization/projects/models.py:64 organization/projects/models.py:120
-#: organization/projects/models.py:125 organization/projects/models.py:130
-#: organization/projects/models.py:135 organization/projects/models.py:141
-#: organization/projects/models.py:155 organization/projects/models.py:234
-#: organization/projects/models.py:243
-msgid "project"
+#: organization/projects/models.py:49
+#, fuzzy
+#| msgid "project"
+msgid "rejected"
 msgstr "projets"
 
-#: organization/projects/models.py:77
-msgid "in progress"
-msgstr "en cours"
-
-#: organization/projects/models.py:79 organization/projects/models.py:83
+#: organization/projects/models.py:50 organization/projects/models.py:90
+#: organization/projects/models.py:94
 msgid "pending"
 msgstr ""
 
-#: organization/projects/models.py:81
+#: organization/projects/models.py:51
+#, fuzzy
+#| msgid "in progress"
+msgid "in process"
+msgstr "en cours"
+
+#: organization/projects/models.py:52
+msgid "accepted"
+msgstr ""
+
+#: organization/projects/models.py:61
+msgid "project program"
+msgstr "programme du projet"
+
+#: organization/projects/models.py:62
+msgid "project program type"
+msgstr ""
+
+#: organization/projects/models.py:63 organization/projects/models.py:187
+#, fuzzy
+#| msgid "project"
+msgid "project call"
+msgstr "projets"
+
+#: organization/projects/models.py:64
+msgid "lead team"
+msgstr "équipe principale"
+
+#: organization/projects/models.py:65 organization/projects/models.py:133
+msgid "lead organization"
+msgstr "organisation principale"
+
+#: organization/projects/models.py:67
+msgid "organizations"
+msgstr "organisations"
+
+#: organization/projects/models.py:68
+msgid "website"
+msgstr ""
+
+#: organization/projects/models.py:70
+msgid "Referring Person"
+msgstr ""
+
+#: organization/projects/models.py:71
+msgid "Manager"
+msgstr ""
+
+#: organization/projects/models.py:72
+msgid "validation status"
+msgstr ""
+
+#: organization/projects/models.py:88
+msgid "in progress"
+msgstr "en cours"
+
+#: organization/projects/models.py:92
 msgid "completed"
 msgstr "terminé"
 
-#: organization/projects/models.py:88
+#: organization/projects/models.py:99
 msgid "parent topic"
 msgstr ""
 
-#: organization/projects/models.py:91 organization/projects/models.py:146
+#: organization/projects/models.py:102 organization/projects/models.py:173
 msgid "project topic"
 msgstr ""
 
-#: organization/projects/models.py:92
+#: organization/projects/models.py:103
 msgid "project topics"
 msgstr "rubrique d'un projet"
 
-#: organization/projects/models.py:105
+#: organization/projects/models.py:116
 msgid "program"
 msgstr "programme"
 
-#: organization/projects/models.py:106
+#: organization/projects/models.py:117
 msgid "programs"
 msgstr "programmes"
 
-#: organization/projects/models.py:113
+#: organization/projects/models.py:124
 msgid "program type"
 msgstr "Type de programme"
 
-#: organization/projects/models.py:114
+#: organization/projects/models.py:125
 msgid "program types"
 msgstr "Types de programme"
 
-#: organization/projects/models.py:149
+#: organization/projects/models.py:132
+msgid "number"
+msgstr ""
+
+#: organization/projects/models.py:137
+msgid "work packages"
+msgstr ""
+
+#: organization/projects/models.py:176
 msgid "project topic page"
 msgstr "page rubrique d'un projet"
 
-#: organization/projects/models.py:150
+#: organization/projects/models.py:177
 msgid "project topic pages"
 msgstr "pages de rubrique d'un projet"
 
-#: organization/projects/models.py:156
+#: organization/projects/models.py:182
+msgid "Project form content"
+msgstr ""
+
+#: organization/projects/models.py:183
+msgid "Residency form content"
+msgstr ""
+
+#: organization/projects/models.py:184
+msgid "Producer form content"
+msgstr ""
+
+#: organization/projects/models.py:188
+#, fuzzy
+#| msgid "projects"
+msgid "project calls"
+msgstr "projets"
+
+#: organization/projects/models.py:207
+#, fuzzy
+#| msgid "projects"
+msgid "project call blocks"
+msgstr "projets"
+
+#: organization/projects/models.py:212
+#, fuzzy
+#| msgid "project"
+msgid "project call image"
+msgstr "projets"
+
+#: organization/projects/models.py:217
+#, fuzzy
+#| msgid "project"
+msgid "project call file"
+msgstr "projets"
+
+#: organization/projects/models.py:222
+#, fuzzy
+#| msgid "project"
+msgid "project call link"
+msgstr "projets"
+
+#: organization/projects/models.py:228
 msgid "authors"
 msgstr "auteurs"
 
-#: organization/projects/models.py:157 organization/projects/models.py:192
+#: organization/projects/models.py:229 organization/projects/models.py:264
 msgid "repository"
 msgstr ""
 
-#: organization/projects/models.py:158
+#: organization/projects/models.py:230
 msgid "build commands"
 msgstr ""
 
-#: organization/projects/models.py:159
+#: organization/projects/models.py:231
 msgid "directory"
 msgstr ""
 
-#: organization/projects/models.py:162
+#: organization/projects/models.py:234
 msgid "project demo"
 msgstr "projet demo"
 
-#: organization/projects/models.py:163
+#: organization/projects/models.py:235
 msgid "project demos"
 msgstr "projets demo"
 
-#: organization/projects/models.py:186
+#: organization/projects/models.py:258
 msgid "system"
 msgstr ""
 
-#: organization/projects/models.py:187
+#: organization/projects/models.py:259
 msgid "access"
 msgstr "accès en transports"
 
-#: organization/projects/models.py:188
+#: organization/projects/models.py:260
 msgid "branch"
 msgstr ""
 
-#: organization/projects/models.py:193
+#: organization/projects/models.py:265
 msgid "repositories"
 msgstr ""
 
-#: organization/projects/models.py:222
+#: organization/projects/models.py:294
 msgid "clone command"
 msgstr ""
 
-#: organization/projects/models.py:223
+#: organization/projects/models.py:295
 msgid "pull command"
 msgstr ""
 
-#: organization/projects/models.py:224
+#: organization/projects/models.py:296
 msgid "checkout command"
 msgstr ""
 
-#: organization/projects/models.py:225
+#: organization/projects/models.py:297
 msgid "branch command"
 msgstr ""
 
-#: organization/projects/models.py:228
+#: organization/projects/models.py:300
 msgid "repository system"
 msgstr ""
 
-#: organization/projects/models.py:229
+#: organization/projects/models.py:301
 msgid "repository systems"
 msgstr ""
+
+#: organization/projects/models.py:324
+msgid "Login required content"
+msgstr ""
+
+#: organization/projects/models.py:338
+#, fuzzy
+#| msgid "description"
+msgid "brief description"
+msgstr "description"
+
+#: organization/projects/models.py:339
+#, fuzzy
+#| msgid "description"
+msgid "full description"
+msgstr "description"
+
+#: organization/projects/models.py:340
+#, fuzzy
+#| msgid "description"
+msgid "technology description"
+msgstr "description"
+
+#: organization/projects/models.py:341
+#, fuzzy
+#| msgid "description"
+msgid "objective description"
+msgstr "description"
+
+#: organization/projects/models.py:342
+#, fuzzy
+#| msgid "description"
+msgid "resource description"
+msgstr "description"
+
+#: organization/projects/models.py:343
+msgid "period of implementation"
+msgstr ""
+
+#: organization/projects/models.py:345
+#, fuzzy
+#| msgid "credits"
+msgid "Image credits"
+msgstr "crédits"
+
+#: organization/projects/models.py:356
+#, fuzzy
+#| msgid "description"
+msgid "project description"
+msgstr "description"
+
+#: organization/projects/models.py:357
+#, fuzzy
+#| msgid "organization"
+msgid "affiliation"
+msgstr "organisation"
+
+#: organization/projects/models.py:358
+msgid "letter of commitment by the project coordinator"
+msgstr ""
+
+#: organization/projects/models.py:378
+msgid "artist"
+msgstr "artiste"
+
+#: organization/projects/models.py:379
+#, fuzzy
+#| msgid "Products"
+msgid "producer"
+msgstr "Produits"
+
+#: organization/projects/models.py:381
+msgid "producer commitment"
+msgstr ""
+
+#: organization/projects/models.py:393
+#, fuzzy
+#| msgid "project topic page"
+msgid "project residency file"
+msgstr "page rubrique d'un projet"
 
 #: organization/shop/models.py:44 organization/shop/models.py:53
 #: organization/shop/models.py:64 organization/shop/models.py:67
@@ -1846,8 +2223,8 @@ msgid "Action"
 msgstr "Action"
 
 #: settings.py:69
-msgid "Departement"
-msgstr "Département"
+msgid "Header"
+msgstr ""
 
 #: settings.py:70
 msgid "Footer vertical"
@@ -1857,336 +2234,625 @@ msgstr ""
 msgid "Footer horizontal"
 msgstr ""
 
-#: settings.py:73
-msgid "Vous êtes"
-msgstr ""
+#: settings.py:73 themes/base/templates/pages/menus/vous_etes.html:6
+#: themes/base/templates/pages/menus/vous_etes.html:15
+#: themes/starts_eu/templates/pages/menus/vous_etes.html:6
+#: themes/starts_eu/templates/pages/menus/vous_etes.html:15
+#: themes/vertigo_starts_eu/templates/pages/menus/vous_etes.html:6
+#: themes/vertigo_starts_eu/templates/pages/menus/vous_etes.html:15
+msgid "You are"
+msgstr "Vous êtes"
 
-#: templates/accounts/account_login.html:6 templates/errors/404.html:6
-#: templates/errors/404.html:14
-msgid "Page not found"
-msgstr ""
-
-#: templates/accounts/account_login.html:14
+#: themes/base/templates/accounts/account_form.html:5
+#: themes/base/templates/accounts/account_form.html:9
+#: themes/base/templates/accounts/account_login.html:13
+#: themes/base/templates/projects/inc/project_block.html:26
+#: themes/base/templates/projects/project_blogpage_detail.html:51
+#: themes/starts_eu/templates/accounts/account_form.html:5
+#: themes/starts_eu/templates/accounts/account_form.html:9
+#: themes/starts_eu/templates/accounts/account_login.html:13
+#: themes/starts_eu/templates/projects/inc/project_block.html:26
+#: themes/starts_eu/templates/projects/project_blogpage_detail.html:51
+#: themes/vertigo_starts_eu/templates/accounts/account_form.html:5
+#: themes/vertigo_starts_eu/templates/accounts/account_form.html:9
+#: themes/vertigo_starts_eu/templates/accounts/account_login.html:13
+#: themes/vertigo_starts_eu/templates/projects/inc/project_block.html:26
+#: themes/vertigo_starts_eu/templates/projects/project_blogpage_detail.html:51
 msgid "Login"
 msgstr ""
 
-#: templates/accounts/account_login.html:19
+#: themes/base/templates/accounts/account_login.html:5
+#: themes/base/templates/errors/404.html:6
+#: themes/base/templates/errors/404.html:14
+#: themes/starts_eu/templates/accounts/account_login.html:5
+#: themes/starts_eu/templates/errors/404.html:6
+#: themes/starts_eu/templates/errors/404.html:14
+#: themes/vertigo_starts_eu/templates/accounts/account_login.html:5
+#: themes/vertigo_starts_eu/templates/errors/404.html:6
+#: themes/vertigo_starts_eu/templates/errors/404.html:14
+msgid "Page not found"
+msgstr ""
+
+#: themes/base/templates/accounts/account_login.html:18
+#: themes/starts_eu/templates/accounts/account_login.html:18
+#: themes/vertigo_starts_eu/templates/accounts/account_login.html:18
 msgid ""
 "You're already logged in. If you'd like to log in as a different user, "
 "you'll need to log out first."
 msgstr ""
 
-#: templates/accounts/account_login.html:23
-#, python-format
-msgid ""
-"If you don't have an account you can <a href=\"%(signup_url)s?next=%(next)s"
-"\">sign up</a> for one now."
-msgstr ""
-
-#: templates/accounts/account_login.html:26
+#: themes/base/templates/accounts/account_login.html:25
+#: themes/starts_eu/templates/accounts/account_login.html:25
+#: themes/vertigo_starts_eu/templates/accounts/account_login.html:25
 #, python-format
 msgid ""
 "<p>You can also <a href=\"%(password_reset_url)s?next=%(profile_update_url)s"
 "\">reset your password</a> if you've forgotten it.</p>"
 msgstr ""
 
-#: templates/accounts/account_password_reset.html:6
+#: themes/base/templates/accounts/account_password_reset.html:9
+#: themes/starts_eu/templates/accounts/account_password_reset.html:9
+#: themes/vertigo_starts_eu/templates/accounts/account_password_reset.html:9
 msgid ""
 "Enter your username or email address and you'll receive an email with a link "
 "you need to click, in order to log in and change your password."
 msgstr ""
 
-#: templates/accounts/account_profile.html:18
-#: templates/accounts/includes/user_panel.html:12
+#: themes/base/templates/accounts/account_profile.html:18
+#: themes/base/templates/accounts/includes/user_panel.html:12
+#: themes/starts_eu/templates/accounts/account_profile.html:18
+#: themes/starts_eu/templates/accounts/includes/user_panel.html:12
+#: themes/vertigo_starts_eu/templates/accounts/account_profile.html:18
+#: themes/vertigo_starts_eu/templates/accounts/includes/user_panel.html:12
 msgid "Update profile"
 msgstr ""
 
-#: templates/accounts/account_signup.html:7
+#: themes/base/templates/accounts/account_signup.html:7
+#: themes/starts_eu/templates/accounts/account_signup.html:7
+#: themes/vertigo_starts_eu/templates/accounts/account_signup.html:7
 msgid ""
 "You're already logged in. If you'd like to create a new account, you'll need "
 "to log out first."
 msgstr ""
 
-#: templates/accounts/account_signup.html:11
+#: themes/base/templates/accounts/account_signup.html:11
+#: themes/starts_eu/templates/accounts/account_signup.html:11
+#: themes/vertigo_starts_eu/templates/accounts/account_signup.html:11
 msgid ""
 "After signing up, your account will be reviewed for approval. You'll receive "
 "an email when your account is activated."
 msgstr ""
 
-#: templates/accounts/account_signup.html:13
+#: themes/base/templates/accounts/account_signup.html:13
+#: themes/starts_eu/templates/accounts/account_signup.html:13
+#: themes/vertigo_starts_eu/templates/accounts/account_signup.html:13
 msgid ""
 "After signing up, you'll receive an email with a link you need to click, in "
 "order to activate your account."
 msgstr ""
 
-#: templates/accounts/includes/user_panel.html:5
+#: themes/base/templates/accounts/includes/user_panel.html:5
+#: themes/starts_eu/templates/accounts/includes/user_panel.html:5
+#: themes/vertigo_starts_eu/templates/accounts/includes/user_panel.html:5
 msgid "Logged in as: "
 msgstr ""
 
-#: templates/accounts/includes/user_panel.html:20
-#: templates/accounts/includes/user_panel_nav.html:11
-#: templates/includes/editable_toolbar.html:9
+#: themes/base/templates/accounts/includes/user_panel.html:20
+#: themes/base/templates/accounts/includes/user_panel_nav.html:11
+#: themes/base/templates/includes/editable_toolbar.html:9
+#: themes/starts_eu/templates/accounts/includes/user_panel.html:20
+#: themes/starts_eu/templates/accounts/includes/user_panel_nav.html:11
+#: themes/starts_eu/templates/includes/editable_toolbar.html:9
+#: themes/vertigo_starts_eu/templates/accounts/includes/user_panel.html:20
+#: themes/vertigo_starts_eu/templates/accounts/includes/user_panel_nav.html:11
+#: themes/vertigo_starts_eu/templates/includes/editable_toolbar.html:9
 msgid "Log out"
 msgstr ""
 
-#: templates/accounts/includes/user_panel.html:27
-#: templates/accounts/includes/user_panel_nav.html:14
-#: templates/admin/login.html:63
+#: themes/base/templates/accounts/includes/user_panel.html:27
+#: themes/base/templates/accounts/includes/user_panel_nav.html:14
+#: themes/base/templates/admin/login.html:63
+#: themes/starts_eu/templates/accounts/includes/user_panel.html:27
+#: themes/starts_eu/templates/accounts/includes/user_panel_nav.html:14
+#: themes/starts_eu/templates/admin/login.html:63
+#: themes/vertigo_starts_eu/templates/accounts/includes/user_panel.html:27
+#: themes/vertigo_starts_eu/templates/accounts/includes/user_panel_nav.html:14
+#: themes/vertigo_starts_eu/templates/admin/login.html:63
 msgid "Log in"
 msgstr ""
 
-#: templates/accounts/includes/user_panel.html:30
+#: themes/base/templates/accounts/includes/user_panel.html:30
+#: themes/starts_eu/templates/accounts/includes/user_panel.html:30
+#: themes/vertigo_starts_eu/templates/accounts/includes/user_panel.html:30
 msgid "or"
 msgstr ""
 
-#: templates/accounts/includes/user_panel.html:33
-#: templates/accounts/includes/user_panel_nav.html:16
+#: themes/base/templates/accounts/includes/user_panel.html:33
+#: themes/base/templates/accounts/includes/user_panel_nav.html:16
+#: themes/starts_eu/templates/accounts/includes/user_panel.html:33
+#: themes/starts_eu/templates/accounts/includes/user_panel_nav.html:16
+#: themes/vertigo_starts_eu/templates/accounts/includes/user_panel.html:33
+#: themes/vertigo_starts_eu/templates/accounts/includes/user_panel_nav.html:16
 msgid "Sign up"
 msgstr ""
 
-#: templates/admin/base_site.html:21 templates/core/admin/base_site.html:20
+#: themes/base/templates/admin/base_site.html:21
+#: themes/base/templates/core/admin/base_site.html:20
+#: themes/starts_eu/templates/admin/base_site.html:21
+#: themes/starts_eu/templates/core/admin/base_site.html:20
+#: themes/vertigo_starts_eu/templates/admin/base_site.html:21
+#: themes/vertigo_starts_eu/templates/core/admin/base_site.html:20
 msgid "View site"
 msgstr ""
 
-#: templates/admin/includes/app_list.html:20
-#: templates/admin/includes/content_typed_change_list.html:24
-#: templates/pages/menus/admin.html:42
+#: themes/base/templates/admin/includes/app_list.html:20
+#: themes/base/templates/admin/includes/content_typed_change_list.html:24
+#: themes/base/templates/pages/menus/admin.html:42
+#: themes/starts_eu/templates/admin/includes/app_list.html:20
+#: themes/starts_eu/templates/admin/includes/content_typed_change_list.html:24
+#: themes/starts_eu/templates/pages/menus/admin.html:42
+#: themes/vertigo_starts_eu/templates/admin/includes/app_list.html:20
+#: themes/vertigo_starts_eu/templates/admin/includes/content_typed_change_list.html:24
+#: themes/vertigo_starts_eu/templates/pages/menus/admin.html:42
 msgid "Add"
 msgstr "Ajouter"
 
-#: templates/admin/includes/app_list.html:27
-#: templates/includes/language_selector.html:17
+#: themes/base/templates/admin/includes/app_list.html:27
+#: themes/base/templates/includes/language_selector.html:17
+#: themes/starts_eu/templates/admin/includes/app_list.html:27
+#: themes/starts_eu/templates/includes/language_selector.html:17
+#: themes/vertigo_starts_eu/templates/admin/includes/app_list.html:27
+#: themes/vertigo_starts_eu/templates/includes/language_selector.html:17
 msgid "Change"
 msgstr ""
 
-#: templates/admin/includes/recent_actions.html:4
+#: themes/base/templates/admin/includes/recent_actions.html:4
+#: themes/starts_eu/templates/admin/includes/recent_actions.html:4
+#: themes/vertigo_starts_eu/templates/admin/includes/recent_actions.html:4
 msgid "Recent Actions"
 msgstr "Actions récentes"
 
-#: templates/admin/includes/recent_actions.html:5
+#: themes/base/templates/admin/includes/recent_actions.html:5
+#: themes/starts_eu/templates/admin/includes/recent_actions.html:5
+#: themes/vertigo_starts_eu/templates/admin/includes/recent_actions.html:5
 msgid "My Actions"
 msgstr "Mes Actions"
 
-#: templates/admin/includes/recent_actions.html:9
+#: themes/base/templates/admin/includes/recent_actions.html:9
+#: themes/starts_eu/templates/admin/includes/recent_actions.html:9
+#: themes/vertigo_starts_eu/templates/admin/includes/recent_actions.html:9
 msgid "None available"
 msgstr ""
 
-#: templates/admin/index.html:15 templates/includes/footer.html:21
-#: templates/index.html:5 templates/index.html:15
-#: templates/pages/menus/breadcrumb.html:4
-#: templates/pages/menus/breadcrumb.html:10
-#: templates/pages/menus/current_tree_primary.html:14
-#: templates/pages/menus/current_tree_secondary.html:31
-#: templates/pages/menus/dropdown.html:11
-#: templates/pages/menus/footer_tree.html:11
-#: templates/pages/menus/header.html:15 templates/pages/menus/mobile.html:10
-#: templates/pages/menus/primary.html:8 templates/pages/menus/tree.html:9
-#: templates/projects/project_detail.html:76 templates/search_results.html:13
+#: themes/base/templates/admin/index.html:15
+#: themes/base/templates/includes/footer.html:10
+#: themes/base/templates/index.html:5
+#: themes/base/templates/pages/menus/breadcrumb.html:4
+#: themes/base/templates/pages/menus/breadcrumb.html:10
+#: themes/base/templates/pages/menus/current_tree_primary.html:14
+#: themes/base/templates/pages/menus/current_tree_secondary.html:31
+#: themes/base/templates/pages/menus/dropdown.html:11
+#: themes/base/templates/pages/menus/footer_tree.html:11
+#: themes/base/templates/pages/menus/header.html:15
+#: themes/base/templates/pages/menus/mobile.html:10
+#: themes/base/templates/pages/menus/primary.html:8
+#: themes/base/templates/pages/menus/tree.html:9
+#: themes/base/templates/projects/project_call_detail.html:76
+#: themes/base/templates/projects/project_detail.html:76
+#: themes/starts_eu/templates/admin/index.html:15
+#: themes/starts_eu/templates/includes/footer.html:10
+#: themes/starts_eu/templates/index.html:5
+#: themes/starts_eu/templates/pages/menus/breadcrumb.html:4
+#: themes/starts_eu/templates/pages/menus/breadcrumb.html:10
+#: themes/starts_eu/templates/pages/menus/current_tree_primary.html:14
+#: themes/starts_eu/templates/pages/menus/current_tree_secondary.html:31
+#: themes/starts_eu/templates/pages/menus/dropdown.html:11
+#: themes/starts_eu/templates/pages/menus/footer_tree.html:11
+#: themes/starts_eu/templates/pages/menus/header.html:15
+#: themes/starts_eu/templates/pages/menus/mobile.html:10
+#: themes/starts_eu/templates/pages/menus/primary.html:8
+#: themes/starts_eu/templates/pages/menus/tree.html:9
+#: themes/starts_eu/templates/projects/project_detail.html:76
+#: themes/starts_eu/templates/starts_eu/pages/menus/header.html:15
+#: themes/vertigo_starts_eu/templates/admin/index.html:15
+#: themes/vertigo_starts_eu/templates/includes/footer.html:10
+#: themes/vertigo_starts_eu/templates/index.html:5
+#: themes/vertigo_starts_eu/templates/pages/menus/breadcrumb.html:4
+#: themes/vertigo_starts_eu/templates/pages/menus/breadcrumb.html:10
+#: themes/vertigo_starts_eu/templates/pages/menus/current_tree_primary.html:14
+#: themes/vertigo_starts_eu/templates/pages/menus/current_tree_secondary.html:31
+#: themes/vertigo_starts_eu/templates/pages/menus/dropdown.html:11
+#: themes/vertigo_starts_eu/templates/pages/menus/footer_tree.html:11
+#: themes/vertigo_starts_eu/templates/pages/menus/header.html:15
+#: themes/vertigo_starts_eu/templates/pages/menus/mobile.html:10
+#: themes/vertigo_starts_eu/templates/pages/menus/primary.html:8
+#: themes/vertigo_starts_eu/templates/pages/menus/tree.html:9
+#: themes/vertigo_starts_eu/templates/projects/project_call_detail.html:76
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:76
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:76
+#: themes/vertigo_starts_eu/templates/vertigo_starts_eu/pages/menus/header.html:15
 msgid "Home"
 msgstr "Accueil"
 
-#: templates/admin/index.html:17
+#: themes/base/templates/admin/index.html:17
+#: themes/starts_eu/templates/admin/index.html:17
+#: themes/vertigo_starts_eu/templates/admin/index.html:17
 msgid "Dashboard"
 msgstr ""
 
-#: templates/admin/login.html:24
+#: themes/base/templates/admin/login.html:24
+#: themes/starts_eu/templates/admin/login.html:24
+#: themes/vertigo_starts_eu/templates/admin/login.html:24
 msgid "You don't have permission to access the admin for this site."
 msgstr ""
 
-#: templates/admin/login.html:31
+#: themes/base/templates/admin/login.html:31
+#: themes/starts_eu/templates/admin/login.html:31
+#: themes/vertigo_starts_eu/templates/admin/login.html:31
 msgid "Username or email:"
 msgstr ""
 
-#: templates/admin/login.html:35
+#: themes/base/templates/admin/login.html:35
+#: themes/starts_eu/templates/admin/login.html:35
+#: themes/vertigo_starts_eu/templates/admin/login.html:35
 msgid "Password:"
 msgstr ""
 
-#: templates/admin/login.html:42
-#: templates/agenda/includes/event_metainfo.html:23
+#: themes/base/templates/admin/login.html:42
+#: themes/base/templates/agenda/includes/event_metainfo.html:23
+#: themes/starts_eu/templates/admin/login.html:42
+#: themes/starts_eu/templates/agenda/includes/event_metainfo.html:23
+#: themes/vertigo_starts_eu/templates/admin/login.html:42
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_metainfo.html:23
 msgid "Language"
 msgstr "Langue"
 
-#: templates/admin/login.html:53
+#: themes/base/templates/admin/login.html:53
+#: themes/starts_eu/templates/admin/login.html:53
+#: themes/vertigo_starts_eu/templates/admin/login.html:53
 msgid "Interface:"
 msgstr ""
 
-#: templates/admin/login.html:56 templates/includes/editable_toolbar.html:8
+#: themes/base/templates/admin/login.html:56
+#: themes/base/templates/includes/editable_toolbar.html:8
+#: themes/starts_eu/templates/admin/login.html:56
+#: themes/starts_eu/templates/includes/editable_toolbar.html:8
+#: themes/vertigo_starts_eu/templates/admin/login.html:56
+#: themes/vertigo_starts_eu/templates/includes/editable_toolbar.html:8
 msgid "Admin"
 msgstr ""
 
-#: templates/admin/login.html:66
+#: themes/base/templates/admin/login.html:66
+#: themes/starts_eu/templates/admin/login.html:66
+#: themes/vertigo_starts_eu/templates/admin/login.html:66
 msgid "Forgot password?"
 msgstr ""
 
-#: templates/agenda/confirmation.html:4 templates/agenda/confirmation.html:12
+#: themes/base/templates/agenda/confirmation.html:4
+#: themes/base/templates/agenda/confirmation.html:12
+#: themes/starts_eu/templates/agenda/confirmation.html:4
+#: themes/starts_eu/templates/agenda/confirmation.html:12
+#: themes/vertigo_starts_eu/templates/agenda/confirmation.html:4
+#: themes/vertigo_starts_eu/templates/agenda/confirmation.html:12
 msgid "Confirmation"
 msgstr "Confirmation"
 
-#: templates/agenda/event/includes/event_card.html:71
-#: templates/agenda/includes/event_metainfo.html:70
-#: templates/agenda/includes/event_metainfo.html:76
-#: templates/agenda/includes/event_metainfo_line.html:23
-#: templates/agenda/includes/event_metainfo_line.html:29
-#: templates/agenda/includes/event_metainfo_slider.html:24
-#: templates/agenda/includes/event_search.html:15
+#: themes/base/templates/agenda/event/includes/event_card.html:69
+#: themes/base/templates/agenda/includes/event_linecard.html:37
+#: themes/base/templates/agenda/includes/event_linecard.html:45
+#: themes/base/templates/agenda/includes/event_metainfo.html:70
+#: themes/base/templates/agenda/includes/event_metainfo.html:76
+#: themes/base/templates/agenda/includes/event_metainfo_line.html:23
+#: themes/base/templates/agenda/includes/event_metainfo_line.html:29
+#: themes/base/templates/agenda/includes/event_metainfo_slider.html:24
+#: themes/base/templates/agenda/includes/event_search.html:15
+#: themes/base/templates/home/inc/slider.html:28
+#: themes/starts_eu/templates/agenda/event/includes/event_card.html:69
+#: themes/starts_eu/templates/agenda/includes/event_linecard.html:37
+#: themes/starts_eu/templates/agenda/includes/event_linecard.html:45
+#: themes/starts_eu/templates/agenda/includes/event_metainfo.html:70
+#: themes/starts_eu/templates/agenda/includes/event_metainfo.html:76
+#: themes/starts_eu/templates/agenda/includes/event_metainfo_line.html:23
+#: themes/starts_eu/templates/agenda/includes/event_metainfo_line.html:29
+#: themes/starts_eu/templates/agenda/includes/event_metainfo_slider.html:24
+#: themes/starts_eu/templates/agenda/includes/event_search.html:15
+#: themes/starts_eu/templates/home/inc/slider.html:28
+#: themes/vertigo_starts_eu/templates/agenda/event/includes/event_card.html:69
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_linecard.html:37
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_linecard.html:45
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_metainfo.html:70
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_metainfo.html:76
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_metainfo_line.html:23
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_metainfo_line.html:29
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_metainfo_slider.html:24
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_search.html:15
+#: themes/vertigo_starts_eu/templates/home/inc/slider.html:28
 msgid "Reserve"
 msgstr "Réserver"
 
-#: templates/agenda/event_detail.html:51
+#: themes/base/templates/agenda/event_detail.html:23
+#: themes/starts_eu/templates/agenda/event_detail.html:23
+#: themes/vertigo_starts_eu/templates/agenda/event_detail.html:23
+msgid "Back to events"
+msgstr "Revenir aux événements"
+
+#: themes/base/templates/agenda/event_detail.html:30
+#: themes/starts_eu/templates/agenda/event_detail.html:30
+#: themes/vertigo_starts_eu/templates/agenda/event_detail.html:30
 msgid "Agenda"
 msgstr "Rendez-vous"
 
-#: templates/agenda/event_detail.html:124
+#: themes/base/templates/agenda/event_detail.html:105
+#: themes/starts_eu/templates/agenda/event_detail.html:105
+#: themes/vertigo_starts_eu/templates/agenda/event_detail.html:105
 msgid "Trainers"
 msgstr "Encadrants"
 
-#: templates/agenda/event_detail.html:126
+#: themes/base/templates/agenda/event_detail.html:107
+#: themes/starts_eu/templates/agenda/event_detail.html:107
+#: themes/vertigo_starts_eu/templates/agenda/event_detail.html:107
+#, fuzzy
+#| msgid "Person"
 msgid "Persons"
-msgstr "Personnes"
+msgstr "Personne"
 
-#: templates/agenda/event_list.html:8 templates/agenda/event_list.html:73
-#: templates/agenda/event_list.html:87 templates/agenda/event_list.html:95
-msgid "Rendez-vous in Paris"
-msgstr "Rendez-vous à Paris"
+#: themes/base/templates/agenda/event_list.html:48
+#: themes/starts_eu/templates/agenda/event_list.html:48
+#: themes/vertigo_starts_eu/templates/agenda/event_list.html:48
+msgid "Past events"
+msgstr "Événements passés"
 
-#: templates/agenda/event_list.html:39 templates/agenda/event_list.html:55
-#: templates/agenda/event_list.html:69 templates/agenda/event_list.html:101
-#: templates/agenda/event_list.html:148
-msgid "On tour"
-msgstr "Tournées"
-
-#: templates/agenda/event_list.html:41 templates/agenda/event_list.html:71
-#: templates/agenda/event_list.html:108
-msgid "Archives"
-msgstr "Archives"
-
-#: templates/agenda/event_list.html:108
-msgid "archive"
-msgstr "archive"
-
-#: templates/agenda/event_location_detail.html:40
-#: templates/agenda/includes/event_location.html:15
+#: themes/base/templates/agenda/event_location_detail.html:40
+#: themes/base/templates/agenda/includes/event_location.html:15
+#: themes/starts_eu/templates/agenda/event_location_detail.html:40
+#: themes/starts_eu/templates/agenda/includes/event_location.html:15
+#: themes/vertigo_starts_eu/templates/agenda/event_location_detail.html:40
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_location.html:15
 msgid "Viewing events for the location"
 msgstr "Événements du lieu"
 
-#: templates/agenda/event_location_list.html:4
-#: templates/agenda/event_location_list.html:22
-#: templates/agenda/includes/filter_panel.html:58
+#: themes/base/templates/agenda/event_location_list.html:4
+#: themes/base/templates/agenda/event_location_list.html:22
+#: themes/base/templates/agenda/includes/filter_panel.html:58
+#: themes/starts_eu/templates/agenda/event_location_list.html:4
+#: themes/starts_eu/templates/agenda/event_location_list.html:22
+#: themes/starts_eu/templates/agenda/includes/filter_panel.html:58
+#: themes/vertigo_starts_eu/templates/agenda/event_location_list.html:4
+#: themes/vertigo_starts_eu/templates/agenda/event_location_list.html:22
+#: themes/vertigo_starts_eu/templates/agenda/includes/filter_panel.html:58
 msgid "Locations"
 msgstr "Lieux"
 
-#: templates/agenda/includes/event_date.html:28
-#: templates/agenda/includes/event_date.html:47
-#: templates/agenda/includes/event_date.html:50
-#: templates/agenda/includes/event_date.html:66
-#: templates/agenda/includes/event_date_slider.html:28
-#: templates/agenda/includes/event_date_slider.html:39
+#: themes/base/templates/agenda/includes/event_date.html:28
+#: themes/base/templates/agenda/includes/event_date.html:47
+#: themes/base/templates/agenda/includes/event_date.html:50
+#: themes/base/templates/agenda/includes/event_date.html:66
+#: themes/base/templates/agenda/includes/event_date_line.html:28
+#: themes/base/templates/agenda/includes/event_date_line.html:39
+#: themes/base/templates/agenda/includes/event_date_slider.html:28
+#: themes/base/templates/agenda/includes/event_date_slider.html:39
+#: themes/starts_eu/templates/agenda/includes/event_date.html:28
+#: themes/starts_eu/templates/agenda/includes/event_date.html:47
+#: themes/starts_eu/templates/agenda/includes/event_date.html:50
+#: themes/starts_eu/templates/agenda/includes/event_date.html:66
+#: themes/starts_eu/templates/agenda/includes/event_date_line.html:28
+#: themes/starts_eu/templates/agenda/includes/event_date_line.html:39
+#: themes/starts_eu/templates/agenda/includes/event_date_slider.html:28
+#: themes/starts_eu/templates/agenda/includes/event_date_slider.html:39
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date.html:28
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date.html:47
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date.html:50
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date.html:66
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date_line.html:28
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date_line.html:39
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date_slider.html:28
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date_slider.html:39
 msgid "and"
 msgstr "et"
 
-#: templates/agenda/includes/event_date.html:41
-#: templates/agenda/includes/event_date.html:64
-#: templates/agenda/includes/event_date.html:72
-#: templates/agenda/includes/event_date_slider.html:37
-#: templates/agenda/includes/event_date_slider.html:44
+#: themes/base/templates/agenda/includes/event_date.html:41
+#: themes/base/templates/agenda/includes/event_date.html:64
+#: themes/base/templates/agenda/includes/event_date.html:75
+#: themes/base/templates/agenda/includes/event_date_line.html:37
+#: themes/base/templates/agenda/includes/event_date_line.html:49
+#: themes/base/templates/agenda/includes/event_date_slider.html:37
+#: themes/base/templates/agenda/includes/event_date_slider.html:44
+#: themes/starts_eu/templates/agenda/includes/event_date.html:41
+#: themes/starts_eu/templates/agenda/includes/event_date.html:64
+#: themes/starts_eu/templates/agenda/includes/event_date.html:75
+#: themes/starts_eu/templates/agenda/includes/event_date_line.html:37
+#: themes/starts_eu/templates/agenda/includes/event_date_line.html:49
+#: themes/starts_eu/templates/agenda/includes/event_date_slider.html:37
+#: themes/starts_eu/templates/agenda/includes/event_date_slider.html:44
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date.html:41
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date.html:64
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date.html:75
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date_line.html:37
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date_line.html:49
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date_slider.html:37
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date_slider.html:44
 msgid "through"
 msgstr "au"
 
-#: templates/agenda/includes/event_date_line.html:10
-#: templates/job/inc/candidacy_card.html:22
-#: templates/network/person_detail_multiple_activities.html:78
-#: templates/network/person_detail_multiple_activities.html:82
+#: themes/base/templates/agenda/includes/event_date_card.html:10
+#: themes/base/templates/job/inc/candidacy_card.html:22
+#: themes/base/templates/network/person_detail_multiple_activities.html:78
+#: themes/base/templates/network/person_detail_multiple_activities.html:82
+#: themes/starts_eu/templates/agenda/includes/event_date_card.html:10
+#: themes/starts_eu/templates/job/inc/candidacy_card.html:22
+#: themes/starts_eu/templates/network/person_detail_multiple_activities.html:78
+#: themes/starts_eu/templates/network/person_detail_multiple_activities.html:82
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_date_card.html:10
+#: themes/vertigo_starts_eu/templates/job/inc/candidacy_card.html:22
+#: themes/vertigo_starts_eu/templates/network/person_detail_multiple_activities.html:78
+#: themes/vertigo_starts_eu/templates/network/person_detail_multiple_activities.html:82
 msgid "to"
 msgstr "au"
 
-#: templates/agenda/includes/event_location.html:7
+#: themes/base/templates/agenda/includes/event_location.html:7
+#: themes/starts_eu/templates/agenda/includes/event_location.html:7
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_location.html:7
 msgid "Room"
 msgstr "Salle"
 
-#: templates/agenda/includes/event_location.html:13
+#: themes/base/templates/agenda/includes/event_location.html:13
+#: themes/starts_eu/templates/agenda/includes/event_location.html:13
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_location.html:13
 msgid "Click to get the interactive map"
 msgstr "Cliquer pour voir la carte interactive"
 
-#: templates/agenda/includes/event_metainfo.html:30
+#: themes/base/templates/agenda/includes/event_metainfo.html:30
+#: themes/starts_eu/templates/agenda/includes/event_metainfo.html:30
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_metainfo.html:30
 msgid "Level"
 msgstr "Niveau"
 
-#: templates/agenda/includes/event_metainfo.html:36
-#: templates/core/inc/files.html:3
+#: themes/base/templates/agenda/includes/event_metainfo.html:36
+#: themes/base/templates/core/inc/files.html:3
+#: themes/starts_eu/templates/agenda/includes/event_metainfo.html:36
+#: themes/starts_eu/templates/core/inc/files.html:3
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_metainfo.html:36
+#: themes/vertigo_starts_eu/templates/core/inc/files.html:3
 msgid "Downloads"
 msgstr "Téléchargements"
 
-#: templates/agenda/includes/event_metainfo.html:49
+#: themes/base/templates/agenda/includes/event_metainfo.html:49
+#: themes/starts_eu/templates/agenda/includes/event_metainfo.html:49
+#: themes/vertigo_starts_eu/templates/agenda/includes/event_metainfo.html:49
 msgid "Prices"
 msgstr "Prix"
 
-#: templates/agenda/includes/filter_panel.html:6
+#: themes/base/templates/agenda/includes/filter_panel.html:6
+#: themes/starts_eu/templates/agenda/includes/filter_panel.html:6
+#: themes/vertigo_starts_eu/templates/agenda/includes/filter_panel.html:6
 msgid "Upcoming Events"
 msgstr "Événements à venir"
 
-#: templates/agenda/includes/filter_panel.html:22
+#: themes/base/templates/agenda/includes/filter_panel.html:22
+#: themes/starts_eu/templates/agenda/includes/filter_panel.html:22
+#: themes/vertigo_starts_eu/templates/agenda/includes/filter_panel.html:22
 msgid "Recent Events"
 msgstr "Événements récents"
 
-#: templates/agenda/includes/filter_panel.html:38
+#: themes/base/templates/agenda/includes/filter_panel.html:38
+#: themes/starts_eu/templates/agenda/includes/filter_panel.html:38
+#: themes/vertigo_starts_eu/templates/agenda/includes/filter_panel.html:38
 msgid "Archive"
 msgstr "Archive"
 
-#: templates/agenda/includes/filter_panel.html:74
+#: themes/base/templates/agenda/includes/filter_panel.html:74
+#: themes/starts_eu/templates/agenda/includes/filter_panel.html:74
+#: themes/vertigo_starts_eu/templates/agenda/includes/filter_panel.html:74
 msgid "Tags"
 msgstr "Mots clés"
 
-#: templates/core/inc/related_content.html:8
-#: templates/core/inc/related_content_dynamic.html:8
+#: themes/base/templates/core/inc/related_content.html:8
+#: themes/base/templates/network/person_detail.html:80
+#: themes/starts_eu/templates/core/inc/related_content.html:8
+#: themes/starts_eu/templates/network/person_detail.html:80
+#: themes/vertigo_starts_eu/templates/core/inc/related_content.html:8
+#: themes/vertigo_starts_eu/templates/network/person_detail.html:80
+#, fuzzy
+#| msgid "Related events"
+msgid "Linked events"
+msgstr "Événements liés"
+
+#: themes/base/templates/core/inc/related_content.html:30
+#: themes/base/templates/core/inc/related_content_dynamic.html:7
+#: themes/starts_eu/templates/core/inc/related_content.html:30
+#: themes/starts_eu/templates/core/inc/related_content_dynamic.html:7
+#: themes/vertigo_starts_eu/templates/core/inc/related_content.html:30
+#: themes/vertigo_starts_eu/templates/core/inc/related_content_dynamic.html:7
 msgid "Also discover"
 msgstr "À découvrir aussi"
 
-#: templates/email/account_approve.html:3
-#: templates/email/account_approve.txt:3
+#: themes/base/templates/email/account_approve.html:3
+#: themes/base/templates/email/account_approve.txt:3
+#: themes/starts_eu/templates/email/account_approve.html:3
+#: themes/starts_eu/templates/email/account_approve.txt:3
+#: themes/vertigo_starts_eu/templates/email/account_approve.html:3
+#: themes/vertigo_starts_eu/templates/email/account_approve.txt:3
 msgid "Hey there, a new account has been created and requires activation."
 msgstr ""
 
-#: templates/email/account_approve.html:5
-#: templates/email/account_approve.txt:5
+#: themes/base/templates/email/account_approve.html:5
+#: themes/base/templates/email/account_approve.txt:5
+#: themes/starts_eu/templates/email/account_approve.html:5
+#: themes/starts_eu/templates/email/account_approve.txt:5
+#: themes/vertigo_starts_eu/templates/email/account_approve.html:5
+#: themes/vertigo_starts_eu/templates/email/account_approve.txt:5
 msgid "Name"
 msgstr "Nom"
 
-#: templates/email/account_approve.html:6
-#: templates/email/account_approve.txt:6
-#: templates/network/person_detail.html:34
-#: templates/network/person_detail_multiple_activities.html:34
+#: themes/base/templates/email/account_approve.html:6
+#: themes/base/templates/email/account_approve.txt:6
+#: themes/base/templates/network/person_detail.html:42
+#: themes/base/templates/network/person_detail_multiple_activities.html:34
+#: themes/starts_eu/templates/email/account_approve.html:6
+#: themes/starts_eu/templates/email/account_approve.txt:6
+#: themes/starts_eu/templates/network/person_detail.html:42
+#: themes/starts_eu/templates/network/person_detail_multiple_activities.html:34
+#: themes/vertigo_starts_eu/templates/email/account_approve.html:6
+#: themes/vertigo_starts_eu/templates/email/account_approve.txt:6
+#: themes/vertigo_starts_eu/templates/network/person_detail.html:42
+#: themes/vertigo_starts_eu/templates/network/person_detail_multiple_activities.html:34
 msgid "Email"
 msgstr ""
 
-#: templates/email/account_approve.html:11
-#: templates/email/account_approve.txt:9 templates/email/signup_verify.html:4
-#: templates/email/signup_verify.txt:4
+#: themes/base/templates/email/account_approve.html:11
+#: themes/base/templates/email/account_approve.txt:9
+#: themes/base/templates/email/signup_verify.html:4
+#: themes/base/templates/email/signup_verify.txt:4
+#: themes/starts_eu/templates/email/account_approve.html:11
+#: themes/starts_eu/templates/email/account_approve.txt:9
+#: themes/starts_eu/templates/email/signup_verify.html:4
+#: themes/starts_eu/templates/email/signup_verify.txt:4
+#: themes/vertigo_starts_eu/templates/email/account_approve.html:11
+#: themes/vertigo_starts_eu/templates/email/account_approve.txt:9
+#: themes/vertigo_starts_eu/templates/email/signup_verify.html:4
+#: themes/vertigo_starts_eu/templates/email/signup_verify.txt:4
 msgid "Please use the link below to activate it."
 msgstr ""
 
-#: templates/email/account_approve_subject.txt:2
+#: themes/base/templates/email/account_approve_subject.txt:2
+#: themes/starts_eu/templates/email/account_approve_subject.txt:2
+#: themes/vertigo_starts_eu/templates/email/account_approve_subject.txt:2
 msgid "An account requires activation"
 msgstr ""
 
-#: templates/email/account_approved.html:3
-#: templates/email/account_approved.txt:3
+#: themes/base/templates/email/account_approved.html:3
+#: themes/base/templates/email/account_approved.txt:3
+#: themes/starts_eu/templates/email/account_approved.html:3
+#: themes/starts_eu/templates/email/account_approved.txt:3
+#: themes/vertigo_starts_eu/templates/email/account_approved.html:3
+#: themes/vertigo_starts_eu/templates/email/account_approved.txt:3
 msgid "Hey there, your account has been activated."
 msgstr ""
 
-#: templates/email/account_approved.html:4
-#: templates/email/account_approved.txt:4
+#: themes/base/templates/email/account_approved.html:4
+#: themes/base/templates/email/account_approved.txt:4
+#: themes/starts_eu/templates/email/account_approved.html:4
+#: themes/starts_eu/templates/email/account_approved.txt:4
+#: themes/vertigo_starts_eu/templates/email/account_approved.html:4
+#: themes/vertigo_starts_eu/templates/email/account_approved.txt:4
 msgid "Please use the link below to log in."
 msgstr ""
 
-#: templates/email/account_approved_subject.txt:2
+#: themes/base/templates/email/account_approved_subject.txt:2
+#: themes/starts_eu/templates/email/account_approved_subject.txt:2
+#: themes/vertigo_starts_eu/templates/email/account_approved_subject.txt:2
 msgid "Your account has been activated"
 msgstr ""
 
-#: templates/email/comment_notification.html:6
+#: themes/base/templates/email/comment_notification.html:6
+#: themes/starts_eu/templates/email/comment_notification.html:6
+#: themes/vertigo_starts_eu/templates/email/comment_notification.html:6
 msgid "A new comment has been posted on"
 msgstr ""
 
-#: templates/email/comment_notification.html:10
+#: themes/base/templates/email/comment_notification.html:10
+#: themes/starts_eu/templates/email/comment_notification.html:10
+#: themes/vertigo_starts_eu/templates/email/comment_notification.html:10
 #, python-format
 msgid ""
 "\n"
@@ -2194,309 +2860,537 @@ msgid ""
 "    "
 msgstr ""
 
-#: templates/email/comment_notification.txt:7
+#: themes/base/templates/email/comment_notification.txt:7
+#: themes/starts_eu/templates/email/comment_notification.txt:7
+#: themes/vertigo_starts_eu/templates/email/comment_notification.txt:7
 #, python-format
 msgid ""
 "\n"
 "At %(submit_date)s %(user_name)s wrote:\n"
 msgstr ""
 
-#: templates/email/password_reset_verify.html:3
-#: templates/email/password_reset_verify.txt:3
+#: themes/base/templates/email/password_reset_verify.html:3
+#: themes/base/templates/email/password_reset_verify.txt:3
+#: themes/starts_eu/templates/email/password_reset_verify.html:3
+#: themes/starts_eu/templates/email/password_reset_verify.txt:3
+#: themes/vertigo_starts_eu/templates/email/password_reset_verify.html:3
+#: themes/vertigo_starts_eu/templates/email/password_reset_verify.txt:3
 msgid "Hey there, the password reset form was used for your account."
 msgstr ""
 
-#: templates/email/password_reset_verify.html:4
-#: templates/email/password_reset_verify.txt:4
+#: themes/base/templates/email/password_reset_verify.html:4
+#: themes/base/templates/email/password_reset_verify.txt:4
+#: themes/starts_eu/templates/email/password_reset_verify.html:4
+#: themes/starts_eu/templates/email/password_reset_verify.txt:4
+#: themes/vertigo_starts_eu/templates/email/password_reset_verify.html:4
+#: themes/vertigo_starts_eu/templates/email/password_reset_verify.txt:4
 msgid "Please use the link below to log in and update your password."
 msgstr ""
 
-#: templates/email/password_reset_verify.html:6
-#: templates/email/password_reset_verify.txt:6
+#: themes/base/templates/email/password_reset_verify.html:6
+#: themes/base/templates/email/password_reset_verify.txt:6
+#: themes/starts_eu/templates/email/password_reset_verify.html:6
+#: themes/starts_eu/templates/email/password_reset_verify.txt:6
+#: themes/vertigo_starts_eu/templates/email/password_reset_verify.html:6
+#: themes/vertigo_starts_eu/templates/email/password_reset_verify.txt:6
 msgid ""
 "If you didn't request for your password to be reset, please ignore this "
 "email."
 msgstr ""
 
-#: templates/email/password_reset_verify_subject.txt:2
+#: themes/base/templates/email/password_reset_verify_subject.txt:2
+#: themes/starts_eu/templates/email/password_reset_verify_subject.txt:2
+#: themes/vertigo_starts_eu/templates/email/password_reset_verify_subject.txt:2
 msgid "Reset your password"
 msgstr ""
 
-#: templates/email/signup_verify.html:3 templates/email/signup_verify.txt:3
+#: themes/base/templates/email/signup_verify.html:3
+#: themes/base/templates/email/signup_verify.txt:3
+#: themes/starts_eu/templates/email/signup_verify.html:3
+#: themes/starts_eu/templates/email/signup_verify.txt:3
+#: themes/vertigo_starts_eu/templates/email/signup_verify.html:3
+#: themes/vertigo_starts_eu/templates/email/signup_verify.txt:3
 msgid "Hey there, thanks for creating your account."
 msgstr ""
 
-#: templates/email/signup_verify_subject.txt:2
+#: themes/base/templates/email/signup_verify_subject.txt:2
+#: themes/starts_eu/templates/email/signup_verify_subject.txt:2
+#: themes/vertigo_starts_eu/templates/email/signup_verify_subject.txt:2
 msgid "Activate your account"
 msgstr ""
 
-#: templates/errors/404.html:19
+#: themes/base/templates/errors/404.html:19
+#: themes/starts_eu/templates/errors/404.html:19
+#: themes/vertigo_starts_eu/templates/errors/404.html:19
 msgid "The page you requested does not exist."
 msgstr ""
 
-#: templates/errors/500.html:6 templates/errors/500.html:10
-#: templates/errors/500.html:15 templates/errors/500.html:25
+#: themes/base/templates/errors/500.html:6
+#: themes/base/templates/errors/500.html:10
+#: themes/base/templates/errors/500.html:15
+#: themes/base/templates/errors/500.html:25
+#: themes/starts_eu/templates/errors/500.html:6
+#: themes/starts_eu/templates/errors/500.html:10
+#: themes/starts_eu/templates/errors/500.html:15
+#: themes/starts_eu/templates/errors/500.html:25
+#: themes/vertigo_starts_eu/templates/errors/500.html:6
+#: themes/vertigo_starts_eu/templates/errors/500.html:10
+#: themes/vertigo_starts_eu/templates/errors/500.html:15
+#: themes/vertigo_starts_eu/templates/errors/500.html:25
 msgid "Error"
 msgstr ""
 
-#: templates/errors/500.html:16 templates/errors/500.html:30
+#: themes/base/templates/errors/500.html:16
+#: themes/base/templates/errors/500.html:30
+#: themes/starts_eu/templates/errors/500.html:16
+#: themes/starts_eu/templates/errors/500.html:30
+#: themes/vertigo_starts_eu/templates/errors/500.html:16
+#: themes/vertigo_starts_eu/templates/errors/500.html:30
 msgid "Sorry, an error occurred."
 msgstr "Une erreur s'est produite."
 
-#: templates/generic/includes/comment.html:22
-#: templates/generic/includes/comment.html:59 templates/twitter/tweets.html:19
+#: themes/base/templates/generic/includes/comment.html:22
+#: themes/base/templates/generic/includes/comment.html:59
+#: themes/base/templates/twitter/tweets.html:24
+#: themes/starts_eu/templates/generic/includes/comment.html:22
+#: themes/starts_eu/templates/generic/includes/comment.html:59
+#: themes/starts_eu/templates/twitter/tweets.html:24
+#: themes/vertigo_starts_eu/templates/generic/includes/comment.html:22
+#: themes/vertigo_starts_eu/templates/generic/includes/comment.html:59
+#: themes/vertigo_starts_eu/templates/twitter/tweets.html:24
 #, python-format
 msgid "%(sometime)s ago"
 msgstr ""
 
-#: templates/generic/includes/comment.html:30
+#: themes/base/templates/generic/includes/comment.html:30
+#: themes/starts_eu/templates/generic/includes/comment.html:30
+#: themes/vertigo_starts_eu/templates/generic/includes/comment.html:30
 msgid "Link"
 msgstr ""
 
-#: templates/generic/includes/comment.html:33
-#: templates/generic/includes/comment.html:49
+#: themes/base/templates/generic/includes/comment.html:33
+#: themes/base/templates/generic/includes/comment.html:49
+#: themes/starts_eu/templates/generic/includes/comment.html:33
+#: themes/starts_eu/templates/generic/includes/comment.html:49
+#: themes/vertigo_starts_eu/templates/generic/includes/comment.html:33
+#: themes/vertigo_starts_eu/templates/generic/includes/comment.html:49
 msgid "Reply"
 msgstr ""
 
-#: templates/generic/includes/comment.html:55
+#: themes/base/templates/generic/includes/comment.html:55
+#: themes/starts_eu/templates/generic/includes/comment.html:55
+#: themes/vertigo_starts_eu/templates/generic/includes/comment.html:55
 msgid "Comment deleted"
 msgstr ""
 
-#: templates/generic/includes/comment.html:57
+#: themes/base/templates/generic/includes/comment.html:57
+#: themes/starts_eu/templates/generic/includes/comment.html:57
+#: themes/vertigo_starts_eu/templates/generic/includes/comment.html:57
 msgid "Comment awaiting approval"
 msgstr ""
 
-#: templates/generic/includes/comment.html:71
+#: themes/base/templates/generic/includes/comment.html:71
+#: themes/starts_eu/templates/generic/includes/comment.html:71
+#: themes/vertigo_starts_eu/templates/generic/includes/comment.html:71
 msgid "There are currently no comments"
 msgstr ""
 
-#: templates/generic/includes/comments.html:3
+#: themes/base/templates/generic/includes/comments.html:3
+#: themes/starts_eu/templates/generic/includes/comments.html:3
+#: themes/vertigo_starts_eu/templates/generic/includes/comments.html:3
 msgid "Comments"
 msgstr "Commentaires"
 
-#: templates/generic/includes/comments.html:17
+#: themes/base/templates/generic/includes/comments.html:17
+#: themes/starts_eu/templates/generic/includes/comments.html:17
+#: themes/vertigo_starts_eu/templates/generic/includes/comments.html:17
 msgid "New Comment"
 msgstr ""
 
-#: templates/generic/includes/comments.html:25
+#: themes/base/templates/generic/includes/comments.html:25
+#: themes/starts_eu/templates/generic/includes/comments.html:25
+#: themes/vertigo_starts_eu/templates/generic/includes/comments.html:25
 msgid "Comment"
 msgstr ""
 
-#: templates/generic/includes/rating.html:5
+#: themes/base/templates/generic/includes/rating.html:5
+#: themes/starts_eu/templates/generic/includes/rating.html:5
+#: themes/vertigo_starts_eu/templates/generic/includes/rating.html:5
 msgid "Current rating"
 msgstr ""
 
-#: templates/generic/includes/rating.html:7
+#: themes/base/templates/generic/includes/rating.html:7
+#: themes/starts_eu/templates/generic/includes/rating.html:7
+#: themes/vertigo_starts_eu/templates/generic/includes/rating.html:7
 msgid "Currently unrated"
 msgstr ""
 
-#: templates/generic/includes/rating.html:17
+#: themes/base/templates/generic/includes/rating.html:17
+#: themes/starts_eu/templates/generic/includes/rating.html:17
+#: themes/vertigo_starts_eu/templates/generic/includes/rating.html:17
 msgid "Rate"
 msgstr ""
 
-#: templates/home/inc/slider.html:20
-#: templates/magazine/article/article_detail.html:38
-#: templates/magazine/article/includes/article_card.html:45
+#: themes/base/templates/home/inc/slider.html:41
+#: themes/base/templates/magazine/article/article_list.html:8
+#: themes/base/templates/magazine/article/article_list.html:33
+#: themes/starts_eu/templates/home/inc/slider.html:41
+#: themes/starts_eu/templates/magazine/article/article_list.html:8
+#: themes/starts_eu/templates/magazine/article/article_list.html:33
+#: themes/vertigo_starts_eu/templates/home/inc/slider.html:41
+#: themes/vertigo_starts_eu/templates/magazine/article/article_list.html:8
+#: themes/vertigo_starts_eu/templates/magazine/article/article_list.html:33
 msgid "News"
 msgstr "Actualité"
 
-#: templates/includes/editable_form.html:16
+#: themes/base/templates/includes/editable_form.html:16
+#: themes/starts_eu/templates/includes/editable_form.html:16
+#: themes/vertigo_starts_eu/templates/includes/editable_form.html:16
 msgid "Save"
 msgstr ""
 
-#: templates/includes/editable_form.html:17
+#: themes/base/templates/includes/editable_form.html:17
+#: themes/starts_eu/templates/includes/editable_form.html:17
+#: themes/vertigo_starts_eu/templates/includes/editable_form.html:17
 msgid "Cancel"
 msgstr ""
 
-#: templates/includes/editable_form.html:25
+#: themes/base/templates/includes/editable_form.html:25
+#: themes/starts_eu/templates/includes/editable_form.html:25
+#: themes/vertigo_starts_eu/templates/includes/editable_form.html:25
 msgid "Edit"
 msgstr ""
 
-#: templates/includes/footer.html:7
-msgid "Subscribe to our newsletter"
-msgstr "Inscription à la newsletter"
+#: themes/base/templates/includes/footer.html:23
+#: themes/starts_eu/templates/includes/footer.html:23
+#: themes/vertigo_starts_eu/templates/includes/footer.html:23
+msgid "Porté par"
+msgstr ""
 
-#: templates/includes/footer.html:10
+#: themes/base/templates/includes/footer.html:78
+#: themes/starts_eu/templates/includes/footer.html:78
+#: themes/starts_eu/templates/starts_eu/includes/footer.html:63
+#: themes/vertigo_starts_eu/templates/includes/footer.html:78
+#: themes/vertigo_starts_eu/templates/vertigo_starts_eu/includes/footer.html:63
 msgid "Follow us on"
 msgstr "Suivez-nous sur"
 
-#: templates/includes/footer.html:31
-msgid "Opening times"
-msgstr "Horaires d'ouverture"
-
-#: templates/includes/footer.html:36
-msgid "Subway access"
-msgstr "Accès en transports"
-
-#: templates/includes/footer.html:54
-msgid "under the tutelage of"
-msgstr "sous la tutelle de"
-
-#: templates/includes/footer.html:62
-msgid "go to"
-msgstr "Aller vers"
-
-#: templates/includes/footer.html:80
+#: themes/base/templates/includes/footer.html:107
+#: themes/starts_eu/templates/includes/footer.html:107
+#: themes/starts_eu/templates/starts_eu/includes/footer.html:92
+#: themes/vertigo_starts_eu/templates/includes/footer.html:107
+#: themes/vertigo_starts_eu/templates/vertigo_starts_eu/includes/footer.html:92
 msgid "All rights reserved"
 msgstr ""
 
-#: templates/includes/form_errors.html:8
+#: themes/base/templates/includes/form_errors.html:8
+#: themes/starts_eu/templates/includes/form_errors.html:8
+#: themes/vertigo_starts_eu/templates/includes/form_errors.html:8
 msgid "Please correct the errors below."
 msgstr ""
 
-#: templates/includes/pagination.html:12
+#: themes/base/templates/includes/pagination.html:12
+#: themes/starts_eu/templates/includes/pagination.html:12
+#: themes/vertigo_starts_eu/templates/includes/pagination.html:12
 msgid "Previous page"
 msgstr "Page précédente"
 
-#: templates/includes/pagination.html:26
+#: themes/base/templates/includes/pagination.html:26
+#: themes/starts_eu/templates/includes/pagination.html:26
+#: themes/vertigo_starts_eu/templates/includes/pagination.html:26
 msgid "Next page"
 msgstr "Page suivante"
 
-#: templates/includes/search_form.html:12 templates/search_results.html:27
+#: themes/base/templates/includes/search_form.html:11
+#: themes/base/templates/search_results.html:17
+#: themes/starts_eu/templates/includes/search_form.html:11
+#: themes/starts_eu/templates/search_results.html:17
+#: themes/vertigo_starts_eu/templates/includes/search_form.html:11
+#: themes/vertigo_starts_eu/templates/search_results.html:17
 msgid "Type something"
 msgstr ""
 
-#: templates/includes/share_buttons.html:5
+#: themes/base/templates/includes/share_buttons.html:5
+#: themes/base/templates/media/audio/audio_overlay.html:43
+#: themes/base/templates/media/video/video_overlay.html:41
+#: themes/starts_eu/templates/includes/share_buttons.html:5
+#: themes/starts_eu/templates/media/audio/audio_overlay.html:43
+#: themes/starts_eu/templates/media/video/video_overlay.html:41
+#: themes/vertigo_starts_eu/templates/includes/share_buttons.html:5
+#: themes/vertigo_starts_eu/templates/media/audio/audio_overlay.html:43
+#: themes/vertigo_starts_eu/templates/media/video/video_overlay.html:41
 msgid "Share on Facebook"
 msgstr "Partagez sur Facebook"
 
-#: templates/includes/share_buttons.html:8
+#: themes/base/templates/includes/share_buttons.html:8
+#: themes/base/templates/media/audio/audio_overlay.html:46
+#: themes/base/templates/media/video/video_overlay.html:44
+#: themes/starts_eu/templates/includes/share_buttons.html:8
+#: themes/starts_eu/templates/media/audio/audio_overlay.html:46
+#: themes/starts_eu/templates/media/video/video_overlay.html:44
+#: themes/vertigo_starts_eu/templates/includes/share_buttons.html:8
+#: themes/vertigo_starts_eu/templates/media/audio/audio_overlay.html:46
+#: themes/vertigo_starts_eu/templates/media/video/video_overlay.html:44
 msgid "Share on Twitter"
 msgstr "Partagez sur Twitter"
 
-#: templates/includes/share_buttons.html:11
+#: themes/base/templates/includes/share_buttons.html:11
+#: themes/base/templates/media/audio/audio_overlay.html:49
+#: themes/base/templates/media/video/video_overlay.html:47
+#: themes/starts_eu/templates/includes/share_buttons.html:11
+#: themes/starts_eu/templates/media/audio/audio_overlay.html:49
+#: themes/starts_eu/templates/media/video/video_overlay.html:47
+#: themes/vertigo_starts_eu/templates/includes/share_buttons.html:11
+#: themes/vertigo_starts_eu/templates/media/audio/audio_overlay.html:49
+#: themes/vertigo_starts_eu/templates/media/video/video_overlay.html:47
 msgid "Share by email"
 msgstr "Partager par email"
 
-#: templates/includes/share_buttons.html:14
+#: themes/base/templates/includes/share_buttons.html:14
+#: themes/starts_eu/templates/includes/share_buttons.html:14
+#: themes/vertigo_starts_eu/templates/includes/share_buttons.html:14
 msgid "Print this page"
 msgstr "Imprimer cette page"
 
-#: templates/includes/share_buttons.html:18
-#: templates/includes/share_buttons.html:23
+#: themes/base/templates/includes/share_buttons.html:18
+#: themes/base/templates/includes/share_buttons.html:23
+#: themes/starts_eu/templates/includes/share_buttons.html:18
+#: themes/starts_eu/templates/includes/share_buttons.html:23
+#: themes/vertigo_starts_eu/templates/includes/share_buttons.html:18
+#: themes/vertigo_starts_eu/templates/includes/share_buttons.html:23
 msgid "Add to"
 msgstr "Ajouter à"
 
-#: templates/includes/sidebar.html:14 templates/index.html:53
-msgid "Medias"
-msgstr "Medias"
+#: themes/base/templates/includes/social.html:7
+#: themes/starts_eu/templates/includes/social.html:7
+#: themes/vertigo_starts_eu/templates/includes/social.html:7
+msgid "Instagram feed"
+msgstr "Fil Instagram"
 
-#: templates/index.html:30
-msgid "News Headlines"
-msgstr "À la une"
+#: themes/base/templates/includes/social.html:15
+#: themes/starts_eu/templates/includes/social.html:15
+#: themes/vertigo_starts_eu/templates/includes/social.html:15
+msgid "Twitter feed"
+msgstr "Fil Twitter"
 
-#: templates/index.html:43
-msgid "Brief"
-msgstr "Brève"
-
-#: templates/index.html:43
-msgid "Briefs"
-msgstr "Brèves"
-
-#: templates/job/candidacy_list.html:4 templates/job/candidacy_list.html:13
-#: templates/job/candidacy_list.html:22
+#: themes/base/templates/job/candidacy_list.html:4
+#: themes/base/templates/job/candidacy_list.html:13
+#: themes/base/templates/job/candidacy_list.html:22
+#: themes/starts_eu/templates/job/candidacy_list.html:4
+#: themes/starts_eu/templates/job/candidacy_list.html:13
+#: themes/starts_eu/templates/job/candidacy_list.html:22
+#: themes/vertigo_starts_eu/templates/job/candidacy_list.html:4
+#: themes/vertigo_starts_eu/templates/job/candidacy_list.html:13
+#: themes/vertigo_starts_eu/templates/job/candidacy_list.html:22
 msgid "Candidacies"
 msgstr "Candidatures"
 
-#: templates/job/candidacy_list.html:35
+#: themes/base/templates/job/candidacy_list.html:35
+#: themes/starts_eu/templates/job/candidacy_list.html:35
+#: themes/vertigo_starts_eu/templates/job/candidacy_list.html:35
 msgid "Please come back later. There is no candidacy at the moment."
 msgstr ""
 "Merci de revenir plus tard. Il n'y a pas de candidature pour le moment."
 
-#: templates/job/inc/candidacy_card.html:22
-#: templates/job/inc/candidacy_card.html:24
+#: themes/base/templates/job/inc/candidacy_card.html:22
+#: themes/base/templates/job/inc/candidacy_card.html:24
+#: themes/starts_eu/templates/job/inc/candidacy_card.html:22
+#: themes/starts_eu/templates/job/inc/candidacy_card.html:24
+#: themes/vertigo_starts_eu/templates/job/inc/candidacy_card.html:22
+#: themes/vertigo_starts_eu/templates/job/inc/candidacy_card.html:24
 msgid "From"
 msgstr "Du"
 
-#: templates/job/inc/candidacy_card.html:26
+#: themes/base/templates/job/inc/candidacy_card.html:26
+#: themes/starts_eu/templates/job/inc/candidacy_card.html:26
+#: themes/vertigo_starts_eu/templates/job/inc/candidacy_card.html:26
 msgid "until"
 msgstr "jusqu'au"
 
-#: templates/job/inc/job_offer_card.html:17
+#: themes/base/templates/job/inc/job_offer_card.html:17
+#: themes/starts_eu/templates/job/inc/job_offer_card.html:17
+#: themes/vertigo_starts_eu/templates/job/inc/job_offer_card.html:17
 msgid "Published on"
 msgstr "Publié le"
 
-#: templates/job/inc/job_offer_card.html:23
+#: themes/base/templates/job/inc/job_offer_card.html:23
+#: themes/starts_eu/templates/job/inc/job_offer_card.html:23
+#: themes/vertigo_starts_eu/templates/job/inc/job_offer_card.html:23
 msgid "View"
 msgstr "Vue"
 
-#: templates/job/job_offer_list.html:28
+#: themes/base/templates/job/job_offer_list.html:28
+#: themes/starts_eu/templates/job/job_offer_list.html:28
+#: themes/vertigo_starts_eu/templates/job/job_offer_list.html:28
 msgid "Please come back later. There is no job offer at the moment."
 msgstr ""
 "Merci de revenir plus tard. Il n'y a pas d'offre d'emploi pour le moment."
 
-#: templates/magazine/article/article_detail.html:103
+#: themes/base/templates/magazine/article/article_detail.html:85
+#: themes/base/templates/media/audio/audio_detail.html:30
+#: themes/base/templates/media/audio/audio_overlay.html:31
+#: themes/base/templates/media/video/video_detail.html:28
+#: themes/base/templates/media/video/video_overlay.html:29
+#: themes/starts_eu/templates/magazine/article/article_detail.html:85
+#: themes/starts_eu/templates/media/audio/audio_detail.html:30
+#: themes/starts_eu/templates/media/audio/audio_overlay.html:31
+#: themes/starts_eu/templates/media/video/video_detail.html:28
+#: themes/starts_eu/templates/media/video/video_overlay.html:29
+#: themes/vertigo_starts_eu/templates/magazine/article/article_detail.html:85
+#: themes/vertigo_starts_eu/templates/media/audio/audio_detail.html:30
+#: themes/vertigo_starts_eu/templates/media/audio/audio_overlay.html:31
+#: themes/vertigo_starts_eu/templates/media/video/video_detail.html:28
+#: themes/vertigo_starts_eu/templates/media/video/video_overlay.html:29
 msgid "Publish date"
 msgstr "Date de publication"
 
-#: templates/magazine/brief/inc/brief_card.html:6
+#: themes/base/templates/magazine/brief/inc/brief_card.html:6
+#: themes/starts_eu/templates/magazine/brief/inc/brief_card.html:6
+#: themes/vertigo_starts_eu/templates/magazine/brief/inc/brief_card.html:6
 msgid "Brief !"
 msgstr "Brève !"
 
-#: templates/magazine/topic/topic_detail.html:24
+#: themes/base/templates/magazine/topic/topic_detail.html:24
+#: themes/starts_eu/templates/magazine/topic/topic_detail.html:24
+#: themes/vertigo_starts_eu/templates/magazine/topic/topic_detail.html:24
 msgid "Articles"
 msgstr "Articles"
 
-#: templates/media/audio/inc/audio_search.html:20
-#: templates/media/inc/playlist_search.html:49
-#: templates/media/video/inc/video_search.html:20
+#: themes/base/templates/media/audio/inc/audio_search.html:20
+#: themes/base/templates/media/inc/playlist_search.html:47
+#: themes/base/templates/media/video/inc/video_search.html:20
+#: themes/starts_eu/templates/media/audio/inc/audio_search.html:20
+#: themes/starts_eu/templates/media/inc/playlist_search.html:47
+#: themes/starts_eu/templates/media/video/inc/video_search.html:20
+#: themes/vertigo_starts_eu/templates/media/audio/inc/audio_search.html:20
+#: themes/vertigo_starts_eu/templates/media/inc/playlist_search.html:47
+#: themes/vertigo_starts_eu/templates/media/video/inc/video_search.html:20
 msgid "read more"
 msgstr "lire la suite"
 
-#: templates/media/inc/playlist_shutter.html:35
-#: templates/media/inc/playlist_shutter.html:36
+#: themes/base/templates/media/inc/playlist_shutter.html:35
+#: themes/base/templates/media/inc/playlist_shutter.html:36
+#: themes/starts_eu/templates/media/inc/playlist_shutter.html:35
+#: themes/starts_eu/templates/media/inc/playlist_shutter.html:36
+#: themes/vertigo_starts_eu/templates/media/inc/playlist_shutter.html:35
+#: themes/vertigo_starts_eu/templates/media/inc/playlist_shutter.html:36
 msgid "View all medias"
 msgstr "Voir tous les medias"
 
-#: templates/network/inc/person/person_card_circle.html:32
+#: themes/base/templates/media/live_streaming/live_streaming_detail.html:4
+msgid "Live Streaming"
+msgstr "Diffusion en direct"
+
+#: themes/base/templates/media/live_streaming/live_streaming_detail.html:24
+msgid "If the YouTube streaming does not work, try the HTML5 version by"
+msgstr "Si le flux YouTube ne fonctionne pas, essayez la version HTML5 en"
+
+#: themes/base/templates/media/live_streaming/live_streaming_detail.html:24
+#: themes/base/templates/media/live_streaming/live_streaming_detail.html:34
+msgid "clicking here"
+msgstr "cliquant ici"
+
+#: themes/base/templates/media/live_streaming/live_streaming_detail.html:34
+msgid "If the HTML5 streaming does not work, try the YouTube version by"
+msgstr "Si le flux HTML5 ne fonctionne pas, essayez la version YouTube en"
+
+#: themes/base/templates/network/inc/person/person_card_circle.html:32
+#: themes/starts_eu/templates/network/inc/person/person_card_circle.html:32
+#: themes/vertigo_starts_eu/templates/network/inc/person/person_card_circle.html:32
 msgid "resume"
 msgstr "résumé"
 
-#: templates/network/person_detail.html:46
-#: templates/network/person_detail_multiple_activities.html:52
-#: templates/pages/teampage.html:133
+#: themes/base/templates/network/person_activity_timesheet/person_activity_timesheet_list.html:37
+#: themes/starts_eu/templates/network/person_activity_timesheet/person_activity_timesheet_list.html:37
+#: themes/vertigo_starts_eu/templates/network/person_activity_timesheet/person_activity_timesheet_list.html:37
+msgid "No timesheet."
+msgstr ""
+
+#: themes/base/templates/network/person_detail.html:54
+#: themes/base/templates/network/person_detail_multiple_activities.html:52
+#: themes/base/templates/pages/teampage.html:133
+#: themes/starts_eu/templates/network/person_detail.html:54
+#: themes/starts_eu/templates/network/person_detail_multiple_activities.html:52
+#: themes/starts_eu/templates/pages/teampage.html:133
+#: themes/vertigo_starts_eu/templates/network/person_detail.html:54
+#: themes/vertigo_starts_eu/templates/network/person_detail_multiple_activities.html:52
+#: themes/vertigo_starts_eu/templates/pages/teampage.html:133
 msgid "Team"
 msgstr "Équipe"
 
-#: templates/network/person_detail.html:79
-#: templates/network/person_detail_multiple_activities.html:106
+#: themes/base/templates/network/person_detail.html:113
+#: themes/starts_eu/templates/network/person_detail.html:113
+#: themes/vertigo_starts_eu/templates/network/person_detail.html:113
+msgid "Linked contents"
+msgstr ""
+
+#: themes/base/templates/network/person_detail.html:158
+#: themes/base/templates/network/person_detail_multiple_activities.html:106
+#: themes/starts_eu/templates/network/person_detail.html:158
+#: themes/starts_eu/templates/network/person_detail_multiple_activities.html:106
+#: themes/vertigo_starts_eu/templates/network/person_detail.html:158
+#: themes/vertigo_starts_eu/templates/network/person_detail_multiple_activities.html:106
 msgid "Links"
 msgstr "Liens"
 
-#: templates/network/person_detail_multiple_activities.html:37
+#: themes/base/templates/network/person_detail_multiple_activities.html:37
+#: themes/starts_eu/templates/network/person_detail_multiple_activities.html:37
+#: themes/vertigo_starts_eu/templates/network/person_detail_multiple_activities.html:37
 msgid "Activities"
 msgstr "Activités"
 
-#: templates/network/person_detail_multiple_activities.html:62
-#: templates/network/person_detail_multiple_activities.html:68
+#: themes/base/templates/network/person_detail_multiple_activities.html:62
+#: themes/base/templates/network/person_detail_multiple_activities.html:68
+#: themes/starts_eu/templates/network/person_detail_multiple_activities.html:62
+#: themes/starts_eu/templates/network/person_detail_multiple_activities.html:68
+#: themes/vertigo_starts_eu/templates/network/person_detail_multiple_activities.html:62
+#: themes/vertigo_starts_eu/templates/network/person_detail_multiple_activities.html:68
 msgid "Organization"
 msgstr "Organisation"
 
-#: templates/network/person_detail_multiple_activities.html:78
-#: templates/network/person_detail_multiple_activities.html:80
-#: templates/network/person_detail_multiple_activities.html:82
+#: themes/base/templates/network/person_detail_multiple_activities.html:78
+#: themes/base/templates/network/person_detail_multiple_activities.html:80
+#: themes/base/templates/network/person_detail_multiple_activities.html:82
+#: themes/starts_eu/templates/network/person_detail_multiple_activities.html:78
+#: themes/starts_eu/templates/network/person_detail_multiple_activities.html:80
+#: themes/starts_eu/templates/network/person_detail_multiple_activities.html:82
+#: themes/vertigo_starts_eu/templates/network/person_detail_multiple_activities.html:78
+#: themes/vertigo_starts_eu/templates/network/person_detail_multiple_activities.html:80
+#: themes/vertigo_starts_eu/templates/network/person_detail_multiple_activities.html:82
 msgid "Period"
 msgstr "Période"
 
-#: templates/network/person_detail_multiple_activities.html:80
-#: templates/network/person_detail_multiple_activities.html:82
+#: themes/base/templates/network/person_detail_multiple_activities.html:80
+#: themes/base/templates/network/person_detail_multiple_activities.html:82
+#: themes/starts_eu/templates/network/person_detail_multiple_activities.html:80
+#: themes/starts_eu/templates/network/person_detail_multiple_activities.html:82
+#: themes/vertigo_starts_eu/templates/network/person_detail_multiple_activities.html:80
+#: themes/vertigo_starts_eu/templates/network/person_detail_multiple_activities.html:82
 msgid "from"
 msgstr "du"
 
-#: templates/pages/form.html:24
+#: themes/base/templates/pages/form.html:55
+#: themes/base/templates/projects/project_ict_create.html:39
+#: themes/starts_eu/templates/pages/form.html:55
+#: themes/vertigo_starts_eu/templates/pages/form.html:55
+#: themes/vertigo_starts_eu/templates/projects/project_ict_create.html:49
+#: themes/vertigo_starts_eu/templates/projects/project_producer_create.html:50
+#: themes/vertigo_starts_eu/templates/projects/project_residency_create.html:39
 msgid "Submit"
 msgstr "Soumettre"
 
-#: templates/pages/menus/vous_etes.html:6
-#: templates/pages/menus/vous_etes.html:15
-msgid "You are"
-msgstr "Vous êtes"
-
-#: templates/pages/newsletter.html:4 templates/pages/newsletter.html:15
+#: themes/base/templates/pages/newsletter.html:4
+#: themes/base/templates/pages/newsletter.html:15
+#: themes/starts_eu/templates/pages/newsletter.html:4
+#: themes/starts_eu/templates/pages/newsletter.html:15
+#: themes/vertigo_starts_eu/templates/pages/newsletter.html:4
+#: themes/vertigo_starts_eu/templates/pages/newsletter.html:15
 msgid "Newsletter"
 msgstr "Newsletter"
 
-#: templates/pages/newsletter.html:20
+#: themes/base/templates/pages/newsletter.html:20
+#: themes/starts_eu/templates/pages/newsletter.html:20
+#: themes/vertigo_starts_eu/templates/pages/newsletter.html:20
 msgid ""
 "Sign up for our monthly newsletter to keep up to date with the institute's "
 "activities every month and be eligible to take advantage of special offers "
@@ -2506,82 +3400,181 @@ msgstr ""
 "l’actualité de l’Ircam chaque début de mois et bénéficiez des offres "
 "réservées à nos abonnés dans différents lieux partenaires de l’Institut."
 
-#: templates/pages/page/includes/page_search.html:27
-#: templates/projects/project_demo_detail.html:35
+#: themes/base/templates/pages/page/includes/page_search.html:22
+#: themes/base/templates/projects/project_demo_detail.html:35
+#: themes/starts_eu/templates/pages/page/includes/page_search.html:22
+#: themes/starts_eu/templates/projects/project_demo_detail.html:35
+#: themes/vertigo_starts_eu/templates/pages/page/includes/page_search.html:22
+#: themes/vertigo_starts_eu/templates/projects/project_demo_detail.html:35
 msgid "Project"
 msgstr "Projet"
 
-#: templates/pages/teampage.html:90
+#: themes/base/templates/pages/teampage.html:90
+#: themes/starts_eu/templates/pages/teampage.html:90
+#: themes/vertigo_starts_eu/templates/pages/teampage.html:90
 msgid "Research topics and related projects"
 msgstr "Domaines de recherche et projets associés"
 
-#: templates/pages/teampage.html:101
+#: themes/base/templates/pages/teampage.html:101
+#: themes/starts_eu/templates/pages/teampage.html:101
+#: themes/vertigo_starts_eu/templates/pages/teampage.html:101
 msgid "European and national projects"
 msgstr "Projets nationaux et européens"
 
-#: templates/projects/project_demo_detail.html:4
+#: themes/base/templates/projects/inc/project_block.html:25
+#: themes/starts_eu/templates/projects/inc/project_block.html:25
+#: themes/vertigo_starts_eu/templates/projects/inc/project_block.html:25
+msgid "Please login to get links to the data"
+msgstr ""
+
+#: themes/base/templates/projects/project_blogpage_detail.html:4
+#: themes/base/templates/projects/project_demo_detail.html:4
+#: themes/starts_eu/templates/projects/project_blogpage_detail.html:4
+#: themes/starts_eu/templates/projects/project_demo_detail.html:4
+#: themes/vertigo_starts_eu/templates/projects/project_blogpage_detail.html:4
+#: themes/vertigo_starts_eu/templates/projects/project_demo_detail.html:4
 msgid "Demo"
 msgstr "Demo"
 
-#: templates/projects/project_demo_detail.html:18
-#: templates/projects/project_detail.html:286
-msgid "Demos"
-msgstr "Demos"
+#: themes/base/templates/projects/project_blogpage_detail.html:50
+#: themes/starts_eu/templates/projects/project_blogpage_detail.html:50
+#: themes/vertigo_starts_eu/templates/projects/project_blogpage_detail.html:50
+msgid "Please login to get more data."
+msgstr ""
 
-#: templates/projects/project_demo_detail.html:36
-msgid "Authors"
-msgstr "Auteurs"
-
-#: templates/projects/project_detail.html:130
+#: themes/base/templates/projects/project_call_detail.html:130
+#: themes/base/templates/projects/project_detail.html:130
+#: themes/starts_eu/templates/projects/project_detail.html:130
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:130
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:130
 msgid "Project details"
 msgstr "Détails du projet"
 
-#: templates/projects/project_detail.html:136
+#: themes/base/templates/projects/project_call_detail.html:136
+#: themes/base/templates/projects/project_detail.html:136
+#: themes/starts_eu/templates/projects/project_detail.html:136
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:136
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:136
 msgid "Program"
 msgstr "Programme"
 
-#: templates/projects/project_detail.html:147
+#: themes/base/templates/projects/project_call_detail.html:147
+#: themes/base/templates/projects/project_detail.html:147
+#: themes/starts_eu/templates/projects/project_detail.html:147
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:147
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:147
 msgid "Program type"
 msgstr "Type de programme"
 
-#: templates/projects/project_detail.html:157
+#: themes/base/templates/projects/project_call_detail.html:157
+#: themes/base/templates/projects/project_detail.html:157
+#: themes/starts_eu/templates/projects/project_detail.html:157
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:157
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:157
 msgid "Beginning"
 msgstr "Début"
 
-#: templates/projects/project_detail.html:166
+#: themes/base/templates/projects/project_call_detail.html:166
+#: themes/base/templates/projects/project_detail.html:166
+#: themes/starts_eu/templates/projects/project_detail.html:166
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:166
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:166
 msgid "End"
 msgstr "Fin"
 
-#: templates/projects/project_detail.html:175
+#: themes/base/templates/projects/project_call_detail.html:175
+#: themes/base/templates/projects/project_detail.html:175
+#: themes/starts_eu/templates/projects/project_detail.html:175
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:175
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:175
 msgid "Status"
 msgstr "Statut"
 
-#: templates/projects/project_detail.html:185
+#: themes/base/templates/projects/project_call_detail.html:185
+#: themes/base/templates/projects/project_detail.html:185
+#: themes/starts_eu/templates/projects/project_detail.html:185
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:185
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:185
 msgid "Website"
 msgstr "Site internet"
 
-#: templates/projects/project_detail.html:204
+#: themes/base/templates/projects/project_call_detail.html:204
+#: themes/base/templates/projects/project_detail.html:204
+#: themes/starts_eu/templates/projects/project_detail.html:204
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:204
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:204
 msgid "Participants"
 msgstr "Participants"
 
-#: templates/projects/project_detail.html:212
+#: themes/base/templates/projects/project_call_detail.html:212
+#: themes/base/templates/projects/project_detail.html:212
+#: themes/starts_eu/templates/projects/project_detail.html:212
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:212
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:212
 msgid "Project lead team"
 msgstr "Équipe coordinatrice"
 
-#: templates/projects/project_detail.html:219
+#: themes/base/templates/projects/project_call_detail.html:219
+#: themes/base/templates/projects/project_detail.html:219
+#: themes/starts_eu/templates/projects/project_detail.html:219
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:219
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:219
 msgid "Project lead organization"
 msgstr "Organisation principale du projet"
 
-#: templates/projects/project_detail.html:236
+#: themes/base/templates/projects/project_call_detail.html:236
+#: themes/base/templates/projects/project_detail.html:236
+#: themes/starts_eu/templates/projects/project_detail.html:236
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:236
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:236
 msgid "Partners"
 msgstr "Partenaires"
 
-#: templates/search_results.html:5 templates/search_results.html:6
-#: templates/search_results.html:15
-msgid "Search Results"
-msgstr "Resultats de recherche"
+#: themes/base/templates/projects/project_call_detail.html:286
+#: themes/base/templates/projects/project_demo_detail.html:18
+#: themes/base/templates/projects/project_detail.html:286
+#: themes/starts_eu/templates/projects/project_demo_detail.html:18
+#: themes/starts_eu/templates/projects/project_detail.html:286
+#: themes/vertigo_starts_eu/templates/projects/project_demo_detail.html:18
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:286
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:286
+msgid "Demos"
+msgstr "Demos"
 
-#: templates/search_results.html:76
+#: themes/base/templates/projects/project_call_detail.html:308
+#: themes/base/templates/projects/project_detail.html:308
+#: themes/starts_eu/templates/projects/project_detail.html:308
+#: themes/vertigo_starts_eu/templates/projects/project_detail.html:308
+#: themes/vertigo_starts_eu/templates/projects/project_ict_detail.html:308
+#, fuzzy
+#| msgid "Pages"
+msgid "Blog Pages"
+msgstr "Pages"
+
+#: themes/base/templates/projects/project_demo_detail.html:36
+#: themes/starts_eu/templates/projects/project_demo_detail.html:36
+#: themes/vertigo_starts_eu/templates/projects/project_demo_detail.html:36
+msgid "Authors"
+msgstr "Auteurs"
+
+#: themes/base/templates/projects/project_ict_create.html:22
+#, fuzzy
+#| msgid "project program"
+msgid "New project form"
+msgstr "programme du projet"
+
+#: themes/base/templates/search_results.html:5
+#: themes/base/templates/search_results.html:6
+#: themes/starts_eu/templates/search_results.html:5
+#: themes/starts_eu/templates/search_results.html:6
+#: themes/vertigo_starts_eu/templates/search_results.html:5
+#: themes/vertigo_starts_eu/templates/search_results.html:6
+msgid "Search Results"
+msgstr "Resultats de la recherche"
+
+#: themes/base/templates/search_results.html:67
+#: themes/starts_eu/templates/search_results.html:67
+#: themes/vertigo_starts_eu/templates/search_results.html:67
 #, fuzzy, python-format
 #| msgid "No results were found matching your query: %(query)s"
 msgid "No results were found matching your query: %(query)s"
@@ -2589,7 +3582,9 @@ msgstr ""
 "Votre recherche ne donne aucun résultat. Veuillez réessayer avec d'autres "
 "termes."
 
-#: templates/shop/billing_shipping.html:17
+#: themes/base/templates/shop/billing_shipping.html:17
+#: themes/starts_eu/templates/shop/billing_shipping.html:17
+#: themes/vertigo_starts_eu/templates/shop/billing_shipping.html:17
 #, python-format
 msgid ""
 "\n"
@@ -2598,293 +3593,600 @@ msgid ""
 "<a href=\"%(signup_url)s?next=%(next)s\">sign up</a>.\n"
 msgstr ""
 
-#: templates/shop/billing_shipping.html:30 templates/shop/confirmation.html:10
-#: templates/shop/includes/order_details.html:15
-#: templates/shop/includes/order_details_rtl.html:15
+#: themes/base/templates/shop/billing_shipping.html:30
+#: themes/base/templates/shop/confirmation.html:10
+#: themes/base/templates/shop/includes/order_details.html:15
+#: themes/base/templates/shop/includes/order_details_rtl.html:15
+#: themes/starts_eu/templates/shop/billing_shipping.html:30
+#: themes/starts_eu/templates/shop/confirmation.html:10
+#: themes/starts_eu/templates/shop/includes/order_details.html:15
+#: themes/starts_eu/templates/shop/includes/order_details_rtl.html:15
+#: themes/vertigo_starts_eu/templates/shop/billing_shipping.html:30
+#: themes/vertigo_starts_eu/templates/shop/confirmation.html:10
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details.html:15
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details_rtl.html:15
 msgid "Billing Details"
 msgstr ""
 
-#: templates/shop/billing_shipping.html:35
+#: themes/base/templates/shop/billing_shipping.html:35
+#: themes/starts_eu/templates/shop/billing_shipping.html:35
+#: themes/vertigo_starts_eu/templates/shop/billing_shipping.html:35
 msgid "Delivery Details"
 msgstr ""
 
-#: templates/shop/cart.html:4 templates/shop/cart.html:5
-#: templates/shop/cart.html:10
+#: themes/base/templates/shop/cart.html:4
+#: themes/base/templates/shop/cart.html:5
+#: themes/base/templates/shop/cart.html:10
+#: themes/starts_eu/templates/shop/cart.html:4
+#: themes/starts_eu/templates/shop/cart.html:5
+#: themes/starts_eu/templates/shop/cart.html:10
+#: themes/vertigo_starts_eu/templates/shop/cart.html:4
+#: themes/vertigo_starts_eu/templates/shop/cart.html:5
+#: themes/vertigo_starts_eu/templates/shop/cart.html:10
 msgid "Your Cart"
 msgstr ""
 
-#: templates/shop/cart.html:26 templates/shop/includes/order_details.html:39
-#: templates/shop/includes/order_details_rtl.html:45
+#: themes/base/templates/shop/cart.html:26
+#: themes/base/templates/shop/includes/order_details.html:39
+#: themes/base/templates/shop/includes/order_details_rtl.html:45
+#: themes/starts_eu/templates/shop/cart.html:26
+#: themes/starts_eu/templates/shop/includes/order_details.html:39
+#: themes/starts_eu/templates/shop/includes/order_details_rtl.html:45
+#: themes/vertigo_starts_eu/templates/shop/cart.html:26
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details.html:39
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details_rtl.html:45
 msgid "Item"
 msgstr ""
 
-#: templates/shop/cart.html:27 templates/shop/includes/order_details.html:40
-#: templates/shop/includes/order_details_rtl.html:44
+#: themes/base/templates/shop/cart.html:27
+#: themes/base/templates/shop/includes/order_details.html:40
+#: themes/base/templates/shop/includes/order_details_rtl.html:44
+#: themes/starts_eu/templates/shop/cart.html:27
+#: themes/starts_eu/templates/shop/includes/order_details.html:40
+#: themes/starts_eu/templates/shop/includes/order_details_rtl.html:44
+#: themes/vertigo_starts_eu/templates/shop/cart.html:27
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details.html:40
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details_rtl.html:44
 msgid "Unit Price"
 msgstr ""
 
-#: templates/shop/cart.html:28 templates/shop/includes/order_details.html:41
-#: templates/shop/includes/order_details_rtl.html:43
-#: templates/shop/order_history.html:20
+#: themes/base/templates/shop/cart.html:28
+#: themes/base/templates/shop/includes/order_details.html:41
+#: themes/base/templates/shop/includes/order_details_rtl.html:43
+#: themes/base/templates/shop/order_history.html:20
+#: themes/starts_eu/templates/shop/cart.html:28
+#: themes/starts_eu/templates/shop/includes/order_details.html:41
+#: themes/starts_eu/templates/shop/includes/order_details_rtl.html:43
+#: themes/starts_eu/templates/shop/order_history.html:20
+#: themes/vertigo_starts_eu/templates/shop/cart.html:28
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details.html:41
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details_rtl.html:43
+#: themes/vertigo_starts_eu/templates/shop/order_history.html:20
 msgid "Qty"
 msgstr ""
 
-#: templates/shop/cart.html:29 templates/shop/includes/order_details.html:42
-#: templates/shop/includes/order_details_rtl.html:42
+#: themes/base/templates/shop/cart.html:29
+#: themes/base/templates/shop/includes/order_details.html:42
+#: themes/base/templates/shop/includes/order_details_rtl.html:42
+#: themes/starts_eu/templates/shop/cart.html:29
+#: themes/starts_eu/templates/shop/includes/order_details.html:42
+#: themes/starts_eu/templates/shop/includes/order_details_rtl.html:42
+#: themes/vertigo_starts_eu/templates/shop/cart.html:29
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details.html:42
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details_rtl.html:42
 msgid "Price"
 msgstr ""
 
-#: templates/shop/cart.html:30
+#: themes/base/templates/shop/cart.html:30
+#: themes/starts_eu/templates/shop/cart.html:30
+#: themes/vertigo_starts_eu/templates/shop/cart.html:30
 msgid "Remove?"
 msgstr ""
 
-#: templates/shop/cart.html:64 templates/shop/includes/user_panel.html:10
+#: themes/base/templates/shop/cart.html:64
+#: themes/base/templates/shop/includes/user_panel.html:10
+#: themes/starts_eu/templates/shop/cart.html:64
+#: themes/starts_eu/templates/shop/includes/user_panel.html:10
+#: themes/vertigo_starts_eu/templates/shop/cart.html:64
+#: themes/vertigo_starts_eu/templates/shop/includes/user_panel.html:10
 msgid "Return to Checkout"
 msgstr ""
 
-#: templates/shop/cart.html:64 templates/shop/includes/user_panel.html:10
+#: themes/base/templates/shop/cart.html:64
+#: themes/base/templates/shop/includes/user_panel.html:10
+#: themes/starts_eu/templates/shop/cart.html:64
+#: themes/starts_eu/templates/shop/includes/user_panel.html:10
+#: themes/vertigo_starts_eu/templates/shop/cart.html:64
+#: themes/vertigo_starts_eu/templates/shop/includes/user_panel.html:10
 msgid "Go to Checkout"
 msgstr ""
 
-#: templates/shop/cart.html:66
+#: themes/base/templates/shop/cart.html:66
+#: themes/starts_eu/templates/shop/cart.html:66
+#: themes/vertigo_starts_eu/templates/shop/cart.html:66
 msgid "Update Cart"
 msgstr ""
 
-#: templates/shop/cart.html:73
+#: themes/base/templates/shop/cart.html:73
+#: themes/starts_eu/templates/shop/cart.html:73
+#: themes/vertigo_starts_eu/templates/shop/cart.html:73
 msgid "Apply"
 msgstr ""
 
-#: templates/shop/cart.html:80
+#: themes/base/templates/shop/cart.html:80
+#: themes/starts_eu/templates/shop/cart.html:80
+#: themes/vertigo_starts_eu/templates/shop/cart.html:80
 msgid "You may also like:"
 msgstr ""
 
-#: templates/shop/cart.html:94 templates/shop/product.html:95
-#: templates/shop/product.html:145
+#: themes/base/templates/shop/cart.html:94
+#: themes/base/templates/shop/product.html:95
+#: themes/base/templates/shop/product.html:145
+#: themes/starts_eu/templates/shop/cart.html:94
+#: themes/starts_eu/templates/shop/product.html:95
+#: themes/starts_eu/templates/shop/product.html:145
+#: themes/vertigo_starts_eu/templates/shop/cart.html:94
+#: themes/vertigo_starts_eu/templates/shop/product.html:95
+#: themes/vertigo_starts_eu/templates/shop/product.html:145
 msgid "On sale:"
 msgstr ""
 
-#: templates/shop/cart.html:98 templates/shop/product.html:149
+#: themes/base/templates/shop/cart.html:98
+#: themes/base/templates/shop/product.html:149
+#: themes/starts_eu/templates/shop/cart.html:98
+#: themes/starts_eu/templates/shop/product.html:149
+#: themes/vertigo_starts_eu/templates/shop/cart.html:98
+#: themes/vertigo_starts_eu/templates/shop/product.html:149
 msgid "Coming soon"
 msgstr ""
 
-#: templates/shop/cart.html:111
+#: themes/base/templates/shop/cart.html:111
+#: themes/starts_eu/templates/shop/cart.html:111
+#: themes/vertigo_starts_eu/templates/shop/cart.html:111
 msgid "Your Cart is empty."
 msgstr ""
 
-#: templates/shop/checkout.html:4 templates/shop/checkout.html:5
+#: themes/base/templates/shop/checkout.html:4
+#: themes/base/templates/shop/checkout.html:5
+#: themes/starts_eu/templates/shop/checkout.html:4
+#: themes/starts_eu/templates/shop/checkout.html:5
+#: themes/vertigo_starts_eu/templates/shop/checkout.html:4
+#: themes/vertigo_starts_eu/templates/shop/checkout.html:5
 msgid "Checkout"
 msgstr ""
 
-#: templates/shop/checkout.html:5
+#: themes/base/templates/shop/checkout.html:5
+#: themes/starts_eu/templates/shop/checkout.html:5
+#: themes/vertigo_starts_eu/templates/shop/checkout.html:5
 msgid "Step"
 msgstr ""
 
-#: templates/shop/checkout.html:5
+#: themes/base/templates/shop/checkout.html:5
+#: themes/starts_eu/templates/shop/checkout.html:5
+#: themes/vertigo_starts_eu/templates/shop/checkout.html:5
 msgid "of"
 msgstr ""
 
-#: templates/shop/checkout.html:25 templates/shop/complete.html:58
+#: themes/base/templates/shop/checkout.html:25
+#: themes/base/templates/shop/complete.html:58
+#: themes/starts_eu/templates/shop/checkout.html:25
+#: themes/starts_eu/templates/shop/complete.html:58
+#: themes/vertigo_starts_eu/templates/shop/checkout.html:25
+#: themes/vertigo_starts_eu/templates/shop/complete.html:58
 msgid "Complete"
 msgstr ""
 
-#: templates/shop/checkout.html:40
+#: themes/base/templates/shop/checkout.html:40
+#: themes/starts_eu/templates/shop/checkout.html:40
+#: themes/vertigo_starts_eu/templates/shop/checkout.html:40
 msgid "Next"
 msgstr ""
 
-#: templates/shop/checkout.html:42
+#: themes/base/templates/shop/checkout.html:42
+#: themes/starts_eu/templates/shop/checkout.html:42
+#: themes/vertigo_starts_eu/templates/shop/checkout.html:42
 msgid "Back"
 msgstr ""
 
-#: templates/shop/checkout.html:46
+#: themes/base/templates/shop/checkout.html:46
+#: themes/starts_eu/templates/shop/checkout.html:46
+#: themes/vertigo_starts_eu/templates/shop/checkout.html:46
 msgid "Your cart is empty."
 msgstr ""
 
-#: templates/shop/checkout.html:47
+#: themes/base/templates/shop/checkout.html:47
+#: themes/starts_eu/templates/shop/checkout.html:47
+#: themes/vertigo_starts_eu/templates/shop/checkout.html:47
 msgid ""
 "This may be due to your session timing out after a period of inactivity."
 msgstr ""
 
-#: templates/shop/checkout.html:48
+#: themes/base/templates/shop/checkout.html:48
+#: themes/starts_eu/templates/shop/checkout.html:48
+#: themes/vertigo_starts_eu/templates/shop/checkout.html:48
 msgid "We apologize for the inconvenience."
 msgstr ""
 
-#: templates/shop/checkout.html:50 templates/shop/wishlist.html:44
+#: themes/base/templates/shop/checkout.html:50
+#: themes/base/templates/shop/wishlist.html:44
+#: themes/starts_eu/templates/shop/checkout.html:50
+#: themes/starts_eu/templates/shop/wishlist.html:44
+#: themes/vertigo_starts_eu/templates/shop/checkout.html:50
+#: themes/vertigo_starts_eu/templates/shop/wishlist.html:44
 msgid "Continue Shopping"
 msgstr ""
 
-#: templates/shop/checkout.html:75
+#: themes/base/templates/shop/checkout.html:75
+#: themes/starts_eu/templates/shop/checkout.html:75
+#: themes/vertigo_starts_eu/templates/shop/checkout.html:75
 msgid "Edit Cart"
 msgstr ""
 
-#: templates/shop/complete.html:6 templates/shop/complete.html:52
+#: themes/base/templates/shop/complete.html:6
+#: themes/base/templates/shop/complete.html:52
+#: themes/starts_eu/templates/shop/complete.html:6
+#: themes/starts_eu/templates/shop/complete.html:52
+#: themes/vertigo_starts_eu/templates/shop/complete.html:6
+#: themes/vertigo_starts_eu/templates/shop/complete.html:52
 msgid "Order Complete"
 msgstr ""
 
-#: templates/shop/complete.html:63
+#: themes/base/templates/shop/complete.html:63
+#: themes/starts_eu/templates/shop/complete.html:63
+#: themes/vertigo_starts_eu/templates/shop/complete.html:63
 msgid "Thank you for shopping with us, your order is complete."
 msgstr ""
 
-#: templates/shop/complete.html:64
+#: themes/base/templates/shop/complete.html:64
+#: themes/starts_eu/templates/shop/complete.html:64
+#: themes/vertigo_starts_eu/templates/shop/complete.html:64
 msgid "We've sent you a receipt via email."
 msgstr ""
 
-#: templates/shop/complete.html:65
+#: themes/base/templates/shop/complete.html:65
+#: themes/starts_eu/templates/shop/complete.html:65
+#: themes/vertigo_starts_eu/templates/shop/complete.html:65
 msgid "You can also view your invoice using one of the links below."
 msgstr ""
 
-#: templates/shop/complete.html:70
+#: themes/base/templates/shop/complete.html:70
+#: themes/starts_eu/templates/shop/complete.html:70
+#: themes/vertigo_starts_eu/templates/shop/complete.html:70
 msgid "Download PDF invoice"
 msgstr "Télécharger la brochure"
 
-#: templates/shop/complete.html:72
+#: themes/base/templates/shop/complete.html:72
+#: themes/starts_eu/templates/shop/complete.html:72
+#: themes/vertigo_starts_eu/templates/shop/complete.html:72
 msgid "View invoice in your browser"
 msgstr ""
 
-#: templates/shop/complete.html:73 templates/shop/order_history.html:38
+#: themes/base/templates/shop/complete.html:73
+#: themes/base/templates/shop/order_history.html:38
+#: themes/starts_eu/templates/shop/complete.html:73
+#: themes/starts_eu/templates/shop/order_history.html:38
+#: themes/vertigo_starts_eu/templates/shop/complete.html:73
+#: themes/vertigo_starts_eu/templates/shop/order_history.html:38
 msgid "Re-send order email"
 msgstr ""
 
-#: templates/shop/confirmation.html:25
-#: templates/shop/includes/order_details.html:16
-#: templates/shop/includes/order_details_rtl.html:16
+#: themes/base/templates/shop/confirmation.html:25
+#: themes/base/templates/shop/includes/order_details.html:16
+#: themes/base/templates/shop/includes/order_details_rtl.html:16
+#: themes/starts_eu/templates/shop/confirmation.html:25
+#: themes/starts_eu/templates/shop/includes/order_details.html:16
+#: themes/starts_eu/templates/shop/includes/order_details_rtl.html:16
+#: themes/vertigo_starts_eu/templates/shop/confirmation.html:25
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details.html:16
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details_rtl.html:16
 msgid "Shipping Details"
 msgstr ""
 
-#: templates/shop/includes/order_details.html:7
-#: templates/shop/includes/order_details_rtl.html:8
+#: themes/base/templates/shop/includes/order_details.html:7
+#: themes/base/templates/shop/includes/order_details_rtl.html:8
+#: themes/starts_eu/templates/shop/includes/order_details.html:7
+#: themes/starts_eu/templates/shop/includes/order_details_rtl.html:8
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details.html:7
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details_rtl.html:8
 msgid "Order ID:"
 msgstr ""
 
-#: templates/shop/includes/order_details.html:12
-#: templates/shop/includes/order_details_rtl.html:12
+#: themes/base/templates/shop/includes/order_details.html:12
+#: themes/base/templates/shop/includes/order_details_rtl.html:12
+#: themes/starts_eu/templates/shop/includes/order_details.html:12
+#: themes/starts_eu/templates/shop/includes/order_details_rtl.html:12
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details.html:12
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details_rtl.html:12
 msgid "Your Details"
 msgstr ""
 
-#: templates/shop/includes/order_details.html:36
-#: templates/shop/includes/order_details_rtl.html:36
+#: themes/base/templates/shop/includes/order_details.html:36
+#: themes/base/templates/shop/includes/order_details_rtl.html:36
+#: themes/starts_eu/templates/shop/includes/order_details.html:36
+#: themes/starts_eu/templates/shop/includes/order_details_rtl.html:36
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details.html:36
+#: themes/vertigo_starts_eu/templates/shop/includes/order_details_rtl.html:36
 msgid "Items Ordered"
 msgstr ""
 
-#: templates/shop/includes/order_totals.html:4
-#: templates/shop/includes/order_totals.txt:2
+#: themes/base/templates/shop/includes/order_totals.html:4
+#: themes/base/templates/shop/includes/order_totals.txt:2
+#: themes/starts_eu/templates/shop/includes/order_totals.html:4
+#: themes/starts_eu/templates/shop/includes/order_totals.txt:2
+#: themes/vertigo_starts_eu/templates/shop/includes/order_totals.html:4
+#: themes/vertigo_starts_eu/templates/shop/includes/order_totals.txt:2
 msgid "Sub total"
 msgstr "Sous-total"
 
-#: templates/shop/includes/order_totals.html:12
-#: templates/shop/includes/order_totals.txt:4
+#: themes/base/templates/shop/includes/order_totals.html:12
+#: themes/base/templates/shop/includes/order_totals.txt:4
+#: themes/starts_eu/templates/shop/includes/order_totals.html:12
+#: themes/starts_eu/templates/shop/includes/order_totals.txt:4
+#: themes/vertigo_starts_eu/templates/shop/includes/order_totals.html:12
+#: themes/vertigo_starts_eu/templates/shop/includes/order_totals.txt:4
 msgid "Discount"
 msgstr "Réduction"
 
-#: templates/shop/includes/order_totals.html:23
-#: templates/shop/includes/order_totals.txt:6
+#: themes/base/templates/shop/includes/order_totals.html:23
+#: themes/base/templates/shop/includes/order_totals.txt:6
+#: themes/starts_eu/templates/shop/includes/order_totals.html:23
+#: themes/starts_eu/templates/shop/includes/order_totals.txt:6
+#: themes/vertigo_starts_eu/templates/shop/includes/order_totals.html:23
+#: themes/vertigo_starts_eu/templates/shop/includes/order_totals.txt:6
 msgid "Shipping"
 msgstr ""
 
-#: templates/shop/includes/order_totals.html:34
-#: templates/shop/includes/order_totals.txt:8
+#: themes/base/templates/shop/includes/order_totals.html:34
+#: themes/base/templates/shop/includes/order_totals.txt:8
+#: themes/starts_eu/templates/shop/includes/order_totals.html:34
+#: themes/starts_eu/templates/shop/includes/order_totals.txt:8
+#: themes/vertigo_starts_eu/templates/shop/includes/order_totals.html:34
+#: themes/vertigo_starts_eu/templates/shop/includes/order_totals.txt:8
 msgid "Tax"
 msgstr ""
 
-#: templates/shop/includes/order_totals.html:39
-#: templates/shop/includes/order_totals.txt:9
+#: themes/base/templates/shop/includes/order_totals.html:39
+#: themes/base/templates/shop/includes/order_totals.txt:9
+#: themes/starts_eu/templates/shop/includes/order_totals.html:39
+#: themes/starts_eu/templates/shop/includes/order_totals.txt:9
+#: themes/vertigo_starts_eu/templates/shop/includes/order_totals.html:39
+#: themes/vertigo_starts_eu/templates/shop/includes/order_totals.txt:9
 msgid "Total"
 msgstr ""
 
-#: templates/shop/includes/payment_fields.html:3
+#: themes/base/templates/shop/includes/payment_fields.html:3
+#: themes/starts_eu/templates/shop/includes/payment_fields.html:3
+#: themes/vertigo_starts_eu/templates/shop/includes/payment_fields.html:3
 msgid "Payment Details"
 msgstr ""
 
-#: templates/shop/includes/payment_fields.html:8
+#: themes/base/templates/shop/includes/payment_fields.html:8
+#: themes/starts_eu/templates/shop/includes/payment_fields.html:8
+#: themes/vertigo_starts_eu/templates/shop/includes/payment_fields.html:8
 msgid "Card Expiry"
 msgstr ""
 
-#: templates/shop/includes/user_panel.html:5
+#: themes/base/templates/shop/includes/user_panel.html:5
+#: themes/starts_eu/templates/shop/includes/user_panel.html:5
+#: themes/vertigo_starts_eu/templates/shop/includes/user_panel.html:5
 #, python-format
 msgid "1 item"
 msgid_plural "%(cart_quantity)s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/shop/includes/user_panel.html:6
+#: themes/base/templates/shop/includes/user_panel.html:6
+#: themes/starts_eu/templates/shop/includes/user_panel.html:6
+#: themes/vertigo_starts_eu/templates/shop/includes/user_panel.html:6
 msgid "in cart"
 msgstr ""
 
-#: templates/shop/includes/user_panel.html:16
+#: themes/base/templates/shop/includes/user_panel.html:16
+#: themes/starts_eu/templates/shop/includes/user_panel.html:16
+#: themes/vertigo_starts_eu/templates/shop/includes/user_panel.html:16
 #, python-format
 msgid "Wishlist contains 1 item"
 msgid_plural " Wishlist contains %(wishlist_count)s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/shop/order_history.html:4 templates/shop/order_history.html:5
-#: templates/shop/order_history.html:9
+#: themes/base/templates/shop/order_history.html:4
+#: themes/base/templates/shop/order_history.html:5
+#: themes/base/templates/shop/order_history.html:9
+#: themes/starts_eu/templates/shop/order_history.html:4
+#: themes/starts_eu/templates/shop/order_history.html:5
+#: themes/starts_eu/templates/shop/order_history.html:9
+#: themes/vertigo_starts_eu/templates/shop/order_history.html:4
+#: themes/vertigo_starts_eu/templates/shop/order_history.html:5
+#: themes/vertigo_starts_eu/templates/shop/order_history.html:9
 msgid "Order History"
 msgstr ""
 
-#: templates/shop/order_history.html:19
+#: themes/base/templates/shop/order_history.html:19
+#: themes/starts_eu/templates/shop/order_history.html:19
+#: themes/vertigo_starts_eu/templates/shop/order_history.html:19
 msgid "Date"
 msgstr ""
 
-#: templates/shop/order_history.html:21
+#: themes/base/templates/shop/order_history.html:21
+#: themes/starts_eu/templates/shop/order_history.html:21
+#: themes/vertigo_starts_eu/templates/shop/order_history.html:21
 msgid "Paid"
 msgstr ""
 
-#: templates/shop/order_history.html:35
+#: themes/base/templates/shop/order_history.html:35
+#: themes/starts_eu/templates/shop/order_history.html:35
+#: themes/vertigo_starts_eu/templates/shop/order_history.html:35
 msgid "Download PDF"
 msgstr "Télécharger PDF"
 
-#: templates/shop/order_history.html:37
+#: themes/base/templates/shop/order_history.html:37
+#: themes/starts_eu/templates/shop/order_history.html:37
+#: themes/vertigo_starts_eu/templates/shop/order_history.html:37
 msgid "View invoice"
 msgstr ""
 
-#: templates/shop/order_history.html:48
+#: themes/base/templates/shop/order_history.html:48
+#: themes/starts_eu/templates/shop/order_history.html:48
+#: themes/vertigo_starts_eu/templates/shop/order_history.html:48
 msgid "You have not ordered anything from us yet."
 msgstr ""
 
-#: templates/shop/product.html:101
+#: themes/base/templates/shop/product.html:101
+#: themes/starts_eu/templates/shop/product.html:101
+#: themes/vertigo_starts_eu/templates/shop/product.html:101
 msgid "The selected options are currently unavailable."
 msgstr ""
 
-#: templates/shop/product.html:114 templates/shop/wishlist.html:34
+#: themes/base/templates/shop/product.html:114
+#: themes/base/templates/shop/wishlist.html:34
+#: themes/starts_eu/templates/shop/product.html:114
+#: themes/starts_eu/templates/shop/wishlist.html:34
+#: themes/vertigo_starts_eu/templates/shop/product.html:114
+#: themes/vertigo_starts_eu/templates/shop/wishlist.html:34
 msgid "Buy"
 msgstr ""
 
-#: templates/shop/product.html:116
+#: themes/base/templates/shop/product.html:116
+#: themes/starts_eu/templates/shop/product.html:116
+#: themes/vertigo_starts_eu/templates/shop/product.html:116
 msgid "Save for later"
 msgstr ""
 
-#: templates/shop/product.html:121
+#: themes/base/templates/shop/product.html:121
+#: themes/starts_eu/templates/shop/product.html:121
+#: themes/vertigo_starts_eu/templates/shop/product.html:121
 msgid "This product is currently unavailable."
 msgstr ""
 
-#: templates/shop/product.html:131
+#: themes/base/templates/shop/product.html:131
+#: themes/starts_eu/templates/shop/product.html:131
+#: themes/vertigo_starts_eu/templates/shop/product.html:131
 msgid "Related Products"
 msgstr "Produits liés"
 
-#: templates/shop/product/includes/product_search.html:13
+#: themes/base/templates/shop/product/includes/product_search.html:13
+#: themes/starts_eu/templates/shop/product/includes/product_search.html:13
+#: themes/vertigo_starts_eu/templates/shop/product/includes/product_search.html:13
 msgid "Software"
 msgstr ""
 
-#: templates/shop/wishlist.html:4 templates/shop/wishlist.html:5
-#: templates/shop/wishlist.html:9
+#: themes/base/templates/shop/wishlist.html:4
+#: themes/base/templates/shop/wishlist.html:5
+#: themes/base/templates/shop/wishlist.html:9
+#: themes/starts_eu/templates/shop/wishlist.html:4
+#: themes/starts_eu/templates/shop/wishlist.html:5
+#: themes/starts_eu/templates/shop/wishlist.html:9
+#: themes/vertigo_starts_eu/templates/shop/wishlist.html:4
+#: themes/vertigo_starts_eu/templates/shop/wishlist.html:5
+#: themes/vertigo_starts_eu/templates/shop/wishlist.html:9
 msgid "Your Wishlist"
 msgstr ""
 
-#: templates/shop/wishlist.html:35
+#: themes/base/templates/shop/wishlist.html:35
+#: themes/starts_eu/templates/shop/wishlist.html:35
+#: themes/vertigo_starts_eu/templates/shop/wishlist.html:35
 msgid "Remove"
 msgstr ""
 
-#: templates/shop/wishlist.html:42
+#: themes/base/templates/shop/wishlist.html:42
+#: themes/starts_eu/templates/shop/wishlist.html:42
+#: themes/vertigo_starts_eu/templates/shop/wishlist.html:42
 msgid "Your wishlist is empty."
 msgstr ""
 
-#: templates/styles.html:4 templates/styles.html:6 templates/styles.html:12
+#: themes/base/templates/styles.html:4 themes/base/templates/styles.html:6
+#: themes/base/templates/styles.html:12
+#: themes/starts_eu/templates/styles.html:4
+#: themes/starts_eu/templates/styles.html:6
+#: themes/starts_eu/templates/styles.html:12
+#: themes/vertigo_starts_eu/templates/styles.html:4
+#: themes/vertigo_starts_eu/templates/styles.html:6
+#: themes/vertigo_starts_eu/templates/styles.html:12
 msgid "Styles"
 msgstr ""
 
-#: templates/twitter/tweets.html:7
-msgid "Recent Tweets"
-msgstr "Tweets récents"
+#: themes/vertigo_starts_eu/templates/projects/project_ict_create.html:22
+msgid "Project submission form"
+msgstr ""
+
+#: themes/vertigo_starts_eu/templates/projects/project_ict_submission.html:22
+msgid "Framework and submission process for hosting R&D Projects"
+msgstr ""
+
+#: themes/vertigo_starts_eu/templates/projects/project_ict_submission.html:37
+msgid "Access to submission form"
+msgstr ""
+
+#: themes/vertigo_starts_eu/templates/projects/project_ict_validation.html:22
+msgid "Project submission validation"
+msgstr ""
+
+#: themes/vertigo_starts_eu/templates/projects/project_producer_create.html:22
+msgid "Framework and submission process for producers"
+msgstr ""
+
+#: themes/vertigo_starts_eu/templates/projects/project_producer_create.html:36
+msgid "Producer submission form (all fields required)"
+msgstr ""
+
+#: themes/vertigo_starts_eu/templates/projects/project_residency_create.html:22
+msgid "New residency form"
+msgstr ""
+
+#~ msgid "Departement"
+#~ msgstr "Département"
+
+#~ msgid "curators"
+#~ msgstr "intervenants"
+
+#~ msgid "Speakers"
+#~ msgstr "Intervenants"
+
+#~ msgid "Related Events"
+#~ msgstr "Événements liés"
+
+#~ msgid "Rendez-vous in Paris"
+#~ msgstr "Rendez-vous à Paris"
+
+#~ msgid "On tour"
+#~ msgstr "Tournées"
+
+#~ msgid "Archives"
+#~ msgstr "Archives"
+
+#~ msgid "archive"
+#~ msgstr "archive"
+
+#~ msgid "Subscribe to our newsletter"
+#~ msgstr "Inscription à la newsletter"
+
+#~ msgid "Opening times"
+#~ msgstr "Horaires d'ouverture"
+
+#~ msgid "Subway access"
+#~ msgstr "Accès en transports"
+
+#~ msgid "under the tutelage of"
+#~ msgstr "sous la tutelle de"
+
+#~ msgid "go to"
+#~ msgstr "Aller vers"
+
+#~ msgid "Medias"
+#~ msgstr "Medias"
+
+#~ msgid "News Headlines"
+#~ msgstr "À la une"
+
+#~ msgid "Brief"
+#~ msgstr "Brève"
+
+#~ msgid "Briefs"
+#~ msgstr "Brèves"
+
+#~ msgid "Recent Tweets"
+#~ msgstr "Tweets récents"
 
 #~ msgid ""
 #~ "<strong>IRCAM, the Institute for Research and Coordination in Acoustics/"
@@ -2950,9 +4252,6 @@ msgstr "Tweets récents"
 #~ msgid "Ircam teams"
 #~ msgstr "Équipes Ircam"
 
-#~ msgid "artist"
-#~ msgstr "artiste"
-
 #~ msgid "Recent Posts"
 #~ msgstr "Articles récents"
 
@@ -2980,9 +4279,6 @@ msgstr "Tweets récents"
 #~ msgid "Author:"
 #~ msgstr "Auteur :"
 
-#~ msgid "Related events"
-#~ msgstr "Événements associés"
-
 #~ msgid "Related posts"
 #~ msgstr "Articles associés"
 
@@ -2994,9 +4290,6 @@ msgstr "Tweets récents"
 
 #~ msgid "display text"
 #~ msgstr "afficher le text"
-
-#~ msgid "activity status"
-#~ msgstr "status de l'activité"
 
 #~ msgid "activity grade"
 #~ msgstr "grade de l'activité"
@@ -3055,9 +4348,6 @@ msgstr "Tweets récents"
 #~ msgid "Application form"
 #~ msgstr "Formulaire de candidature en ligne"
 
-#~ msgid "Products"
-#~ msgstr "Produits"
-
 #~ msgid "videos"
 #~ msgstr "vidéos"
 
@@ -3089,9 +4379,6 @@ msgstr "Tweets récents"
 #~ msgid "weaving CSS class"
 #~ msgstr "classe de trame CSS"
 
-#~ msgid "role"
-#~ msgstr "rôle"
-
 #~ msgid "All"
 #~ msgstr "Tous les"
 
@@ -3100,9 +4387,6 @@ msgstr "Tweets récents"
 
 #~ msgid "news"
 #~ msgstr "minute"
-
-#~ msgid "Search"
-#~ msgstr "Rechercher"
 
 #~ msgid "More"
 #~ msgstr "Plus de"
@@ -3134,9 +4418,6 @@ msgstr "Tweets récents"
 
 #~ msgid "Viewing posts from"
 #~ msgstr "Les articles postés depuis"
-
-#~ msgid "Related event"
-#~ msgstr "Événement associé"
 
 #~ msgctxt "fem"
 #~ msgid "All"

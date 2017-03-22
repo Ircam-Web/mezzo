@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load i18n mezzanine_tags organization_tags %}
+
+{% block meta_title %}{% trans "Search Results" %}{% endblock %}
+{% block title %}{% trans "Search Results" %}{% endblock %}
+{% block extra_head %}
+<meta name="robots" content="noindex">
+{% endblock %}
+
+{% block main %}
+    <div class="page page--search">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-16 col-md-10 col-md-push-3 tac">
+                    <form action="{% url "search" %}" role="search" class="search-form mb4">
+                        <input class="form-control" placeholder="{% trans "Type something" %}" type="text" name="q" value="{{ request.GET.q }}">
+                        <button type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-3 page__sidebar" style="display: none;">
+
+                    <div style="position: relative;">
+                        <ul class="nav-tree nav-tree--level-0" data-sticky data-sticky-parent="row" data-sticky-offset="100" data-sticky-detach-at="971">
+                            {% for key,value in filter_dict.items %}
+                                <li class="nav-tree__item">
+                                    <a class="nav-tree__link nav-tree__link--filter{% if search_model == key %} active{% endif %}" href="{% if search_model == key %}{{ cancel_filter_url }}{% else %}{{ value.url }}{% endif %}">
+                                        {{ value.verbose_name }} ({{ value.count }}){% if search_model == key %}<i class="fa fa-times"></i>{% endif %}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="col-md-10 col-md-push-3 page__content" data-summary-content>
+                    <div class="page__content">
+                        {% for result in results.object_list %}
+                            {# result|classname #}
+                            {% if result|classname == 'Event' %}
+                                {% with result as event %}
+                                    {% include 'agenda/includes/event_search.html' %}
+                                {% endwith %}
+                            {% elif result|classname == 'Playlist' %}
+                                {% with result as playlist %}
+                                    {% include 'media/inc/playlist_search.html' %}
+                                {% endwith %}
+                            {% elif result|classname == 'Product' %}
+                                {% with result as product %}
+                                    {% include 'shop/product/includes/product_search.html' %}
+                                {% endwith %}
+                            {% else %}
+                                {% with result as page %}
+                                    {% include 'pages/page/includes/page_search.html' %}
+                                {% endwith %}
+                            {% endif %}
+                        {% endfor %}
+                        <p>
+                            {% if results.paginator.count == 0 %}
+                            {% blocktrans %}No results were found matching your query: {{ query }}{% endblocktrans %}
+                            {% endif %}
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        {% pagination_for results %}
+
+    </div>
+{% endblock %}

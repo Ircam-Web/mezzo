@@ -1,0 +1,14 @@
+<div class="row">
+    {% for project in projects %}
+        <div class="col-sm-6">
+            <h3 class="mt0 mb0">
+                <a href="{% url 'organization-project-detail' project.slug %}">
+                    {{ project }}
+                </a>
+            </h3>
+            <p>
+                {{ project.description }}
+            </p>
+        </div>
+    {% endfor %}
+</div>
