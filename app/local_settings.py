@@ -73,9 +73,9 @@ FILEBROWSER_SELECT_FORMATS = {
 
 EMAIL_HOST = 'smtp.ircam.fr'
 EMAIL_PORT = '25'
-DEFAULT_FROM_EMAIL = 'www@ircam.fr'
-DEFAULT_TO_EMAIL = 'drh@ircam.fr'
-EMAIL_SUBJECT_PREFIX = "[IRCAM WWW]"
+DEFAULT_FROM_EMAIL = 'vertigo@iuk.fraunhofer.de'
+DEFAULT_TO_EMAIL = 'vertigo@iuk.fraunhofer.de'
+EMAIL_SUBJECT_PREFIX = '[Vertigo]'
 
 SITE_TITLE = 'IRCAM'
 SITE_TAGLINE = 'Institut de Recherche et de Coordination Acoustique et Musique'
