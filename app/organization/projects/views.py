@@ -144,7 +144,7 @@ class ProjectICTSubmissionView(ProjectCallMixin, TemplateView):
 
     model = Project
     template_name='projects/project_ict_submission.html'
-    
+
 
 class ProjectICTCreateView(ProjectCallMixin, CreateWithInlinesView):
 
@@ -160,6 +160,7 @@ class ProjectICTCreateView(ProjectCallMixin, CreateWithInlinesView):
         self.call = ProjectCall.objects.get(slug=self.kwargs['slug'])
         self.object.call = self.call
         self.object.topic, c = ProjectTopic.objects.get_or_create(name='ICT')
+        self.status = 1
         self.object.save()
 
         for formset in inlines:
