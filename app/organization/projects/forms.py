@@ -59,7 +59,6 @@ class ProjectForm(ModelForm):
         super(ProjectForm, self).__init__(*args, **kwargs)
         self.fields['title'].label = "Project name"
         self.fields['keywords'].help_text = "5 comma separated keywords"
-        self.fields['keywords'].required = True
 
     class Meta:
         model = Project
