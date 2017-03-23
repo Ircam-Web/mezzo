@@ -246,7 +246,7 @@ class Link(URL):
 
 class Period(models.Model):
 
-    date_from = models.DateField(_('begin date'), null=True, blank=True)
+    date_from = models.DateField(_('start date'), null=True, blank=True)
     date_to = models.DateField(_('end date'), null=True, blank=True)
 
     class Meta:
