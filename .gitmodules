@@ -6,4 +6,4 @@
 	url = https://github.com/yomguy/mezzanine.git
 [submodule "var"]
 	path = var
-	url = git+ssh://git@git.forge.ircam.fr/vertigo-data.git
+	url = git+ssh://git@git.forge.ircam.fr/manifeste-2017-data.git
