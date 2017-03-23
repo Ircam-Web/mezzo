@@ -25,9 +25,8 @@
 
 {% block page_content %}
     <div class="row">
-        <p>Thank you for having submitted your project. It will evaluated in the next few days by the evaluation board and you will then receive an email notification for the result.</p>
-        <p>For the first call of 2017, you cannot update your project data on your own, so please <a href="mailto:vertigo@iuk.fraunhofer.de">send an email</a> to the board if you need any modification.</p>
-        <p>See you soon!</p>
+        <p>Dear Submitter,</p>
+        {% include 'projects/inc/project_validation.html' %}
     </div>
 {% endblock %}
 

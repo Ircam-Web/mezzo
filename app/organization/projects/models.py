@@ -342,7 +342,7 @@ class ProjectPublicData(models.Model):
     resources_description = models.TextField(_('resource description'), help_text="Resources available to the artist -- e.g. office facility, studio facility, technical equipment, internet connection, laboratory, and periods of availability for artistic production, staff possibly allocated to the project, available budget for travel, consumables and equipment, etc... (50 – 100 words).")
     period = models.CharField(_('period of implementation'), max_length=128, help_text="Possible period of implementation (must be part of the project implementation workplan)")
     image = models.FileField(_("Image"), max_length=1024, upload_to="user/images/%Y/%m/%d/", help_text="Representing the project")
-    image_credits = models.CharField(_('Image credits'), max_length=256, blank=True, null=True)
+    image_credits = models.CharField(_('Image credits'), max_length=256, null=True)
 
     class Meta:
         verbose_name = 'Project public data'
@@ -366,6 +366,8 @@ class ProjectPrivateData(models.Model):
 class ProjectContact(Person):
 
     project = models.ForeignKey(Project, verbose_name=_('project'), related_name='contacts', blank=True, null=True, on_delete=models.SET_NULL)
+    organization_name = models.CharField(_('organization name'), blank=True, null=True, max_length=128)
+    position = models.CharField(_('position'), blank=True, null=True, max_length=128)
 
     class Meta:
         verbose_name = 'Project contact'

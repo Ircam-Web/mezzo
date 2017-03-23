@@ -21,7 +21,7 @@
     {% editable object.title %}
         <h1 class="dotted">{% trans "Project submission form" %}</h1>
     {% endeditable %}
-        <h3>All fields are required</h3>
+        <h3>All fields are mandatory / required</h3>
 {% endblock %}
 
 {% block page_content %}
@@ -38,13 +38,16 @@
                 {% elif "Public data" in formset.prefix %}
                     <h5>To be published only for ICT-Projects selected by the consortium</h5>
                 {% elif "Private images" in formset.prefix %}
-                    <h5>3 key images for inspiring artist + any video content available</h5>
+                    <h5>3 key images for inspiring artist</h5>
                 {% endif %}
                 {% for form in formset %}
                    {% fields_for form %}
                 {% endfor %}
             {% endfor %}
           <div class="form-actions">
+              <h3>All fields are mandatory / required</h3>
+              <p>With the submission of data and documents about your project, you declare, that you are allowed to establish a cooperation with an artist funded by the Vertigo project.</p>
+              <br>
               <input class="btn btn-primary btn-lg" type="submit"
                   value="{% if page.form.button_text %}{{ page.form.button_text }}{% else %}{% trans "Submit" %}{% endif %}">
           </div>

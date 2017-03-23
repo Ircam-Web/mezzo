@@ -21,6 +21,9 @@
 
 from django.shortcuts import render
 from django.views.generic.detail import SingleObjectMixin
+from django.template.loader import render_to_string, get_template
+from django.core.mail import EmailMessage
+from django.template import Context
 from dal import autocomplete
 from dal_select2_queryset_sequence.views import Select2QuerySetSequenceView
 from mezzanine_agenda.models import Event
@@ -141,17 +144,16 @@ class ProjectICTSubmissionView(ProjectCallMixin, TemplateView):
 
     model = Project
     template_name='projects/project_ict_submission.html'
-
-
+    
 
 class ProjectICTCreateView(ProjectCallMixin, CreateWithInlinesView):
 
     model = Project
     form_class = ProjectForm
     template_name='projects/project_ict_create.html'
-    inlines = [ProjectPublicDataInline, ProjectPrivateDataInline, ProjectUserImageInline, ProjectContactInline,]
+    inlines = [ProjectPublicDataInline, ProjectPrivateDataInline, ProjectUserImageInline,
+                ProjectContactInline]
     topic = 'ICT'
-
 
     def forms_valid(self, form, inlines):
         self.object = form.save()
@@ -159,6 +161,28 @@ class ProjectICTCreateView(ProjectCallMixin, CreateWithInlinesView):
         self.object.call = self.call
         self.object.topic, c = ProjectTopic.objects.get_or_create(name='ICT')
         self.object.save()
+
+        for formset in inlines:
+            print(formset.prefix)
+            if 'contact' in formset.prefix:
+                for f in formset:
+                    contact_data = f.cleaned_data
+                    contact_email = contact_data.get("email")
+
+        from_email = settings.DEFAULT_FROM_EMAIL
+        to_email = [contact_email, settings.DEFAULT_TO_EMAIL]
+        subject = settings.EMAIL_SUBJECT_PREFIX + ' ' + self.call.title
+        ctx = {
+            'first_name': contact_data['first_name'],
+            'last_name': contact_data['last_name'],
+            'project_title': self.object.title,
+        }
+
+        message = get_template('projects/project_ict_create_notification.html').render(Context(ctx))
+        msg = EmailMessage(subject, message, to=to_email, from_email=from_email)
+        msg.content_subtype = 'html'
+        msg.send()
+
         return super(ProjectICTCreateView, self).forms_valid(form, inlines)
 
     def get_success_url(self):
