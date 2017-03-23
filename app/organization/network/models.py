@@ -215,8 +215,6 @@ class Person(Displayable, AdminThumbMixin, Address):
     bio = RichTextField(_('biography'), blank=True)
     role = models.CharField(_('role'), max_length=256, blank=True, null=True)
     external_id = models.CharField(_('external ID'), blank=True, null=True, max_length=128)
-    organization_name = models.CharField(_('organization name'), blank=True, null=True, max_length=128)
-    position = models.CharField(_('position'), blank=True, null=True, max_length=128)
 
     class Meta:
         verbose_name = _('person')
