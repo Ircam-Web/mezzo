@@ -65,9 +65,10 @@ app:
 nginx:
   image: nginx
   ports:
-    - "8022:80"
+    - "8024:80"
   volumes:
     - ./etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+    - ./etc/nginx/htpasswd:/etc/nginx/htpasswd
   volumes_from:
     - var
   links:
