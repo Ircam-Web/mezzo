@@ -61,6 +61,7 @@
                 {{ event.no_price_comments }}
             </p>
         {% endif %}
+        {% if not event.is_full %}
         <p>
             {% if event.trainings.all|length %}
                 {% with event.links.all as links %}
@@ -76,5 +77,6 @@
                 </a>
             {% endif %}
         </p>
+        {% endif %}
     {% endif %}
 {% endif %}
