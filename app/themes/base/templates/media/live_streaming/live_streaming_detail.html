@@ -1,0 +1,54 @@
+{% extends "media/media_base.html" %}
+{% load mezzanine_tags keyword_tags i18n organization_tags staticfiles %}
+
+{% block meta_title %}{% trans "Live Streaming" %}{% endblock %}
+
+
+{% block page_class %}
+    live-streaming
+{% endblock %}
+
+{% block page_title %}
+    {% editable person.title %}
+        <h1 class="section-title section-title--uppercase section-title--main">{{ object.title }}</h1>
+    {% endeditable %}
+{% endblock %}
+
+{% block page_sidebar %}
+{% endblock %}
+
+{% block page_content %}
+    <div id="video_container">
+        {% if type == "youtube" %}
+            {% if object.youtube_id %}
+                <p class="intro">If YouTube streaming is not working, try HTML5 version by <a href="{% url 'organization-streaming-detail' slug 'html5' %}" title="">clicking here</a></p>
+                <iframe src="https://www.youtube.com/embed/{{ object.youtube_id }}?ecver=2" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            {% else %}
+                <p>Please fill youtube id</p>
+            {% endif %}
+        {% elif type == "html5" %}
+            {% if object.html5_url %}
+                <p class="intro">If HTML5 streaming is not working, try Youtube version by <a href="{% url 'organization-streaming-detail' slug 'youtube' %}" title="">clicking here</a></p>
+                <video id="live-streaming" width="100%" height="100%"  controls autoplay>
+                    <source src="{{ object.html5_url }}" type="video/webm">
+                </video>
+            {% else %}
+                <p>Please fill html5 live streaming url</p>
+            {% endif %}
+        {% endif %}
+    </div>
+    <div class="countdown-overlay">
+        <div id="countdown-title"></div>
+        <div id="countdown"></div>
+    </div>
+{% endblock %}
+
+{% block footer_scripts %}
+    {{ block.super }}
+    <script src="{% static "src/js/modules/live-streaming-counter.js" %}"></script>
+
+    <script type="text/javascript">
+        var json_event = {{ json_event|safe }}
+        CountDownTimer(json_event, 'countdown', 'live-streaming', '#video_container');
+    </script>
+{% endblock %}

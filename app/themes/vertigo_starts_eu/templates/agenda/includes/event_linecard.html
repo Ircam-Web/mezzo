@@ -1,0 +1,80 @@
+{% load i18n future mezzanine_tags event_tags keyword_tags disqus_tags organization_tags %}
+
+<div class="row">
+
+    <div class="col-sm-16">
+
+        <a class="event-line-box" href="{{ event.get_absolute_url }}">
+
+            {% with event.images.all|get_type:'card' as images %}
+                {% if images %}
+                    <figure class="event-line-box__image">
+                        <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="{{ MEDIA_URL }}{% thumbnail images.0.file 1030 400 %}">
+                    </figure>
+                {% else %}
+                    {% with event.parent.images.all|get_type:'card' as images %}
+                        {% if images %}
+                            <figure class="event-line-box__image">
+                                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="{{ MEDIA_URL }}{% thumbnail images.0.file 1030 400 %}">
+                            </figure>
+                        {% else %}
+                            <figure class="event-line-box__image">
+                                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            </figure>
+                        {% endif %}
+                    {% endwith %}
+                {% endif %}
+            {% endwith %}
+
+            <div class="event-line-box__content">
+
+                {% if event.prices.all and not is_archive %}
+                    {% if event.trainings.all|length %}
+                        {% with event.links.all as links %}
+                            {% if links %}
+                                <object class="event-line-box__button">
+                                    <a href="{{ links|get_type_link:'link'|first }}" class="button button--accent">
+                                        {% trans "Reserve" %}
+                                    </a>
+                                </object>
+                            {% endif %}
+                        {% endwith %}
+                    {% else %}
+                        <object class="event-line-box__button">
+                            <a href="{% url 'event_booking' event.slug %}" class="button button--accent">
+                                {% trans "Reserve" %}
+                            </a>
+                        </object>
+                    {% endif %}
+                {% endif %}
+
+                {% keywords_for event as tags %}
+
+                <div class="event-line-box__category">
+                    {% if event.category %}{{ event.category }}{% else %}{{ event.parent.category }}{% endif %}
+                </div>
+
+                <div class="event-line-box__body">
+                    {% if event.location %}
+                        <div class="event-line-box__location">
+                            {{ event.location }}
+                            {% if event.location.room %}
+                                 / {{ event.location.room }}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    <div class="event-line-box__title">
+                        {{ event.title }}
+                    </div>
+                    <div class="event-line-box__date">
+                        {% include 'agenda/includes/event_date_line.html' with object=event %}
+                    </div>
+                </div>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</div>

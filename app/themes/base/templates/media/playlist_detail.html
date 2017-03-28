@@ -1,0 +1,63 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags keyword_tags i18n organization_tags %}
+
+{% block meta_title %}{% trans "Media" %}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for person as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block page_class %}
+    playlist
+{% endblock %}
+
+{% block page_title %}
+    {% editable person.title %}
+        <h1 class="section-title section-title--uppercase section-title--main">{{ playlist.title }}</h1>
+    {% endeditable %}
+{% endblock %}
+
+{% block page_sidebar %}
+
+    <div class="page__meta" data-sticky data-sticky-parent="row" data-sticky-offset="100" data-sticky-detach-at="971">
+        {% editable playlist.publish_date %}
+            <div class="page__meta-date">
+                {{ playlist.publish_date|date:"DATE_FORMAT" }}
+            </div>
+        {% endeditable %}
+
+        <div class="page__meta-separator">
+
+        </div>
+
+        <div class="page__meta-text">
+            <strong>{{playlist.type}}</strong>
+        </div>
+
+        {% with playlist as object %}
+            {% include "includes/share_buttons.html" %}
+        {% endwith %}
+    </div>
+
+{% endblock %}
+
+{% block page_content %}
+
+    {% with playlist.type as type %}
+        {% with "media/inc/playlist_"|add:type|add:"_detail.html" as template %}
+            {% include template %}
+        {% endwith %}
+    {% endwith %}
+
+    <div class="playslit-html">
+        {{ playlist.content|safe }}
+    </div>
+{% endblock %}
+
+{% block page_related_content %}
+    {% include "core/inc/related_content_dynamic.html" %}
+{% endblock %}

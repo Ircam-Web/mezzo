@@ -1,0 +1,136 @@
+{% extends "vertigo_starts_eu/pages/page.html" %}
+{% load mezzanine_tags keyword_tags i18n organization_tags pages_tags %}
+
+{% block meta_title %}{{ object.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for object as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block page_class %}
+    object
+{% endblock %}
+
+{% block body_class %}
+    pattern pattern-bg {{ department.pages.all.0.weaving_css_class }}
+{% endblock %}
+
+{% block breadcrumb_menu %}
+    {{ block.super }}
+    <li class="breadcrumb__item active">{{ object.title }}</li>
+{% endblock %}
+
+{% block page_tags %}
+
+    {% comment %}
+        {% if department %}
+            <div class="tag dashed dashed--yellow">
+              {{ department.pages.all.0.title }}
+            </div>
+        {% endif %}
+        <div class="tag tag--category">
+            {% trans 'Project' %}
+        </div>
+    {% endcomment %}
+
+{% endblock %}
+
+{% block page_title %}
+
+    {% editable object.title %}
+        <h1 class="dotted">{{ object.title }}</h1>
+    {% endeditable %}
+
+    {% with page.get_ascendants|last as top_level_parent %}
+        {% if linked_organization_content and research_slug == top_level_parent.slug %}
+            {% include 'pages/page/includes/linked_organization_content.html' %}
+        {% endif %}
+    {% endwith %}
+
+    {% if object.description %}
+        {% editable object.description %}
+            <div class="chapo">
+                {{ object.description }}
+            </div>
+        {% endeditable %}
+    {% endif %}
+
+{% endblock %}
+
+{% block page_content %}
+    {% if object.content %}
+        {% editable object.content %}
+            {{ object.content|richtext_filters|safe }}
+        {% endeditable %}
+    {% endif %}
+{% endblock %}
+
+{% block page_sidebar %}
+    <ul class="nav-tree nav-tree--level-{{ branch_level }}" data-sticky data-sticky-parent="row" data-sticky-offset="100" data-sticky-detach-at="971">
+        <li class="nav-tree__item">
+            <a class="nav-tree__link" href="{{ page.get_ascendants.0.get_absolute_url }}">{% trans "Home" %}</a>
+        </li>
+        <li class="nav-tree__item">
+            <a class="nav-tree__link" href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+        </li>
+        <li class="nav-tree__item">
+            <a class="nav-tree__link active" href="{{ page.get_absolute_url }}">{{ object.title }}</a>
+            <ul class="nav-tree" data-summary>
+                <li class="nav-tree__item nav-tree__item--sub hide">
+                    <a class="nav-tree__link nav-tree__link--sub" href="#"></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block page_link %}
+    {% with object.links.all as links %}
+        {% if links %}
+            {% include 'core/inc/link.html' %}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block page_audio %}
+  {% with object as object %}
+      {{ block.super }}
+  {% endwith %}
+{% endblock %}
+
+{% block page_slider %}
+    {% with object as object %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+
+{% block page_video %}
+  {% with object as object %}
+      {{ block.super }}
+  {% endwith %}
+{% endblock %}
+
+{% block page_sub_content %}
+    {% with object.blocks.all as blocks %}
+        {% include "core/inc/block.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block page_demo %}
+{% endblock %}
+
+{% block page_blog %}
+{% endblock %}
+
+{% block logo %}
+{% endblock %}
+
+{% block page_related_content %}
+    {% with dynamic_content=object.dynamic_content_object.all|filter_content object=object %}
+        {% include "core/inc/related_content.html" %}
+    {% endwith %}
+{% endblock %}

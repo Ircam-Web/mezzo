@@ -1,0 +1,19 @@
+{% load i18n pages_tags mezzanine_tags staticfiles keyword_tags event_tags organization_tags %}
+
+{% with home.images.all|get_type:'page_featured' as images %}
+{% if images %}
+<div class="hero large-title" style="background-image: url({{ MEDIA_URL}}{{ images.first.file }})">
+{% else %}
+<div class="hero large-title">
+{% endif %}
+
+    <div class="container">
+
+        <div class="hero__title">
+            <img src="{% static "img/vertigo-starts/vertigo_tx.png" %}" />
+        </div>
+
+    </div>
+
+</div>
+{% endwith %}

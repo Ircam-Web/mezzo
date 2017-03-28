@@ -18,13 +18,15 @@
 
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
-
+import json
 from django.shortcuts import render
 from collections import defaultdict
 from organization.media.models import *
 from organization.core.views import *
 from dal import autocomplete
 from django.core.exceptions import FieldDoesNotExist
+from datetime import datetime
+from django.db.models import Q
 
 # temporarily excluse not ready models
 EXCLUDED_MODELS = ("organizationplaylist", "personplaylist")
@@ -33,7 +35,12 @@ EXCLUDED_MODELS = ("organizationplaylist", "personplaylist")
 class MediaDetailView(SlugMixin, DetailView):
 
     model = Media
-    template_name='media/media_detail.html'
+    context_object_name = 'media'
+
+    def get_template_names(self):
+        templates = super(MediaDetailView, self).get_template_names()
+        templates.insert(0,'media/'+self.kwargs['type'].lower()+'/'+self.kwargs['type'].lower()+'_detail.html')
+        return templates
 
 
 class PlaylistDetailView(SlugMixin, DetailView):
@@ -103,3 +110,59 @@ class PlayListMediaView(autocomplete.Select2QuerySetView):
         if self.q:
             qs = qs.filter(title__istartswith=self.q)
         return qs
+
+
+class MediaOverlayView(SlugMixin, DetailView):
+
+    model = Media
+    template_name='media/media/media_overlay.html'
+    context_object_name = 'media'
+
+    def get_template_names(self):
+        templates = super(MediaOverlayView, self).get_template_names()
+        templates.insert(0,'media/'+self.object.type.lower()+'/'+self.object.type.lower()+'_overlay.html')
+        return templates
+
+
+class PlaylistOverlayView(SlugMixin, DetailView):
+
+    model = Playlist
+    template_name='media/playlist_overlay.html'
+    context_object_name = 'playlist'
+
+
+class LiveStreamingDetailView(SlugMixin, DetailView):
+
+    model = LiveStreaming
+    template_name='media/live_streaming/live_streaming_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(LiveStreamingDetailView, self).get_context_data(**kwargs)
+
+        # check type choices
+        type_choices = []
+        for st in LIVE_STREAMING_TYPE_CHOICES:
+            type_choices.append(st[0])
+        if not self.kwargs['type'] in type_choices:
+            context['type'] = "html5"
+        else :
+            context['type'] = self.kwargs['type']
+
+        # slug
+        context['slug'] = self.object.slug
+
+        # event data
+        all_events = Event.objects.filter(location=self.object.event_location).filter(end__gte=datetime.now()).order_by('start')
+
+        events_data = {}
+        counter = 0
+        curr_event_index = len(all_events)
+        for event in all_events:
+            events_data[counter] = {}
+            events_data[counter]['title'] = event.title
+            events_data[counter]['begin'] = event.start.isoformat()
+            events_data[counter]['end'] = event.end.isoformat()
+            counter += 1
+
+        context['json_event'] = json.dumps(events_data)
+        return context

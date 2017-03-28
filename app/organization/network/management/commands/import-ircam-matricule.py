@@ -39,6 +39,7 @@ class Command(BaseCommand):
             help='define the XLS source file'),
     )
     number_of_person = 0
+    number_of_person_non_processed = 0
 
     def handle(self, *args, **kwargs):
 
@@ -48,13 +49,20 @@ class Command(BaseCommand):
         self.first_row = self.sheet.row(0)
         num_cols = self.sheet.ncols
         for row_idx in range(0, self.sheet.nrows):    # Iterate through rows
-            cell_id = self.sheet.cell(row_idx, 0).value.strip()
+            cell_id = self.sheet.cell(row_idx, 0).value
+            print("cell_id", type(cell_id), cell_id)
+            if isinstance(cell_id, float):
+                cell_id = str(int(cell_id))
+            if isinstance(cell_id, str):
+                cell_id = cell_id.strip()
             cell_last_name = self.sheet.cell(row_idx, 1).value
             cell_first_name = self.sheet.cell(row_idx, 2).value
             self.update_register_id(cell_id, cell_last_name, cell_first_name)
 
         print('***************************************************')
         print("Number of person processed : "+str(self.number_of_person))
+        print('***************************************************')
+        print("Number of person NON processed : "+str(self.number_of_person_non_processed))
         print('***************************************************')
 
     def update_register_id(self, id, last_name, first_name):
@@ -68,3 +76,4 @@ class Command(BaseCommand):
                 p.save()
         else :
             print("Person not found: "+last_name+' '+first_name+' | manual slug : '+ slug)
+            self.number_of_person_non_processed += 1

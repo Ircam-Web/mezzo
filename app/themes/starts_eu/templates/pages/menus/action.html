@@ -1,0 +1,29 @@
+{% load i18n pages_tags %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+{% spaceless %}
+{% if page_branch_in_menu %}
+    {% for page in page_branch %}
+        {% if page.is_primary %}
+            {% if forloop.first %}
+                <ul class="nav-actions">
+            {% endif %}
+        {% endif %}
+        {% if page.in_menu %}
+            {% if forloop.first and not page.parent.in_menu and not page.is_primary %}
+            {% endif %}
+            <li class="nav-actions__item {% if page.is_current_or_ascendant %}active{% endif %}">
+                <a class="nav-actions__item-link" href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+            </li>
+        {% endif %}
+        {% if page.is_primary %}
+            {% if forloop.last %}
+                <!--<li class="nav-actions__item">
+                    {% page_menu "pages/menus/vous_etes.html" %}
+                </li>-->
+                </ul>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% endspaceless %}

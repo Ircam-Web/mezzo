@@ -1,0 +1,39 @@
+{% load i18n mezzanine_tags keyword_tags organization_tags pages_tags %}
+{% if concrete_objects %}
+    <div class="pb2">
+        <div class="container">
+            <div class="row tac">
+                <div class="col-xs-16">
+                    <h2 class="section-title section-title--underline section-title--uppercase section-title--main">{% if object.related_title.title %}{{ object.related_title.title }}{% else %}{% trans "Also discover" %}{% endif %}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xxs-16">
+                    <div data-slider-related>
+
+                        {% for concrete_object in concrete_objects %}
+                            {% if forloop.counter0 == 0 or forloop.counter|divisibleby:3 %}
+                                <div class="container">
+                                    <div class="row">
+                            {% endif %}
+
+                            <div class="col-xs-6 col-xs-push-2">
+                                {% with app_label=concrete_object|app_label_short classname=concrete_object|classname|lower object=concrete_object  %}
+                                    {% with app_label|add:"/"|add:classname|add:"/includes/"|add:classname|add:"_card.html" as template %}
+                                        {% include template %}
+                                    {% endwith %}
+                                {% endwith %}
+                            </div>
+
+                            {% if forloop.last or forloop.counter|divisibleby:2 %}
+                                </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

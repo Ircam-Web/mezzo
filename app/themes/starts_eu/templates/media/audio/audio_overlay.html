@@ -1,0 +1,71 @@
+{% load mezzanine_tags keyword_tags i18n organization_tags %}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="mb1 col-md-10 col-md-push-3 page__content" data-summary-content>
+
+            <audio preload="true"></audio>
+
+            <ol class="audio-playlist">
+                <li class="audio-playlist__item">
+                    {% for transcoded in media.transcoded.all %}
+                        {% if transcoded.mime_type == "audio/mp4" or transcoded.mime_type == "audio/mp3" %}
+                            <a href="#" data-src="{{ transcoded.url }}"><span>{{ media.title }}</span>{% if media.description %}<small> {{ media.description }}</small>{% endif %}</a>
+                        {% endif %}
+                    {% endfor %}
+                </li>
+            </ol>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3 page__sidebar">
+            <div style="position: relative;">
+                <div class="page__meta" data-sticky data-sticky-parent="row" data-sticky-offset="100" data-sticky-detach-at="971">
+                    <div class="page__meta-title">
+                        {% trans 'Publish date' %}
+                    </div>
+                    {% editable media.publish_date %}
+                        <div class="page__meta-text">
+                            {{ media.publish_date|date:"DATE_FORMAT" }}
+                        </div>
+                    {% endeditable %}
+
+                    {% with media as object %}
+                        <div class="mt1">
+                            <ul class="share-links">
+                                <li class="share-links__item share-links__item--facebook">
+                                    <a target="_blank" href="http://facebook.com/sharer.php?u={{ request.META.HTTP_HOST }}{{ request.scheme }}{{ '://'|urlencode }}{% url 'organization-media-detail' object|get_media_type|lower object.slug %}&amp;t={{ object.title|urlencode }}" title="{% trans "Share on Facebook" %}"><i class="fa fa-facebook-square"></i></a>
+                                </li>
+                                <li class="share-links__item share-links__item--twitter">
+                                    <a target="_blank" href="http://twitter.com/home?status={{ object.title|urlencode }}%20{{ request.scheme }}{{ '://'|urlencode }}{{ request.META.HTTP_HOST }}{% url 'organization-media-detail' object|get_media_type|lower object.slug %}" title="{% trans "Share on Twitter" %}"><i class="fa fa-twitter-square"></i></a>
+                                </li>
+                                <li class="share-links__item share-links__item--email">
+                                    <a href="mailto:?subject={{ object.title }}&amp;body={{ request.scheme }}{{ '://'|urlencode }}{{ request.META.HTTP_HOST }}{% url 'organization-media-detail' object|get_media_type|lower object.slug %}" title="{% trans "Share by email" %}"> <i class="fa fa-envelope-square"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-16 col-md-10 page__content" data-summary-content>
+
+            <h2 class="mt0">{{ media.title }}</h2>
+            {% if media.description %}
+                <p>
+                    {{ media.description }}
+                </p>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>

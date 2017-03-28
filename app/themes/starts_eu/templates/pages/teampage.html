@@ -1,0 +1,156 @@
+{% extends "starts_eu/pages/page.html" %}
+{% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
+
+{% block page_class %}
+    department
+{% endblock %}
+
+{% block body_class %}
+    {% with page.get_ascendants|last as top_level_parent %}
+        {% if top_level_parent.get_content_model.weaving_css_class %}
+        pattern pattern-bg {{ top_level_parent.get_content_model.weaving_css_class }}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block page_title %}
+    {% editable page.title %}
+        <h1 class="dotted">{{ page.title }}</h1>
+    {% endeditable %}
+{% endblock %}
+
+{% block page_content %}
+    {% with page.get_ascendants|last as top_level_parent %}
+        {% if linked_organization_content and research_slug == top_level_parent.slug %}
+            {% include 'pages/page/includes/linked_organization_content.html' %}
+        {% endif %}
+    {% endwith %}
+    {% if page.teampage.sub_title %}
+        {% editable page.teampage.sub_title %}
+            <div class="chapo">
+                {{ page.teampage.sub_title }}
+            </div>
+        {% endeditable %}
+    {% endif %}
+
+    {% if page.teampage.content %}
+     {% editable page.teampage.content %}
+        {{ page.teampage.content|richtext_filters|safe }}
+     {% endeditable %}
+    {% endif %}
+
+    {% if page.get_ascendants|length == 1 %}
+        {% children_pages page.id as childrens %}
+        {% if childrens %}
+            <div class="page__childrens">
+                {% for children in childrens %}
+                    {% with children as object %}
+                        {% include "pages/page/includes/page_box.html" %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
+
+{% block page_audio %}
+  {% with page as object %}
+      {{ block.super }}
+  {% endwith %}
+{% endblock %}
+
+{% block page_slider %}
+    {% with page as object %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+
+{% block page_video %}
+  {% with page as object %}
+      {{ block.super }}
+  {% endwith %}
+{% endblock %}
+
+{% block page_sub_content %}
+    {% with page.blocks.all|slice:'1' as blocks %}
+        {% include "core/inc/block.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block related_project %}
+    {% if page.teampage.team.leader_projects.published or page.teampage.team.partner_projects.published %}
+        <div class="white-bg pb2">
+            <hr class="mt0" />
+            <div class="container">
+                {% with page.teampage.team.partner_projects.published|get_type:"internal" as projects %}
+                    {% if projects %}
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-push-3 col-lg-8 col-lg-push-2 white-bg" data-summary-content>
+                                <h2 class="dotted">{% trans "Research topics and related projects" %}</h2>
+                                    {% include 'projects/inc/project_list.html' %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                {% with page.teampage.team.leader_projects.published|get_type:"external" as leader_projects %}
+                {% with page.teampage.team.partner_projects.published|get_type:"external" as partner_projects %}
+                {% if leader_projects or partner_projects %}
+                <div class="row">
+                    <div class="col-sm-9 col-sm-push-3 col-lg-8 col-lg-push-2 white-bg" data-summary-content>
+                        <h2 class="dotted">{% trans "European and national projects" %}</h2>
+                        {% with leader_projects as projects %}
+                            {% include 'projects/inc/project_list.html' %}
+                        {% endwith %}
+                        {% with partner_projects as projects %}
+                            {% include 'projects/inc/project_list.html' %}
+                        {% endwith %}
+                    </div>
+                </div>
+                {% endif %}
+                {% endwith %}
+                {% endwith %}
+            </div>
+            <hr class="mt0" />
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+{% block page_sub_content_2 %}
+    {% with page.blocks.all|slice_ng:'1:-2' as blocks %}
+        {% include "core/inc/block.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block page_person_list_team %}
+    {% activity_statuses as statuses %}
+    {% if statuses|length > 0 %}
+        <div class="page__block page__block--yellow">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9 col-sm-push-3 col-lg-8 col-lg-push-2" data-summary-content>
+                        <h2 class="dotted">{% trans 'Team' %}</h2><br>
+                        {% for status in statuses %}
+                            {% with page.teampage.team|get_team_persons:status as persons %}
+                                {% if persons %}
+                                    <strong>{% if persons|length == 1 %}{{ status.name }}{% else %}{{ status.description }}{% endif %} : </strong>
+                                    {% for person in persons %}
+                                        <a href="{% url 'organization-network-person-detail' person.slug %}">{{ person.title }}</a>{% if not forloop.last %}, {% endif %}
+                                    {% endfor %}
+                                    <br/>
+                                {% endif %}
+                            {% endwith %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block page_sub_content_3 %}
+    {% with page.blocks.all|slice_ng:'-1' as blocks %}
+        {% include "core/inc/block.html" %}
+    {% endwith %}
+{% endblock %}

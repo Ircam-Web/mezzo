@@ -132,6 +132,12 @@ class OrganizationServiceTranslationOptions(TranslationOptions):
     fields = ('name', 'description')
 
 
+@register(OrganizationContact)
+class OrganizationContactTranslationOptions(TranslationOptions):
+
+    pass
+
+
 @register(PersonListBlock)
 class PersonListBlockTranslationOptions(TranslationOptions):
 

@@ -1,0 +1,36 @@
+
+{% load twitter_tags i18n %}
+
+{% tweets_default as tweets %}
+
+{% if tweets %}
+<ul class="tweets">
+    {% for tweet in tweets %}
+    <li class="tweets__tweet">
+        <div class="col-xxs-3">
+            {% if tweet.retweeter_full_name %}
+                <a href="http://twitter.com/{{ tweet.retweeter_user_name }}" title="{{ tweet.retweeter_full_name }}"><img class="tweets__tweet-image" src="{{ tweet.retweeter_profile_image_url|cut:"http:" }}" alt="{{ tweet.retweeter_full_name }}"></a>
+            {% else %}
+                <a href="http://twitter.com/{{ tweet.user_name }}" title="{{ tweet.full_name }}"><img class="tweets__tweet-image" src="{{ tweet.profile_image_url|cut:"http:" }}" alt="{{ tweet.full_name }}"></a>
+            {% endif %}
+        </div>
+        <div class="col-xxs-13 tweets__tweet-content">
+            <h4 class="tweets__tweet-author">
+                {% if tweet.retweeter_full_name %}
+                    <a href="http://twitter.com/{{ tweet.retweeter_user_name }}" title="{{ tweet.retweeter_full_name }}">{{ tweet.retweeter_full_name }}   @{{ tweet.retweeter_user_name }}</a>
+                {% else %}
+                    <a href="http://twitter.com/{{ tweet.user_name }}" title="{{ tweet.full_name }}">{{ tweet.full_name }}   @{{ tweet.user_name }}</a>
+                {% endif %}
+                    <span>{% blocktrans with sometime=tweet.created_at|timesince %}{{ sometime }} ago{% endblocktrans %}</span>
+            </h4>
+            <p class="tweets__tweet-body">
+                {{ tweet.text|safe }}<br>
+                {% comment %}
+                    <a href="http://twitter.com/{{ tweet.user_name }}/status/{{ tweet.remote_id }}"></a>
+                {% endcomment %}
+            </p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

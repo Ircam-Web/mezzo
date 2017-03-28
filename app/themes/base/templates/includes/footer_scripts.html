@@ -1,0 +1,34 @@
+{% load mezzanine_tags i18n staticfiles %}
+
+{% compress js %}
+    <script src="{% static "vendors/jquery/jquery.js" %}"></script>
+    <script src="{% static "vendors/overflow.js/js/overflow.js" %}"></script>
+    <script src="{% static "vendors/sticky-kit/jquery.sticky-kit.js" %}"></script>
+    <script src="{% static "vendors/jquery-throttle-debounce/jquery.ba-throttle-debounce.js" %}"></script>
+    <script src="{% static "vendors/lightslider/dist/js/lightslider.js" %}"></script>
+    <script src="{% static "vendors/lightgallery/dist/js/lightgallery.js" %}"></script>
+    <script src="{% static "vendors/imagesloaded/imagesloaded.pkgd.js" %}"></script>
+    <script src="{% static "vendors/pushy/js/pushy.js" %}"></script>
+    <script src="{% static "vendors/video.js/dist/video.js" %}"></script>
+    <script src="{% static "vendors/videojs-playlist/dist/videojs-playlist.js" %}"></script>
+    <script src="{% static "vendors/audiojs/audiojs/audio.js" %}"></script>
+    <script src="{% static "vendors/jquery_lazyload/jquery.lazyload.js" %}"></script>
+    <script src="{% static "vendors/waypoints/lib/jquery.waypoints.js" %}"></script>
+    <script src="{% static "vendors/moment/moment.js" %}"></script>
+    <script src="{% static "vendors/moment-timezone/builds/moment-timezone-with-data.js" %}"></script>
+    <script src="{% static "js/water.js" %}"></script>
+    <script src="{% static "js/index.min.js" %}"></script>
+{% block extra_js %}{% endblock %}
+{% editable_loader %}
+{% endcompress %}
+
+{% if settings.GOOGLE_ANALYTICS_ID and not request.user.is_staff and not settings.DEBUG %}
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', '{{ settings.GOOGLE_ANALYTICS_ID }}', 'auto');
+ga('send', 'pageview');
+</script>
+{% endif %}

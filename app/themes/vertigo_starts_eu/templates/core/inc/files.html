@@ -1,0 +1,17 @@
+{% load i18n %}
+<p>
+    <strong>{% trans "Downloads" %}</strong>
+</p>
+<ul class="unstyled-list fss">
+{% for file in files %}
+    <li>
+        <a href="{{ file.file.url }}" class=""><i class="fa fa-download"></i> {{ file.title }}</a>
+        {% if file.description %}
+            <br />
+            <p>
+                {{ file.description }}
+            </p>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>

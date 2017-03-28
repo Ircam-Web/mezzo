@@ -1,0 +1,22 @@
+{% load i18n pages_tags mezzanine_tags %}
+<div class="brief__item {% if not on_home %}msry__item {% endif %}">
+    <div class="brief__item__inner">
+        <a target="_blank" href="{{ brief.external_content}}" class="brief__item__inner">
+            {% if brief.featured_image %}
+            <figure class="brief__item__img">
+                <img src="{{ MEDIA_URL }}{% thumbnail brief.featured_image 500 0 %}" alt="brief: {{ brief.title }}">
+            </figure>
+            {% endif %}
+            <h3 class="brief__item__name">
+                <span>
+                    {{ brief.title }}
+                </span>
+            </h3>
+            <p>
+               {{ brief.description }}
+            </p>
+
+        </a>
+        <a href="{{ brief.external_content}}" class="btn btn-full">{{ brief.text_button }}</a>
+    </div>
+</div>

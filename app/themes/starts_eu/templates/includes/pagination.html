@@ -1,0 +1,35 @@
+{% load i18n %}
+
+{% if current_page.has_previous or current_page.has_next %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-push-3">
+            <ul class="pagination">
+
+                {% if current_page.has_previous %}
+                    <li class="pagination__item">
+                        <a class="pagination__link"{% if current_page.has_previous %} href="?{{ page_var }}={{ current_page.previous_page_number }}{% if querystring %}&{{ querystring }}{% endif %}"{% endif %}>
+                            {% trans 'Previous page' %}
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% for page in current_page.visible_page_range %}
+                <li class="pagination__item">
+                    <a class="pagination__link{% if page == current_page.number %} active{% endif %}" href="?{{ page_var }}={{ page }}{% if querystring %}&{{ querystring }}{% endif %}">{{ page }}</a>
+                </li>
+                {% endfor %}
+
+                {% if current_page.has_next %}
+                    <li class="pagination__item">
+                        <a class="pagination__link"{% if current_page.has_next %} href="?{{ page_var }}={{ current_page.next_page_number }}{% if querystring %}&{{ querystring }}{% endif %}"{% endif %}>
+                            {% trans 'Next page' %}
+                        </a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</div>
+{% endif %}

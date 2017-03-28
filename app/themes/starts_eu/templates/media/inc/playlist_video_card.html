@@ -1,0 +1,20 @@
+{% load mezzanine_tags keyword_tags i18n organization_tags staticfiles %}
+
+<div class="col-lg-4">
+    <a class="media-box" href="{% url 'organization-playlist-detail' playlist.slug %}">
+        <figure class="media-box__image media-box__image--video">
+            {% if playlist.medias.all.0.media.poster_url %}
+                <img src="{{ playlist.medias.all.0.media.poster_url }}">
+            {% else %}
+                <img src="{% static "img/placeholder-media.png" %}">
+            {% endif %}
+        </figure>
+        <div class="media-box__type">
+            {{playlist.type}}
+        </div>
+        <h2 class="media-box__title">{{ playlist.title }}</h2>
+        <div class="media-box__desc">
+            {{ playlist.description|richtext_filters|safe|truncatechars_html:200 }}
+        </div>
+    </a>
+</div>

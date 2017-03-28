@@ -1,0 +1,160 @@
+// -*- coding: utf-8 -*-
+
+// Copyright (c) 2016-2017 Ircam
+// Copyright (c) 2016-2017 Jérémy Fabre
+
+// This file is part of mezzanine-organization.
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+
+// You should have received a copy of the GNU Affero General Public License
+// along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+$module: ".footer";
+
+#{$module} {
+
+    /* Rectangle 2: */
+    background-image: linear-gradient(-180deg, #000F24 0%, #FF203C 100%);
+    @include margin-top(10);
+
+    @include mq($until: xs) {
+        div[class^="col-"] {
+            @include margin(.5 0);
+        }
+    }
+
+    .section-title {
+        @include margin-bottom(2);
+        @include margin-top(0);
+    }
+
+    &__pre {
+
+        border-bottom: 3px solid white;
+        color: white;
+
+        @include padding(1 0);
+
+        @include mq($until: xs) {
+            @include padding(0);
+            border: 0;
+        }
+
+    }
+
+    &__content {
+
+        @include padding(1 0 .5 0);
+
+        @include font-size(s);
+        @include typeface(sans-serif);
+        font-weight: weight(light);
+
+        color: white;
+
+        @include mq($until: xs) {
+            @include padding(0);
+        }
+
+    }
+
+    &__follow-link {
+
+        color: white;
+        @include font-size(xxl);
+        display: inline-block;
+
+        @include margin(0 .25);
+        @include transition(all 0.5s ease-in-out);
+
+        &:hover {
+            &.facebook {
+                color: $color-facebook;
+            }
+            &.twitter {
+                color: $color-twitter;
+            }
+            &.instagram {
+                color: $color-instagram;
+            }
+            &.youtube {
+                color: $color-youtube;
+            }
+            &.vimeo {
+                color: $color-vimeo;
+            }
+        }
+
+    }
+
+    &__link {
+
+        color: white;
+        border-bottom: 1px solid $color-main;
+        font-weight: weight(regular);
+
+    }
+
+    &__separator {
+
+        width: 100%;
+        background: white;
+        height: 3px;
+
+        @include margin(1 0);
+
+        @include mq($until: xs) {
+            @include margin(0);
+        }
+
+        &--small {
+            height: 1px;
+        }
+
+    }
+
+    &__partner {
+        @include mq($until: lg) {
+            width: 80px;
+        }
+        @include mq($until: md) {
+            width: 80px;
+        }
+        @include mq($until: sm) {
+            width: 120px;
+        }
+        @include mq($until: xs) {
+            width: 80px;
+            height: auto;
+        }
+    }
+
+    &__partner-separator {
+        @include typeface(sans-serif);
+        @include font-size(m);
+        font-weight: weight(regular);
+        display: inline-block;
+        @include margin(0 1);
+        position: relative;
+        top: -30px;
+        @include mq($until: xs) {
+            color: white;
+        }
+    }
+
+    .section-title {
+        @include mq($until: xs) {
+            color: white;
+        }
+    }
+
+}

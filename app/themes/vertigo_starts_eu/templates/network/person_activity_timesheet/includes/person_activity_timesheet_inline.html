@@ -1,0 +1,22 @@
+{% load organization_tags %}
+<table>
+    <tr>
+        <th>{{ timesheet.month|month_name }}</th>
+    </tr>
+    <tr>
+        <td>
+            {{ timesheet.percentage|format_percent }} 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {% with timesheet.work_packages.all as work_packages %}
+                {% if work_packages %}
+                    {{ timesheet.work_packages.all|format_wp }}
+                {% else %}
+                    <span>-</span>
+                {% endif %}
+            {% endwith %}
+        </td>
+    </tr>
+</table>

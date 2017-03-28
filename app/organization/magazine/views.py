@@ -34,10 +34,11 @@ from mezzanine_agenda.models import Event
 from mezzanine.utils.views import paginate
 from mezzanine.conf import settings
 from organization.magazine.models import *
-from organization.network.models import DepartmentPage
+from organization.network.models import DepartmentPage, Person
 from organization.pages.models import CustomPage, DynamicContentPage
 from organization.core.views import SlugMixin, autocomplete_result_formatting
 from django.template.defaultfilters import slugify
+from itertools import chain
 
 
 class ArticleDetailView(SlugMixin, DetailView):
@@ -156,13 +157,15 @@ class DynamicContentArticleView(Select2QuerySetSequenceView):
         articles = Article.objects.all()
         events = Event.objects.all()
         pages = CustomPage.objects.all()
+        persons = Person.objects.published()
 
         if self.q:
             articles = articles.filter(title__icontains=self.q)
             events = events.filter(title__icontains=self.q)
             pages = pages.filter(title__icontains=self.q)
+            persons = persons.filter(title__icontains=self.q)
 
-        qs = autocomplete.QuerySetSequence(articles, events, pages)
+        qs = autocomplete.QuerySetSequence(articles, events, pages, persons)
 
         if self.q:
             # This would apply the filter on all the querysets
@@ -177,3 +180,26 @@ class DynamicContentArticleView(Select2QuerySetSequenceView):
     def get_results(self, context):
         results = autocomplete_result_formatting(self, context)
         return results
+
+
+class ArticleListView(SlugMixin, ListView):
+
+    model = Article
+    template_name='magazine/article/article_list.html'
+    context_object_name = 'objects'
+
+    def get_queryset(self):
+        qs = super(ArticleListView, self).get_queryset()
+        qs = qs.filter(status=2)
+        medias = Media.objects.published()
+
+        qs = sorted(
+            chain(qs, medias),
+            key=lambda instance: instance.created,
+            reverse=True)
+
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleListView, self).get_context_data(**kwargs)
+        return context

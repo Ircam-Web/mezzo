@@ -1,0 +1,15 @@
+{% load staticfiles i18n organization_tags %}
+
+<div class="container mb2">
+    <div class="row">
+        {% for service in host_organization.services.all|slice_ng:"0:2" %}
+            {% include "home/inc/service.html" %}
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        {% for service in host_organization.services.all|slice_ng:"2:5" %}
+            {% include "home/inc/service.html" %}
+        {% endfor %}
+    </div>
+</div>

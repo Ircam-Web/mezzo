@@ -1,0 +1,23 @@
+{% load i18n mezzanine_tags organization_tags %}
+{% with video.get_absolute_url as video_url %}
+    {% if video.poster_url %}
+        <!-- url of the media is distant. We can't generate back side thumbnail. Do it with css pliz -->
+        <img src="{{ video.poster_url }}" width="200" height="150">
+    {% else %}
+        <!--placeholder picture-->
+    {% endif %}
+    <h5>
+        {% if video_url %}
+            <a href="{{ video_url }}">{{ video }}</a>
+        {% else %}
+            {{ video }}
+        {% endif %}
+    </h5>
+    {% if video.description != video|stringformat:"s" %}
+        <p>{{ video.description|truncatewords_html:200|safe }}</p>
+    {% endif %}
+    {% if video_url %}
+        <a href="{{ video_url }}">{% trans "read more" %}</a>
+    {% endif %}
+    <br>
+{% endwith %}

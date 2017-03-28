@@ -81,9 +81,29 @@ class ProjectBlogPageInline(StackedDynamicInlineAdmin):
     model = ProjectBlogPage
 
 
+class ProjectUserImageInline(StackedDynamicInlineAdmin):
+
+    model = ProjectUserImage
+
+
+class ProjectContactInline(StackedDynamicInlineAdmin):
+
+    model = ProjectContact
+
+
 class ProjectAdmin(admin.ModelAdmin):
 
     model = Project
+
+
+class ProjectPublicDataInline(StackedDynamicInlineAdmin):
+
+    model = ProjectPublicData
+
+
+class ProjectPrivateDataInline(StackedDynamicInlineAdmin):
+
+    model = ProjectPrivateData
 
 
 class ProjectRelatedTitleAdmin(TranslationTabularInline):
@@ -106,17 +126,23 @@ class ProjectAdminDisplayable(DisplayableAdmin):
 
     fieldsets = deepcopy(ProjectAdmin.fieldsets)
     inlines = [ ProjectBlockInline,
+                ProjectContactInline,
+                ProjectUserImageInline,
                 ProjectImageInline,
+                ProjectPublicDataInline,
+                ProjectPrivateDataInline,
                 ProjectWorkPackageInline,
                 ProjectPlaylistInline,
                 ProjectLinkInline,
                 ProjectFileInline,
                 ProjectRelatedTitleAdmin,
                 DynamicContentProjectInline,
-                ProjectBlogPageInline,]
+                ProjectBlogPageInline,
+                ]
     filter_horizontal = ['teams', 'organizations']
     list_filter = ['type', 'program', 'program_type', null_filter('external_id')]
-    list_display = ['title', 'external_id', 'date_from', 'date_to', 'status', 'admin_link']
+    list_display = ['title', 'created', 'validation_status',
+                    'date_from', 'date_to', 'status', 'external_id', 'admin_link']
 
 
 class ProjectTopicAdmin(BaseTranslationModelAdmin):
@@ -139,6 +165,50 @@ class ProjectTopicPageAdmin(PageAdmin):
     inlines = [PageImageInline, ]
 
 
+class ProjectWorkPackageAdmin(BaseTranslationModelAdmin):
+
+    model = ProjectWorkPackage
+    list_display = ['title', 'project', 'date_from', 'date_to', 'number', 'lead_organization' ]
+    list_filter = ['project', 'date_from', 'date_to', 'lead_organization' ]
+
+
+class ProjectCallAdmin(admin.ModelAdmin):
+
+    model = ProjectCall
+
+
+class ProjectCallBlockInline(StackedDynamicInlineAdmin):
+
+    model = ProjectCallBlock
+
+
+class ProjectCallLinkInline(StackedDynamicInlineAdmin):
+
+    model = ProjectCallLink
+
+
+class ProjectCallImageInline(StackedDynamicInlineAdmin):
+
+    model = ProjectCallImage
+
+
+class ProjectCallFileInline(StackedDynamicInlineAdmin):
+
+    model = ProjectCallFile
+
+
+class ProjectCallAdminDisplayable(DisplayableAdmin):
+
+    fieldsets = deepcopy(ProjectCallAdmin.fieldsets)
+    inlines = [ ProjectCallBlockInline,
+                ProjectCallImageInline,
+                ProjectCallLinkInline,
+                ProjectCallFileInline,
+                ]
+    # list_filter = ['type', 'program', 'program_type', null_filter('external_id')]
+    # list_display = ['title', 'date_from', 'date_to', 'status', 'admin_link']
+
+
 admin.site.register(Project, ProjectAdminDisplayable)
 admin.site.register(ProjectProgram, ProjectProgramAdmin)
 admin.site.register(ProjectProgramType, ProjectProgramTypeAdmin)
@@ -147,3 +217,5 @@ admin.site.register(ProjectTopicPage, ProjectTopicPageAdmin)
 admin.site.register(ProjectDemo, ProjectDemoAdmin)
 admin.site.register(Repository)
 admin.site.register(RepositorySystem)
+admin.site.register(ProjectWorkPackage, ProjectWorkPackageAdmin)
+admin.site.register(ProjectCall, ProjectCallAdminDisplayable)

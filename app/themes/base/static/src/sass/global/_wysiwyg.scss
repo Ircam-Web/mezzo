@@ -1,0 +1,199 @@
+// -*- coding: utf-8 -*-
+
+// Copyright (c) 2016-2017 Ircam
+// Copyright (c) 2016-2017 Jérémy Fabre
+
+// This file is part of mezzanine-organization.
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+
+// You should have received a copy of the GNU Affero General Public License
+// along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+.wys-button {
+
+    @extend .button;
+    .page__block--black & {
+        color: $color-black;
+        &:hover {
+            color: white;
+        }
+    }
+
+    @include margin(0 .5 0 0);
+
+}
+
+.wys-button-small {
+
+    @extend .button;
+    @extend .button--small;
+    .page__block--black & {
+        color: $color-black;
+        &:hover {
+            color: white;
+        }
+    }
+
+    @include margin(0 .5 0 0);
+
+}
+
+.wys-button-xsmall {
+
+    @extend .button;
+    @extend .button--xsmall;
+    .page__block--black & {
+        color: $color-black;
+        &:hover {
+            color: white;
+        }
+    }
+
+    @include margin(0 .5 0 0);
+
+}
+
+.wys-button-black {
+
+    @extend .button;
+    @extend .button--black;
+
+    .page__block--black & {
+        color: white;
+        &:hover {
+            color: $color-black;
+        }
+    }
+
+    @include margin(0 .5 0 0);
+
+}
+
+.wys-button-black-small {
+
+    @extend .button;
+    @extend .button--black;
+    @extend .button--small;
+
+    .page__block--black & {
+        color: white;
+        &:hover {
+            color: $color-black;
+        }
+    }
+
+    @include margin(0 .5 0 0);
+
+}
+
+.wys-button-black-xsmall {
+
+    @extend .button;
+    @extend .button--black;
+    @extend .button--xsmall;
+
+    .page__block--black & {
+        color: white;
+        &:hover {
+            color: $color-black;
+        }
+    }
+
+    @include margin(0 .5 0 0);
+
+}
+
+.wys-button-white {
+
+    @extend .button;
+    @extend .button--white;
+
+    .page__block--black & {
+        color: $color-black;
+        &:hover {
+            color: white;
+        }
+    }
+
+    @include margin(0 .5 0 0);
+
+}
+
+.wys-button-white-small {
+
+    @extend .button;
+    @extend .button--white;
+    @extend .button--small;
+
+    .page__block--black & {
+        color: $color-black;
+        &:hover {
+            color: white;
+        }
+    }
+
+    @include margin(0 .5 0 0);
+
+}
+
+.wys-button-white-xsmall {
+
+    @extend .button;
+    @extend .button--white;
+    @extend .button--xsmall;
+
+    .page__block--black & {
+        color: $color-black;
+        &:hover {
+            color: white;
+        }
+    }
+
+    @include margin(0 .5 0 0);
+
+}
+
+.wys-highlighted-paragraph {
+
+    @include padding-left(1);
+    @include margin-top(1.5);
+    border-left: 1px solid $color-main;
+
+    & + .wys-highlighted-paragraph {
+
+        @include margin-top(-1);
+        @include padding-top(1);
+
+    }
+
+    .page__block--yellow & {
+
+        border-color: $color-background;
+
+    }
+
+}
+
+.wys-small-text {
+
+    @extend .small-text;
+
+}
+
+.wys-unstyled-link {
+
+    border-bottom: 0 !important;
+    &:hover {
+        box-shadow: none !important;
+    }
+
+}

@@ -37,6 +37,8 @@ from organization.media.models import Playlist
 from mezzanine_agenda.models import Event
 from organization.pages.models import CustomPage
 from organization.projects.models import Project
+from extra_views import CreateWithInlinesView, UpdateWithInlinesView, InlineFormSet
+
 
 class SlugMixin(object):
 

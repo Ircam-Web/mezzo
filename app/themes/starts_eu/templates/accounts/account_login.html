@@ -1,0 +1,28 @@
+{% extends "accounts/account_form.html" %}
+{% load i18n mezzanine_tags %}
+
+{% block meta_title %}
+	{% trans "Page not found" %}
+{% endblock %}
+
+{% block page_class %}
+	custompage
+{% endblock %}
+
+{% block page_title %}
+	<h1 class="dotted">{% trans "Login" %}</h1>
+{% endblock %}
+
+{% block page_content %}
+{% if request.user.is_authenticated %}
+    <p>{% trans "You're already logged in. If you'd like to log in as a different user, you'll need to log out first." %}</p>
+{% else %}
+    {{ block.super }}
+    {% url "signup" as signup_url %}
+    {% url "mezzanine_password_reset" as password_reset_url %}
+    {% url "profile_update" as profile_update_url %}
+	{% block message %}
+    {% blocktrans %}<p>You can also <a href="{{ password_reset_url }}?next={{ profile_update_url }}">reset your password</a> if you've forgotten it.</p>{% endblocktrans %}</p>
+	{% endblock %}
+{% endif %}
+{% endblock %}

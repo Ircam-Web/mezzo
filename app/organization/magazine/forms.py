@@ -25,7 +25,7 @@ import dal_select2_queryset_sequence
 from django import forms
 from organization.magazine.models import *
 from organization.pages.models import CustomPage
-from organization.network.models import PersonListBlock
+from organization.network.models import PersonListBlock, Person
 from mezzanine_agenda.models import Event
 
 class BriefForm(autocomplete.FutureModelForm):
@@ -63,7 +63,8 @@ class DynamicContentArticleForm(autocomplete.FutureModelForm):
         queryset=autocomplete.QuerySetSequence(
             Article.objects.all(),
             Event.objects.all(),
-            CustomPage.objects.all()
+            CustomPage.objects.all(),
+            Person.objects.published()
         ),
         required=False,
         widget=dal_select2_queryset_sequence.widgets.QuerySetSequenceSelect2('dynamic-content-article'),

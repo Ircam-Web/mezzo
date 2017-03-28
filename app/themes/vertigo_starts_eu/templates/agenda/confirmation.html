@@ -1,0 +1,17 @@
+{% extends "vertigo_starts_eu/pages/page.html" %}
+{% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
+
+{% block meta_title %}{% trans "Confirmation" %}{% endblock %}
+
+
+{% block page_class %}
+    Confirmation
+{% endblock %}
+
+{% block page_title %}
+  <h1 class="dotted">{% trans "Confirmation" %}</h1>
+{% endblock %}
+
+{% block page_content %}
+    <iframe width="100%" height="820px" scrolling="auto" src="{{ confirmation_url }}" frameborder="0" allowfullscreen=""></iframe>
+{% endblock %}

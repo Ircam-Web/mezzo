@@ -1,0 +1,44 @@
+{% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
+<div class="job-line-box job-line-box--candidacy">
+
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 tac">
+
+            {% with content.images.all|get_type:'card' as images %}
+                {% if images %}
+                    <img class="job-line-box__image" src="{{ MEDIA_URL }}{% thumbnail images.first 150 150 %}" alt="{{ content.title }}">
+                {% endif %}
+            {% endwith %}
+
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+            {% editable content.title %}
+                <h2 class="job-line-box__title">{{ content.title }}</h2>
+            {% endeditable %}
+
+            <div class="job-line-box__desc">
+                {% editable content.date_from content.date_to %}
+                    {% if content.date_from and content.date_to %}
+                        <strong>{% trans "From" %}&nbsp;{{ content.date_from|date:"DATE_FORMAT" }}&nbsp;{% trans "to" %}&nbsp;{{ content.date_to|date:"DATE_FORMAT" }}</strong><br/>
+                    {% elif content.date_from %}
+                        <strong>{% trans "From" %}&nbsp;{{ content.date_from|date:"DATE_FORMAT" }}</strong><br/>
+                    {% elif content.date_to %}
+                        <strong>{% trans "until" %}{{ content.date_to|date:"DATE_FORMAT" }}</strong><br/>
+                    {% endif %}
+                {% endeditable %}
+                <br />
+                {% editable content.description %}
+                    {{ content.description|safe }}
+                {% endeditable %}
+            </div>
+            {% if content.external_content and content.text_button_external %}
+                <a class="button button--small" href="{{ content.external_content }}" title="{{ content.text_button_external }}">{{ content.text_button_external }}</a>
+            {% endif %}
+            {% if content.content_object  and content.text_button_internal %}
+                <a class="button button--small" href="{{ content.content_object.get_absolute_url }}" title="{{ content.text_button_internal }}">{{ content.text_button_internal }}</a>
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>

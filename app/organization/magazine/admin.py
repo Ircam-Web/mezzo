@@ -47,7 +47,8 @@ class ArticleAdmin(admin.ModelAdmin):
 class ArticlePersonAutocompleteInlineAdmin(TabularDynamicInlineAdmin):
 
     model = ArticlePersonListBlockInline
-    form = ArticlePersonListForm
+    # form = ArticlePersonListForm
+    exclude = ("title", "description")
 
 
 class DynamicContentArticleInline(TabularDynamicInlineAdmin):

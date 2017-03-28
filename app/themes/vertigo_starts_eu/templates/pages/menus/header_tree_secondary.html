@@ -1,0 +1,14 @@
+{% load i18n pages_tags staticfiles %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+{% spaceless %}
+{% if page_branch_in_menu %}
+    {% for page in page_branch %}
+        {% if page.in_menu and page.in_menus|first %}
+            <li class="nav-header__item-sub{% if page.is_current_or_ascendant %} active{% endif %}">
+                <a class="" href="{{ page.get_absolute_url }}" title="{{ page.title }}">{{ page.title }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% endspaceless %}

@@ -52,3 +52,15 @@ class PlaylistMediaTranslationOptions(TranslationOptions):
 class MediaCategoryTranslationOptions(TranslationOptions):
 
     fields = ('title', 'description',)
+
+
+@register(MediaImage)
+class MediaImageTranslationOptions(TranslationOptions):
+
+    fields = ()
+
+
+@register(LiveStreaming)
+class LiveStreamingTranslationOptions(TranslationOptions):
+
+    fields = ('title', 'description', 'html5_url')
