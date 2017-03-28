@@ -1,0 +1,79 @@
+// -*- coding: utf-8 -*-
+
+// Copyright (c) 2016-2017 Ircam
+// Copyright (c) 2016-2017 Jérémy Fabre
+
+// This file is part of mezzanine-organization.
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+
+// You should have received a copy of the GNU Affero General Public License
+// along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+$module: ".page--live-streaming";
+
+#{$module} {
+
+    .intro {
+        margin-bottom : 30px;
+    }
+
+    & #video_container{
+        height: 720px;
+    }
+    
+    & .page__content {
+        text-align: center;
+        height: 720px;
+        padding-left: 70px;
+        padding-right: 70px;
+    }
+
+    video {
+    }
+
+    iframe {
+        height: 100%;
+        max-height: 720px;
+
+        @include mq($until: sm) {
+            max-height: 690px;
+        }
+    }
+    .countdown-overlay {
+        background: #000000 none repeat scroll 0 0;
+        color: white;
+        font-family: "Oswald",sans-serif;
+        font-size: 2em;
+        height: 100%;
+        max-height: 720px;
+        padding-left: 70px;
+        padding-right: 70px;
+        position: absolute;
+        top: 60px;
+        left: 0px;
+        width: 100%;
+        z-index: 90;
+    }
+
+    #countdown-title {
+        margin-top: 5em;
+    }
+
+    #countdown {
+        margin-top: 1em;
+        font-weight: bold;
+        color: white;
+    }
+
+
+
+}

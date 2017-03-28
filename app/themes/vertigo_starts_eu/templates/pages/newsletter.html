@@ -1,0 +1,23 @@
+{% extends "vertigo_starts_eu/pages/page.html" %}
+{% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
+
+{% block meta_title %}{% trans "Newsletter" %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ newsletter.description }}
+{% endmetablock %}{% endblock %}
+
+{% block page_class %}
+    newsletter
+{% endblock %}
+
+{% block page_title %}
+  <h1 class="dotted">{% trans "Newsletter" %}</h1>
+{% endblock %}
+
+{% block page_content %}
+
+    <p>{% trans "Sign up for our monthly newsletter to keep up to date with the institute's activities every month and be eligible to take advantage of special offers from our partners." %}</p>
+    <iframe id="mb_content" width="300" height="150" frameborder="0" name="mb_content" src="http://public.message-business.com/form/46711/84/form.aspx" border="0" style="width: 100%; height: 950px;"></iframe>
+
+{% endblock %}

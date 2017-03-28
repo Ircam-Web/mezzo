@@ -1,0 +1,73 @@
+{% extends "pages/page.html" %}
+{% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
+
+{% with page as object %}
+
+    {% block page_class %}
+        custompage
+    {% endblock %}
+
+    {% block body_class %}
+        {% with page.get_ascendants|last as top_level_parent %}
+            {% if top_level_parent.get_content_model.weaving_css_class %}
+            pattern pattern-bg {{ top_level_parent.get_content_model.weaving_css_class }}
+            {% endif %}
+        {% endwith %}
+    {% endblock %}
+
+    {% block page_title %}
+        {% editable page.title %}
+            <h1 class="section-title section-title--uppercase section-title--main">{{ page.title }}</h1>
+        {% endeditable %}
+    {% endblock %}
+
+    {% block page_content %}
+
+        <div class="row">
+
+            {% if page.form.content %}
+                <div class="col-md-8">
+
+                    {% if page.form.content %}
+                        {% editable page.form.content %}
+                            {{ page.form.content|richtext_filters|safe }}
+                        {% endeditable %}
+                    {% endif %}
+
+                </div>
+            {% endif %}
+            <div class="{% if page.form.content %}col-md-8{% else %}col-md-16{% endif %}">
+
+                {% if request.GET.sent %}
+
+                    {% editable page.form.response %}
+                        {{ page.form.response|richtext_filters|safe }}
+                    {% endeditable %}
+
+                {% else %}
+
+                    {% errors_for form %}
+
+                    <form class="mezzanine-form form" method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+                        {% fields_for form %}
+                        <div class="form-actions">
+                            <input class="button" type="submit"
+                                value="{% if page.form.button_text %}{{ page.form.button_text }}{% else %}{% trans "Submit" %}{% endif %}">
+                        </div>
+                    </form>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    {% endblock %}
+
+{% endwith %}
+
+{% block extra_js %}
+    {{ block.super }}
+    <script>
+    $(function() {$('.mezzanine-form :input:visible:enabled:first').focus();});
+    </script>
+{% endblock %}

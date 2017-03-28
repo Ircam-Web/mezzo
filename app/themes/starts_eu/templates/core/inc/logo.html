@@ -1,0 +1,6 @@
+{% load mezzanine_tags i18n %}
+{% if images %}
+    {% for image in images %}
+        <li class="partners-list__item" style="background-image:url('{{ MEDIA_URL }}{{ image.file }}');"><img alt="{{ image.title }}" src="{{ MEDIA_URL }}{{ image.file }}"></li>
+    {% endfor %}
+{% endif %}

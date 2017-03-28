@@ -1,0 +1,24 @@
+{% load mezzanine_tags organization_tags %}
+<a href="{{ object.get_absolute_url }}" title="{{ object.title }}" class="page-box">
+    <div class="page-box__image">
+        {% with object.get_content_model.images.all|get_type:'card' as images %}
+            {% if images %}
+                <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 900 400 %}" />
+            {% else %}
+                {% with page.get_ascendants|last as top_level_parent %}
+                    {% if top_level_parent.get_content_model.weaving_css_class %}
+                        <div class="page-box__placeholder {{top_level_parent.get_content_model.weaving_css_class}}"></div>
+                    {% endif %}
+                {% endwith %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="page-box__content">
+        <div>
+            <h2 class="page-box__title">{{ object.title }}</h2>
+            <div class="page-box__subtitle">
+                {{ object.get_content_model.sub_title }}
+            </div>
+        </div>
+    </div>
+</a>

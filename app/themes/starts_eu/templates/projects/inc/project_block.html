@@ -1,0 +1,45 @@
+{% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
+{% if blocks %}
+    <div class="white-bg pb2">
+        {% for block in blocks %}
+            {% if block.content %}
+                {% if not forloop.first and block.with_separator %}
+                    <hr />
+                {% endif %}
+                <div class="page__block{% if block.background_color %} page__block--{{ block.background_color }}{% endif %}">
+                    <div class="container">
+                        <div class="row" data-summary-content>
+                            <div class="col-sm-9 col-sm-push-3 col-lg-8 col-lg-push-2">
+                                {% editable block.title %}
+                                    <h2 class="dotted">{{ block.title }}</h2>
+                                {% endeditable %}
+                                {% if block.description %}
+                                    <div class="chapo">
+                                        {% editable block.description %}
+                                            {{ block.description }}
+                                        {% endeditable %}
+                                    </div>
+                                {% endif %}
+                                {% if block.login_required and not user.is_authenticated %}
+                                    <div class="chapo">
+                                        {% trans "Please login to get links to the data" %}<br><br>
+                                        <a class="button" href="{% url 'login' %}?next={{ request.path }}" title="Login">{% trans "Login" %}</a>
+                                    </div>
+                                {% else %}
+                                    {% if block.content %}
+                                        {% editable block.content %}
+                                            {{ block.content|richtext_filters|safe }}
+                                        {% endeditable %}
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+      {% if blocks.last %}
+        <hr class="mt0" />
+      {% endif %}
+    </div>
+{% endif %}

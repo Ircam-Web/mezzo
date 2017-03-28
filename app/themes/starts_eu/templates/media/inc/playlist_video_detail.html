@@ -1,0 +1,28 @@
+{% load mezzanine_tags keyword_tags i18n organization_tags %}
+
+{% if playlist.title %}
+    <h3>{{playlist.title}}</h3>
+{% endif %}
+{% if playlist.description %}
+    <p>
+        {{playlist.description}}
+    </p>
+{% endif %}
+
+<div class="embed-responsive">
+    <video controls id="video-js-playlist" class="video-js vjs-ircam-skin" data-title="{{ media.title }}" {% if media.poster_url %}poster="{{ media.poster_url }}"{% endif %}>
+    </video>
+</div>
+{% for media in playlist.medias.all %}
+  {% with media.media as media %}
+    {% if forloop.first %}
+        <ol class="video-playlist">
+    {% endif %}
+        {% spaceless %}
+            <li class="video-playlist__item{% if forloop.first %} playing{% endif %}"><a href="#" data-poster="{{media.poster_url }}" data-src="{% for transcoded in media.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.url }}{% if forloop.last %}{% endif %}{% endfor %}" data-mime="{% for transcoded in media.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.mime_type }}{% if forloop.last %}{% endif %}{% endfor %}"><span>{{ media.title }}</span>{% if media.description %}<small> {{ media.description }}</small>{% endif %}</a></li>
+        {% endspaceless %}
+    {% if forloop.last %}
+        </ol>
+    {% endif %}
+  {% endwith %}
+{% endfor %}

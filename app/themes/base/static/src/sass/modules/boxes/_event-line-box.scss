@@ -1,0 +1,263 @@
+// -*- coding: utf-8 -*-
+
+// Copyright (c) 2016-2017 Ircam
+// Copyright (c) 2016-2017 Jérémy Fabre
+
+// This file is part of mezzanine-organization.
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+
+// You should have received a copy of the GNU Affero General Public License
+// along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+$module: ".event-line-box";
+
+#{$module} {
+
+    position: relative;
+    display: block;
+
+    border: 1px solid rgba($color-main, 0.35);
+
+    background: $color-background;
+    @include transition(all 0.5s ease-in-out);
+    @include margin-bottom(5);
+
+    @include mq($until: sm) {
+        @include margin-bottom(1);
+    }
+
+    .lightSlider & {
+        margin-bottom: 0 !important;
+    }
+
+    &:after {
+
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Rectangle 3: */
+        background-image: -webkit-linear-gradient(right, rgba(0,15,36,0.00) 0%, rgba(0,15,36,0.90) 99%);
+        background-image: -o-linear-gradient(right, rgba(0,15,36,0.00) 0%, rgba(0,15,36,0.90) 99%);
+        background-image: linear-gradient(to left, rgba(0,15,36,0.00) 0%, rgba(0,15,36,0.90) 99%);
+
+        z-index: 1;
+
+        @include mq($until: sm) {
+            display: none;
+        }
+
+    }
+
+    &:hover {
+
+        border: 1px solid rgba($color-main, 1);
+        background: black;
+
+        .event-line-box__image {
+
+            -webkit-filter: grayscale(0);
+            filter: grayscale(0);
+
+        }
+
+        .event-line-box__category {
+
+            background: $color-main;
+
+        }
+
+        .event-line-box__date {
+
+            color: $color-main;
+
+        }
+
+    }
+
+    &__content {
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        text-align: left;
+        z-index: 2;
+
+        @include mq($until: sm) {
+            position: static;
+        }
+
+        /*@include mq($until: lg) {
+            height: 312px;
+        }
+        @include mq($until: md) {
+            height: 361px;
+        }*/
+
+    }
+
+    &__month {
+
+        @include font-size(l);
+        @include line-height(1);
+        @include typeface(serif);
+        font-weight: weight(heavy);
+
+        visibility: hidden;
+        height: 0;
+
+    }
+
+    &__image {
+
+        @include fluid-aspect(1030 400);
+
+        @include transition(all 0.5s ease-in-out);
+
+        -webkit-filter: grayscale(1);
+        filter: grayscale(1);
+        mix-blend-mode: screen;
+
+    }
+
+    &__button {
+
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        @include transform(translateY(-50%));
+
+        @include mq($until: sm) {
+            top: 70px;
+            width: auto;
+        }
+
+    }
+
+    &__tags {
+
+        margin-bottom: 5px;
+
+    }
+
+    &__category {
+
+        position: absolute;
+        top: 50%;
+        left: 0;
+        background: white;
+        color: $color-background;
+        text-align: right;
+        text-transform: uppercase;
+        @include font-size(s);
+        @include line-height(1.25);
+        @include typeface(sans-serif);
+        font-weight: weight(regular);
+
+        @include padding(0.1 .5 0.1 .5);
+        @include transform(translateY(-50%));
+        @include transition(all 0.5s ease-in-out);
+        width: 10rem;
+
+        @include mq($until: sm) {
+            top: 70px;
+            width: auto;
+            @include padding(0.1 .5 0.1 2);
+        }
+
+    }
+
+    &__body {
+
+        position: absolute;
+        top: 50%;
+        left: 12rem;
+        @include transform(translateY(-50%));
+
+        @include mq($until: sm) {
+            position: static;
+            @include transform(translateY(0));
+            @include padding(1);
+        }
+
+    }
+
+    &__title {
+
+        font-size: 36px;
+        @include line-height(1.5);
+        @include typeface(sans-serif);
+        font-weight: weight(regular);
+        text-transform: uppercase;
+
+        color: $color-main;
+
+        margin: 0 !important;
+
+        a:not(.button) {
+
+            color: $color-main;
+            border: 0;
+
+            &:hover {
+                box-shadow: none;
+            }
+
+        }
+
+    }
+
+    &__location {
+
+        @include font-size(s);
+        @include line-height(1.25);
+        @include typeface(sans-serif);
+        font-weight: weight(regular);
+        color: $color-main;
+
+    }
+
+    &__date {
+
+        @include font-size(l);
+        @include line-height(1.25);
+        @include typeface(sans-serif);
+        font-weight: weight(regular);
+        color: white;
+        @include transition(all 0.5s ease-in-out);
+
+        @include margin-top(1);
+
+        span {
+            display: block;
+            @include font-size(m);
+        }
+
+    }
+
+    &__desc {
+
+        @include font-size(m);
+        @include line-height(1);
+        @include typeface(serif);
+        font-weight: weight(light);
+
+        color: $color-main;
+
+    }
+
+}

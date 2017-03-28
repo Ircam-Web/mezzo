@@ -1,0 +1,25 @@
+{% load i18n pages_tags staticfiles organization_tags %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+{% spaceless %}
+{% if page_branch_in_menu %}
+    {% for page in page_branch %}
+        {% if page.is_primary %}
+            {% if forloop.first %}
+                <ul class="nav-footer nav-footer--horizontal" role="navigation">
+            {% endif %}
+        {% endif %}
+        {% if page.in_menu %}
+            <li class="nav-footer__item {% if page.is_current_or_ascendant %}active{% endif %}">
+                <a class="nav-footer__item-link" href="{{ page.get_absolute_url }}" title="{{ page.title }}">{{ page.title }}</a>
+
+        {% endif %}
+            </li>
+        {% if page.is_primary %}
+            {% if forloop.last %}
+                </ul>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% endspaceless %}

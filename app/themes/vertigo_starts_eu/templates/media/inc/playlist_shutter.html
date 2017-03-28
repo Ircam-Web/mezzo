@@ -1,0 +1,36 @@
+{% load mezzanine_tags keyword_tags i18n organization_tags %}
+
+{% for media in home.dynamic_content_home_media.all|slice:":3" %}
+    <div class="col-xs-3">
+        <div class="home__shutter-item">
+            <div class="fss">
+                {{media.content_object.type}}
+            </div>
+            <h2><a href="{{ media.content_object.get_absolute_url }}" title="">{{ media.content_object.title }}</a></h2>
+
+            {% if media.content_object.description %}
+                <p>{{ media.content_object.description|truncatechars:100 }}</p>
+            {% endif %}
+
+            {% comment %}
+                {% if media.content_object.poster_url %}
+                    <img src="{% thumbnail media.content_object.poster_url 203 140 %}">
+                {% endif %}
+            {% endcomment %}
+
+            {% comment %}
+                {% if media.content_object.type == 'video' %}
+                    <a href="{{ media.content_object.get_absolute_url }}" title="">{% trans 'See the video' %}</a>
+                {% elif media.content_object.type == 'audio' %}
+                    <a href="{{ media.content_object.get_absolute_url }}" title="">{% trans 'Hear the sound' %}</a>
+                {% endif %}
+            {% endcomment %}
+        </div>
+    </div>
+{% endfor %}
+
+<div class="col-xs-3">
+    <a href="{% url 'organization-playlist-list' %}" title="{% trans 'View all medias' %}" class="home__shutter-item home__shutter-item--button">
+        <h2>{% trans 'View all medias' %}</h2>
+    </a>
+</div>

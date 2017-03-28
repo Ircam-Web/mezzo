@@ -1,0 +1,23 @@
+{% load i18n mezzanine_tags organization_tags %}
+{% with audio.get_absolute_url as audio_url %}
+    {% if audio.poster_url %}
+        <!-- url of the media is distant. We can't generate back side thumbnail. Do it with css pliz -->
+        <img src="{{ audio.poster_url }}" width="200" height="150">
+    {% else %}
+        <!--placeholder picture-->
+    {% endif %}
+    <h5>
+        {% if audio_url %}
+            <a href="{{ audio_url }}">{{ audio }}</a>
+        {% else %}
+            {{ audio }}
+        {% endif %}
+    </h5>
+    {% if audio.description != audio|stringformat:"s" %}
+        <p>{{ audio.description|truncatewords_html:200|safe }}</p>
+    {% endif %}
+    {% if audio_url %}
+        <a href="{{ audio_url }}">{% trans "read more" %}</a>
+    {% endif %}
+    <br>
+{% endwith %}

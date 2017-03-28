@@ -30,7 +30,7 @@ from mezzanine.core.models import RichText, Displayable, Slugged
 from mezzanine.core.fields import RichTextField, OrderField, FileField
 from mezzanine.utils.models import AdminThumbMixin, upload_to
 from organization.core.models import *
-from mezzanine_agenda.models import Event
+from mezzanine_agenda.models import Event, EventLocation
 from django.conf import settings
 import requests
 
@@ -41,6 +41,12 @@ PLAYLIST_TYPE_CHOICES = [
     ('audio', _('audio')),
     ('video', _('video')),
 ]
+
+LIVE_STREAMING_TYPE_CHOICES = [
+    ('html5', _('html5')),
+    ('youtube', _('youtube')),
+]
+
 
 class Media(Displayable):
     """Media"""
@@ -61,7 +67,7 @@ class Media(Displayable):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("organization-media-detail", kwargs={"slug": self.slug})
+        return reverse("organization-media-detail", kwargs={"type": self.type, "slug": self.slug})
 
     @property
     def uri(self):
@@ -71,30 +77,29 @@ class Media(Displayable):
         r = requests.get(self.uri)
         return r.content
 
+    @property
+    def type(self):
+        for transcoded in self.transcoded.all():
+            if 'video' in transcoded.mime_type:
+                return 'video'
+            if 'audio' in transcoded.mime_type:
+                return 'audio'
 
-def create_media(instance, created, raw, **kwargs):
-    # Ignore fixtures and saves for existing courses.
+    def save(self, *args, **kwargs):
+        q = pq(self.get_html())
+        sources = q('source')
+        video = q('video')
+        if len(video):
+            if 'poster' in video[0].attrib.keys():
+                self.poster_url = video[0].attrib['poster']
 
-    if not created or raw:
-        return
+        super(Media, self).save(*args, **kwargs)
 
-    q = pq(instance.get_html())
-    sources = q('source')
-
-    video = q('video')
-    if len(video):
-        if 'poster' in video[0].attrib.keys():
-            instance.poster_url = video[0].attrib['poster']
-
-    for source in sources:
-        mime_type = source.attrib['type']
-        transcoded = MediaTranscoded(media=instance, mime_type=mime_type)
-        transcoded.url = source.attrib['src']
-        transcoded.save()
-
-    instance.save()
-
-models.signals.post_save.connect(create_media, sender=Media, dispatch_uid='create_media')
+        for source in sources:
+            mime_type = source.attrib['type']
+            transcoded, c = MediaTranscoded.objects.get_or_create(media=self, mime_type=mime_type)
+            transcoded.url = source.attrib['src']
+            transcoded.save()
 
 
 class MediaTranscoded(models.Model):
@@ -112,6 +117,16 @@ class MediaTranscoded(models.Model):
 
     def __str__(self):
         return self.url
+
+
+class MediaImage(Image):
+
+    media = models.ForeignKey(Media, verbose_name=_('media'), related_name='images', blank=True, null=True, on_delete=models.SET_NULL)
+
+    class Meta:
+        verbose_name = _("image")
+        verbose_name_plural = _("images")
+        order_with_respect_to = "media"
 
 
 class MediaCategory(Slugged, Description):
@@ -160,3 +175,22 @@ class PlaylistRelated(models.Model):
     class Meta:
         verbose_name = _('playlist')
         verbose_name_plural = _('playlists')
+
+
+class LiveStreaming(Displayable):
+    """Live streaming"""
+
+    html5_url = models.URLField(_('html5 url'), max_length=1024, blank=True)
+    youtube_id = models.CharField(_('youtube id'), max_length=64, blank=True, null=True)
+    type = models.CharField(_('type'), max_length=32, choices=LIVE_STREAMING_TYPE_CHOICES, default='html5')
+    event_location = models.ForeignKey(EventLocation, verbose_name=_('Event Location'), related_name='live_streaming_location', blank=True, null=True, on_delete=models.SET_NULL)
+
+    class Meta:
+        verbose_name = "live streaming"
+        verbose_name_plural = "live streamings"
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("organization-streaming-detail", kwargs={"slug": self.slug, "type" : self.type})

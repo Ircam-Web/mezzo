@@ -1,0 +1,65 @@
+{% extends "core/inc/search_card.html" %}
+{% load i18n future mezzanine_tags event_tags keyword_tags disqus_tags organization_tags %}
+
+{% block title %}
+    {{ event.title }}
+{% endblock %}
+
+{% block icon %}calendar-o{% endblock %}
+
+{% block subtitle %}
+    <div class="search-box__subtitle">
+        {% include 'agenda/includes/event_date_line.html' with object=event %}
+        {% if event.prices.all.0|floatformat != '0' and event.prices.all|length > 0 and not is_archive %}
+            <a class="button button--small ml1" href="{% url 'event_booking' event.slug %}" class="event__meta__btn">
+                {% trans "Reserve" %}
+            </a>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block image %}
+    {% with event.images.all|get_type:'card' as images %}
+        {% if images %}
+        <a href="{{ event.get_absolute_url }}" class="search-box__image-wrapper">
+            <figure class="search-box__image">
+                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="{{ MEDIA_URL }}{% thumbnail images.0.file 720 435 %}">
+            </figure>
+        </a>
+        {% else %}
+            {% with event.parent.images.all|get_type:'card' as images %}
+                {% if images %}
+                <a href="{{ event.get_absolute_url }}" class="search-box__image-wrapper">
+                    <figure class="search-box__image">
+                        <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="{{ MEDIA_URL }}{% thumbnail images.0.file 720 435 %}">
+                    </figure>
+                </a>
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block tags %}
+    {% keywords_for event as tags %}
+    {% if event.departments.all.0 or tags %}
+        {% if event.departments.all.0 %}
+            <div class="search-box__tags">
+                {{ event.departments.all.0.department.name }}
+            </div>
+        {% endif %}
+    {% endif %}
+    {% if event.category %}
+        <div class="search-box__tags">
+            {{ event.category|truncatechars:15 }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block url %}
+    {{ event.get_absolute_url }}
+{% endblock %}
+
+{% block content %}
+    {{ event.description|slice:":100" }}
+{% endblock %}

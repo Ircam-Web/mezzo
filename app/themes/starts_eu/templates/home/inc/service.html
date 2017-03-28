@@ -1,0 +1,13 @@
+{% load staticfiles i18n organization_tags %}
+<div class="col-sm-{{ service.box_size }} col-xs-6">
+    <a class="banner {% if service.css_color %}banner--colored banner--{{ service.css_color }}{% endif %} banner--light" href="{{ service.url }}" style="background-image:url({{ service.image.url }});">
+        <div class="banner__content">
+            <div class="banner__title {{ service.css_banner_type }}">
+                {{ service.name }}
+            </div>
+            <div class="banner__desc fss">
+                {{ service.description }}
+            </div>
+        </div>
+    </a>
+</div>

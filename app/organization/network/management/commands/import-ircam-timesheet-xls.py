@@ -24,12 +24,14 @@ import sys
 import csv
 import logging
 import datetime
+import math
+import datetimerange
 from optparse import make_option
 import xlrd
 from itertools import takewhile
 from re import findall
 import dateutil.parser
-
+# from string import split
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 from django.contrib.auth.models import User
@@ -71,11 +73,11 @@ class IrcamXLS:
 
     register_id_row = 4
     register_id_col = 3
-    period_row = 5
+    period_row = 6
     period_col = 2
-    first_project_row = 13
+    first_project_row = 14
     first_project_col = 2
-    first_month_row = 10
+    first_month_row = 11
     first_month_col = 3
     first_percent_row = 13
     first_percent_col = 3
@@ -103,15 +105,12 @@ class IrcamTimeSheet(object):
         """ Set for a year percentage worked by month
         on a project
         """
-        pats = PersonActivityTimeSheet.objects.create(activity = activity,
+        pats = PersonActivityTimeSheet.objects.get_or_create(activity = activity,
                                                     project = project,
                                                     percentage = percentage,
                                                     month = month,
                                                     year = year
                                                     )
-
-        pats.save()
-
 
 
     def set_work_package(self, person_activity_timesheet):
@@ -119,7 +118,7 @@ class IrcamTimeSheet(object):
 
 class Command(BaseCommand):
     help = """Import Person data from IRCAM's legacy XLS management file.
-              python manage.py import-ircam-timesheet-xls -s /srv/backup/TemplateInputTimeSheet2015-16.xlsx
+              python manage.py import-ircam-timesheet-xls -s /srv/backup/time_sheet_2015_V3_H2020.xls
     """
 
     option_list = BaseCommand.option_list + (
@@ -150,7 +149,7 @@ class Command(BaseCommand):
         for sheet in xls.sheets:
             person_register_id = sheet.cell_value(xls.register_id_row, xls.register_id_col)
             persons = Person.objects.filter(register_id=int(person_register_id))
-
+            processing_counter = 0
             # database not enough clear, possible multiple entries for some persons
             # iterating over one person
             for person in persons:
@@ -158,9 +157,10 @@ class Command(BaseCommand):
                 periods = findall(r'\d{1,2}/\d{1,2}/\d{4}', period_str)
                 date_from = dateutil.parser.parse(periods[0])
                 date_to = dateutil.parser.parse(periods[1])
+                curr_range_date = datetimerange.DateTimeRange(date_from, date_to)
                 curr_year = date_to.year
 
-                self.logger.info('Person', 'processing person : '+str(person.id)+ ' | '+person.title + ' | year ' +str(curr_year))
+                self.logger.info('Processing', '******************* PERSON : ' + str(person.id) + ' | '+person.title + " *******************" )
                 its = IrcamTimeSheet(person, date_from, date_to)
 
                 # iterating on each month
@@ -175,36 +175,110 @@ class Command(BaseCommand):
                     # calculate the current date
                     curr_date = datetime.date(curr_year, month, 1)
 
-                    # find the right activity corresponding to the current month / year
-                    activity = person.activities.filter(Q(date_from__lte=curr_date) & Q(date_to__gte=curr_date)).first()
+                    self.logger.info('Processing', 'year : ' + str(curr_year) + " | month : " + str(month) + " | " + str(curr_date))
 
-                    # iterating over projects cells
-                    project_row_index = xls.first_project_row
-                    while sheet.cell_value(project_row_index, xls.first_project_col) != "Total final":
+                    # find the right activities corresponding to the current month / year
+                    activities = person.activities.all()
+                    activity = None
+                    if not activities:
+                        self.logger.info('Not Found', 'activity for person : ' + str(person.id) + " - " + person.title + " for period : " + period_str)
+                    else :
+                        # find the right
+                        for curr_activity in activities :
+                            activity_date_range = datetimerange.DateTimeRange(datetime.datetime.combine(curr_activity.date_from, datetime.datetime.min.time()), datetime.datetime.combine(curr_activity.date_to, datetime.datetime.min.time()))
+                            if curr_range_date.is_intersection(activity_date_range):
+                                activity = curr_activity
 
-                        # get percent
-                        percent = sheet.cell_value(project_row_index, col_index) if sheet.cell_value(project_row_index, col_index) else 0
+                    if not activity:
+                        self.logger.info('Not Found', 'No activity correponds to period : '+ str(curr_year) +" "+str(month))
+                    else :
+                        # for each activities
+                        # for activity in activities :
+                        # iterating over projects cells
+                        self.logger.info('Processing', 'activity : ' + str(activity.id) + ' | ' + activity.__str__())
+                        project_row_index = xls.first_project_row
+                        while sheet.cell_value(project_row_index, xls.first_project_col) != "Total final":
 
-                        # try to find project
-                        project_id_str = sheet.cell_value(project_row_index, xls.first_project_col - 1)
+                            # get percent
+                            percent = sheet.cell_value(project_row_index, col_index) if sheet.cell_value(project_row_index, col_index) else 0
 
-                        # processing projects
-                        if end_project_list_row == 0:
+                            # try to find project
+                            project_id_str = sheet.cell_value(project_row_index, xls.first_project_col - 1)
+                            if isinstance(project_id_str, float) :
+                                # by default, numbers are retrived as float
+                                project_id_str = str(int(project_id_str))
+
+                            # processing projects
+                            if end_project_list_row == 0:
+                                # check if project exists
+                                project, is_created = Project.objects.get_or_create(external_id=str(project_id_str))
+                                if is_created:
+                                    project.title = sheet.cell_value(project_row_index, xls.first_project_col)
+                                    project.external_id = project_id_str
+                                    project.save()
+                                # project = Project.objects.filter(external_id__icontains=project_id_str).first()
+                                if project :
+                                    # save timesheet without work packages
+                                    its.set_person_activity_timesheet(activity, project, percent, month, curr_year)
+                                    processing_counter += 1
+                                    self.logger.info('Processing', 'project : ' + str(project.id) + " | " + str(project.external_id) + " | " + project.title + " | percent : " + str(percent))
+                                else :
+                                    self.logger.info('Not Found', 'project : ' + project_id_str)
+
+                            # increment index
+                            project_row_index += 1
+
+                        # processing work package
+                        work_package_row_index = project_row_index + 1
+                        while sheet.cell_value(work_package_row_index, xls.first_project_col) != "Date entrée":
+
+                            # get project
+                            project_external_id = int(sheet.cell_value(work_package_row_index, xls.first_project_col - 1))
+                            project = Project.objects.get(external_id=str(project_external_id))
+
                             # check if project exists
-                            project = Project.objects.filter(external_id__icontains=project_id_str).first()
-                            if project :
-                                # save timesheet without work packages
-                                print(activity, project, percent, month, curr_year)
-                                its.set_person_activity_timesheet(activity, project, percent, month, curr_year)
-                            else :
-                                self.logger.info('Project', 'Not found ' + sheet.cell_value(project_row_index, xls.first_project_col))
+                            if project:
 
-                        # increment index
-                        project_row_index += 1
+                                # list all work package
+                                wk_p_str = sheet.cell_value(work_package_row_index, col_index)
+                                if wk_p_str :
+                                    self.logger.info('Processing', 'work packages : ' + str(wk_p_str) + " | project" + project.external_id + " - " + project.title)
+                                    wk_p_list = ""
+                                    if isinstance(wk_p_str, str):
+                                        wk_p_list = wk_p_str.split(",")
+                                    elif isinstance(wk_p_str, float):
+                                        i, d = divmod(wk_p_str, 1)
+                                        wk_p_list = (int(i), int(d))
+                                    # link work packages to timesheet
+                                    for wk_p_num in wk_p_list:
+                                        wk_p_num = str(wk_p_num)
 
-                    # processing work package
-                    work_package_row_index = project_row_index + 1
-                    while sheet.cell_value(project_row_index, xls.first_project_col) != "Date entrée":
+                                        # create or get ProjectWorkPackage
+                                        wk_obj, wk_created = ProjectWorkPackage.objects.get_or_create(title="wk_"+wk_p_num, number=wk_p_num, project=project)
+                                        pat = PersonActivityTimeSheet.objects.filter(activity=activity, project=project, month=month, year=curr_year)
 
-                        # increment index
-                        work_package_row_index += 1
+                                        # for each PersonActivityTimeSheet link work package
+                                        for timesheet in pat:
+                                            timesheet.work_packages.add(wk_obj)
+                                            timesheet.save()
+
+
+                            # increment index
+                            work_package_row_index += 1
+
+                        # processing accounting and validation date
+                        dates_row_index = work_package_row_index
+                        date_accounting_str = sheet.cell_value(dates_row_index, col_index)
+                        date_accounting = xlrd.xldate.xldate_as_datetime(date_accounting_str, 1) if date_accounting_str else None
+                        date_validation_str = sheet.cell_value(dates_row_index + 1, col_index)
+                        date_validation = xlrd.xldate.xldate_as_datetime(date_validation_str, 1) if date_validation_str else None
+
+                        # get all timesheets, function of the activity, month and year
+                        pats = PersonActivityTimeSheet.objects.filter(activity=activity, month=month, year=curr_year)
+                        for pat in pats :
+                            pat.accounting = date_accounting
+                            pat.validation = date_validation
+                            pat.save()
+
+                self.logger.info('Processing', '_________________________ Number of record : ' + str(processing_counter) + ' _________________________')
+                print("Person : " + person.title + " | Number of record : " + str(processing_counter))

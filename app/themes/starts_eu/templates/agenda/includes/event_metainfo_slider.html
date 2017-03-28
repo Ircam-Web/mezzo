@@ -1,0 +1,29 @@
+{% load i18n mezzanine_tags event_tags  %}
+<div class="event__meta--alt">
+    <div class="event__meta__inner">
+        <div class="split-container">
+            <div class="split-left">
+                {{ event.start }}
+                {% if event.end %}
+                {% if event.end|date == event.start|date and event.end.hour|subtract:event.start.hour > 3 %}{{ event.end|time:"TIME_FORMAT" }}{% endif %}
+                {% endif %}
+                {% for child in event.children.all %}
+                 {% with child as event %}
+                    / {{ event.start }}
+                     {% if event.end %}
+                     {% if event.end|date == event.start|date and event.end.hour|subtract:event.start.hour > 3 %}{{ event.end|time:"TIME_FORMAT" }}{% endif %}
+                     {% endif %}
+                 {% endwith %}
+                {% endfor %}
+                {% if event.location %}
+                <a href="{% url "event_list_location" event.location.slug %}" class="event__meta__location">{{ event.location }}</a>
+                {% endif %}
+            </div>
+            <div class="split-right">
+                <a href="{{ event.get_absolute_url }}" class="btn">
+                    <i class="icon icon__bookmark"></i> {% trans "Reserve" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

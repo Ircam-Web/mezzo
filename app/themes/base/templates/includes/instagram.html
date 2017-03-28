@@ -1,0 +1,12 @@
+{% load instagram_client %}
+
+{% instagram_user_recent_media ircam_paris %}
+
+<div class="instagram">
+    {% for media in recent_media|slice:"6" %}
+        <a class="instagram__item" href="http://instagram.com/p/{{media.code}}" target="_blank" title="{{ media.caption }}">
+            <img src="{{ media.thumbnail_src }}"/>
+            <span>{{ media.caption }}</span>
+        </a>
+    {% endfor %}
+</div>

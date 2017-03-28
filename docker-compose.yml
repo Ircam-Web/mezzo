@@ -23,13 +23,13 @@ var:
   volumes:
     - ./var/media:/srv/media
     - ./var/backup:/srv/backup
+    - ./var/static:/srv/static
     - ./var/log/uwsgi:/var/log/uwsgi
     - ./var/log/nginx:/var/log/nginx
     - ./var/log/app:/var/log/app
     - ./bin:/srv/bin
     - ./doc:/srv/doc
     - /srv/bower
-    - /srv/static
   command: "true"
 
 db:
@@ -39,16 +39,19 @@ db:
   volumes:
     - ./var/lib/postgresql/data:/var/lib/postgresql/data
   environment:
-    - POSTGRES_PASSWORD=hyRob0otlaz4
+    - POSTGRES_PASSWORD=noodFof2Kna
 
 app:
   build: .
   command: /bin/bash bin/app.sh
   volumes:
     - ./app:/srv/app
-    - ./lib/grappelli-safe:/srv/lib/grappelli-safe
+    - ./gulpfile.js:/srv/gulpfile.js
+    - ./bower.json:/srv/bower.json
+    - ./.bowerrc:/srv/.bowerrc
     - ./lib/mezzanine-agenda:/srv/lib/mezzanine-agenda
-    # - ./lib/mezzanine/:/srv/lib/mezzanine
+    # - ./lib/grappelli-safe:/srv/lib/grappelli-safe
+    - ./lib/mezzanine/:/srv/lib/mezzanine
     # - ./lib/cartridge/:/srv/lib/cartridge
   volumes_from:
     - var

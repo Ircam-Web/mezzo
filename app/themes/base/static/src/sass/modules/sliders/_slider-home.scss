@@ -1,0 +1,181 @@
+// -*- coding: utf-8 -*-
+
+// Copyright (c) 2016-2017 Ircam
+// Copyright (c) 2016-2017 Jérémy Fabre
+
+// This file is part of mezzanine-organization.
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+
+// You should have received a copy of the GNU Affero General Public License
+// along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+$module: ".slider-home";
+
+#{$module} {
+
+    position: relative;
+    @include margin-bottom(4);
+
+    @include mq($until: sm) {
+        display: none;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__slide {
+
+        width: 100%;
+        position: relative;
+
+    }
+
+    &__wrapper {
+
+        position: relative;
+
+        @include padding(1);
+        border: 1px solid $color-main;
+        display: table;
+        width: 100%;
+        background: $color-background;
+        @include transition(background 0.5s ease-in-out);
+
+        &:hover {
+            background: $color-main;
+            #{$module}__image-container {
+                background: black;
+            }
+            #{$module}__image {
+                -webkit-filter: grayscale(0);
+                filter: grayscale(0);
+            }
+            .article-box__title {
+                color: $color-background;
+            }
+            .article-box__tags {
+                color: $color-background;
+            }
+            .article-box__subtitle {
+                color: $color-background;
+            }
+            .article-box__desc {
+                color: $color-background;
+            }
+        }
+
+    }
+
+    &__image-container {
+        background: $color-background;
+        @include transition(all 0.5s ease-in-out);
+    }
+
+    &__image {
+
+        width: 100%;
+        display: block;
+        @include transition(all 0.5s ease-in-out);
+
+        -webkit-filter: grayscale(1);
+        filter: grayscale(1);
+        mix-blend-mode: screen;
+        transition: all 0.5s ease-in-out;
+
+    }
+
+    &__content {
+
+        display: table-cell;
+        vertical-align: middle;
+        height: 373px;
+
+        @include mq($until: lg) {
+            height: 296px;
+        }
+
+        @include mq($until: md) {
+            height: 245px;
+        }
+
+        @include mq($until: sm) {
+            height: auto;
+            display: block;
+            @include margin-top(1);
+        }
+
+    }
+
+    &__credits {
+
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+        @include font-size(xs);
+        @include line-height(1);
+        @include typeface(sans-serif);
+        @include padding(.25 .5);
+        font-weight: weight(light);
+
+        background: rgba(0,0,0,0.5);
+        color: white;
+
+    }
+
+    .article-box {
+
+        @include padding(0);
+        border: 0;
+
+    }
+
+    //
+    // Overrides lightSlider
+    //
+
+    &__pager {
+
+        position: absolute;
+        bottom: 33px;
+        left: 0;
+        right: 0;
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            li {
+                display: inline-block;
+                margin-right: 10px;
+                a {
+                    display: block;
+                    width: 14px;
+                    height: 14px;
+                    background: white;
+                    border-bottom: 0 !important;
+                    &:hover {
+                        background: $color-main;
+                    }
+                }
+                &.active a {
+                    background: $color-main;
+                }
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,139 @@
+$module: ".overlay";
+
+#{$module} {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    overflow: hidden;
+
+    background: rgba($color-background, .95);
+
+    display: block;
+    height: 0;
+    opacity: 0;
+
+    @include transition(opacity .5s ease-in-out, height 0s .5s);
+
+    &.open {
+
+        height: 100%;
+        opacity: 1;
+        @include transition(opacity .5s ease-in-out, height 0s);
+
+    }
+
+    &__close {
+
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        z-index: 2;
+        color: white;
+        display: block;
+
+        width: 40px;
+        height: 40px;
+
+        &:before, &:after {
+            width: 100%;
+            height: 1px;
+            content: "";
+            display: block;
+            background: white;
+
+            position: absolute;
+            top: 20px;
+            left: 0;
+
+            @include transition(all 0.5s ease-in-out);
+        }
+
+        &:before {
+            @include transform(rotate(45deg));
+        }
+        &:after {
+            @include transform(rotate(-45deg));
+        }
+
+        &:hover {
+
+            &:before {
+                background: $color-main;
+                @include transform(rotate(225deg));
+            }
+            &:after {
+                background: $color-main;
+                @include transform(rotate(-225deg));
+            }
+
+        }
+
+    }
+
+    &__container {
+
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        overflow: scroll;
+
+    }
+
+    &__content {
+
+        @include padding(5 0);
+
+    }
+
+    #overlayContent {
+
+        opacity: 0;
+        @include transition(opacity .5s ease-in-out, height 0s .5s);
+
+        &.loaded {
+
+            opacity: 1;
+
+        }
+
+    }
+
+    &__loader {
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        margin-left: -30px;
+        margin-top: -30px;
+
+        .loading {
+
+            height: 60px;
+            width: 60px;
+            display: block;
+            animation: rotation 1s infinite linear;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-top-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            margin: auto;
+
+        }
+
+    }
+
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}

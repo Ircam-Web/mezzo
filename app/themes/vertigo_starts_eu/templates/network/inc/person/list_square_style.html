@@ -1,0 +1,57 @@
+{% load organization_tags mezzanine_tags %}
+{% if person_list_block.title %}
+
+    <div class="pb2">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-xxs-16 col-md-10 col-md-push-3" data-summary-content>
+
+                    <div class="tac">
+                        <h2 class="section-title section-title--uppercase section-title--main section-title--underline">{{ person_list_block.title }}</h2>
+                    </div>
+
+                    {% if person_list_block.description %}
+                        <p>{{ person_list_block.description }}</p>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-8 col-md-push-4">
+
+                    <div class="row">
+
+                        {% for person_list_block_inline in person_list_block.person_list_block_inlines.all %}
+
+                            <div class="col-md-8">
+
+                                {% with person_list_block_inline.person as person %}
+
+                                    {% include "network/inc/person/person_card_square.html" %}
+
+                                {% endwith %}
+
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+{% endif %}

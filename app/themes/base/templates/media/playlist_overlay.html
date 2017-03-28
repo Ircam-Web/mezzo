@@ -1,0 +1,9 @@
+{% with playlist.type as type %}
+    {% with "media/inc/playlist_"|add:type|add:"_detail.html" as template %}
+        {% include template %}
+    {% endwith %}
+{% endwith %}
+
+<div class="playslit-html">
+    {{ playlist.content|safe }}
+</div>

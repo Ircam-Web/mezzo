@@ -21,6 +21,8 @@
 
 # -*- coding: utf-8 -*-
 import datetime
+import calendar
+from re import match
 from django.http import QueryDict
 from mezzanine.pages.models import Page
 from mezzanine.blog.models import BlogPost
@@ -28,7 +30,6 @@ from mezzanine.template import Library
 from mezzanine_agenda.models import Event
 from mezzanine.conf import settings
 from random import shuffle
-
 from organization.magazine.models import *
 from organization.projects.models import *
 
@@ -202,3 +203,38 @@ def unspam(email):
 @register.filter
 def get_attr(obj, attr):
     return getattr(obj, attr)
+
+@register.filter
+def month_name(month_number):
+    return calendar.month_name[month_number]
+
+@register.filter
+def format_wp(work_packages):
+    work_packages = [str(wk.number) for wk in work_packages]
+    return ",".join(work_packages)
+
+@register.filter
+def format_percent(percent):
+    return str(percent * 100) + ' %'
+
+@register.filter
+def get_media_type(media):
+    mime_type = media.transcoded.first().mime_type
+    media_type = ""
+    if match('video', mime_type):
+        media_type = "Video"
+    elif match('audio', mime_type):
+        media_type = "Audio"
+    return media_type
+
+@register.filter
+def filter_content(dynamic_contents):
+    dict = {}
+    dict["event"] = []
+    dict["other"] = []
+    for dc in dynamic_contents:
+        if dc.content_object._meta.model_name== "event":
+            dict["event"].append(dc)
+        else :
+            dict["other"].append(dc)
+    return dict
