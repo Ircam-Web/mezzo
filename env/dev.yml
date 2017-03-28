@@ -23,6 +23,5 @@ app:
   command: /bin/sh bin/app.sh --runserver
   ports:
     - "9022:8000"
-    - "3001:3000"
   environment:
     - DEBUG=True
