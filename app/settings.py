@@ -307,9 +307,7 @@ if not DEBUG:
     TEMPLATES[0]['APP_DIRS'] = False
 
 HOST_THEMES = [
-    #('www.starts.eu', 'themes.starts_eu'),
-    #('vertigo.starts.eu', 'themes.vertigo_starts_eu'),
-    ('manifeste.ircam.fr', 'themes.base'),
+    ('example.com', 'themes.base'),
 ]
 
 # List of middleware classes to use. Order is important; in the request phase,

@@ -38,14 +38,14 @@ from organization.network.models import Person
 from django.shortcuts import redirect
 
 
-class HomeView(SlugMixin, ListView):
+class HomeView(SlugMixin, DetailView):
 
     model = Home
     template_name = 'index.html'
     briefs = Brief.objects.all() # with .published, order by isn't working anymore
     context_object_name = 'home'
 
-    def get_queryset(self, **kwargs):
+    def get_object(self, **kwargs):
         homes = self.model.objects.published()
         if homes:
             return homes.latest("publish_date")
@@ -57,9 +57,12 @@ class HomeView(SlugMixin, ListView):
         return context
 
     def dispatch(self, request, *args, **kwargs):
-        if not self.get_queryset():
+        if not self.get_object():
             page = CustomPage.objects.first()
-            return redirect(reverse_lazy('page', kwargs={'slug': page.slug}))
+            if page:
+                return redirect(reverse_lazy('page', kwargs={'slug': page.slug}))
+            else:
+                return super(HomeView, self).dispatch(request, *args, **kwargs)m
         else:
             return super(HomeView, self).dispatch(request, *args, **kwargs)
 
