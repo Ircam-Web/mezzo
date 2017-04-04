@@ -214,14 +214,13 @@ ROOT_URLCONF = "urls"
 ################
 
 INSTALLED_APPS = [
-    "themes.base",
-    # "themes.starts_eu",
-    # 'themes.vertigo_starts_eu',
+    "organization_themes.www_ircam_fr",
 
     "modeltranslation",
     "dal",
     "dal_select2",
     "dal_queryset_sequence",
+
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -229,19 +228,20 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.sites",
     "django.contrib.staticfiles",
+    "django.contrib.sitemaps",
     'django_extensions',
+
     "mezzanine.boot",
     "mezzanine.conf",
-    "django.contrib.sitemaps",
     "mezzanine.core",
     "mezzanine.generic",
     "mezzanine.pages",
     "mezzanine.blog",
     "mezzanine.forms",
-    # "mezzanine.galleries",
-    # "mezzanine.mobile",
     "mezzanine.twitter",
     "mezzanine.accounts",
+    # "mezzanine.galleries",
+    # "mezzanine.mobile",
     "cartridge.shop",
     'djangobower',
     "meta",
@@ -307,7 +307,7 @@ if not DEBUG:
     TEMPLATES[0]['APP_DIRS'] = False
 
 HOST_THEMES = [
-    ('example.com', 'themes.base'),
+    ('example.com', 'organization_themes.www_ircam_fr'),
 ]
 
 # List of middleware classes to use. Order is important; in the request phase,

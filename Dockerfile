@@ -7,10 +7,10 @@ RUN mkdir /srv/lib
 WORKDIR /srv
 
 RUN apt-get update && apt-get install -y apt-transport-https
-COPY ../etc/apt/sources.list /etc/apt/
-COPY ../requirements.txt /srv
+COPY etc/apt/sources.list /etc/apt/
+COPY requirements-debian.txt /srv
 RUN apt-get update && \
-    DEBIAN_PACKAGES=$(egrep -v "^\s*(#|$)" /srv/requirements.txt) && \
+    DEBIAN_PACKAGES=$(egrep -v "^\s*(#|$)" /srv/requirements-debian.txt) && \
     apt-get install -y --force-yes $DEBIAN_PACKAGES && \
     echo fr_FR.UTF-8 UTF-8 >> /etc/locale.gen && \
     locale-gen && \
@@ -29,7 +29,7 @@ COPY Gemfile /srv
 RUN gem install bundler
 RUN bundle install
 
-COPY requirements.txt /srv
-RUN pip install -r requirements.txt --src /srv/lib
+COPY requirements-python.txt /srv
+RUN pip install -r requirements-python.txt --src /srv/lib
 
 WORKDIR /srv/app

@@ -52,8 +52,6 @@ EVENT_CONFIRMATION_URL = EVENT_DOMAIN+"/pub.php/cart/done?transaction_id=%s"
 FIGGO_API_URL_PROD='https://ircam.ilucca.net/'
 FIGGO_API_HEADER_AUTH='Lucca application=bd6d5481-40eb-414b-9135-434e12749223'
 
-HOST_THEMES = [
-    #('www.starts.eu', 'themes.starts_eu'),
-    #('vertigo.starts.eu', 'themes.vertigo_starts_eu'),
-    ('manifeste.ircam.fr', 'themes.base'),
-]
+# HOST_THEMES = [
+#     ('manifeste.ircam.fr', 'themes.base'),
+# ]

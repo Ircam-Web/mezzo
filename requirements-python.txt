@@ -3,6 +3,7 @@ uwsgi
 watchdog
 mysqlclient
 psycopg2
+django==1.9.11
 
 -e git+https://github.com/yomguy/mezzanine.git@jquery#egg=mezzanine-4.2-dev
 -e git+https://github.com/yomguy/grappelli-safe.git@dynamic_stacked#egg=grappelli-safe-0.4.2
