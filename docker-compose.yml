@@ -42,17 +42,14 @@ db:
     - POSTGRES_PASSWORD=noodFof2Kna
 
 app:
-  build: .
+  build: app
   command: /bin/bash bin/app.sh
   volumes:
     - ./app:/srv/app
-    - ./gulpfile.js:/srv/gulpfile.js
-    - ./bower.json:/srv/bower.json
-    - ./.bowerrc:/srv/.bowerrc
-    - ./lib/mezzanine-agenda:/srv/lib/mezzanine-agenda
-    # - ./lib/grappelli-safe:/srv/lib/grappelli-safe
     - ./lib/mezzanine/:/srv/lib/mezzanine
-    # - ./lib/cartridge/:/srv/lib/cartridge
+    - ./lib/mezzanine-agenda:/srv/lib/mezzanine-agenda
+    - ./lib/mezzanine-organization:/srv/lib/mezzanine-organization
+    - ./lib/mezzanine-organization-themes:/srv/lib/mezzanine-organization-themes
   volumes_from:
     - var
   expose:
