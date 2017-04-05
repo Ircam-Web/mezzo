@@ -4,3 +4,9 @@
 [submodule "lib/mezzanine"]
 	path = lib/mezzanine
 	url = https://github.com/yomguy/mezzanine.git
+[submodule "lib/mezzanine-organization"]
+	path = lib/mezzanine-organization
+	url = https://github.com/Ircam-Web/mezzanine-organization.git
+[submodule "lib/mezzanine-organization-themes"]
+	path = lib/mezzanine-organization-themes
+	url = https://github.com/Ircam-Web/mezzanine-organization-themes.git
