@@ -46,8 +46,7 @@ app:
   command: /bin/sh bin/app.sh --runserver
   volumes:
     - ./app:/srv/app
-    - ./lib/:/srv/lib/
-    
+    - ./lib:/srv/lib
   volumes_from:
     - var
   expose:
