@@ -43,30 +43,18 @@ db:
 
 app:
   build: .
-  command: /bin/bash bin/app.sh
+  command: /bin/sh bin/app.sh --runserver
   volumes:
     - ./app:/srv/app
-    - ./lib/mezzanine/:/srv/lib/mezzanine
-    - ./lib/mezzanine-agenda:/srv/lib/mezzanine-agenda
-    - ./lib/mezzanine-organization:/srv/lib/mezzanine-organization
-    - ./lib/mezzanine-organization-themes:/srv/lib/mezzanine-organization-themes
+    - ./lib/:/srv/lib/
+    
   volumes_from:
     - var
   expose:
     - "8000"
+  ports:
+    - "9022:8000"
   links:
     - db
   environment:
-   - DEBUG=False
-
-nginx:
-  image: nginx
-  ports:
-    - "8022:80"
-  volumes:
-    - ./etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
-    - ./etc/nginx/htpasswd:/etc/nginx/htpasswd
-  volumes_from:
-    - var
-  links:
-    - app
+    - DEBUG=True

@@ -7,7 +7,7 @@ nodejs
 locales
 pandoc
 vim
-python-sphinx
 ruby
 ruby-dev
 gettext
+python-sphinx

@@ -1,12 +1,19 @@
-[submodule "lib/mezzanine-agenda"]
-	path = lib/mezzanine-agenda
-	url = https://github.com/yomguy/mezzanine-agenda.git
 [submodule "lib/mezzanine"]
 	path = lib/mezzanine
 	url = https://github.com/yomguy/mezzanine.git
+	branch = jquery
+[submodule "lib/mezzanine-agenda"]
+	path = lib/mezzanine-agenda
+	url = https://github.com/yomguy/mezzanine-agenda.git
+	branch = master
 [submodule "lib/mezzanine-organization"]
 	path = lib/mezzanine-organization
 	url = https://github.com/Ircam-Web/mezzanine-organization.git
+	branch = split
 [submodule "lib/mezzanine-organization-themes"]
 	path = lib/mezzanine-organization-themes
 	url = https://github.com/Ircam-Web/mezzanine-organization-themes.git
+	branch = master
+[submodule "bin"]
+	path = bin
+	url = https://github.com/Ircam-Web/mezzo-bin.git

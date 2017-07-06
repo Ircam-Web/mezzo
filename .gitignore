@@ -19,6 +19,7 @@ develop-eggs
 data
 postgres
 mysql
+tmp
 
 # Installer logs
 pip-log.txt
