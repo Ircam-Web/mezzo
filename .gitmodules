@@ -21,4 +21,3 @@
 	path = lib/grappelli-safe
 	url = https://github.com/yomguy/grappelli-safe.git
         branch = dynamic_stacked
-

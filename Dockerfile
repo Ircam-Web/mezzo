@@ -2,8 +2,6 @@ FROM python:3
 
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir /srv/app
-RUN mkdir /srv/lib
 WORKDIR /srv
 
 RUN apt-get update && apt-get install -y apt-transport-https
@@ -29,11 +27,13 @@ COPY lib/mezzanine-organization-themes/Gemfile /srv
 RUN gem install bundler
 RUN bundle install
 
+RUN mkdir /srv/app
 COPY app/requirements.txt /srv/app
 RUN pip install -r app/requirements.txt
 
-COPY lib /srv
+RUN mkdir /srv/lib
+COPY lib /srv/lib
 COPY bin/setup_lib.sh /srv
-RUN setup_lib.sh
+RUN bash setup_lib.sh
 
 WORKDIR /srv/app
