@@ -46,14 +46,13 @@ app:
   command: /bin/sh bin/app.sh --runserver
   volumes:
     - ./app:/srv/app
-    - ./lib/:/srv/lib/
-    
+    - ./lib:/srv/lib
   volumes_from:
     - var
   expose:
     - "8000"
   ports:
-    - "9022:8000"
+    - "9300:8000"
   links:
     - db
   environment:

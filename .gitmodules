@@ -17,3 +17,7 @@
 [submodule "bin"]
 	path = bin
 	url = https://github.com/Ircam-Web/mezzo-bin.git
+[submodule "lib/grappelli-safe"]
+	path = lib/grappelli-safe
+	url = https://github.com/yomguy/grappelli-safe.git
+        branch = dynamic_stacked
