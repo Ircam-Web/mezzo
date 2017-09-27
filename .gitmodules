@@ -6,10 +6,6 @@
 	path = lib/mezzanine-agenda
 	url = https://github.com/yomguy/mezzanine-agenda.git
 	branch = master
-[submodule "lib/mezzanine-organization"]
-	path = lib/mezzanine-organization
-	url = https://github.com/Ircam-Web/mezzanine-organization.git
-	branch = master
 [submodule "lib/mezzanine-organization-themes"]
 	path = lib/mezzanine-organization-themes
 	url = https://github.com/Ircam-Web/mezzanine-organization-themes.git
