@@ -9,7 +9,7 @@
 [submodule "lib/mezzanine-organization"]
 	path = lib/mezzanine-organization
 	url = https://github.com/Ircam-Web/mezzanine-organization.git
-	branch = split
+	branch = master
 [submodule "lib/mezzanine-organization-themes"]
 	path = lib/mezzanine-organization-themes
 	url = https://github.com/Ircam-Web/mezzanine-organization-themes.git
