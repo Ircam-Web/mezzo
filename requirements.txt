@@ -10,6 +10,3 @@ vim
 ruby
 ruby-dev
 gettext
-python-sphinx
-python-numpy
-python-pandas

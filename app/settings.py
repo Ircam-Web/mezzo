@@ -214,6 +214,7 @@ ROOT_URLCONF = "urls"
 ################
 
 INSTALLED_APPS = [
+    "organization_themes",
     "organization_themes.www_ircam_fr",
 
     "modeltranslation",
