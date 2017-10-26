@@ -10,6 +10,7 @@
 	path = lib/mezzanine-organization-themes
 	url = https://github.com/Ircam-Web/mezzanine-organization-themes.git
 	branch = master
+        ignore = dirty
 [submodule "bin"]
 	path = bin
 	url = https://github.com/Ircam-Web/mezzo-bin.git
