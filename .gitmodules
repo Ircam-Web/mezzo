@@ -20,4 +20,4 @@
         branch = dynamic_stacked
 [submodule "lib/mezzanine-organization"]
 	path = lib/mezzanine-organization
-	url = git@github.com:Ircam-Web/mezzanine-organization.git
+	url = https://github.com/Ircam-Web/mezzanine-organization.git
