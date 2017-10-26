@@ -266,6 +266,11 @@ INSTALLED_APPS = [
     'extra_views',
 ]
 
+
+HOST_THEMES = [
+    ('example.com', 'organization_themes.www_ircam_fr'),
+]
+
 BOWER_COMPONENTS_ROOT = '/srv/bower/'
 BOWER_PATH = '/usr/local/bin/bower'
 BOWER_INSTALLED_APPS = (
@@ -312,9 +317,6 @@ if not DEBUG:
     TEMPLATES[0]['OPTIONS']['loaders'] = TEMPLATE_LOADERS_OPTIONS
     TEMPLATES[0]['APP_DIRS'] = False
 
-HOST_THEMES = [
-    ('example.com', 'organization_themes.www_ircam_fr'),
-]
 
 # List of middleware classes to use. Order is important; in the request phase,
 # these middleware classes will be applied in the order given, and in the
