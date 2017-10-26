@@ -219,7 +219,7 @@ ROOT_URLCONF = "urls"
 
 INSTALLED_APPS = [
     "organization_themes",
-    "organization_themes.www_ircam_fr",
+    "organization_themes.ircam-www-theme",
     "modeltranslation",
     "dal",
     "dal_select2",
@@ -268,7 +268,7 @@ INSTALLED_APPS = [
 
 
 HOST_THEMES = [
-    ('example.com', 'organization_themes.www_ircam_fr'),
+    ('example.com', 'organization_themes.ircam-www-theme'),
 ]
 
 BOWER_COMPONENTS_ROOT = '/srv/bower/'
