@@ -47,6 +47,7 @@ app:
   volumes:
     - ./app:/srv/app
     - ./lib:/srv/lib
+    - .git:/srv/.git
   volumes_from:
     - var
   expose:

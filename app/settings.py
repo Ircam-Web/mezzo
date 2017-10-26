@@ -21,6 +21,7 @@
 
 
 from __future__ import absolute_import, unicode_literals
+
 import os
 from django.utils.translation import ugettext_lazy as _
 
@@ -80,6 +81,8 @@ PAGE_MENU_TEMPLATES = (
     (6, _("You are"), "pages/menus/vous_etes.html"),
 
 )
+
+MENU_PERSON_ID = 7
 
 # A sequence of fields that will be injected into Mezzanine's (or any
 # library's) models. Each item in the sequence is a four item sequence.
@@ -153,7 +156,8 @@ SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
 
-AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
+AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",
+                            "guardian.backends.ObjectPermissionBackend",)
 
 #############
 # DATABASES #
@@ -216,12 +220,10 @@ ROOT_URLCONF = "urls"
 INSTALLED_APPS = [
     "organization_themes",
     "organization_themes.www_ircam_fr",
-
     "modeltranslation",
     "dal",
     "dal_select2",
     "dal_queryset_sequence",
-
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -231,7 +233,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
     'django_extensions',
-
     "mezzanine.boot",
     "mezzanine.conf",
     "mezzanine.core",
@@ -258,8 +259,12 @@ INSTALLED_APPS = [
     "organization.job",
     "sorl.thumbnail", # required for thumbnail support
     "django_instagram",
+    'hijack',
+    'compat',
+    'hijack_admin',
+    'guardian',
+    'extra_views',
 ]
-
 
 BOWER_COMPONENTS_ROOT = '/srv/bower/'
 BOWER_PATH = '/usr/local/bin/bower'
@@ -292,7 +297,7 @@ TEMPLATES = [{'APP_DIRS': True,
                                                   'django.core.context_processors.tz',
                                                   'mezzanine.conf.context_processors.settings',
                                                   'mezzanine.pages.context_processors.page',
-                                                  'organization.core.context_processors.settings',
+                                                  'organization.core.context_processors.organization_settings',
                                                   )
                         }
             }]
@@ -358,6 +363,26 @@ GRAPH_MODELS = {
 }
 
 SLUGIFY = 'django.template.defaultfilters.slugify'
+
+
+########
+# DRUM #
+########
+
+# Drum-specific Mezzanine settings
+# ACCOUNTS_PROFILE_MODEL = "links.Profile"
+# SITE_TITLE = "IRCAM"
+RATINGS_RANGE = (-1, 1)
+COMMENTS_ACCOUNT_REQUIRED = True
+RATINGS_ACCOUNT_REQUIRED = True
+ACCOUNTS_PROFILE_VIEWS_ENABLED = False
+# SEARCH_MODEL_CHOICES = ("links.Link",)
+
+# Drum settings
+ALLOWED_DUPLICATE_LINK_HOURS = 24 * 7 * 3
+ITEMS_PER_PAGE = 20
+LINK_REQUIRED = False
+AUTO_TAG = True
 
 #########################
 # FILE BROWSER          #
@@ -538,27 +563,41 @@ OPTIONAL_APPS = (
     PACKAGE_NAME_GRAPPELLI,
 )
 
-if DEBUG:
-    OPTIONAL_APPS += ("debug_toolbar",)
-    DEBUG_TOOLBAR_CONFIG = {
-        'SHOW_TOOLBAR_CALLBACK': lambda x : True
-    }
+# if DEBUG:
+#     OPTIONAL_APPS += ("debug_toolbar",)
+#
+# DEBUG_TOOLBAR_PATCH_SETTINGS = False
+# DEBUG_TOOLBAR_PANELS = [
+#     'debug_toolbar.panels.versions.VersionsPanel',
+#     'debug_toolbar.panels.timer.TimerPanel',
+#     'debug_toolbar.panels.settings.SettingsPanel',
+#     'debug_toolbar.panels.headers.HeadersPanel',
+#     'debug_toolbar.panels.request.RequestPanel',
+#     'debug_toolbar.panels.sql.SQLPanel',
+#     'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+#     'debug_toolbar.panels.templates.TemplatesPanel',
+#     'debug_toolbar.panels.cache.CachePanel',
+#     'debug_toolbar.panels.signals.SignalsPanel',
+#     'debug_toolbar.panels.logging.LoggingPanel',
+#     'debug_toolbar.panels.redirects.RedirectsPanel',
+# ]
 
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
-DEBUG_TOOLBAR_PANELS = [
-    'debug_toolbar.panels.versions.VersionsPanel',
-    'debug_toolbar.panels.timer.TimerPanel',
-    'debug_toolbar.panels.settings.SettingsPanel',
-    'debug_toolbar.panels.headers.HeadersPanel',
-    'debug_toolbar.panels.request.RequestPanel',
-    'debug_toolbar.panels.sql.SQLPanel',
-    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
-    'debug_toolbar.panels.templates.TemplatesPanel',
-    'debug_toolbar.panels.cache.CachePanel',
-    'debug_toolbar.panels.signals.SignalsPanel',
-    'debug_toolbar.panels.logging.LoggingPanel',
-    'debug_toolbar.panels.redirects.RedirectsPanel',
-]
+if DEBUG:
+    HIJACK_REGISTER_ADMIN = True
+    HIJACK_ALLOW_GET_REQUESTS = True
+else:
+    HIJACK_REGISTER_ADMIN = False
+    HIJACK_ALLOW_GET_REQUESTS = False
+
+# HIJACK
+if DEBUG :
+    SILENCED_SYSTEM_CHECKS = []
+    HIJACK_LOGIN_REDIRECT_URL = "/person"
+    HIJACK_LOGOUT_REDIRECT_URL = "/"
+    HIJACK_ALLOW_GET_REQUESTS =  True
+    HIJACK_DISPLAY_WARNING = True
+    HIJACK_REGISTER_ADMIN = True
+
 
 ##################
 # LOCAL SETTINGS #
