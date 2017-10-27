@@ -53,7 +53,7 @@ app:
   expose:
     - "8000"
   ports:
-    - "9300:8000"
+    - "8050:8000"
   links:
     - db
   environment:
