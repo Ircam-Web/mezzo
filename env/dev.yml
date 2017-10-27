@@ -2,6 +2,6 @@
 app:
   command: /bin/sh bin/app.sh --runserver
   ports:
-    - "9400:8000"
+    - "9040:8000"
   environment:
     - DEBUG=True

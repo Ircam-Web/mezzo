@@ -52,9 +52,7 @@ app:
     - var
   expose:
     - "8000"
-  ports:
-    - "8050:8000"
   links:
     - db
   environment:
-    - DEBUG=True
+    - DEBUG=False
