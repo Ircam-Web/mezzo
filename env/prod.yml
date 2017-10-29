@@ -1,4 +1,7 @@
 
+app:
+  command: /bin/sh bin/app.sh
+
 nginx:
   image: nginx
   ports:
