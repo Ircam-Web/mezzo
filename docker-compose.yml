@@ -56,3 +56,6 @@ app:
     - db
   environment:
     - DEBUG=True
+
+nginx:
+    image: nginx
