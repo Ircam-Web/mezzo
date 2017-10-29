@@ -143,7 +143,7 @@ LANGUAGES = (
     ('fr', _('French')),
 )
 
-LOCALE_PATHS = ['locale',]
+# LOCALE_PATHS = ['locale',]
 
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
