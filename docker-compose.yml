@@ -55,4 +55,4 @@ app:
   links:
     - db
   environment:
-    - DEBUG=False
+    - DEBUG=True

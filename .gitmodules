@@ -19,6 +19,7 @@
 	path = lib/grappelli-safe
 	url = https://github.com/yomguy/grappelli-safe.git
         branch = dynamic_stacked
+        ignore = dirty
 [submodule "lib/mezzanine-organization"]
 	path = lib/mezzanine-organization
 	url = https://github.com/Ircam-Web/mezzanine-organization.git

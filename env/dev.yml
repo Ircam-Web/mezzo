@@ -1,6 +1,5 @@
 
 app:
-  command: /bin/sh bin/app.sh --runserver
   ports:
     - "9040:8000"
   environment:
