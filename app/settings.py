@@ -149,7 +149,7 @@ LANGUAGES = (
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
-SITE_ID = 1
+SITE_ID = 3
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -219,7 +219,9 @@ ROOT_URLCONF = "urls"
 
 INSTALLED_APPS = [
     "organization_themes",
-    "organization_themes.ircam-www-theme",
+    "organization_themes.vertigo-themes.vertigo_ircam_fr",
+    "organization_themes.vertigo-themes.vertigo_starts_eu",
+    "organization_themes.vertigo-themes.www_starts_eu",
     "modeltranslation",
     "dal",
     "dal_select2",

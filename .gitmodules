@@ -23,3 +23,6 @@
 [submodule "lib/mezzanine-organization"]
 	path = lib/mezzanine-organization
 	url = https://github.com/Ircam-Web/mezzanine-organization.git
+[submodule "var"]
+	path = var
+	url = git+ssh://git@git.forge.ircam.fr/vertigo-data.git
