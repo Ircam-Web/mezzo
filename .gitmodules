@@ -23,3 +23,6 @@
 [submodule "lib/mezzanine-organization"]
 	path = lib/mezzanine-organization
 	url = https://github.com/Ircam-Web/mezzanine-organization.git
+[submodule "lib/cartridge"]
+	path = lib/cartridge
+	url = https://github.com/yomguy/cartridge.git
