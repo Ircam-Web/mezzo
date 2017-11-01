@@ -26,3 +26,6 @@
 [submodule "var"]
 	path = var
 	url = git+ssh://git@git.forge.ircam.fr/vertigo-data.git
+[submodule "lib/cartridge"]
+	path = lib/cartridge
+	url = https://github.com/yomguy/cartridge.git
