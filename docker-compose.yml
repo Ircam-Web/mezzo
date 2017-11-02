@@ -55,7 +55,7 @@ app:
   links:
     - db
   environment:
-    - DEBUG=True
+    - DEBUG=False
 
 nginx:
     image: nginx
