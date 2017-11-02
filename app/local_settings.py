@@ -55,3 +55,20 @@ FIGGO_API_HEADER_AUTH='Lucca application=bd6d5481-40eb-414b-9135-434e12749223'
 # HOST_THEMES = [
 #     ('manifeste.ircam.fr', 'themes.base'),
 # ]
+
+if DEBUG:
+    PROTOCOLE = "http://"
+else:
+    PROTOCOLE = "https://"
+
+if DEBUG:
+    DOMAIN = PROTOCOLE + "localhost:9040/"
+else :
+    DOMAIN = PROTOCOLE + "www.ircam.fr/"
+
+HAL_CSS = DOMAIN + "static/css/index.min.css"
+
+HAL_URL = PROTOCOLE + "haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?" \
+          "labos_exp=%s&affi_exp=%s&CB_auteur=oui" \
+          "&CB_titre=oui&CB_article=oui&langue=Anglais&tri_exp=annee_publi&tri_exp2=typdoc" \
+          "&tri_exp3=date_publi&ordre_aff=TA&Fen=Aff&css=" + HAL_CSS
