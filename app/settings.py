@@ -74,12 +74,12 @@ SILENCED_SYSTEM_CHECKS = ['fields.W342',]
 
 PAGE_MENU_TEMPLATES = (
     (1, _("Action"), "pages/menus/action.html"),
-    (2, _("Header"), "pages/menus/header.html"),
+    (2, _("Departement"), "pages/menus/header.html"),
     (3, _("Footer vertical"), "pages/menus/footer_vertical.html"),
     (4, _("Footer horizontal"), "pages/menus/footer_horizontal.html"),
     (5, _("Magazine"), "pages/menus/magazine.html"),
-    (6, _("You are"), "pages/menus/vous_etes.html"),
-
+    (6, _("Vous êtes"), "pages/menus/vous_etes.html"),
+    (7, _("Personnes"), "pages/menus/tree.html"),
 )
 
 MENU_PERSON_ID = 7
