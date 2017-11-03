@@ -133,18 +133,6 @@ TIME_ZONE = 'Europe/Paris'
 # If you set this to True, Django will use timezone-aware datetimes.
 USE_TZ = True
 
-# Language code for this installation. All choices can be found here:
-# http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
-
-# Supported languages
-LANGUAGES = (
-    ('en', _('English')),
-    ('fr', _('French')),
-)
-
-# LOCALE_PATHS = ['locale',]
-
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
@@ -158,21 +146,6 @@ USE_L10N = True
 
 AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",
                             "guardian.backends.ObjectPermissionBackend",)
-
-#############
-# DATABASES #
-#############
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': os.environ.get('DB_ENV_POSTGRES_PASSWORD'),
-        'HOST': 'db',
-        'PORT': '5432',
-    },
-}
 
 #########
 # PATHS #
@@ -211,6 +184,39 @@ MEDIA_ROOT = '/srv/media/'
 
 # Package/module name to import the root urlpatterns from for the project.
 ROOT_URLCONF = "urls"
+
+#########
+# LOCALE #
+#########
+
+# Language code for this installation. All choices can be found here:
+# http://www.i18nguy.com/unicode/language-identifiers.html
+LANGUAGE_CODE = "en"
+
+# Supported languages
+LANGUAGES = (
+    ('en', _('English')),
+    ('fr', _('French')),
+)
+
+LOCALE_PATHS = (
+    os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale'),
+)
+
+#############
+# DATABASES #
+#############
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': os.environ.get('DB_ENV_POSTGRES_PASSWORD'),
+        'HOST': 'db',
+        'PORT': '5432',
+    },
+}
 
 
 ################
