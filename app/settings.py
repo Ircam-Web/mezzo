@@ -24,6 +24,8 @@ from __future__ import absolute_import, unicode_literals
 
 import os
 from django.utils.translation import ugettext_lazy as _
+import ldap, logging
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 
 DEBUG = True if os.environ.get('DEBUG') == 'True' else False
 
@@ -144,8 +146,12 @@ SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
 
-AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",
-                            "guardian.backends.ObjectPermissionBackend",)
+AUTHENTICATION_BACKENDS = (
+#   Activate Auth LDAP : 
+#   "organization.core.backend.OrganizationLDAPBackend",
+    "mezzanine.core.auth_backends.MezzanineBackend",
+    "guardian.backends.ObjectPermissionBackend",
+)
 
 #########
 # PATHS #
@@ -598,6 +604,25 @@ if DEBUG :
     HIJACK_DISPLAY_WARNING = True
     HIJACK_REGISTER_ADMIN = True
 
+
+
+##############################################
+##########  AUTHENTIFICATION LDAP  ###########
+##############################################
+# You can use LDAP Authentication by using 'Django Auth LDAP'#
+
+# 1 - Activate logging :
+# logging
+# if DEBUG:
+#     logger = logging.getLogger('django_auth_ldap')
+#     logger.addHandler(logging.StreamHandler())
+#     logger.setLevel(logging.DEBUG)
+
+# 2 - Specify your LDAP settings :
+# https://django-auth-ldap.readthedocs.io/en/latest/
+
+# 3 - Activate LDAP Backend 
+# Please see AUTHENTICATION_BACKENDS
 
 ##################
 # LOCAL SETTINGS #
