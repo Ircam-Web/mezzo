@@ -24,6 +24,8 @@ from __future__ import absolute_import, unicode_literals
 
 import os
 from django.utils.translation import ugettext_lazy as _
+import ldap, logging
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 
 DEBUG = True if os.environ.get('DEBUG') == 'True' else False
 
@@ -133,18 +135,6 @@ TIME_ZONE = 'Europe/Paris'
 # If you set this to True, Django will use timezone-aware datetimes.
 USE_TZ = True
 
-# Language code for this installation. All choices can be found here:
-# http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
-
-# Supported languages
-LANGUAGES = (
-    ('en', _('English')),
-    ('fr', _('French')),
-)
-
-# LOCALE_PATHS = ['locale',]
-
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
@@ -156,23 +146,12 @@ SITE_ID = 3
 USE_I18N = True
 USE_L10N = True
 
-AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",
-                            "guardian.backends.ObjectPermissionBackend",)
-
-#############
-# DATABASES #
-#############
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': os.environ.get('DB_ENV_POSTGRES_PASSWORD'),
-        'HOST': 'db',
-        'PORT': '5432',
-    },
-}
+AUTHENTICATION_BACKENDS = (
+#   Activate Auth LDAP : 
+#   "organization.core.backend.OrganizationLDAPBackend",
+    "mezzanine.core.auth_backends.MezzanineBackend",
+    "guardian.backends.ObjectPermissionBackend",
+)
 
 #########
 # PATHS #
@@ -211,6 +190,39 @@ MEDIA_ROOT = '/srv/media/'
 
 # Package/module name to import the root urlpatterns from for the project.
 ROOT_URLCONF = "urls"
+
+#########
+# LOCALE #
+#########
+
+# Language code for this installation. All choices can be found here:
+# http://www.i18nguy.com/unicode/language-identifiers.html
+LANGUAGE_CODE = "en"
+
+# Supported languages
+LANGUAGES = (
+    ('en', _('English')),
+    ('fr', _('French')),
+)
+
+LOCALE_PATHS = (
+    os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale'),
+)
+
+#############
+# DATABASES #
+#############
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': os.environ.get('DB_ENV_POSTGRES_PASSWORD'),
+        'HOST': 'db',
+        'PORT': '5432',
+    },
+}
 
 
 ################
@@ -594,6 +606,25 @@ if DEBUG :
     HIJACK_DISPLAY_WARNING = True
     HIJACK_REGISTER_ADMIN = True
 
+
+
+##############################################
+##########  AUTHENTIFICATION LDAP  ###########
+##############################################
+# You can use LDAP Authentication by using 'Django Auth LDAP'#
+
+# 1 - Activate logging :
+# logging
+# if DEBUG:
+#     logger = logging.getLogger('django_auth_ldap')
+#     logger.addHandler(logging.StreamHandler())
+#     logger.setLevel(logging.DEBUG)
+
+# 2 - Specify your LDAP settings :
+# https://django-auth-ldap.readthedocs.io/en/latest/
+
+# 3 - Activate LDAP Backend 
+# Please see AUTHENTICATION_BACKENDS
 
 ##################
 # LOCAL SETTINGS #
