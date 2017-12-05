@@ -625,6 +625,13 @@ if DEBUG :
 # Please see AUTHENTICATION_BACKENDS
 
 ##################
+#### GUARDIAN ####
+##################
+
+ANONYMOUS_USER_NAME = None
+LOGIN_REDIRECT_URL = reverse_lazy('organization-network-person-detail')
+
+##################
 # LOCAL SETTINGS #
 ##################
 
