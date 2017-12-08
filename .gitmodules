@@ -22,13 +22,14 @@
 [submodule "lib/grappelli-safe"]
 	path = lib/grappelli-safe
 	url = https://github.com/yomguy/grappelli-safe.git
-    branch = dynamic_stacked
+    branch-master = dynamic_stacked
+    branch-dev = dynamic_stacked
     ignore = dirty
 [submodule "lib/mezzanine-organization"]
 	path = lib/mezzanine-organization
 	url = https://github.com/Ircam-Web/mezzanine-organization.git
-    branch-master = vertigo-master
-    branch-dev = vertigo-dev
+    branch-master = mezzo
+    branch-dev = mezzo
     ignore = dirty
 [submodule "lib/cartridge"]
 	path = lib/cartridge
