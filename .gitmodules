@@ -28,8 +28,8 @@
 [submodule "lib/mezzanine-organization"]
 	path = lib/mezzanine-organization
 	url = https://github.com/Ircam-Web/mezzanine-organization.git
-    branch-master = mezzo
-    branch-dev = mezzo
+    branch-master = master
+    branch-dev = master
     ignore = dirty
 [submodule "lib/cartridge"]
 	path = lib/cartridge
