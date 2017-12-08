@@ -528,7 +528,8 @@ SEARCH_MODEL_CHOICES = ('organization-pages.CustomPage',
                         'organization-media.Playlist',
                         'mezzanine_agenda.Event',
                         'organization-projects.Project',
-                        'shop.Product')
+                        'shop.Product',
+                        'organization-magazine.Article')
 
 PAGES_MODELS = ('organization-pages.CustomPage',
                 'organization-magazine.Topic',

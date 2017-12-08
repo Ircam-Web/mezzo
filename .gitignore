@@ -87,6 +87,5 @@ $RECYCLE.BIN/
 *.msp
 
 sources
-
-.vscode
+.vscode/*
 
