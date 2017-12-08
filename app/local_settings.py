@@ -25,6 +25,34 @@ from datetime import datetime, date
 
 DEBUG = True if os.environ.get('DEBUG') == 'True' else False
 
+# -*- coding: utf-8 -*-
+#
+# Copyright (c) 2016-2017 Ircam
+# Copyright (c) 2016-2017 Guillaume Pellerin
+# Copyright (c) 2016-2017 Emilie Zawadzki
+
+# This file is part of mezzanine-organization.
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+import os
+from django.utils.translation import ugettext_lazy as _
+from datetime import datetime, date
+
+DEBUG = True if os.environ.get('DEBUG') == 'True' else False
+
+
 ADMINS = (
     ('Guillaume Pellerin', 'guillaume.pellerin@ircam.fr'),
     ('Emilie Zawadzki', 'emilie.zawadzki@ircam.fr'),
@@ -34,14 +62,15 @@ ADMINS = (
 SECRET_KEY = "j1qa@u$5ktqr^0_kwh@-j@*-80t$)ht!4-=ybz1xc%@3+r(r&tzefoih"
 NEVERCACHE_KEY = "m)u^%r@uh#r3wu0&$=#$1ogx)uy4hv93^2lt%c3@xi=^gifoj8paozijdihazefd"
 
-EMAIL_HOST = 'smtp.ircam.fr'
+EMAIL_HOST = '' # please specify your smtp server address
 EMAIL_PORT = '25'
-DEFAULT_FROM_EMAIL = 'cri-dev@ircam.fr'
-DEFAULT_TO_EMAIL = 'cri-dev@ircam.fr'
-EMAIL_SUBJECT_PREFIX = "[IRCAM]"
+SERVER_EMAIL = 'no-reply@no-reply.org' # a no reply address
+DEFAULT_FROM_EMAIL = 'default@default.org' # another address, default one
+DEFAULT_TO_EMAIL = 'recipient@recipient.org' # default recipient, for your tests
+EMAIL_SUBJECT_PREFIX = "[PREFIX]" # prefix title in email
 
-SITE_TITLE = 'IRCAM'
-SITE_TAGLINE = 'IRCAM'
+SITE_TITLE = 'Your Site'
+SITE_TAGLINE = 'This is a Mezzo site'
 
 EVENT_DOMAIN = "//eve.ircam.fr"
 EVENT_SHOP_URL = EVENT_DOMAIN+"/pub.php/event/%d/edit"
@@ -54,6 +83,9 @@ FIGGO_API_HEADER_AUTH='Lucca application=bd6d5481-40eb-414b-9135-434e12749223'
 
 # HOST_THEMES = [
 #     ('manifeste.ircam.fr', 'themes.base'),
+#     ('vertigo.ircam.fr', 'organization_themes.vertigo-themes.vertigo_ircam_fr'),
+#     ('vertigo.starts.eu', 'organization_themes.vertigo-themes.vertigo_starts_eu'),
+#     ('www.starts.eu', 'organization_themes.vertigo-themes.www_starts_eu'),
 # ]
 
 if DEBUG:
