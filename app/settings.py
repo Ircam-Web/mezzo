@@ -26,6 +26,7 @@ import os
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse_lazy
 import ldap, logging
+from django.core.urlresolvers import reverse_lazy
 from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 
 DEBUG = True if os.environ.get('DEBUG') == 'True' else False
@@ -231,7 +232,9 @@ DATABASES = {
 
 INSTALLED_APPS = [
     "organization_themes",
-    "organization_themes.ircam-www-theme",
+    "organization_themes.vertigo-themes.vertigo_ircam_fr",
+    "organization_themes.vertigo-themes.vertigo_starts_eu",
+    "organization_themes.vertigo-themes.www_starts_eu",
     "modeltranslation",
     "dal",
     "dal_select2",
@@ -644,6 +647,13 @@ AUTH_LDAP_FIND_GROUP_PERMS = True
 # Cache group memberships for an hour to minimize LDAP traffic
 AUTH_LDAP_CACHE_GROUPS = True
 AUTH_LDAP_GROUP_CACHE_TIMEOUT = 3600
+
+##################
+#### GUARDIAN ####
+##################
+
+ANONYMOUS_USER_NAME = None
+LOGIN_REDIRECT_URL = reverse_lazy('organization-network-person-detail')
 
 ##################
 # LOCAL SETTINGS #
