@@ -232,9 +232,10 @@ DATABASES = {
 
 INSTALLED_APPS = [
     "organization_themes",
-    "organization_themes.vertigo-themes.vertigo_ircam_fr",
-    "organization_themes.vertigo-themes.vertigo_starts_eu",
-    "organization_themes.vertigo-themes.www_starts_eu",
+    "organization_themes.ircam-www-theme",
+    # "organization_themes.vertigo-themes.vertigo_ircam_fr",
+    # "organization_themes.vertigo-themes.vertigo_starts_eu",
+    # "organization_themes.vertigo-themes.www_starts_eu",
     "modeltranslation",
     "dal",
     "dal_select2",
@@ -527,7 +528,8 @@ SEARCH_MODEL_CHOICES = ('organization-pages.CustomPage',
                         'organization-media.Playlist',
                         'mezzanine_agenda.Event',
                         'organization-projects.Project',
-                        'shop.Product')
+                        'shop.Product',
+                        'organization-magazine.Article')
 
 PAGES_MODELS = ('organization-pages.CustomPage',
                 'organization-magazine.Topic',
