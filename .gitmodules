@@ -1,18 +1,18 @@
 [submodule "lib/mezzanine"]
 	path = lib/mezzanine
 	url = https://github.com/yomguy/mezzanine.git
-    branch-master = mezzo
-    branch-dev = mezzo
+    branch-master = mezzo-master
+    branch-dev = mezzo-dev
 [submodule "lib/mezzanine-agenda"]
 	path = lib/mezzanine-agenda
     url = https://github.com/Ircam-Web/mezzanine-agenda.git
     branch-master = master
-    branch-dev = master
+    branch-dev = dev
 [submodule "lib/mezzanine-organization-themes"]
 	path = lib/mezzanine-organization-themes
 	url = https://github.com/Ircam-Web/mezzanine-organization-themes.git
     branch-master = master
-    branch-dev = master
+    branch-dev = dev
     ignore = dirty
 [submodule "bin"]
 	path = bin
@@ -29,7 +29,7 @@
 	path = lib/mezzanine-organization
 	url = https://github.com/Ircam-Web/mezzanine-organization.git
     branch-master = master
-    branch-dev = master
+    branch-dev = dev
     ignore = dirty
 [submodule "lib/cartridge"]
 	path = lib/cartridge
