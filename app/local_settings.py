@@ -62,15 +62,15 @@ ADMINS = (
 SECRET_KEY = "j1qa@u$5ktqr^0_kwh@-j@*-80t$)ht!4-=ybz1xc%@3+r(r&tzefoih"
 NEVERCACHE_KEY = "m)u^%r@uh#r3wu0&$=#$1ogx)uy4hv93^2lt%c3@xi=^gifoj8paozijdihazefd"
 
-EMAIL_HOST = '' # please specify your smtp server address
+EMAIL_HOST = 'smtp.ircam.fr' # please specify your smtp server address
 EMAIL_PORT = '25'
 SERVER_EMAIL = 'no-reply@no-reply.org' # a no reply address
-DEFAULT_FROM_EMAIL = 'default@default.org' # another address, default one
-DEFAULT_TO_EMAIL = 'recipient@recipient.org' # default recipient, for your tests
-EMAIL_SUBJECT_PREFIX = "[PREFIX]" # prefix title in email
+DEFAULT_FROM_EMAIL = 'www@ircam.fr' # another address, default one
+DEFAULT_TO_EMAIL = 'drh@ircam.fr' # default recipient, for your tests
+EMAIL_SUBJECT_PREFIX = "[IRCAM WWW]" # prefix title in email
 
-SITE_TITLE = 'Your Site'
-SITE_TAGLINE = 'This is a Mezzo site'
+SITE_TITLE = 'IRCAM'
+SITE_TAGLINE = 'Institut de Recherche et de Coordination Acoustique et Musique'
 
 EVENT_DOMAIN = "//eve.ircam.fr"
 EVENT_SHOP_URL = EVENT_DOMAIN+"/pub.php/event/%d/edit"
