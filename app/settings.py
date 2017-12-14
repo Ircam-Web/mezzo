@@ -24,7 +24,9 @@ from __future__ import absolute_import, unicode_literals
 
 import os
 from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse_lazy
 import ldap, logging
+from django.core.urlresolvers import reverse_lazy
 from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 
 DEBUG = True if os.environ.get('DEBUG') == 'True' else False
@@ -147,8 +149,7 @@ USE_I18N = True
 USE_L10N = True
 
 AUTHENTICATION_BACKENDS = (
-#   Activate Auth LDAP : 
-#   "organization.core.backend.OrganizationLDAPBackend",
+    "organization.core.backend.OrganizationLDAPBackend",
     "mezzanine.core.auth_backends.MezzanineBackend",
     "guardian.backends.ObjectPermissionBackend",
 )
@@ -178,6 +179,10 @@ STATIC_URL = "/static/"
 # STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
 STATIC_ROOT = '/srv/static/'
 
+STATICFILES_DIRS = [
+    '/srv/lib/mezzanine-organization/organization/static'
+]
+
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
@@ -197,17 +202,18 @@ ROOT_URLCONF = "urls"
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "fr"
 
 # Supported languages
 LANGUAGES = (
-    ('en', _('English')),
     ('fr', _('French')),
+    ('en', _('English')),
 )
 
-LOCALE_PATHS = (
-    os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale'),
-)
+#LOCALE_PATHS = (
+    #os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale'),
+    #os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization-themes/organization_themes/locale'),
+#)
 
 #############
 # DATABASES #
@@ -232,6 +238,9 @@ DATABASES = {
 INSTALLED_APPS = [
     "organization_themes",
     "organization_themes.ircam-www-theme",
+    # "organization_themes.vertigo-themes.vertigo_ircam_fr",
+    # "organization_themes.vertigo-themes.vertigo_starts_eu",
+    # "organization_themes.vertigo-themes.www_starts_eu",
     "modeltranslation",
     "dal",
     "dal_select2",
@@ -440,6 +449,7 @@ FILEBROWSER_SELECT_FORMATS = {
     'audio': ['Audio'],
 }
 
+
 #########################
 # ADMIN MENU            #
 #########################
@@ -524,7 +534,8 @@ SEARCH_MODEL_CHOICES = ('organization-pages.CustomPage',
                         'organization-media.Playlist',
                         'mezzanine_agenda.Event',
                         'organization-projects.Project',
-                        'shop.Product')
+                        'shop.Product',
+                        'organization-magazine.Article')
 
 PAGES_MODELS = ('organization-pages.CustomPage',
                 'organization-magazine.Topic',
@@ -596,6 +607,11 @@ DEBUG_TOOLBAR_PANELS = [
 ]
 
 # HIJACK
+HIJACK_DISPLAY_WARNING = False
+HIJACK_ALLOW_GET_REQUESTS = False
+HIJACK_REGISTER_ADMIN = False
+SILENCED_SYSTEM_CHECKS = ["hijack_admin.E001"]
+
 if DEBUG :
     SILENCED_SYSTEM_CHECKS = []
     HIJACK_LOGIN_REDIRECT_URL = "/person"
@@ -613,16 +629,44 @@ if DEBUG :
 
 # 1 - Activate logging :
 # logging
-# if DEBUG:
-#     logger = logging.getLogger('django_auth_ldap')
-#     logger.addHandler(logging.StreamHandler())
-#     logger.setLevel(logging.DEBUG)
+if DEBUG:
+    logger = logging.getLogger('django_auth_ldap')
+    logger.addHandler(logging.StreamHandler())
+    logger.setLevel(logging.DEBUG)
 
 # 2 - Specify your LDAP settings :
-# https://django-auth-ldap.readthedocs.io/en/latest/
+AUTH_LDAP_SERVER_URI = "ldap://clusterldap1.ircam.fr"
+AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=ircam,dc=fr", ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
 
-# 3 - Activate LDAP Backend 
-# Please see AUTHENTICATION_BACKENDS
+# Set up the basic group parameters.
+AUTH_LDAP_GROUP_SEARCH = LDAPSearch("ou=People,dc=ircam,dc=fr",
+    ldap.SCOPE_SUBTREE, "(objectClass=groupOfNames)"
+)
+AUTH_LDAP_GROUP_TYPE = GroupOfNamesType(name_attr="cn")
+
+# Populate the Django user from the LDAP directory.
+AUTH_LDAP_USER_ATTR_MAP = {
+    "first_name": "givenName",
+    "last_name": "sn",
+    "email": "mail"
+}
+
+# This is the default, but I like to be explicit.
+AUTH_LDAP_ALWAYS_UPDATE_USER = True
+
+# Use LDAP group membership to calculate group permissions.
+AUTH_LDAP_FIND_GROUP_PERMS = True
+
+# Cache group memberships for an hour to minimize LDAP traffic
+AUTH_LDAP_CACHE_GROUPS = True
+AUTH_LDAP_GROUP_CACHE_TIMEOUT = 3600
+
+##################
+#### GUARDIAN ####
+##################
+
+ANONYMOUS_USER_NAME = None
+LOGIN_REDIRECT_URL = reverse_lazy('organization-network-person-detail')
 
 ##################
 # LOCAL SETTINGS #
@@ -636,6 +680,7 @@ try:
 except ImportError as e:
     if "local_settings" not in str(e):
         raise e
+
 
 ####################
 # DYNAMIC SETTINGS #
@@ -653,3 +698,4 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+
