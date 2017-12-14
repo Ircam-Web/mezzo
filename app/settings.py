@@ -198,17 +198,18 @@ ROOT_URLCONF = "urls"
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "fr"
 
 # Supported languages
 LANGUAGES = (
-    ('en', _('English')),
     ('fr', _('French')),
+    ('en', _('English')),
 )
 
-LOCALE_PATHS = (
-    os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale'),
-)
+#LOCALE_PATHS = (
+    #os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale'),
+    #os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization-themes/organization_themes/locale'),
+#)
 
 #############
 # DATABASES #
