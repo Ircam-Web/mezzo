@@ -88,6 +88,19 @@ FIGGO_API_HEADER_AUTH='Lucca application=bd6d5481-40eb-414b-9135-434e12749223'
 #     ('www.starts.eu', 'organization_themes.vertigo-themes.www_starts_eu'),
 # ]
 
+# TIMESHEET
+
+TIMESHEET_USER_TEST = 849  # Emilie Zawadzki
+TIMESHEET_LOG_PATH = "/var/log/cron/"
+
+if DEBUG:
+    TIMESHEET_MASTER_MAIL = "zawadzki@ircam.fr"
+else:
+    TIMESHEET_MASTER_MAIL = "Hugues.Vinet@ircam.fr"
+
+MEDIA_BASE_URL = 'https://medias.ircam.fr/embed/media/'
+
+
 if DEBUG:
     PROTOCOLE = "http://"
 else:

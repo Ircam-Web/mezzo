@@ -445,6 +445,7 @@ FILEBROWSER_SELECT_FORMATS = {
     'audio': ['Audio'],
 }
 
+
 #########################
 # ADMIN MENU            #
 #########################
@@ -602,6 +603,11 @@ DEBUG_TOOLBAR_PANELS = [
 ]
 
 # HIJACK
+HIJACK_DISPLAY_WARNING = False
+HIJACK_ALLOW_GET_REQUESTS = False
+HIJACK_REGISTER_ADMIN = False
+SILENCED_SYSTEM_CHECKS = ["hijack_admin.E001"]
+
 if DEBUG :
     SILENCED_SYSTEM_CHECKS = []
     HIJACK_LOGIN_REDIRECT_URL = "/person"
@@ -671,6 +677,7 @@ except ImportError as e:
     if "local_settings" not in str(e):
         raise e
 
+
 ####################
 # DYNAMIC SETTINGS #
 ####################
@@ -687,3 +694,4 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+
