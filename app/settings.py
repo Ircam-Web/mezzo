@@ -210,10 +210,10 @@ LANGUAGES = (
     ('en', _('English')),
 )
 
-#LOCALE_PATHS = (
-    #os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale'),
-    #os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization-themes/organization_themes/locale'),
-#)
+LOCALE_PATHS = (
+    os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale/'),
+    os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization-themes/organization_themes/ircam-www-theme/locale/'),
+)
 
 #############
 # DATABASES #
