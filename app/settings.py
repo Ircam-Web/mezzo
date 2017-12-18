@@ -278,7 +278,7 @@ INSTALLED_APPS = [
     "organization.agenda",
     "organization.shop",
     "organization.job",
-    "sorl.thumbnail", # required for thumbnail support
+    #"sorl.thumbnail", # required for thumbnail support
     "django_instagram",
     'hijack',
     'compat',
