@@ -62,7 +62,7 @@ ADMINS = (
 SECRET_KEY = "j1qa@u$5ktqr^0_kwh@-j@*-80t$)ht!4-=ybz1xc%@3+r(r&tzefoih"
 NEVERCACHE_KEY = "m)u^%r@uh#r3wu0&$=#$1ogx)uy4hv93^2lt%c3@xi=^gifoj8paozijdihazefd"
 
-EMAIL_HOST = '' # please specify your smtp server address
+EMAIL_HOST = 'localhost' # please specify your smtp server address
 EMAIL_PORT = '25'
 SERVER_EMAIL = 'no-reply@no-reply.org' # a no reply address
 DEFAULT_FROM_EMAIL = 'default@default.org' # another address, default one
