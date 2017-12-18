@@ -27,6 +27,7 @@ var:
     - ./var/log/uwsgi:/var/log/uwsgi
     - ./var/log/nginx:/var/log/nginx
     - ./var/log/app:/var/log/app
+    - ./var/log/cron:/var/log/cron
     - ./bin:/srv/bin
     - ./doc:/srv/doc
     - /srv/bower
