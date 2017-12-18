@@ -43,7 +43,7 @@ db:
     - POSTGRES_PASSWORD=noodFof2Kna
 
 app:
-  build: .
+  image: ircamweb/mezzo
   command: /bin/sh bin/app.sh --runserver
   volumes:
     - ./app:/srv/app

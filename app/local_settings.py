@@ -109,4 +109,3 @@ else:
 HAL_URL_PART_1 = PROTOCOLE + "haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?labos_exp=%s&affi_exp=%s"
 HAL_URL_PART_2 = "&CB_auteur=oui&CB_titre=oui&CB_article=oui&langue=Anglais&tri_exp=annee_publi&tri_exp2=typdoc" \
                 "&tri_exp3=date_publi&ordre_aff=TA&Fen=Aff&css=" + PROTOCOLE + "%s/static/css/index.min.css"
-
