@@ -31,6 +31,12 @@
     branch-master = master
     branch-dev = dev
     ignore = dirty
+[submodule "var"]
+	path = var
+	url = git+ssh://git@git.forge.ircam.fr/ircam-www-data.git
+    ignore = dirty
+	branch-master = master
+	branch-dev = master
 [submodule "lib/cartridge"]
 	path = lib/cartridge
     url = git@github.com:Ircam-Web/cartridge.git
