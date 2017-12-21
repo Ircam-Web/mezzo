@@ -62,15 +62,15 @@ ADMINS = (
 SECRET_KEY = "j1qa@u$5ktqr^0_kwh@-j@*-80t$)ht!4-=ybz1xc%@3+r(r&tzefoih"
 NEVERCACHE_KEY = "m)u^%r@uh#r3wu0&$=#$1ogx)uy4hv93^2lt%c3@xi=^gifoj8paozijdihazefd"
 
-EMAIL_HOST = '' # please specify your smtp server address
+EMAIL_HOST = 'smtp.ircam.fr' # please specify your smtp server address
 EMAIL_PORT = '25'
 SERVER_EMAIL = 'no-reply@no-reply.org' # a no reply address
-DEFAULT_FROM_EMAIL = 'default@default.org' # another address, default one
-DEFAULT_TO_EMAIL = 'recipient@recipient.org' # default recipient, for your tests
-EMAIL_SUBJECT_PREFIX = "[PREFIX]" # prefix title in email
+DEFAULT_FROM_EMAIL = 'www@ircam.fr' # another address, default one
+DEFAULT_TO_EMAIL = 'drh@ircam.fr' # default recipient, for your tests
+EMAIL_SUBJECT_PREFIX = "[IRCAM WWW]" # prefix title in email
 
-SITE_TITLE = 'Your Site'
-SITE_TAGLINE = 'This is a Mezzo site'
+SITE_TITLE = 'IRCAM'
+SITE_TAGLINE = 'Institut de Recherche et de Coordination Acoustique et Musique'
 
 EVENT_DOMAIN = "//eve.ircam.fr"
 EVENT_SHOP_URL = EVENT_DOMAIN+"/pub.php/event/%d/edit"
@@ -87,3 +87,25 @@ FIGGO_API_HEADER_AUTH='Lucca application=bd6d5481-40eb-414b-9135-434e12749223'
 #     ('vertigo.starts.eu', 'organization_themes.vertigo-themes.vertigo_starts_eu'),
 #     ('www.starts.eu', 'organization_themes.vertigo-themes.www_starts_eu'),
 # ]
+
+# TIMESHEET
+
+TIMESHEET_USER_TEST = 849  # Emilie Zawadzki
+TIMESHEET_LOG_PATH = "/var/log/cron/"
+
+if DEBUG:
+    TIMESHEET_MASTER_MAIL = "zawadzki@ircam.fr"
+else:
+    TIMESHEET_MASTER_MAIL = "Hugues.Vinet@ircam.fr"
+
+MEDIA_BASE_URL = 'https://medias.ircam.fr/embed/media/'
+
+
+if DEBUG:
+    PROTOCOLE = "http://"
+else:
+    PROTOCOLE = "https://"
+
+HAL_URL_PART_1 = PROTOCOLE + "haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?labos_exp=%s&affi_exp=%s"
+HAL_URL_PART_2 = "&CB_auteur=oui&CB_titre=oui&CB_article=oui&langue=Anglais&tri_exp=annee_publi&tri_exp2=typdoc" \
+                "&tri_exp3=date_publi&ordre_aff=TA&Fen=Aff&css=" + PROTOCOLE + "%s/static/css/index.min.css"
