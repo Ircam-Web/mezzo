@@ -1,33 +1,33 @@
 [submodule "lib/mezzanine"]
 	path = lib/mezzanine
-	url = git@github.com:yomguy/mezzanine.git
+	url = https://github.com/yomguy/mezzanine.git
     branch-master = mezzo-master
     branch-dev = mezzo-dev
 [submodule "lib/mezzanine-agenda"]
 	path = lib/mezzanine-agenda
-    url = git@github.com:Ircam-Web/mezzanine-agenda.git
+    url = https://github.com/Ircam-Web/mezzanine-agenda.git
     branch-master = master
     branch-dev = dev
 [submodule "lib/mezzanine-organization-themes"]
 	path = lib/mezzanine-organization-themes
-	url = git@github.com:Ircam-Web/mezzanine-organization-themes.git
+	url = https://github.com/Ircam-Web/mezzanine-organization-themes.git
     branch-master = master
     branch-dev = dev
     ignore = dirty
 [submodule "bin"]
 	path = bin
-	url = git@github.com:Ircam-Web/mezzo-bin.git
+	url = https://github.com/Ircam-Web/mezzo-bin.git
     branch-master = master
     branch-dev = master
 [submodule "lib/grappelli-safe"]
 	path = lib/grappelli-safe
-	url = git@github.com:yomguy/grappelli-safe.git
+	url = https://github.com/yomguy/grappelli-safe.git
     branch-master = dynamic_stacked
     branch-dev = dynamic_stacked
     ignore = dirty
 [submodule "lib/mezzanine-organization"]
 	path = lib/mezzanine-organization
-	url = git@github.com:Ircam-Web/mezzanine-organization.git
+	url = https://github.com/Ircam-Web/mezzanine-organization.git
     branch-master = master
     branch-dev = dev
     ignore = dirty
@@ -39,6 +39,6 @@
 	branch-dev = master
 [submodule "lib/cartridge"]
 	path = lib/cartridge
-    url = git@github.com:Ircam-Web/cartridge.git
+    url = https://github.com/Ircam-Web/cartridge.git
     branch-master = master
     branch-dev = master
