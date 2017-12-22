@@ -52,10 +52,8 @@ from datetime import datetime, date
 
 DEBUG = True if os.environ.get('DEBUG') == 'True' else False
 
-
 ADMINS = (
-    ('Guillaume Pellerin', 'guillaume.pellerin@ircam.fr'),
-    ('Emilie Zawadzki', 'emilie.zawadzki@ircam.fr'),
+    ('Your Name', 'contact@you.org'),
 )
 
 # Make these unique, and don't share it with anybody.
@@ -71,10 +69,3 @@ EMAIL_SUBJECT_PREFIX = "[PREFIX]" # prefix title in email
 SITE_TITLE = 'Your Site'
 SITE_TAGLINE = 'This is a Mezzo site'
 
-
-# HOST_THEMES = [
-#     ('manifeste.ircam.fr', 'themes.base'),
-#     ('vertigo.ircam.fr', 'organization_themes.vertigo-themes.vertigo_ircam_fr'),
-#     ('vertigo.starts.eu', 'organization_themes.vertigo-themes.vertigo_starts_eu'),
-#     ('www.starts.eu', 'organization_themes.vertigo-themes.www_starts_eu'),
-# ]
