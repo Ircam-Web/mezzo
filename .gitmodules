@@ -1,44 +1,38 @@
 [submodule "lib/mezzanine"]
-	path = lib/mezzanine
-	url = https://github.com/yomguy/mezzanine.git
+    path = lib/mezzanine
+    url = https://github.com/yomguy/mezzanine.git
     branch-master = mezzo-master
     branch-dev = mezzo-dev
 [submodule "lib/mezzanine-agenda"]
-	path = lib/mezzanine-agenda
+    path = lib/mezzanine-agenda
     url = https://github.com/Ircam-Web/mezzanine-agenda.git
     branch-master = master
     branch-dev = dev
 [submodule "lib/mezzanine-organization-themes"]
-	path = lib/mezzanine-organization-themes
-	url = https://github.com/Ircam-Web/mezzanine-organization-themes.git
+    path = lib/mezzanine-organization-themes
+    url = https://github.com/Ircam-Web/mezzanine-organization-themes.git
     branch-master = master
     branch-dev = dev
     ignore = dirty
 [submodule "bin"]
-	path = bin
-	url = https://github.com/Ircam-Web/mezzo-bin.git
+    path = bin
+    url = https://github.com/Ircam-Web/mezzo-bin.git
     branch-master = master
     branch-dev = master
 [submodule "lib/grappelli-safe"]
-	path = lib/grappelli-safe
-	url = https://github.com/yomguy/grappelli-safe.git
+    path = lib/grappelli-safe
+    url = https://github.com/yomguy/grappelli-safe.git
     branch-master = dynamic_stacked
     branch-dev = dynamic_stacked
     ignore = dirty
 [submodule "lib/mezzanine-organization"]
-	path = lib/mezzanine-organization
-	url = https://github.com/Ircam-Web/mezzanine-organization.git
+    path = lib/mezzanine-organization
+    url = https://github.com/Ircam-Web/mezzanine-organization.git
     branch-master = master
     branch-dev = dev
     ignore = dirty
-[submodule "var"]
-	path = var
-	url = git+ssh://git@git.forge.ircam.fr/ircam-www-data.git
-    ignore = dirty
-	branch-master = master
-	branch-dev = master
 [submodule "lib/cartridge"]
-	path = lib/cartridge
+    path = lib/cartridge
     url = https://github.com/Ircam-Web/cartridge.git
     branch-master = master
     branch-dev = master
