@@ -1,0 +1,15 @@
+
+app:
+  build: .
+  command: /bin/sh bin/app.sh
+
+nginx:
+  image: nginx
+  ports:
+    - "8040:80"
+  volumes:
+    - ./etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+  volumes_from:
+    - var
+  links:
+    - app
