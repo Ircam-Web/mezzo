@@ -226,3 +226,4 @@ if "mezzanine.pages" in settings.INSTALLED_APPS:
 # pages can use JS, CSS and images.
 handler404 = "mezzanine.core.views.page_not_found"
 handler500 = "mezzanine.core.views.server_error"
+handler403 = "organization.core.views.permission_denied"
