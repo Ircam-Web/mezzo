@@ -239,7 +239,7 @@ INSTALLED_APPS = [
     "organization_themes",
     "organization_themes.ircam-www-theme",
     # "organization_themes.vertigo-themes.vertigo_ircam_fr",
-    # "organization_themes.vertigo-themes.vertigo_starts_eu",
+    "organization_themes.vertigo-themes.vertigo_starts_eu",
     # "organization_themes.vertigo-themes.www_starts_eu",
     "modeltranslation",
     "dal",
@@ -278,6 +278,7 @@ INSTALLED_APPS = [
     "organization.agenda",
     "organization.shop",
     "organization.job",
+    "organization.custom",
     #"sorl.thumbnail", # required for thumbnail support
     "django_instagram",
     'hijack',
@@ -288,7 +289,8 @@ INSTALLED_APPS = [
 
 
 HOST_THEMES = [
-    ('example.com', 'organization_themes.ircam-www-theme'),
+    ('foo.ircam.fr', 'organization_themes.ircam-www-theme'),
+    ('bar.ircam.fr', 'organization_themes.vertigo-themes.vertigo_starts_eu'),
 ]
 
 BOWER_COMPONENTS_ROOT = '/srv/bower/'
@@ -309,34 +311,28 @@ MIGRATION_MODULES = {
     "generic": "migrations.generic",
 }
 
-TEMPLATES = [{'APP_DIRS': True,
+TEMPLATES = [{
                'BACKEND': 'django.template.backends.django.DjangoTemplates',
                'OPTIONS': {'builtins': ['mezzanine.template.loader_tags'],
                            'context_processors': ('django.contrib.auth.context_processors.auth',
                                                   'django.contrib.messages.context_processors.messages',
-                                                  'django.core.context_processors.debug',
-                                                  'django.core.context_processors.i18n',
-                                                  'django.core.context_processors.static',
-                                                  'django.core.context_processors.media',
-                                                  'django.core.context_processors.request',
-                                                  'django.core.context_processors.tz',
+                                                  'django.template.context_processors.debug',
+                                                  'django.template.context_processors.i18n',
+                                                  'django.template.context_processors.static',
+                                                  'django.template.context_processors.media',
+                                                  'django.template.context_processors.request',
+                                                  'django.template.context_processors.tz',
                                                   'mezzanine.conf.context_processors.settings',
                                                   'mezzanine.pages.context_processors.page',
                                                   'organization.core.context_processors.organization_settings',
-                                                  )
+                                                  ),
+                            'loaders': [
+                                'mezzanine.template.loaders.host_themes.Loader',
+                                'django.template.loaders.filesystem.Loader',
+                                'django.template.loaders.app_directories.Loader',
+                                ],
                         }
             }]
-
-
-TEMPLATE_LOADERS_OPTIONS = [('django.template.loaders.cached.Loader', [
-        'django.template.loaders.filesystem.Loader',
-        'django.template.loaders.app_directories.Loader',
-    ])]
-
-if not DEBUG:
-    TEMPLATES[0]['OPTIONS']['loaders'] = TEMPLATE_LOADERS_OPTIONS
-    TEMPLATES[0]['APP_DIRS'] = False
-
 
 # List of middleware classes to use. Order is important; in the request phase,
 # these middleware classes will be applied in the order given, and in the
@@ -353,11 +349,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
     "mezzanine.core.request.CurrentRequestMiddleware",
     "mezzanine.core.middleware.RedirectFallbackMiddleware",
-    "mezzanine.core.middleware.TemplateForDeviceMiddleware",
-    "mezzanine.core.middleware.TemplateForHostMiddleware",
     "mezzanine.core.middleware.AdminLoginInterfaceSelectorMiddleware",
     "mezzanine.core.middleware.SitePermissionMiddleware",
     # Uncomment the following if using any of the SSL settings:
