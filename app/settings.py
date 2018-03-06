@@ -239,7 +239,7 @@ INSTALLED_APPS = [
     "organization_themes",
     "organization_themes.ircam-www-theme",
     # "organization_themes.vertigo-themes.vertigo_ircam_fr",
-    "organization_themes.vertigo-themes.vertigo_starts_eu",
+    # "organization_themes.vertigo-themes.vertigo_starts_eu",
     # "organization_themes.vertigo-themes.www_starts_eu",
     "modeltranslation",
     "dal",
@@ -289,8 +289,7 @@ INSTALLED_APPS = [
 
 
 HOST_THEMES = [
-    ('foo.ircam.fr', 'organization_themes.ircam-www-theme'),
-    ('bar.ircam.fr', 'organization_themes.vertigo-themes.vertigo_starts_eu'),
+    ('example.com', 'organization_themes.ircam-www-theme'),
 ]
 
 BOWER_COMPONENTS_ROOT = '/srv/bower/'
