@@ -18,7 +18,7 @@
     path = bin
     url = git@github.com:Ircam-Web/mezzo-bin.git
     branch-master = master
-    branch-dev = master
+    branch-dev = dev
 [submodule "lib/grappelli-safe"]
     path = lib/grappelli-safe
     url = git@github.com:yomguy/grappelli-safe.git
