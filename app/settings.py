@@ -278,7 +278,6 @@ INSTALLED_APPS = [
     "organization.agenda",
     "organization.shop",
     "organization.job",
-    "organization.custom",
     #"sorl.thumbnail", # required for thumbnail support
     "django_instagram",
     'hijack',
@@ -286,6 +285,14 @@ INSTALLED_APPS = [
     'guardian',
     'extra_views',
 ]
+
+CUSTOM_MODULES = False
+
+if CUSTOM_MODULES:
+    INSTALLED_APPS += [
+        "organization.custom",
+    ]
+
 
 
 HOST_THEMES = [
