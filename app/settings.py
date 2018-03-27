@@ -333,7 +333,7 @@ TEMPLATES = [{
                                                   'organization.core.context_processors.organization_settings',
                                                   ),
                             'loaders': [
-                                'mezzanine.template.loaders.host_themes.Loader',
+                                #'mezzanine.template.loaders.host_themes.Loader',
                                 'django.template.loaders.filesystem.Loader',
                                 'django.template.loaders.app_directories.Loader',
                                 ],
