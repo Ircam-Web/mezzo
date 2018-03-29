@@ -2,33 +2,43 @@
 Mezzo
 =====
 
-Mezzo is a complete CMS for organizations with complex workflows
+Mezzo is a complete CMS for organizations with complex workflows.
 
-It is based on Mezzanine_ and Django_.
+It includes the state-of-the-art of all modern web backend and frontend frameworks and many smart for easy development between teams.
+
+It provides a development and a production environment for Mezzanine-Organization_ which is based on Mezzanine_ and Django_ plus many other modules.
 
 Use cases
 ==========
 
-In fact any organization web site that needs a dedicated customable backend...
+- Institutional or corporate web sites with a lot of structural data
+- Project web applications
+- Any django based project thanks to the smart modular architecture
 
 Features
 ========
 
-- Page, news and event management
-- Smart media management (video, audio, etc..)
-- Project data management including demo repositories
-- Activity management of person per department
-- Job candidancy forms
-- Full translation models
-- Fully dockerized for easy setup
+- Smart and collaborative content management (Department, Page, News, Events, Media, Project, Job, etc.)
+- Full Project data management including demo repositories
+- Person activity management per department
+- Translation ready models and templates
+- Full modular architecture fir easy customization
+- Smart docker environment and packaging for easy scalable deployment on every platform
 
+Examples
+========
+
+IRCAM : https://www.ircam.fr
+STARTS : https://www.starts.eu
+
+.. _Mezzanine-Organization : https://github.com/Ircam-Web/mezzanine-organization
 .. _Django : https://www.djangoproject.com/
 .. _Mezzanine : http://mezzanine.jupo.org/
 
 Architecture
 ============
 
-For easier development and production workflow, this application has been dockerized.
+For easier development and production workflow, this application has been fully dockerized.
 
 Paths
 ++++++
@@ -36,27 +46,21 @@ Paths
 - app \
     django application
 
-  - app/locale \
-        locales for translations
   - app/migrations \
         mezzanine migrations
-  - app/organization \
-        organization app
   - app/bin \
-        commands to run app with docker
-  - app/static \
-        all assets, js, css files
-  - app/templates \
-        main templates
+        commands to run the app inside docker containers
 
 - bin \
-    maintenance bin
+    management tools
+- doc
+    documentation
 - env \
     docker-compose environment files
 - etc \
-    custom config files
+    custom configuration files
 - lib \
-    custom libraries added as git submodules
+    custom libraries added as git submodules including mezzanine-organization and mezzanine-organization-themes
 - var \
     all application data versioned on a separated repository
 
@@ -71,27 +75,12 @@ Paths
   - var/log/uwsgi \
         uwsgi logs (not versioned)
 
-- bower.json \
-    javascript dependencies
-- debian-requirements.txt \
-    used by docker to install debian packages
-- docker-compose.yml \
-    configuration file for docker containers used by docker-compose
-- Dockerfile \
-    instructions to build the app image
-- Gemfile \
-    gem dependecies for ruby. For our case, it will install _Sass and _Compass.
-- gulpfile.js \
-    script to compile all CSS and JS files
-- install.py \
-    daemon and init boot script installer (Linux only)
-- package.json \
-    gulp dependencies when running "gulp install"
-- requirements-dev.txt \
-    application package in dev version
 - requirements.txt \
-    application package
-
+    debian package dependencies
+- docker-compose.yml \
+    composition file for docker containers used by docker-compose
+- Dockerfile \
+    instructions to build the docker image of the app
 
 
 Models
@@ -120,23 +109,19 @@ Main modules embed in app/organization
 - shop \
     manage product from prestashop (softwares and subscriptions), using _Cartridge
 
-
-.. _Compass : http://compass-style.org/
-.. _Sass: http://sass-lang.com/
-
 Install
 =======
 
 Clone
 ++++++
 
-On Linux, first install Git_, Docker-engine_ and docker-compose_ and open a terminal.
+First install Git_, Docker-engine_ and docker-compose_ and open a terminal.
 
-On MacOS or Windows install Git_ and the Docker-Toolbox_ and open a Docker Quickstart Terminal.
+On MacOS or Windows, you will maybe ned to install Docker-Toolbox_ and open a Docker Quickstart Terminal.
 
 Then run these commands::
 
-    git clone --recursive https://github.com/Ircam-Web/mezzo.git
+    git clone --recursive https://github.com/Ircam-Web/Mezzo.git
 
 
 Start
@@ -146,16 +131,14 @@ Our docker composition already bundles some powerful containers and bleeding edg
 
 For a production environment setup::
 
-    cd mezzanine-organization
-    docker-compose up
+    cd Mezzo
+    bin/prod/up.sh
 
 which builds, (re)creates, starts, and attaches all containers.
 
-Then browse the app at http://localhost:9300/
+Then browse the app at http://localhost:8040/
 
-The default administrator account at http://localhost:9300/admin is `admin:admin`
-
-On MacOS or Windows, we need to replace 'localhost' by the IP given by the docker terminal.
+On MacOS or Windows, you maybe need to replace 'localhost' by the IP given by the docker terminal.
 
 .. warning :: Before any serious production usecase, you *must* modify all the passwords and secret keys in the configuration files of the sandbox.
 
@@ -165,7 +148,7 @@ Daemonize
 
 The install the entire composition so that it will be automatically run at boot and in the background::
 
-    sudo bin/install.py
+    sudo bin/install/install.py
 
 options::
 
@@ -177,7 +160,7 @@ options::
 
 This will install a init script in /etc/init.d. For example, if your app directory is named `mezzanine-organization` then `/etc/init.d/mezzanine-organization` becomes the init script for the OS booting procedure and for you if you need to start the daemon by hand::
 
-    sudo /etc/init.d/mezzanine-organization start
+    sudo /etc/init.d/Mezzo start
 
 
 .. _Docker-engine: https://docs.docker.com/installation/
@@ -198,25 +181,25 @@ Dev mode
 
 For a development environment setup::
 
-    docker-compose -f docker-compose.yml -f env/dev.yml up
+    bin/dev/up.sh
 
-This will launch the django development server. Then browse the app at http://localhost:9400/
+This will launch the django development server. Then browse the app at http://localhost:9021/
 
 On MacOS or Windows, we need to replace 'localhost' by the IP given by the docker terminal.
 
 .. warning :: In this mode, Django is run with the `runserver` tool in DEBUG mode. NEVER use this in production!
 
 
-Back
-+++++
+Backend
+++++++++
 
 If you modify or add django models, you can produce migration files with::
 
-    bin/makemigrations.sh
+    bin/dev/makemigrations.sh
 
 To apply new migrations::
 
-    bin/migrate.sh
+    bin/dev/migrate.sh
 
 Accessing the app container shell::
 
@@ -229,11 +212,7 @@ Front
 The styles are written in SASS in app/static and the builder uses Gulp.
 All the builing tools are included in the app container so that you can build the front in one command::
 
-    bin/build_font.sh
-
-To start the gulp server to get dynamic builing::
-
-    docker-compose run app gulp serve
+    bin/build/front.sh
 
 Gulp will launch BrowserSync. BrowserSync is a middleware that expose the website on port 3000.
 Any change on CSS or JS files will trigger the build system and reload the browser.
@@ -251,18 +230,18 @@ Log
     uwsgi log of the app
 
 
-Backup & restore
-+++++++++++++++++
+Backup & restore the database
++++++++++++++++++++++++++++++
 
 To backup the database and all the media, this will push all of them to the var submodule own repository::
 
-    bin/push.sh
+    bin/prod/push_data.sh
 
 .. warning :: use this ONLY from the **production** environment!
 
 To restore the backuped the database, all the media and rebuild front ()::
 
-    bin/pull.sh
+    bin/dev/pull_data.sh
 
 .. warning :: use this ONLY from the **development** environment!
 
@@ -272,11 +251,11 @@ Upgrade
 
 Upgrade application, all dependencies, data from master branch and also recompile assets::
 
-    bin/upgrade.sh
+    bin/prod/upgrade.sh
 
 
-Repair
-+++++++
+Troubleshooting
++++++++++++++++
 
 If the app is not accessible, first try to restart the composition with::
 
