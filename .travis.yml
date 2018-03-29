@@ -22,8 +22,7 @@ script:
   - docker-compose -f docker-compose.yml -f env/staging.yml up -d
   - docker-compose run app python manage.py test
   - sleep 180
-  - curl --fail --retry 10 --retry-delay 5  -v $(docker-compose port nginx 8040)
-  - curl --fail -v "$(docker-compose port nginx 80)/archives/items/Tests-c4_scalewav/"
+  - curl --fail --retry 10 --retry-delay 5  -v "$(docker-compose port nginx 8040)/"
   - docker-compose stop
 
 after_failure:
