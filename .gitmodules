@@ -1,6 +1,6 @@
 [submodule "lib/mezzanine"]
     path = lib/mezzanine
-    url = git@github.com:Ircam-Web/mezzanine.git
+    url = https://github.com/Ircam-Web/mezzanine.git
     branch-master = mezzo-master
     branch-dev = mezzo-dev
 [submodule "lib/mezzanine-agenda"]
@@ -23,7 +23,7 @@
     ignore = dirty
 [submodule "lib/grappelli-safe"]
     path = lib/grappelli-safe
-    url = git@github.com:Ircam-Web/grappelli-safe.git
+    url = https://github.com/Ircam-Web/grappelli-safe.git
     branch-master = dynamic_stacked
     branch-dev = dynamic_stacked
     ignore = dirty
