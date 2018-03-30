@@ -236,7 +236,8 @@ DATABASES = {
 
 INSTALLED_APPS = [
     "organization_themes",
-    "organization_themes.ircam-www-theme",
+    "organization_themes.forumnet-theme",
+    #"organization_themes.ircam-www-theme",
     # "organization_themes.vertigo-themes.vertigo_ircam_fr",
     # "organization_themes.vertigo-themes.vertigo_starts_eu",
     # "organization_themes.vertigo-themes.www_starts_eu",
@@ -287,7 +288,7 @@ INSTALLED_APPS = [
 
 
 HOST_THEMES = [
-    ('example.com', 'organization_themes.ircam-www-theme'),
+    ('example.com', 'organization_themes.forumnet-theme'),
 ]
 
 BOWER_COMPONENTS_ROOT = '/srv/bower/'
