@@ -24,6 +24,7 @@ from __future__ import absolute_import, unicode_literals
 
 import os
 from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse_lazy
 import ldap, logging
 from django.core.urlresolvers import reverse_lazy
 from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
@@ -77,12 +78,12 @@ SILENCED_SYSTEM_CHECKS = ['fields.W342',]
 
 PAGE_MENU_TEMPLATES = (
     (1, _("Action"), "pages/menus/action.html"),
-    (2, _("Header"), "pages/menus/header.html"),
+    (2, _("Departement"), "pages/menus/header.html"),
     (3, _("Footer vertical"), "pages/menus/footer_vertical.html"),
     (4, _("Footer horizontal"), "pages/menus/footer_horizontal.html"),
     (5, _("Magazine"), "pages/menus/magazine.html"),
-    (6, _("You are"), "pages/menus/vous_etes.html"),
-
+    (6, _("Vous êtes"), "pages/menus/vous_etes.html"),
+    (7, _("Personnes"), "pages/menus/tree.html"),
 )
 
 MENU_PERSON_ID = 7
@@ -148,8 +149,7 @@ USE_I18N = True
 USE_L10N = True
 
 AUTHENTICATION_BACKENDS = (
-#   Activate Auth LDAP : 
-#   "organization.core.backend.OrganizationLDAPBackend",
+    "organization.core.backend.OrganizationLDAPBackend",
     "mezzanine.core.auth_backends.MezzanineBackend",
     "guardian.backends.ObjectPermissionBackend",
 )
@@ -202,16 +202,17 @@ ROOT_URLCONF = "urls"
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "fr"
 
 # Supported languages
 LANGUAGES = (
-    ('en', _('English')),
     ('fr', _('French')),
+    ('en', _('English')),
 )
 
 LOCALE_PATHS = (
-    os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale'),
+    os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale/'),
+    os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization-themes/organization_themes/ircam-www-theme/locale/'),
 )
 
 #############
@@ -278,13 +279,21 @@ INSTALLED_APPS = [
     "organization.agenda",
     "organization.shop",
     "organization.job",
-    "sorl.thumbnail", # required for thumbnail support
+    #"sorl.thumbnail", # required for thumbnail support
     "django_instagram",
     'hijack',
     'compat',
     'guardian',
     'extra_views',
 ]
+
+CUSTOM_MODULES = False
+
+if CUSTOM_MODULES:
+    INSTALLED_APPS += [
+        "organization.custom",
+    ]
+
 
 
 HOST_THEMES = [
@@ -309,34 +318,28 @@ MIGRATION_MODULES = {
     "generic": "migrations.generic",
 }
 
-TEMPLATES = [{'APP_DIRS': True,
+TEMPLATES = [{
                'BACKEND': 'django.template.backends.django.DjangoTemplates',
                'OPTIONS': {'builtins': ['mezzanine.template.loader_tags'],
                            'context_processors': ('django.contrib.auth.context_processors.auth',
                                                   'django.contrib.messages.context_processors.messages',
-                                                  'django.core.context_processors.debug',
-                                                  'django.core.context_processors.i18n',
-                                                  'django.core.context_processors.static',
-                                                  'django.core.context_processors.media',
-                                                  'django.core.context_processors.request',
-                                                  'django.core.context_processors.tz',
+                                                  'django.template.context_processors.debug',
+                                                  'django.template.context_processors.i18n',
+                                                  'django.template.context_processors.static',
+                                                  'django.template.context_processors.media',
+                                                  'django.template.context_processors.request',
+                                                  'django.template.context_processors.tz',
                                                   'mezzanine.conf.context_processors.settings',
                                                   'mezzanine.pages.context_processors.page',
                                                   'organization.core.context_processors.organization_settings',
-                                                  )
+                                                  ),
+                            'loaders': [
+                                #'mezzanine.template.loaders.host_themes.Loader',
+                                'django.template.loaders.filesystem.Loader',
+                                'django.template.loaders.app_directories.Loader',
+                                ],
                         }
             }]
-
-
-TEMPLATE_LOADERS_OPTIONS = [('django.template.loaders.cached.Loader', [
-        'django.template.loaders.filesystem.Loader',
-        'django.template.loaders.app_directories.Loader',
-    ])]
-
-if not DEBUG:
-    TEMPLATES[0]['OPTIONS']['loaders'] = TEMPLATE_LOADERS_OPTIONS
-    TEMPLATES[0]['APP_DIRS'] = False
-
 
 # List of middleware classes to use. Order is important; in the request phase,
 # these middleware classes will be applied in the order given, and in the
@@ -353,11 +356,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
     "mezzanine.core.request.CurrentRequestMiddleware",
     "mezzanine.core.middleware.RedirectFallbackMiddleware",
-    "mezzanine.core.middleware.TemplateForDeviceMiddleware",
-    "mezzanine.core.middleware.TemplateForHostMiddleware",
     "mezzanine.core.middleware.AdminLoginInterfaceSelectorMiddleware",
     "mezzanine.core.middleware.SitePermissionMiddleware",
     # Uncomment the following if using any of the SSL settings:
@@ -449,6 +449,7 @@ FILEBROWSER_SELECT_FORMATS = {
     'audio': ['Audio'],
 }
 
+
 #########################
 # ADMIN MENU            #
 #########################
@@ -468,7 +469,9 @@ ADMIN_MENU_ORDER = (
                  (_('Media Library'), 'fb_browse'),
                  )),
     (_('Events'), ('mezzanine_agenda.Event',
+                  'mezzanine_agenda.Season',
                   'mezzanine_agenda.EventLocation',
+                  'mezzanine_agenda.EventShop',
                   'mezzanine_agenda.EventPrice',
                   'mezzanine_agenda.EventCategory',
                   'organization-agenda.EventPublicType',
@@ -479,11 +482,12 @@ ADMIN_MENU_ORDER = (
                     'organization-magazine.Brief',)),
     (_('Network'), ('organization-network.Organization',
                     'organization-network.OrganizationLinked',
+                    'organization-network.OrganizationRole',
+                    'organization-network.OrganizationType',
                     'organization-network.Department',
                     'organization-network.Team',
                     'organization-network.Person',
                     'organization-network.Activity',
-                    'organization-network.OrganizationType',
                     'organization-network.PersonListBlock',
                     )),
     (_('Activity'), ('organization-network.PersonActivity',
@@ -492,6 +496,7 @@ ADMIN_MENU_ORDER = (
                     'organization-network.ActivityGrade',
                     'organization-network.ActivityFramework',
                     'organization-network.ActivityFunction',
+                    'organization-network.ProjectActivity',
                     'organization-network.TrainingType',
                     'organization-network.TrainingTopic',
                     'organization-network.TrainingLevel',
@@ -502,14 +507,17 @@ ADMIN_MENU_ORDER = (
                     )),
     (_('Projects'), ('organization-projects.Project',
                     'organization-projects.ProjectCall',
+                    'organization-projects.ProjectContact',
                     'organization-projects.ProjectProgram',
                     'organization-projects.ProjectProgramType',
                     'organization-projects.ProjectTopic',
-                    'organization-projects.ProjectProgramType',
-                    'organization-projects.ProjectDemo',
+                    'organization-projects.ProjectWorkPackage',
+                    'organization-projects.ProjectPublicData',
+                    'organization-projects.ProjectPrivateData',
+                    'organization-projects.ProjectResidency',
                     'organization-projects.Repository',
                     'organization-projects.RepositorySystem',
-                    'organization-projects.ProjectWorkPackage'
+                    'organization-projects.ProjectDemo',
                     )),
     (_('Shop'), ('shop.Product',
                     'organization-shop.ProductList',
@@ -588,6 +596,9 @@ OPTIONAL_APPS = (
 
 if DEBUG:
     OPTIONAL_APPS += ('debug_toolbar', 'hijack_admin',)
+    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+
+INTERNAL_IPS = ['127.0.0.1', '172.17.0.1']
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 DEBUG_TOOLBAR_PANELS = [
@@ -606,6 +617,11 @@ DEBUG_TOOLBAR_PANELS = [
 ]
 
 # HIJACK
+HIJACK_DISPLAY_WARNING = False
+HIJACK_ALLOW_GET_REQUESTS = False
+HIJACK_REGISTER_ADMIN = False
+SILENCED_SYSTEM_CHECKS = ["hijack_admin.E001"]
+
 if DEBUG :
     SILENCED_SYSTEM_CHECKS = []
     HIJACK_LOGIN_REDIRECT_URL = "/person"
@@ -623,16 +639,37 @@ if DEBUG :
 
 # 1 - Activate logging :
 # logging
-# if DEBUG:
-#     logger = logging.getLogger('django_auth_ldap')
-#     logger.addHandler(logging.StreamHandler())
-#     logger.setLevel(logging.DEBUG)
+if DEBUG:
+    logger = logging.getLogger('django_auth_ldap')
+    logger.addHandler(logging.StreamHandler())
+    logger.setLevel(logging.DEBUG)
 
 # 2 - Specify your LDAP settings :
-# https://django-auth-ldap.readthedocs.io/en/latest/
+AUTH_LDAP_SERVER_URI = "ldap://clusterldap1.ircam.fr"
+AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=ircam,dc=fr", ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
 
-# 3 - Activate LDAP Backend 
-# Please see AUTHENTICATION_BACKENDS
+# Set up the basic group parameters.
+AUTH_LDAP_GROUP_SEARCH = LDAPSearch("ou=People,dc=ircam,dc=fr",
+    ldap.SCOPE_SUBTREE, "(objectClass=groupOfNames)"
+)
+AUTH_LDAP_GROUP_TYPE = GroupOfNamesType(name_attr="cn")
+
+# Populate the Django user from the LDAP directory.
+AUTH_LDAP_USER_ATTR_MAP = {
+    "first_name": "givenName",
+    "last_name": "sn",
+    "email": "mail"
+}
+
+# This is the default, but I like to be explicit.
+AUTH_LDAP_ALWAYS_UPDATE_USER = True
+
+# Use LDAP group membership to calculate group permissions.
+AUTH_LDAP_FIND_GROUP_PERMS = True
+
+# Cache group memberships for an hour to minimize LDAP traffic
+AUTH_LDAP_CACHE_GROUPS = True
+AUTH_LDAP_GROUP_CACHE_TIMEOUT = 3600
 
 ##################
 #### GUARDIAN ####
@@ -653,6 +690,7 @@ try:
 except ImportError as e:
     if "local_settings" not in str(e):
         raise e
+
 
 ####################
 # DYNAMIC SETTINGS #

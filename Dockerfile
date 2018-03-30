@@ -33,7 +33,7 @@ RUN pip install -r app/requirements.txt
 
 RUN mkdir /srv/lib
 COPY lib /srv/lib
-COPY bin/setup_lib.sh /srv
+COPY bin/build/local/setup_lib.sh /srv
 RUN bash setup_lib.sh
 
 WORKDIR /srv/app
