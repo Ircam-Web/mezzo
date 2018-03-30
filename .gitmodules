@@ -13,7 +13,7 @@
     path = lib/mezzanine-organization-themes
     url = https://github.com/Ircam-Web/mezzanine-organization-themes.git
     branch-master = master
-    branch-dev = dev
+    branch-dev = forum_dev
     ignore = dirty
 [submodule "bin"]
     path = bin
@@ -30,8 +30,8 @@
 [submodule "lib/mezzanine-organization"]
     path = lib/mezzanine-organization
     url = https://github.com/Ircam-Web/mezzanine-organization.git
-    branch-master = master
-    branch-dev = dev
+    branch-master = forum_master
+    branch-dev = forum_dev
     ignore = dirty
 [submodule "lib/cartridge"]
     path = lib/cartridge
