@@ -544,6 +544,8 @@ PAGES_MODELS = ('organization-pages.CustomPage',
                 'organization-projects.ProjectTopicPage',
                 'shop.Product')
 
+SEARCH_PARENTS_MODELS = ('organization-network.Person',)
+
 PAGES_PUBLISHED_INCLUDE_LOGIN_REQUIRED = True
 
 SEARCH_PER_PAGE = 10
