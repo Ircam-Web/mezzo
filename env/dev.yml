@@ -1,7 +1,8 @@
 
 app:
-  build: .
-  ports:
-    - "9040:8000"
-  environment:
-    - DEBUG=True
+    image: ircamweb/mezzo:latest-dev
+    command: /bin/sh bin/app.sh --runserver
+    ports:
+        - "9000:8000"
+    environment:
+        - DEBUG=True
