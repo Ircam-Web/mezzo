@@ -19,44 +19,46 @@
 # Guillaume Pellerin <guillaume.pellerin@ircam.fr>
 
 var:
-  image: debian:jessie
-  volumes:
-    - ./var/media:/srv/media
-    - ./var/backup:/srv/backup
-    - ./var/static:/srv/static
-    - ./var/log/uwsgi:/var/log/uwsgi
-    - ./var/log/nginx:/var/log/nginx
-    - ./var/log/app:/var/log/app
-    - ./var/log/cron:/var/log/cron
-    - ./bin:/srv/bin
-    - ./doc:/srv/doc
-    - /srv/bower
-  command: "true"
+    image: debian:jessie
+    volumes:
+        - ./var/media:/srv/media
+        - ./var/backup:/srv/backup
+        - ./var/static:/srv/static
+        - ./var/log/uwsgi:/var/log/uwsgi
+        - ./var/log/nginx:/var/log/nginx
+        - ./var/log/app:/var/log/app
+        - ./var/log/cron:/var/log/cron
+        - ./bin:/srv/bin
+        - ./doc:/srv/doc
+        - /srv/bower
+    command: "true"
 
 db:
-  image: postgres:9.5
-  volumes_from:
-    - var
-  volumes:
-    - ./var/lib/postgresql/data:/var/lib/postgresql/data
-  environment:
-    - POSTGRES_PASSWORD=noodFof2Kna
+    image: postgres:9.5
+    volumes_from:
+        - var
+    volumes:
+        - ./var/lib/postgresql/data:/var/lib/postgresql/data
+    environment:
+        - POSTGRES_PASSWORD=noodFof2Kna
 
 app:
-  image: ircamweb/mezzo:latest-dev
-  command: /bin/sh bin/app.sh --runserver
-  volumes:
-    - ./app:/srv/app
-    - ./lib:/srv/lib
-    - .git:/srv/.git
-  volumes_from:
-    - var
-  expose:
-    - "8000"
-  links:
-    - db
-  environment:
-    - DEBUG=False
+    image: ircamweb/mezzo:latest-dev
+    command: /bin/sh bin/app.sh --runserver
+    volumes:
+        - ./app:/srv/app
+        - ./lib:/srv/lib
+        - .git:/srv/.git
+    volumes_from:
+        - var
+    expose:
+        - "8000"
+    ports:
+        - "9000:8000" 
+    links:
+        - db
+    environment:
+        - DEBUG=False
 
 nginx:
     image: nginx
