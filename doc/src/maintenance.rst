@@ -12,18 +12,18 @@ Log
     uwsgi log of the app
 
 
-Backup & restore
-+++++++++++++++++
+Backup & restore the database
++++++++++++++++++++++++++++++
 
 To backup the database and all the media, this will push all of them to the var submodule own repository::
 
-    bin/push.sh
+    bin/prod/push_data.sh
 
 .. warning :: use this ONLY from the **production** environment!
 
 To restore the backuped the database, all the media and rebuild front ()::
 
-    bin/pull.sh
+    bin/dev/pull_data.sh
 
 .. warning :: use this ONLY from the **development** environment!
 
@@ -33,11 +33,11 @@ Upgrade
 
 Upgrade application, all dependencies, data from master branch and also recompile assets::
 
-    bin/upgrade.sh
+    bin/prod/upgrade.sh
 
 
-Repair
-+++++++
+Troubleshooting
++++++++++++++++
 
 If the app is not accessible, first try to restart the composition with::
 

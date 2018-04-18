@@ -2,7 +2,7 @@
 Architecture
 ============
 
-For easier development and production workflow, this application has been dockerized.
+For easier development and production workflow, this application has been fully dockerized.
 
 Paths
 ++++++
@@ -10,27 +10,21 @@ Paths
 - app \
     django application
 
-  - app/locale \
-        locales for translations
   - app/migrations \
         mezzanine migrations
-  - app/organization \
-        organization app
   - app/bin \
-        commands to run app with docker
-  - app/static \
-        all assets, js, css files
-  - app/templates \
-        main templates
+        commands to run the app inside docker containers
 
 - bin \
-    maintenance bin
+    management tools
+- doc
+    documentation
 - env \
     docker-compose environment files
 - etc \
-    custom config files
+    custom configuration files
 - lib \
-    custom libraries added as git submodules
+    custom libraries added as git submodules including mezzanine-organization and mezzanine-organization-themes
 - var \
     all application data versioned on a separated repository
 
@@ -45,27 +39,12 @@ Paths
   - var/log/uwsgi \
         uwsgi logs (not versioned)
 
-- bower.json \
-    javascript dependencies
-- debian-requirements.txt \
-    used by docker to install debian packages
-- docker-compose.yml \
-    configuration file for docker containers used by docker-compose
-- Dockerfile \
-    instructions to build the app image
-- Gemfile \
-    gem dependecies for ruby. For our case, it will install _Sass and _Compass.
-- gulpfile.js \
-    script to compile all CSS and JS files
-- install.py \
-    daemon and init boot script installer (Linux only)
-- package.json \
-    gulp dependencies when running "gulp install"
-- requirements-dev.txt \
-    application package in dev version
 - requirements.txt \
-    application package
-
+    debian package dependencies
+- docker-compose.yml \
+    composition file for docker containers used by docker-compose
+- Dockerfile \
+    instructions to build the docker image of the app
 
 
 Models
@@ -93,7 +72,3 @@ Main modules embed in app/organization
     represent projects related to a team or a person
 - shop \
     manage product from prestashop (softwares and subscriptions), using _Cartridge
-
-
-.. _Compass : http://compass-style.org/
-.. _Sass: http://sass-lang.com/

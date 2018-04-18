@@ -5,13 +5,13 @@ Install
 Clone
 ++++++
 
-On Linux, first install Git_, Docker-engine_ and docker-compose_ and open a terminal.
+First install Git_, Docker-engine_ and docker-compose_ and open a terminal.
 
-On MacOS or Windows install Git_ and the Docker-Toolbox_ and open a Docker Quickstart Terminal.
+On MacOS or Windows, you will maybe ned to install Docker-Toolbox_ and open a Docker Quickstart Terminal.
 
 Then run these commands::
 
-    git clone --recursive https://github.com/yomguy/mezzanine-organization.git
+    git clone --recursive https://github.com/Ircam-Web/Mezzo.git
 
 
 Start
@@ -21,14 +21,14 @@ Our docker composition already bundles some powerful containers and bleeding edg
 
 For a production environment setup::
 
-    cd mezzanine-organization
-    docker-compose up
+    cd Mezzo
+    bin/prod/up.sh
 
 which builds, (re)creates, starts, and attaches all containers.
 
-Then browse the app at http://localhost:8021/
+Then browse the app at http://localhost:8040/
 
-On MacOS or Windows, we need to replace 'localhost' by the IP given by the docker terminal.
+On MacOS or Windows, you maybe need to replace 'localhost' by the IP given by the docker terminal.
 
 .. warning :: Before any serious production usecase, you *must* modify all the passwords and secret keys in the configuration files of the sandbox.
 
@@ -38,7 +38,7 @@ Daemonize
 
 The install the entire composition so that it will be automatically run at boot and in the background::
 
-    sudo bin/install.py
+    sudo bin/install/install.py
 
 options::
 
@@ -50,7 +50,7 @@ options::
 
 This will install a init script in /etc/init.d. For example, if your app directory is named `mezzanine-organization` then `/etc/init.d/mezzanine-organization` becomes the init script for the OS booting procedure and for you if you need to start the daemon by hand::
 
-    sudo /etc/init.d/mezzanine-organization start
+    sudo /etc/init.d/Mezzo start
 
 
 .. _Docker-engine: https://docs.docker.com/installation/
