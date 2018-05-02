@@ -308,13 +308,13 @@ BOWER_INSTALLED_APPS = (
 
 # Add Migration Module path see : https://github.com/stephenmcd/mezzanine/blob/master/docs/model-customization.rst#field-injection-caveats
 MIGRATION_MODULES = {
-    "blog": "migrations.blog",
-    "forms": "migrations.forms",
-    "galleries": "migrations.galleries",
-    "pages": "migrations.pages",
-    "conf": "migrations.conf",
-    "shop": "migrations.shop",
-    "generic": "migrations.generic",
+    "blog": "organization.migrations.blog",
+    "forms": "organization.migrations.forms",
+    "galleries": "organization.migrations.galleries",
+    "pages": "organization.migrations.pages",
+    "conf": "organization.migrations.conf",
+    "shop": "organization.migrations.shop",
+    "generic": "organization.migrations.generic",
 }
 
 TEMPLATES = [{
