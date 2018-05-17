@@ -62,3 +62,4 @@ app:
 
 nginx:
     image: nginx
+

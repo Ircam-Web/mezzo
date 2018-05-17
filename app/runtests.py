@@ -1,11 +1,13 @@
 from subprocess import call
-import sys
+import organization
+import sys, inspect
 tests_to_run = []
 params = []
 def choose_arguments():
     print("\nToo few arguments. You can use : \n\n -all : to run all mezzo tests\n -mezzanine : to run only mezzanine tests")
     print(" -agenda : to run mezzanine-agenda tests \n -organization : to run mezzanine-organization tests\n -cartridge : to run cartridge tests ")
-    print(" --front : to run only front tests \n --back : to run only back tests\n\n You can also use all manage.py options ( as --failfast)")
+    print(" --front : to run only front tests \n --back : to run only back tests \n [PATH] = to run a test yourself")
+    print("\n You can also use all manage.py options ( as --failfast)")
     return input("\n'yes' to run all tests, 'no' to cancel : ")
 
 def execute():
@@ -23,7 +25,7 @@ def bad_arguments():
     if choose_arguments()=='yes':
         add_all_tests()
     else:
-        sys.exit()    
+        sys.exit()
 
 if len(sys.argv)==1:
     bad_arguments()
@@ -35,6 +37,8 @@ else:
             params.append("--pattern=*back.py")
         elif arg == "-all":
             add_all_tests()
+        elif "/" in arg:
+            tests_to_run.append(arg) 
         elif arg == "-agenda":
             tests_to_run.append("/srv/lib/mezzanine-agenda")
         elif arg == "-mezzanine":
@@ -43,10 +47,15 @@ else:
             tests_to_run.append("/srv/lib/mezzanine-organization")
         elif arg == "-cartridge":
             tests_to_run.append("/srv/lib/cartridge")
-        elif arg!= "runtests.py":
+        elif "-" in arg:
             params.append(arg)
-execute()
-    
+        elif arg!= "runtests.py":
+            tests_to_run.append(arg)
+        
+if len(tests_to_run)>0:
+    execute()
+else:
+    print("You have to specify a test suite")    
 
 
 # All : python manage.py test /srv/lib/cartridge /srv/lib/mezzanine /srv/lib/mezzanine-agenda /srv/lib/mezzanine-organization --keepdb
