@@ -1,5 +1,0 @@
-
-app:
-    command: /bin/sh bin/app.sh
-    ports:
-        - "8040:8000"
