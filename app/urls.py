@@ -25,7 +25,7 @@ from future.builtins import str
 
 import django.views.i18n
 from django.views.i18n import javascript_catalog
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
