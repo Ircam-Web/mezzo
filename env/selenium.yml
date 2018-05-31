@@ -28,5 +28,7 @@ hub:
     - "4444"
 
 app:
-  links:
-    - hub
+  expose:
+    - '8000'
+  ports:
+    - '8081:8000'
