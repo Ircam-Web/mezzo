@@ -18,10 +18,8 @@ uid='www-data'
 gid='www-data'
 # patterns='*.js;*.css;*.jpg;*.jpeg;*.gif;*.png;*.svg;*.ttf;*.eot;*.woff;*.woff2'
 
-# Staging
-# cd /srv/lib/mezzanine-organization
-# pip install -U -r requirements.txt
-# cd /srv/app
+# Install (staging) libs
+/srv/bin/build/local/setup_lib.sh
 
 # waiting for other services
 sh $app/bin/wait.sh

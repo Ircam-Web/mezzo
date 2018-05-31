@@ -18,6 +18,8 @@
 # Authors:
 # Guillaume Pellerin <guillaume.pellerin@ircam.fr>
 
+# version 1
+
 var:
     image: debian:jessie
     volumes:
