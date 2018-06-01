@@ -1,4 +1,4 @@
 setuptools
 uwsgi
 mysqlclient
-psycopg2
+psycopg2-binary
