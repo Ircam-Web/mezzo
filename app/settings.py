@@ -23,6 +23,7 @@
 from __future__ import absolute_import, unicode_literals
 
 import os
+import sys
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse_lazy
 import ldap, logging
@@ -218,8 +219,8 @@ LOCALE_PATHS = (
 #############
 # DATABASES #
 #############
-DATABASES = {
-    'default': {
+DATABASES_AVAILABLE = {
+    'main': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'postgres',
@@ -227,8 +228,25 @@ DATABASES = {
         'HOST': 'db',
         'PORT': '5432',
     },
+    'test': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'postgres_test',
+        #'USER': 'root',
+        #'PASSWORD': os.environ.get('MYSQL_ROOT_PASSWORD'),
+        #'HOST': 'db',
+    },
 }
 
+# default database
+DATABASES = {
+    'default': DATABASES_AVAILABLE['main']
+}
+
+# if running unit tests, use another database
+if 'runtests.py' in sys.argv:
+    DATABASES = {
+        'default': DATABASES_AVAILABLE['test']
+    }    
 
 ################
 # APPLICATIONS #
