@@ -18,32 +18,49 @@
 # Authors:
 # Guillaume Pellerin <guillaume.pellerin@ircam.fr>
 
-# version 1
+version: '2'
+services:
+    var:
+        image: debian:jessie
+        volumes:
+            - ./var/media:/srv/media
+            - ./var/backup:/srv/backup
+            - ./var/static:/srv/static
+            - ./var/log/uwsgi:/var/log/uwsgi
+            - ./var/log/nginx:/var/log/nginx
+            - ./var/log/app:/var/log/app
+            - ./var/log/cron:/var/log/cron
+            - ./bin:/srv/bin
+            - ./doc:/srv/doc
+            - /srv/bower
+        command: "true"
+    db:
+        image: postgres:9.5
+        volumes:
+            - ./var/lib/postgresql/data:/var/lib/postgresql/data
+        env_file:
+            - 'env/prod.env'
 
-var:
-    image: debian:jessie
-    volumes:
-        - ./var/media:/srv/media
-        - ./var/backup:/srv/backup
-        - ./var/static:/srv/static
-        - ./var/log/uwsgi:/var/log/uwsgi
-        - ./var/log/nginx:/var/log/nginx
-        - ./var/log/app:/var/log/app
-        - ./var/log/cron:/var/log/cron
-        - ./bin:/srv/bin
-        - ./doc:/srv/doc
-        - /srv/bower
-    command: "true"
+    app:
+        image: ircamweb/mezzo:latest-dev
+        command: /bin/sh bin/app.sh --runserver
+        volumes:
+            - ./app:/srv/app
+            - ./lib:/srv/lib
+            - .git:/srv/.git
+        volumes_from:
+            - var
+        expose:
+            - "8000"
+        ports:
+            - "9001:8000" 
+        depends_on:
+            - var
+            - db
+        env_file:
+            - 'env/prod.env'
 
-db:
-    image: postgres:9.5
-    volumes_from:
-        - var
-    volumes:
-        - ./var/lib/postgresql/data:/var/lib/postgresql/data
-    environment:
-        - POSTGRES_PASSWORD=noodFof2Kna
-
+<<<<<<< HEAD
 app:
     image: ircamweb/mezzo:latest-dev
     command: /bin/sh bin/app.sh --runserver
@@ -64,3 +81,12 @@ app:
 
 nginx:
     image: nginx
+=======
+    # nginx:
+    #     image: nginx
+
+volumes:
+    var:
+    app:
+    db:
+>>>>>>> 3a4cea9d... [Docker] : docker-compose from v1 to v2
