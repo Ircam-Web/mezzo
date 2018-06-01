@@ -27,6 +27,9 @@ COPY lib/mezzanine-organization-themes/Gemfile /srv
 RUN gem install bundler
 RUN bundle install
 
+RUN pip install -U pip
+RUN pip install -U setuptools
+
 RUN mkdir /srv/app
 COPY app/requirements.txt /srv/app
 RUN pip install -r app/requirements.txt
