@@ -34,7 +34,7 @@ chown -R $uid:$gid $media
 sh $app/bin/wait.sh
 
 # django setup
-python $manage wait-for-db
+#python $manage wait-for-db
 
 # initial setup
 if [ ! -f .init ]; then

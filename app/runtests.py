@@ -13,7 +13,7 @@ def choose_arguments():
 def execute():
     for test in tests_to_run:
         print("\n\n****" + test + "****")
-        call(["python", "manage.py","test" , test , "--keepdb"] + params)
+        call(["python", "manage.py","test" , test , "--keepdb", "--liveserver=app:8082"] + params)
 
 def add_all_tests():
     tests_to_run.append("/srv/lib/mezzanine-agenda")
