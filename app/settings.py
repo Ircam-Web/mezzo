@@ -23,7 +23,6 @@
 from __future__ import absolute_import, unicode_literals
 
 import os
-import sys
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse_lazy
 import ldap, logging
@@ -89,6 +88,7 @@ PAGE_MENU_TEMPLATES = (
 
 MENU_PERSON_ID = 7
 
+TEST_RUNNER = 'test_runner.MezzoTestsRunner'
 # A sequence of fields that will be injected into Mezzanine's (or any
 # library's) models. Each item in the sequence is a four item sequence.
 # The first two items are the dotted path to the model and its field
@@ -219,8 +219,8 @@ LOCALE_PATHS = (
 #############
 # DATABASES #
 #############
-DATABASES_AVAILABLE = {
-    'main': {
+DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'postgres',
@@ -228,25 +228,8 @@ DATABASES_AVAILABLE = {
         'HOST': 'db',
         'PORT': '5432',
     },
-    'test': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'postgres_test',
-        #'USER': 'root',
-        #'PASSWORD': os.environ.get('MYSQL_ROOT_PASSWORD'),
-        #'HOST': 'db',
-    },
 }
 
-# default database
-DATABASES = {
-    'default': DATABASES_AVAILABLE['main']
-}
-
-# if running unit tests, use another database
-if 'runtests.py' in sys.argv:
-    DATABASES = {
-        'default': DATABASES_AVAILABLE['test']
-    }    
 
 ################
 # APPLICATIONS #
