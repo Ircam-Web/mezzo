@@ -20,10 +20,11 @@ class MezzoTestsRunner(DiscoverRunner):
 		super(MezzoTestsRunner,self).__init__(keepdb=not kwargs['destroydb'],pattern=pattern)
 
 	def run_tests(self, test_labels, extra_tests=None, **kwargs):
-		test_labels+=('organization','/srv/lib/mezzanine-organization/')
-		test_labels+=('agenda','/srv/lib/mezzanine-agenda/')
-		test_labels+=('cartridge','/srv/lib/cartridge/')
-		test_labels+=('mezzanine','/srv/lib/mezzanine/')
+		if not test_labels:
+			test_labels+=('organization','/srv/lib/mezzanine-organization/')
+			test_labels+=('agenda','/srv/lib/mezzanine-agenda/')
+			test_labels+=('cartridge','/srv/lib/cartridge/')
+			test_labels+=('mezzanine','/srv/lib/mezzanine/')
 		super(MezzoTestsRunner,self).run_tests(test_labels,extra_tests, **kwargs)
 	
 	@classmethod
@@ -32,13 +33,3 @@ class MezzoTestsRunner(DiscoverRunner):
 		parser.add_argument('--back' , help="Only run back tests (faster)",action="store_true")		
 		parser.add_argument("--destroydb",help="Execute test on a new database (may be very long).",action="store_true")
 		super(MezzoTestsRunner,cls).add_arguments(parser)
-		 
-"""def parse_args(args):
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-m' , help="Test a specific module.",metavar="MODULE")
-    parser.add_argument("--front",help="Execute only front tests.",action="store_true")
-    parser.add_argument("--back",help="Execute only back tests.",action="store_true")
-    parser.add_argument("-d","--debug-sql",help="Prints logged SQL queries on failure.",action="store_true")
-    parser.add_argument("--parallel",help="Execute only back tests.",type=int,metavar='[N]')
-    parser.add_argument("-p","--pattern",help="The test matching pattern. Defaults to test*.py.")"""
-
