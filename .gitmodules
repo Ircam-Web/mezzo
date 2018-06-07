@@ -2,7 +2,7 @@
     path = lib/mezzanine
     url = git@github.com:Ircam-Web/mezzanine.git
     branch-master = mezzo-master
-    branch-dev = mezzo-dev
+    branch-dev = test
 [submodule "lib/mezzanine-agenda"]
     path = lib/mezzanine-agenda
     url = git@github.com:Ircam-Web/mezzanine-agenda.git
