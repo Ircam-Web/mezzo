@@ -66,5 +66,4 @@ SERVER_EMAIL = 'no-reply@no-reply.org' # a no reply address
 DEFAULT_FROM_EMAIL = 'default@default.org' # another address, default one
 DEFAULT_TO_EMAIL = 'recipient@recipient.org' # default recipient, for your tests
 EMAIL_SUBJECT_PREFIX = "[PREFIX]" # prefix title in email
-SITE_TITLE = 'Your Site'
 SITE_TAGLINE = 'This is a Mezzo site'
