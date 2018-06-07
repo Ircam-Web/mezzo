@@ -7,7 +7,7 @@
     path = lib/mezzanine-agenda
     url = git@github.com:Ircam-Web/mezzanine-agenda.git
     branch-master = master
-    branch-dev = dev
+    branch-dev = test
     ignore = dirty
 [submodule "lib/mezzanine-organization-themes"]
     path = lib/mezzanine-organization-themes
