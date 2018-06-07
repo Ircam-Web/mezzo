@@ -37,4 +37,4 @@
     path = lib/cartridge
     url = git@github.com:Ircam-Web/cartridge.git
     branch-master = master
-    branch-dev = master
+    branch-dev = test
