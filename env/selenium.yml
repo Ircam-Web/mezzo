@@ -2,37 +2,13 @@
 # Add the "-d" flag at the end for deattached execution
 version: '2'
 services:
-  firefox:
-    image: selenium/node-firefox:3.11.0-dysprosium
-    volumes:
-      - /dev/shm:/dev/shm
-    depends_on:
-      - hub
-    environment:
-      HUB_HOST: hub
-      HUB_PORT: '4444'
-
-  chrome:
-    image: selenium/node-chrome:3.11.0-dysprosium
-    volumes:
-      - /dev/shm:/dev/shm
-    depends_on:
-      - hub
-    environment:
-      HUB_HOST: hub
-      HUB_PORT: '4444'
-
-  hub:
-    image: selenium/hub:3.11.0-dysprosium
-    ports:
-      - "4444:4444"
-    expose:
-      - "4444"
-    depends_on:
-      - app
-
   app:
-    expose:
-      - '8082'
-  #  ports:
-  #    - '8081:8000'
+    links:
+      - selenium
+    ports:
+      - '8081:8001'
+  selenium:
+    image: selenium/standalone-chrome-debug:3.7.1
+    ports:
+      - 4444:4444
+      - 5900:5900
