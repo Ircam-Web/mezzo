@@ -9,7 +9,8 @@ COPY etc/apt/sources.list /etc/apt/
 COPY requirements.txt /srv
 RUN apt-get update && \
     DEBIAN_PACKAGES=$(egrep -v "^\s*(#|$)" /srv/requirements.txt) && \
-    apt-get install -t jessie-backports -y --force-yes $DEBIAN_PACKAGES && \
+    apt-get install -y --allow-unauthenticated --allow-downgrades --allow-remove-essential \
+      --allow-change-held-packages -f $DEBIAN_PACKAGES && \
     echo fr_FR.UTF-8 UTF-8 >> /etc/locale.gen && \
     locale-gen && \
     apt-get clean

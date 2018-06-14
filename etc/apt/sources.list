@@ -1,9 +1,9 @@
-deb http://httpredir.debian.org/debian jessie main contrib non-free
-deb http://security.debian.org/ jessie/updates main
-deb http://httpredir.debian.org/debian jessie-updates main
-deb http://httpredir.debian.org/debian jessie-backports main contrib non-free
-deb https://deb.nodesource.com/node_6.x jessie main
+deb http://httpredir.debian.org/debian stretch main contrib non-free
+deb http://security.debian.org/ stretch/updates main
+deb http://httpredir.debian.org/debian stretch-updates main
+deb http://httpredir.debian.org/debian stretch-backports main contrib non-free
+deb https://deb.nodesource.com/node_10.x stretch main
 
-#deb http://mirrors.ircam.fr/pub/debian/ jessie main contrib non-free
-#deb http://mirrors.ircam.fr/pub/debian/ jessie-updates main
-#deb http://mirrors.ircam.fr/pub/debian/ jessie-backports main contrib non-free
+#deb http://mirrors.ircam.fr/pub/debian/ stretch main contrib non-free
+#deb http://mirrors.ircam.fr/pub/debian/ stretch-updates main
+#deb http://mirrors.ircam.fr/pub/debian/ stretch-backports main contrib non-free
