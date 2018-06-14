@@ -20,7 +20,8 @@ install:
 script:
   - docker-compose run app pip freeze
   - docker-compose -f docker-compose.yml -f env/dev.yml -f env/selenium.yml up -d
-  - docker-compose run app python manage.py test
+  - docker-compose run app python manage.py test organization.job
+  - sleep 180
   - curl --fail --retry 10 --retry-delay 5  -v "$(docker-compose port nginx 8040)/"
   - docker-compose stop
 
