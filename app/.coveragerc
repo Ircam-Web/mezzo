@@ -1,0 +1,57 @@
+# .coveragerc
+[report]
+show_missing = True
+omit =
+    /srv/lib/mezzanine-organization/organization/magazine/test/tests_front.py
+    /srv/lib/mezzanine-organization/organization/magazine/test/tests.py
+    /srv/lib/mezzanine-organization/organization/media/test/tests_front.py
+    /srv/lib/mezzanine-organization/organization/media/test/tests.py
+    /srv/lib/mezzanine-organization/organization/agenda/test/tests_front.py
+    /srv/lib/mezzanine-organization/organization/agenda/test/tests.py
+    /srv/lib/mezzanine-organization/organization/network/test/tests_front.py
+    /srv/lib/mezzanine-organization/organization/network/test/tests.py
+    /srv/lib/mezzanine-organization/organization/shop/test/tests_front.py
+    /srv/lib/mezzanine-organization/organization/shop/test/tests.py
+    /srv/lib/mezzanine-organization/organization/job/test/tests_front.py
+    /srv/lib/mezzanine-organization/organization/job/test/tests.py
+    /srv/lib/mezzanine-organization/organization/core/tests.py
+    /srv/lib/mezzanine-organization/organization/projects/test/tests_front.py
+    /srv/lib/mezzanine-organization/organization/projects/test/tests.py
+    /srv/lib/mezzanine-organization/organization/pages/test/tests_front.py
+    /srv/lib/mezzanine-organization/organization/pages/test/tests.py
+    /srv/lib/mezzanine-organization/organization/utils/tests_front.py
+    /srv/lib/cartridge/cartridge/shop/tests.py
+    /srv/lib/mezzanine-agenda/mezzanine_agenda/tests.py
+    /srv/lib/mezzanine/mezzanine/forms/tests.py
+    /srv/lib/mezzanine/mezzanine/blog/tests.py
+    /srv/lib/mezzanine/mezzanine/conf/tests.py
+    /srv/lib/mezzanine/mezzanine/galleries/tests.py
+    /srv/lib/mezzanine/mezzanine/generic/tests.py
+    /srv/lib/mezzanine/mezzanine/core/tests.py
+    /srv/lib/mezzanine/mezzanine/accounts/tests.py
+    /srv/lib/mezzanine/mezzanine/pages/tests.py
+    /srv/lib/mezzanine/mezzanine/utils/tests.py
+    /srv/lib/django-modeltranslation/modeltranslation/tests/tests.py
+    /srv/lib/django-modeltranslation/build/lib/modeltranslation/tests/tests.py
+    /srv/lib/mezzanine-organization/organization/agenda/management/commands/organization-sync-prestashop-events.py
+    /srv/lib/mezzanine-organization/organization/agenda/management/commands/organization-sync-eve-events.py
+    /srv/lib/mezzanine-organization/organization/agenda/translation.py                                                                                                    44     44     0%   22-108
+    /srv/lib/mezzanine-organization/organization/core/management/commands/__init__.py
+    /srv/lib/mezzanine-organization/organization/core/management/commands/clean-dynamics.py
+    /srv/lib/mezzanine-organization/organization/core/management/commands/create-admin-user.py
+    /srv/lib/mezzanine-organization/organization/core/management/commands/festival-sync-eve-events.py
+    /srv/lib/mezzanine-organization/organization/core/management/commands/fix_person_slugs.py
+    /srv/lib/mezzanine-organization/organization/core/management/commands/wait-for-db.py
+    /srv/lib/mezzanine-organization/organization/core/middleware.py
+    /srv/lib/mezzanine-organization/organization/formats/apps.py
+    /srv/lib/mezzanine-organization/organization/formats/en/formats.py
+    #remove following lines if you are using FIGGO
+    /srv/lib/mezzanine-organization/organization/network/management/commands/create-default-organization.py
+    /srv/lib/mezzanine-organization/organization/network/management/commands/import-figgo-id.py
+    /srv/lib/mezzanine-organization/organization/network/management/commands/import-ircam-matricule.py
+    /srv/lib/mezzanine-organization/organization/network/management/commands/import-ircam-person-xls.py
+    /srv/lib/mezzanine-organization/organization/network/management/commands/import-ircam-project.py
+    /srv/lib/mezzanine-organization/organization/network/management/commands/import-ircam-timesheet-xls.py
+    /srv/lib/mezzanine-organization/organization/network/management/commands/list_models.py
+    /srv/lib/mezzanine-organization/organization/network/management/commands/sync-user-ldap.py
+    /srv/lib/mezzanine-organization/organization/network/management/commands/timesheetmail.py
