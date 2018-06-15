@@ -55,3 +55,4 @@ omit =
     /srv/lib/mezzanine-organization/organization/network/management/commands/list_models.py
     /srv/lib/mezzanine-organization/organization/network/management/commands/sync-user-ldap.py
     /srv/lib/mezzanine-organization/organization/network/management/commands/timesheetmail.py
+    /srv/lib/mezzanine-organization/organization/network/utils.py
