@@ -20,7 +20,7 @@ install:
 script:
   - docker-compose run app pip freeze
   - docker-compose -f docker-compose.yml -f env/dev.yml -f env/selenium.yml up -d
-  - docker-compose run app python manage.py test organization.network
+  - docker-compose run app python manage.py test --front 
   - sleep 180
   - docker-compose stop
 
