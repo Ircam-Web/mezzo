@@ -1,0 +1,8795 @@
+[
+{
+   "model": "contenttypes.contenttype",
+   "pk": 1,
+   "fields": {
+      "app_label": "auth",
+      "model": "permission"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 2,
+   "fields": {
+      "app_label": "auth",
+      "model": "group"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 3,
+   "fields": {
+      "app_label": "auth",
+      "model": "user"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 4,
+   "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 5,
+   "fields": {
+      "app_label": "redirects",
+      "model": "redirect"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 6,
+   "fields": {
+      "app_label": "sessions",
+      "model": "session"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 7,
+   "fields": {
+      "app_label": "sites",
+      "model": "site"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 8,
+   "fields": {
+      "app_label": "conf",
+      "model": "setting"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 9,
+   "fields": {
+      "app_label": "core",
+      "model": "sitepermission"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 10,
+   "fields": {
+      "app_label": "generic",
+      "model": "threadedcomment"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 11,
+   "fields": {
+      "app_label": "generic",
+      "model": "keyword"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 12,
+   "fields": {
+      "app_label": "generic",
+      "model": "assignedkeyword"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 13,
+   "fields": {
+      "app_label": "generic",
+      "model": "rating"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 14,
+   "fields": {
+      "app_label": "pages",
+      "model": "page"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 15,
+   "fields": {
+      "app_label": "pages",
+      "model": "richtextpage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 16,
+   "fields": {
+      "app_label": "pages",
+      "model": "link"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 17,
+   "fields": {
+      "app_label": "blog",
+      "model": "blogpost"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 18,
+   "fields": {
+      "app_label": "blog",
+      "model": "blogcategory"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 19,
+   "fields": {
+      "app_label": "forms",
+      "model": "form"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 20,
+   "fields": {
+      "app_label": "forms",
+      "model": "field"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 21,
+   "fields": {
+      "app_label": "forms",
+      "model": "formentry"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 22,
+   "fields": {
+      "app_label": "forms",
+      "model": "fieldentry"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 23,
+   "fields": {
+      "app_label": "twitter",
+      "model": "query"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 24,
+   "fields": {
+      "app_label": "twitter",
+      "model": "tweet"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 25,
+   "fields": {
+      "app_label": "shop",
+      "model": "product"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 26,
+   "fields": {
+      "app_label": "shop",
+      "model": "productimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 27,
+   "fields": {
+      "app_label": "shop",
+      "model": "productoption"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 28,
+   "fields": {
+      "app_label": "shop",
+      "model": "productvariation"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 29,
+   "fields": {
+      "app_label": "shop",
+      "model": "category"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 30,
+   "fields": {
+      "app_label": "shop",
+      "model": "order"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 31,
+   "fields": {
+      "app_label": "shop",
+      "model": "cart"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 32,
+   "fields": {
+      "app_label": "shop",
+      "model": "cartitem"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 33,
+   "fields": {
+      "app_label": "shop",
+      "model": "orderitem"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 34,
+   "fields": {
+      "app_label": "shop",
+      "model": "productaction"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 35,
+   "fields": {
+      "app_label": "shop",
+      "model": "sale"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 36,
+   "fields": {
+      "app_label": "shop",
+      "model": "discountcode"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 37,
+   "fields": {
+      "app_label": "mezzanine_agenda",
+      "model": "event"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 38,
+   "fields": {
+      "app_label": "mezzanine_agenda",
+      "model": "eventlocation"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 39,
+   "fields": {
+      "app_label": "mezzanine_agenda",
+      "model": "eventprice"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 40,
+   "fields": {
+      "app_label": "mezzanine_agenda",
+      "model": "eventcategory"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 41,
+   "fields": {
+      "app_label": "mezzanine_agenda",
+      "model": "eventshop"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 42,
+   "fields": {
+      "app_label": "mezzanine_agenda",
+      "model": "season"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 43,
+   "fields": {
+      "app_label": "organization-core",
+      "model": "customcategory"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 44,
+   "fields": {
+      "app_label": "organization-core",
+      "model": "linktype"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 45,
+   "fields": {
+      "app_label": "organization-media",
+      "model": "media"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 46,
+   "fields": {
+      "app_label": "organization-media",
+      "model": "mediatranscoded"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 47,
+   "fields": {
+      "app_label": "organization-media",
+      "model": "mediaimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 48,
+   "fields": {
+      "app_label": "organization-media",
+      "model": "mediacategory"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 49,
+   "fields": {
+      "app_label": "organization-media",
+      "model": "playlist"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 50,
+   "fields": {
+      "app_label": "organization-media",
+      "model": "playlistmedia"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 51,
+   "fields": {
+      "app_label": "organization-media",
+      "model": "playlistrelated"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 52,
+   "fields": {
+      "app_label": "organization-media",
+      "model": "livestreaming"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 53,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "custompage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 54,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "extendedcustompage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 55,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "extendedcustompagedynamiccontent"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 56,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "pageblock"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 57,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "pageimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 58,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "pageplaylist"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 59,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "pagelink"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 60,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "pagerelatedtitle"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 61,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "dynamiccontentpage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 62,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "linkimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 63,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "dynamiccontenthomeslider"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 64,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "dynamiccontenthomebody"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 65,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "dynamiccontenthomemedia"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 66,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "homeimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 67,
+   "fields": {
+      "app_label": "organization-pages",
+      "model": "home"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 68,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "organization"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 69,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "person"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 70,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "organizationlinkedblockinline"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 71,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "organizationlinked"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 72,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "organizationlinkedinline"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 73,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "organizationplaylist"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 74,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "organizationlink"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 75,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "organizationimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 76,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "organizationblock"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 77,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "organizationservice"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 78,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "organizationtype"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 79,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "organizationeventlocation"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 80,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "organizationrole"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 81,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "organizationcontact"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 82,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "organizationuserimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 83,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "department"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 84,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "departmentpage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 85,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "team"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 86,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "teampage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 87,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "teamlink"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 88,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "producerdata"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 89,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "personplaylist"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 90,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "personlink"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 91,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "personimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 92,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "personfile"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 93,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "personblock"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 94,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "pagecustompersonlistblockinline"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 95,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "personlistblock"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 96,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "personlistblockinline"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 97,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "activitystatus"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 98,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "activitygrade"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 99,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "activityframework"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 100,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "activityfunction"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 101,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "budgetcode"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 102,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "recordpiece"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 103,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "trainingtype"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 104,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "traininglevel"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 105,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "trainingtopic"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 106,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "trainingspeciality"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 107,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "umr"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 108,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "activityweeklyhourvolume"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 109,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "personactivity"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 110,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "personactivitytimesheet"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 111,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "projectactivity"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 112,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "personactivityvacation"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 113,
+   "fields": {
+      "app_label": "organization-network",
+      "model": "mediadepartment"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 114,
+   "fields": {
+      "app_label": "organization-magazine",
+      "model": "article"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 115,
+   "fields": {
+      "app_label": "organization-magazine",
+      "model": "articleimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 116,
+   "fields": {
+      "app_label": "organization-magazine",
+      "model": "articlerelatedtitle"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 117,
+   "fields": {
+      "app_label": "organization-magazine",
+      "model": "articleplaylist"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 118,
+   "fields": {
+      "app_label": "organization-magazine",
+      "model": "brief"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 119,
+   "fields": {
+      "app_label": "organization-magazine",
+      "model": "topic"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 120,
+   "fields": {
+      "app_label": "organization-magazine",
+      "model": "articlepersonlistblockinline"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 121,
+   "fields": {
+      "app_label": "organization-magazine",
+      "model": "dynamiccontentarticle"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 122,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "project"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 123,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projecttopic"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 124,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectprogram"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 125,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectprogramtype"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 126,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectworkpackage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 127,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectplaylist"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 128,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectlink"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 129,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 130,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectuserimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 131,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectfile"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 132,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectblock"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 133,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projecttopicpage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 134,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectcall"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 135,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectcallblock"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 136,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectcallimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 137,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectcallfile"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 138,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectcalllink"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 139,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectdemo"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 140,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "repository"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 141,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "repositorysystem"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 142,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectrelatedtitle"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 143,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "dynamiccontentproject"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 144,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectblogpage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 145,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectpublicdata"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 146,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectprivatedata"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 147,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectcontact"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 148,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectresidency"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 149,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectresidencyproducer"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 150,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectresidencyfile"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 151,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectresidencyimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 152,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectresidencyuserimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 153,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectresidencyarticle"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 154,
+   "fields": {
+      "app_label": "organization-projects",
+      "model": "projectresidencyevent"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 155,
+   "fields": {
+      "app_label": "organization-agenda",
+      "model": "eventblock"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 156,
+   "fields": {
+      "app_label": "organization-agenda",
+      "model": "eventimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 157,
+   "fields": {
+      "app_label": "organization-agenda",
+      "model": "eventdepartment"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 158,
+   "fields": {
+      "app_label": "organization-agenda",
+      "model": "eventperson"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 159,
+   "fields": {
+      "app_label": "organization-agenda",
+      "model": "eventlink"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 160,
+   "fields": {
+      "app_label": "organization-agenda",
+      "model": "eventplaylist"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 161,
+   "fields": {
+      "app_label": "organization-agenda",
+      "model": "eventperiod"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 162,
+   "fields": {
+      "app_label": "organization-agenda",
+      "model": "eventpublictype"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 163,
+   "fields": {
+      "app_label": "organization-agenda",
+      "model": "eventtraininglevel"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 164,
+   "fields": {
+      "app_label": "organization-agenda",
+      "model": "eventtraining"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 165,
+   "fields": {
+      "app_label": "organization-agenda",
+      "model": "eventrelatedtitle"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 166,
+   "fields": {
+      "app_label": "organization-agenda",
+      "model": "dynamiccontentevent"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 167,
+   "fields": {
+      "app_label": "organization-agenda",
+      "model": "eventpricedescription"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 168,
+   "fields": {
+      "app_label": "organization-shop",
+      "model": "productlist"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 169,
+   "fields": {
+      "app_label": "organization-shop",
+      "model": "productlistproduct"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 170,
+   "fields": {
+      "app_label": "organization-shop",
+      "model": "pageproductlist"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 171,
+   "fields": {
+      "app_label": "organization-shop",
+      "model": "productlink"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 172,
+   "fields": {
+      "app_label": "organization-shop",
+      "model": "productprestashopproduct"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 173,
+   "fields": {
+      "app_label": "organization-job",
+      "model": "jobresponse"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 174,
+   "fields": {
+      "app_label": "organization-job",
+      "model": "joboffer"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 175,
+   "fields": {
+      "app_label": "organization-job",
+      "model": "candidacy"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 176,
+   "fields": {
+      "app_label": "organization-job",
+      "model": "candidacyimage"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 177,
+   "fields": {
+      "app_label": "guardian",
+      "model": "userobjectpermission"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 178,
+   "fields": {
+      "app_label": "guardian",
+      "model": "groupobjectpermission"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 179,
+   "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 180,
+   "fields": {
+      "app_label": "django_comments",
+      "model": "comment"
+   }
+},
+{
+   "model": "contenttypes.contenttype",
+   "pk": 181,
+   "fields": {
+      "app_label": "django_comments",
+      "model": "commentflag"
+   }
+},
+{
+   "model": "sites.site",
+   "pk": 1,
+   "fields": {
+      "domain": "example.com",
+      "name": "example.com"
+   }
+},
+{
+   "model": "pages.page",
+   "pk": 1,
+   "fields": {
+      "keywords_string": "",
+      "site": 1,
+      "title": "department search",
+      "title_fr": "department search",
+      "title_en": "",
+      "slug": "department-search",
+      "_meta_title": null,
+      "_meta_title_fr": null,
+      "_meta_title_en": null,
+      "description": "department search",
+      "description_fr": "department search",
+      "description_en": "department search",
+      "gen_description": true,
+      "created": "2018-05-25T15:50:52.634Z",
+      "updated": "2018-05-28T07:57:30.057Z",
+      "status": 2,
+      "publish_date": "2018-05-25T15:50:52Z",
+      "expiry_date": null,
+      "short_url": null,
+      "in_sitemap": true,
+      "_order": 0,
+      "content_model": "departmentpage",
+      "parent": null,
+      "in_menus": "",
+      "titles": "department search",
+      "titles_fr": "department search",
+      "titles_en": "department search",
+      "login_required": false
+   }
+},
+{
+   "model": "pages.page",
+   "pk": 34,
+   "fields": {
+      "keywords_string": "",
+      "site": 1,
+      "title": "team search",
+      "title_fr": "team search",
+      "title_en": "",
+      "slug": "team-search",
+      "_meta_title": null,
+      "_meta_title_fr": null,
+      "_meta_title_en": null,
+      "description": "team search",
+      "description_fr": "team search",
+      "description_en": "team search",
+      "gen_description": true,
+      "created": "2018-05-28T07:57:06.329Z",
+      "updated": "2018-05-28T07:57:20.083Z",
+      "status": 2,
+      "publish_date": "2018-05-28T07:57:06Z",
+      "expiry_date": null,
+      "short_url": null,
+      "in_sitemap": true,
+      "_order": 1,
+      "content_model": "teampage",
+      "parent": null,
+      "in_menus": "",
+      "titles": "team search",
+      "titles_fr": "team search",
+      "titles_en": "team search",
+      "login_required": false
+   }
+},
+{
+   "model": "pages.page",
+   "pk": 35,
+   "fields": {
+      "keywords_string": "",
+      "site": 1,
+      "title": "home",
+      "title_fr": "home",
+      "title_en": "",
+      "slug": "home",
+      "_meta_title": null,
+      "_meta_title_fr": null,
+      "_meta_title_en": null,
+      "description": "home",
+      "description_fr": "home",
+      "description_en": "home",
+      "gen_description": true,
+      "created": "2018-05-28T07:58:10.721Z",
+      "updated": "2018-05-28T07:58:10.736Z",
+      "status": 2,
+      "publish_date": "2018-05-28T07:58:10.717Z",
+      "expiry_date": null,
+      "short_url": null,
+      "in_sitemap": true,
+      "_order": 2,
+      "content_model": "richtextpage",
+      "parent": null,
+      "in_menus": "2",
+      "titles": "home",
+      "titles_fr": "home",
+      "titles_en": "home",
+      "login_required": false
+   }
+},
+{
+   "model": "pages.page",
+   "pk": 36,
+   "fields": {
+      "keywords_string": "",
+      "site": 1,
+      "title": "custom page search",
+      "title_fr": "custom page search",
+      "title_en": "",
+      "slug": "custom-page-search",
+      "_meta_title": null,
+      "_meta_title_fr": null,
+      "_meta_title_en": null,
+      "description": "custom page search",
+      "description_fr": "custom page search",
+      "description_en": "custom page search",
+      "gen_description": true,
+      "created": "2018-05-28T08:00:45.540Z",
+      "updated": "2018-05-28T08:02:08.540Z",
+      "status": 2,
+      "publish_date": "2018-05-28T08:00:45Z",
+      "expiry_date": null,
+      "short_url": null,
+      "in_sitemap": true,
+      "_order": 3,
+      "content_model": "custompage",
+      "parent": null,
+      "in_menus": "",
+      "titles": "custom page search",
+      "titles_fr": "custom page search",
+      "titles_en": "custom page search",
+      "login_required": false
+   }
+},
+{
+   "model": "pages.page",
+   "pk": 37,
+   "fields": {
+      "keywords_string": "",
+      "site": 1,
+      "title": "project topic search",
+      "title_fr": "project topic search",
+      "title_en": "",
+      "slug": "project-topic-search",
+      "_meta_title": null,
+      "_meta_title_fr": null,
+      "_meta_title_en": null,
+      "description": "project topic search",
+      "description_fr": "project topic search",
+      "description_en": "project topic search",
+      "gen_description": true,
+      "created": "2018-05-28T08:06:46.139Z",
+      "updated": "2018-05-28T08:06:46.156Z",
+      "status": 2,
+      "publish_date": "2018-05-28T08:06:46.132Z",
+      "expiry_date": null,
+      "short_url": null,
+      "in_sitemap": true,
+      "_order": 4,
+      "content_model": "projecttopicpage",
+      "parent": null,
+      "in_menus": "",
+      "titles": "project topic search",
+      "titles_fr": "project topic search",
+      "titles_en": "project topic search",
+      "login_required": false
+   }
+},
+{
+   "model": "pages.richtextpage",
+   "pk": 35,
+   "fields": {
+      "content": "",
+      "content_fr": "",
+      "content_en": ""
+   }
+},
+{
+   "model": "shop.product",
+   "pk": 1,
+   "fields": {
+      "keywords_string": "",
+      "rating_count": 0,
+      "rating_sum": 0,
+      "rating_average": 0.0,
+      "site": 1,
+      "title": "product search",
+      "title_fr": "product search",
+      "title_en": "",
+      "slug": "product-search",
+      "_meta_title": null,
+      "_meta_title_fr": null,
+      "_meta_title_en": null,
+      "description": "product search",
+      "description_fr": "product search",
+      "description_en": "product search",
+      "gen_description": true,
+      "created": "2018-05-28T08:08:36.846Z",
+      "updated": "2018-05-28T08:08:37.010Z",
+      "status": 2,
+      "publish_date": "2018-05-28T08:08:36.832Z",
+      "expiry_date": null,
+      "short_url": null,
+      "in_sitemap": true,
+      "content": "",
+      "content_fr": "",
+      "content_en": "",
+      "content_model": null,
+      "unit_price": null,
+      "sale_id": null,
+      "sale_price": null,
+      "sale_from": null,
+      "sale_to": null,
+      "sku": "1",
+      "num_in_stock": null,
+      "available": false,
+      "image": null,
+      "date_added": "2018-05-28T08:08:36.847Z",
+      "categories": [],
+      "related_products": [],
+      "upsell_products": []
+   }
+},
+{
+   "model": "shop.productvariation",
+   "pk": 1,
+   "fields": {
+      "unit_price": null,
+      "sale_id": null,
+      "sale_price": null,
+      "sale_from": null,
+      "sale_to": null,
+      "sku": "1",
+      "num_in_stock": null,
+      "product": 1,
+      "default": true,
+      "image": null,
+      "option1": null,
+      "option1_fr": null,
+      "option1_en": null,
+      "option2": null,
+      "option2_fr": null,
+      "option2_en": null
+   }
+},
+{
+   "model": "mezzanine_agenda.season",
+   "pk": 1,
+   "fields": {
+      "title": "Season 2018-2019",
+      "start": "2018-07-31",
+      "end": "2019-08-01"
+   }
+},
+{
+   "model": "organization-media.playlist",
+   "pk": 1,
+   "fields": {
+      "keywords_string": "",
+      "site": 1,
+      "title": "playlist search",
+      "title_fr": "playlist search",
+      "title_en": "",
+      "slug": "playlist-search",
+      "_meta_title": "",
+      "description": "playlist search (audio)",
+      "description_fr": "playlist search (audio)",
+      "description_en": "",
+      "gen_description": true,
+      "created": "2018-05-28T08:07:18.402Z",
+      "updated": "2018-05-28T08:07:18.402Z",
+      "status": 2,
+      "publish_date": "2018-05-28T08:07:18.394Z",
+      "expiry_date": null,
+      "short_url": "",
+      "in_sitemap": true,
+      "type": "audio"
+   }
+},
+{
+   "model": "organization-pages.custompage",
+   "pk": 36,
+   "fields": {
+      "content": "",
+      "content_fr": "",
+      "content_en": "",
+      "sub_title": "",
+      "sub_title_fr": "",
+      "sub_title_en": "",
+      "menu_alinea": false
+   }
+},
+{
+   "model": "organization-network.departmentpage",
+   "pk": 1,
+   "fields": {
+      "content": "",
+      "content_fr": "",
+      "content_en": "",
+      "sub_title": "",
+      "sub_title_fr": "",
+      "sub_title_en": "",
+      "department": null,
+      "weaving_css_class": ""
+   }
+},
+{
+   "model": "organization-network.teampage",
+   "pk": 34,
+   "fields": {
+      "content": "",
+      "content_fr": "",
+      "content_en": "",
+      "sub_title": "",
+      "sub_title_fr": "",
+      "sub_title_en": "",
+      "team": null
+   }
+},
+{
+   "model": "organization-projects.projecttopicpage",
+   "pk": 37,
+   "fields": {
+      "sub_title": "",
+      "sub_title_fr": "",
+      "sub_title_en": "",
+      "project_topic": null
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 1,
+   "fields": {
+      "name": "Can add permission",
+      "content_type": [
+         "auth",
+         "permission"
+      ],
+      "codename": "add_permission"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 2,
+   "fields": {
+      "name": "Can change permission",
+      "content_type": [
+         "auth",
+         "permission"
+      ],
+      "codename": "change_permission"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 3,
+   "fields": {
+      "name": "Can delete permission",
+      "content_type": [
+         "auth",
+         "permission"
+      ],
+      "codename": "delete_permission"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 4,
+   "fields": {
+      "name": "Can add group",
+      "content_type": [
+         "auth",
+         "group"
+      ],
+      "codename": "add_group"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 5,
+   "fields": {
+      "name": "Can change group",
+      "content_type": [
+         "auth",
+         "group"
+      ],
+      "codename": "change_group"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 6,
+   "fields": {
+      "name": "Can delete group",
+      "content_type": [
+         "auth",
+         "group"
+      ],
+      "codename": "delete_group"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 7,
+   "fields": {
+      "name": "Can add user",
+      "content_type": [
+         "auth",
+         "user"
+      ],
+      "codename": "add_user"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 8,
+   "fields": {
+      "name": "Can change user",
+      "content_type": [
+         "auth",
+         "user"
+      ],
+      "codename": "change_user"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 9,
+   "fields": {
+      "name": "Can delete user",
+      "content_type": [
+         "auth",
+         "user"
+      ],
+      "codename": "delete_user"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 10,
+   "fields": {
+      "name": "Can add content type",
+      "content_type": [
+         "contenttypes",
+         "contenttype"
+      ],
+      "codename": "add_contenttype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 11,
+   "fields": {
+      "name": "Can change content type",
+      "content_type": [
+         "contenttypes",
+         "contenttype"
+      ],
+      "codename": "change_contenttype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 12,
+   "fields": {
+      "name": "Can delete content type",
+      "content_type": [
+         "contenttypes",
+         "contenttype"
+      ],
+      "codename": "delete_contenttype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 13,
+   "fields": {
+      "name": "Can add redirect",
+      "content_type": [
+         "redirects",
+         "redirect"
+      ],
+      "codename": "add_redirect"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 14,
+   "fields": {
+      "name": "Can change redirect",
+      "content_type": [
+         "redirects",
+         "redirect"
+      ],
+      "codename": "change_redirect"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 15,
+   "fields": {
+      "name": "Can delete redirect",
+      "content_type": [
+         "redirects",
+         "redirect"
+      ],
+      "codename": "delete_redirect"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 16,
+   "fields": {
+      "name": "Can add session",
+      "content_type": [
+         "sessions",
+         "session"
+      ],
+      "codename": "add_session"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 17,
+   "fields": {
+      "name": "Can change session",
+      "content_type": [
+         "sessions",
+         "session"
+      ],
+      "codename": "change_session"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 18,
+   "fields": {
+      "name": "Can delete session",
+      "content_type": [
+         "sessions",
+         "session"
+      ],
+      "codename": "delete_session"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 19,
+   "fields": {
+      "name": "Can add site",
+      "content_type": [
+         "sites",
+         "site"
+      ],
+      "codename": "add_site"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 20,
+   "fields": {
+      "name": "Can change site",
+      "content_type": [
+         "sites",
+         "site"
+      ],
+      "codename": "change_site"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 21,
+   "fields": {
+      "name": "Can delete site",
+      "content_type": [
+         "sites",
+         "site"
+      ],
+      "codename": "delete_site"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 22,
+   "fields": {
+      "name": "Can add Setting",
+      "content_type": [
+         "conf",
+         "setting"
+      ],
+      "codename": "add_setting"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 23,
+   "fields": {
+      "name": "Can change Setting",
+      "content_type": [
+         "conf",
+         "setting"
+      ],
+      "codename": "change_setting"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 24,
+   "fields": {
+      "name": "Can delete Setting",
+      "content_type": [
+         "conf",
+         "setting"
+      ],
+      "codename": "delete_setting"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 25,
+   "fields": {
+      "name": "Can add Site permission",
+      "content_type": [
+         "core",
+         "sitepermission"
+      ],
+      "codename": "add_sitepermission"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 26,
+   "fields": {
+      "name": "Can change Site permission",
+      "content_type": [
+         "core",
+         "sitepermission"
+      ],
+      "codename": "change_sitepermission"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 27,
+   "fields": {
+      "name": "Can delete Site permission",
+      "content_type": [
+         "core",
+         "sitepermission"
+      ],
+      "codename": "delete_sitepermission"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 28,
+   "fields": {
+      "name": "Can add Comment",
+      "content_type": [
+         "generic",
+         "threadedcomment"
+      ],
+      "codename": "add_threadedcomment"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 29,
+   "fields": {
+      "name": "Can change Comment",
+      "content_type": [
+         "generic",
+         "threadedcomment"
+      ],
+      "codename": "change_threadedcomment"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 30,
+   "fields": {
+      "name": "Can delete Comment",
+      "content_type": [
+         "generic",
+         "threadedcomment"
+      ],
+      "codename": "delete_threadedcomment"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 31,
+   "fields": {
+      "name": "Can add Keyword",
+      "content_type": [
+         "generic",
+         "keyword"
+      ],
+      "codename": "add_keyword"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 32,
+   "fields": {
+      "name": "Can change Keyword",
+      "content_type": [
+         "generic",
+         "keyword"
+      ],
+      "codename": "change_keyword"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 33,
+   "fields": {
+      "name": "Can delete Keyword",
+      "content_type": [
+         "generic",
+         "keyword"
+      ],
+      "codename": "delete_keyword"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 34,
+   "fields": {
+      "name": "Can add assigned keyword",
+      "content_type": [
+         "generic",
+         "assignedkeyword"
+      ],
+      "codename": "add_assignedkeyword"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 35,
+   "fields": {
+      "name": "Can change assigned keyword",
+      "content_type": [
+         "generic",
+         "assignedkeyword"
+      ],
+      "codename": "change_assignedkeyword"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 36,
+   "fields": {
+      "name": "Can delete assigned keyword",
+      "content_type": [
+         "generic",
+         "assignedkeyword"
+      ],
+      "codename": "delete_assignedkeyword"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 37,
+   "fields": {
+      "name": "Can add Rating",
+      "content_type": [
+         "generic",
+         "rating"
+      ],
+      "codename": "add_rating"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 38,
+   "fields": {
+      "name": "Can change Rating",
+      "content_type": [
+         "generic",
+         "rating"
+      ],
+      "codename": "change_rating"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 39,
+   "fields": {
+      "name": "Can delete Rating",
+      "content_type": [
+         "generic",
+         "rating"
+      ],
+      "codename": "delete_rating"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 40,
+   "fields": {
+      "name": "Can add Page",
+      "content_type": [
+         "pages",
+         "page"
+      ],
+      "codename": "add_page"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 41,
+   "fields": {
+      "name": "Can change Page",
+      "content_type": [
+         "pages",
+         "page"
+      ],
+      "codename": "change_page"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 42,
+   "fields": {
+      "name": "Can delete Page",
+      "content_type": [
+         "pages",
+         "page"
+      ],
+      "codename": "delete_page"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 43,
+   "fields": {
+      "name": "Can add Rich text page",
+      "content_type": [
+         "pages",
+         "richtextpage"
+      ],
+      "codename": "add_richtextpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 44,
+   "fields": {
+      "name": "Can change Rich text page",
+      "content_type": [
+         "pages",
+         "richtextpage"
+      ],
+      "codename": "change_richtextpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 45,
+   "fields": {
+      "name": "Can delete Rich text page",
+      "content_type": [
+         "pages",
+         "richtextpage"
+      ],
+      "codename": "delete_richtextpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 46,
+   "fields": {
+      "name": "Can add Link",
+      "content_type": [
+         "pages",
+         "link"
+      ],
+      "codename": "add_link"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 47,
+   "fields": {
+      "name": "Can change Link",
+      "content_type": [
+         "pages",
+         "link"
+      ],
+      "codename": "change_link"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 48,
+   "fields": {
+      "name": "Can delete Link",
+      "content_type": [
+         "pages",
+         "link"
+      ],
+      "codename": "delete_link"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 49,
+   "fields": {
+      "name": "Can add Blog post",
+      "content_type": [
+         "blog",
+         "blogpost"
+      ],
+      "codename": "add_blogpost"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 50,
+   "fields": {
+      "name": "Can change Blog post",
+      "content_type": [
+         "blog",
+         "blogpost"
+      ],
+      "codename": "change_blogpost"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 51,
+   "fields": {
+      "name": "Can delete Blog post",
+      "content_type": [
+         "blog",
+         "blogpost"
+      ],
+      "codename": "delete_blogpost"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 52,
+   "fields": {
+      "name": "Can add Blog Category",
+      "content_type": [
+         "blog",
+         "blogcategory"
+      ],
+      "codename": "add_blogcategory"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 53,
+   "fields": {
+      "name": "Can change Blog Category",
+      "content_type": [
+         "blog",
+         "blogcategory"
+      ],
+      "codename": "change_blogcategory"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 54,
+   "fields": {
+      "name": "Can delete Blog Category",
+      "content_type": [
+         "blog",
+         "blogcategory"
+      ],
+      "codename": "delete_blogcategory"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 55,
+   "fields": {
+      "name": "Can add Form",
+      "content_type": [
+         "forms",
+         "form"
+      ],
+      "codename": "add_form"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 56,
+   "fields": {
+      "name": "Can change Form",
+      "content_type": [
+         "forms",
+         "form"
+      ],
+      "codename": "change_form"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 57,
+   "fields": {
+      "name": "Can delete Form",
+      "content_type": [
+         "forms",
+         "form"
+      ],
+      "codename": "delete_form"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 58,
+   "fields": {
+      "name": "Can add Field",
+      "content_type": [
+         "forms",
+         "field"
+      ],
+      "codename": "add_field"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 59,
+   "fields": {
+      "name": "Can change Field",
+      "content_type": [
+         "forms",
+         "field"
+      ],
+      "codename": "change_field"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 60,
+   "fields": {
+      "name": "Can delete Field",
+      "content_type": [
+         "forms",
+         "field"
+      ],
+      "codename": "delete_field"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 61,
+   "fields": {
+      "name": "Can add Form entry",
+      "content_type": [
+         "forms",
+         "formentry"
+      ],
+      "codename": "add_formentry"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 62,
+   "fields": {
+      "name": "Can change Form entry",
+      "content_type": [
+         "forms",
+         "formentry"
+      ],
+      "codename": "change_formentry"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 63,
+   "fields": {
+      "name": "Can delete Form entry",
+      "content_type": [
+         "forms",
+         "formentry"
+      ],
+      "codename": "delete_formentry"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 64,
+   "fields": {
+      "name": "Can add Form field entry",
+      "content_type": [
+         "forms",
+         "fieldentry"
+      ],
+      "codename": "add_fieldentry"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 65,
+   "fields": {
+      "name": "Can change Form field entry",
+      "content_type": [
+         "forms",
+         "fieldentry"
+      ],
+      "codename": "change_fieldentry"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 66,
+   "fields": {
+      "name": "Can delete Form field entry",
+      "content_type": [
+         "forms",
+         "fieldentry"
+      ],
+      "codename": "delete_fieldentry"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 67,
+   "fields": {
+      "name": "Can add Twitter query",
+      "content_type": [
+         "twitter",
+         "query"
+      ],
+      "codename": "add_query"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 68,
+   "fields": {
+      "name": "Can change Twitter query",
+      "content_type": [
+         "twitter",
+         "query"
+      ],
+      "codename": "change_query"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 69,
+   "fields": {
+      "name": "Can delete Twitter query",
+      "content_type": [
+         "twitter",
+         "query"
+      ],
+      "codename": "delete_query"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 70,
+   "fields": {
+      "name": "Can add Tweet",
+      "content_type": [
+         "twitter",
+         "tweet"
+      ],
+      "codename": "add_tweet"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 71,
+   "fields": {
+      "name": "Can change Tweet",
+      "content_type": [
+         "twitter",
+         "tweet"
+      ],
+      "codename": "change_tweet"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 72,
+   "fields": {
+      "name": "Can delete Tweet",
+      "content_type": [
+         "twitter",
+         "tweet"
+      ],
+      "codename": "delete_tweet"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 73,
+   "fields": {
+      "name": "Can add Product",
+      "content_type": [
+         "shop",
+         "product"
+      ],
+      "codename": "add_product"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 74,
+   "fields": {
+      "name": "Can change Product",
+      "content_type": [
+         "shop",
+         "product"
+      ],
+      "codename": "change_product"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 75,
+   "fields": {
+      "name": "Can delete Product",
+      "content_type": [
+         "shop",
+         "product"
+      ],
+      "codename": "delete_product"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 76,
+   "fields": {
+      "name": "Can add Image",
+      "content_type": [
+         "shop",
+         "productimage"
+      ],
+      "codename": "add_productimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 77,
+   "fields": {
+      "name": "Can change Image",
+      "content_type": [
+         "shop",
+         "productimage"
+      ],
+      "codename": "change_productimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 78,
+   "fields": {
+      "name": "Can delete Image",
+      "content_type": [
+         "shop",
+         "productimage"
+      ],
+      "codename": "delete_productimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 79,
+   "fields": {
+      "name": "Can add Product option",
+      "content_type": [
+         "shop",
+         "productoption"
+      ],
+      "codename": "add_productoption"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 80,
+   "fields": {
+      "name": "Can change Product option",
+      "content_type": [
+         "shop",
+         "productoption"
+      ],
+      "codename": "change_productoption"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 81,
+   "fields": {
+      "name": "Can delete Product option",
+      "content_type": [
+         "shop",
+         "productoption"
+      ],
+      "codename": "delete_productoption"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 82,
+   "fields": {
+      "name": "Can add product variation",
+      "content_type": [
+         "shop",
+         "productvariation"
+      ],
+      "codename": "add_productvariation"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 83,
+   "fields": {
+      "name": "Can change product variation",
+      "content_type": [
+         "shop",
+         "productvariation"
+      ],
+      "codename": "change_productvariation"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 84,
+   "fields": {
+      "name": "Can delete product variation",
+      "content_type": [
+         "shop",
+         "productvariation"
+      ],
+      "codename": "delete_productvariation"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 85,
+   "fields": {
+      "name": "Can add Product category",
+      "content_type": [
+         "shop",
+         "category"
+      ],
+      "codename": "add_category"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 86,
+   "fields": {
+      "name": "Can change Product category",
+      "content_type": [
+         "shop",
+         "category"
+      ],
+      "codename": "change_category"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 87,
+   "fields": {
+      "name": "Can delete Product category",
+      "content_type": [
+         "shop",
+         "category"
+      ],
+      "codename": "delete_category"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 88,
+   "fields": {
+      "name": "Can add Order",
+      "content_type": [
+         "shop",
+         "order"
+      ],
+      "codename": "add_order"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 89,
+   "fields": {
+      "name": "Can change Order",
+      "content_type": [
+         "shop",
+         "order"
+      ],
+      "codename": "change_order"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 90,
+   "fields": {
+      "name": "Can delete Order",
+      "content_type": [
+         "shop",
+         "order"
+      ],
+      "codename": "delete_order"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 91,
+   "fields": {
+      "name": "Can add cart",
+      "content_type": [
+         "shop",
+         "cart"
+      ],
+      "codename": "add_cart"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 92,
+   "fields": {
+      "name": "Can change cart",
+      "content_type": [
+         "shop",
+         "cart"
+      ],
+      "codename": "change_cart"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 93,
+   "fields": {
+      "name": "Can delete cart",
+      "content_type": [
+         "shop",
+         "cart"
+      ],
+      "codename": "delete_cart"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 94,
+   "fields": {
+      "name": "Can add cart item",
+      "content_type": [
+         "shop",
+         "cartitem"
+      ],
+      "codename": "add_cartitem"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 95,
+   "fields": {
+      "name": "Can change cart item",
+      "content_type": [
+         "shop",
+         "cartitem"
+      ],
+      "codename": "change_cartitem"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 96,
+   "fields": {
+      "name": "Can delete cart item",
+      "content_type": [
+         "shop",
+         "cartitem"
+      ],
+      "codename": "delete_cartitem"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 97,
+   "fields": {
+      "name": "Can add order item",
+      "content_type": [
+         "shop",
+         "orderitem"
+      ],
+      "codename": "add_orderitem"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 98,
+   "fields": {
+      "name": "Can change order item",
+      "content_type": [
+         "shop",
+         "orderitem"
+      ],
+      "codename": "change_orderitem"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 99,
+   "fields": {
+      "name": "Can delete order item",
+      "content_type": [
+         "shop",
+         "orderitem"
+      ],
+      "codename": "delete_orderitem"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 100,
+   "fields": {
+      "name": "Can add product action",
+      "content_type": [
+         "shop",
+         "productaction"
+      ],
+      "codename": "add_productaction"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 101,
+   "fields": {
+      "name": "Can change product action",
+      "content_type": [
+         "shop",
+         "productaction"
+      ],
+      "codename": "change_productaction"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 102,
+   "fields": {
+      "name": "Can delete product action",
+      "content_type": [
+         "shop",
+         "productaction"
+      ],
+      "codename": "delete_productaction"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 103,
+   "fields": {
+      "name": "Can add Sale",
+      "content_type": [
+         "shop",
+         "sale"
+      ],
+      "codename": "add_sale"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 104,
+   "fields": {
+      "name": "Can change Sale",
+      "content_type": [
+         "shop",
+         "sale"
+      ],
+      "codename": "change_sale"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 105,
+   "fields": {
+      "name": "Can delete Sale",
+      "content_type": [
+         "shop",
+         "sale"
+      ],
+      "codename": "delete_sale"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 106,
+   "fields": {
+      "name": "Can add Discount code",
+      "content_type": [
+         "shop",
+         "discountcode"
+      ],
+      "codename": "add_discountcode"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 107,
+   "fields": {
+      "name": "Can change Discount code",
+      "content_type": [
+         "shop",
+         "discountcode"
+      ],
+      "codename": "change_discountcode"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 108,
+   "fields": {
+      "name": "Can delete Discount code",
+      "content_type": [
+         "shop",
+         "discountcode"
+      ],
+      "codename": "delete_discountcode"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 109,
+   "fields": {
+      "name": "Can add Event",
+      "content_type": [
+         "mezzanine_agenda",
+         "event"
+      ],
+      "codename": "add_event"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 110,
+   "fields": {
+      "name": "Can change Event",
+      "content_type": [
+         "mezzanine_agenda",
+         "event"
+      ],
+      "codename": "change_event"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 111,
+   "fields": {
+      "name": "Can delete Event",
+      "content_type": [
+         "mezzanine_agenda",
+         "event"
+      ],
+      "codename": "delete_event"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 112,
+   "fields": {
+      "name": "Can add Event Location",
+      "content_type": [
+         "mezzanine_agenda",
+         "eventlocation"
+      ],
+      "codename": "add_eventlocation"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 113,
+   "fields": {
+      "name": "Can change Event Location",
+      "content_type": [
+         "mezzanine_agenda",
+         "eventlocation"
+      ],
+      "codename": "change_eventlocation"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 114,
+   "fields": {
+      "name": "Can delete Event Location",
+      "content_type": [
+         "mezzanine_agenda",
+         "eventlocation"
+      ],
+      "codename": "delete_eventlocation"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 115,
+   "fields": {
+      "name": "Can add Event price",
+      "content_type": [
+         "mezzanine_agenda",
+         "eventprice"
+      ],
+      "codename": "add_eventprice"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 116,
+   "fields": {
+      "name": "Can change Event price",
+      "content_type": [
+         "mezzanine_agenda",
+         "eventprice"
+      ],
+      "codename": "change_eventprice"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 117,
+   "fields": {
+      "name": "Can delete Event price",
+      "content_type": [
+         "mezzanine_agenda",
+         "eventprice"
+      ],
+      "codename": "delete_eventprice"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 118,
+   "fields": {
+      "name": "Can add Event category",
+      "content_type": [
+         "mezzanine_agenda",
+         "eventcategory"
+      ],
+      "codename": "add_eventcategory"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 119,
+   "fields": {
+      "name": "Can change Event category",
+      "content_type": [
+         "mezzanine_agenda",
+         "eventcategory"
+      ],
+      "codename": "change_eventcategory"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 120,
+   "fields": {
+      "name": "Can delete Event category",
+      "content_type": [
+         "mezzanine_agenda",
+         "eventcategory"
+      ],
+      "codename": "delete_eventcategory"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 121,
+   "fields": {
+      "name": "Can add Event shop",
+      "content_type": [
+         "mezzanine_agenda",
+         "eventshop"
+      ],
+      "codename": "add_eventshop"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 122,
+   "fields": {
+      "name": "Can change Event shop",
+      "content_type": [
+         "mezzanine_agenda",
+         "eventshop"
+      ],
+      "codename": "change_eventshop"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 123,
+   "fields": {
+      "name": "Can delete Event shop",
+      "content_type": [
+         "mezzanine_agenda",
+         "eventshop"
+      ],
+      "codename": "delete_eventshop"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 124,
+   "fields": {
+      "name": "Can add Season",
+      "content_type": [
+         "mezzanine_agenda",
+         "season"
+      ],
+      "codename": "add_season"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 125,
+   "fields": {
+      "name": "Can change Season",
+      "content_type": [
+         "mezzanine_agenda",
+         "season"
+      ],
+      "codename": "change_season"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 126,
+   "fields": {
+      "name": "Can delete Season",
+      "content_type": [
+         "mezzanine_agenda",
+         "season"
+      ],
+      "codename": "delete_season"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 127,
+   "fields": {
+      "name": "Can add custom category",
+      "content_type": [
+         "organization-core",
+         "customcategory"
+      ],
+      "codename": "add_customcategory"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 128,
+   "fields": {
+      "name": "Can change custom category",
+      "content_type": [
+         "organization-core",
+         "customcategory"
+      ],
+      "codename": "change_customcategory"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 129,
+   "fields": {
+      "name": "Can delete custom category",
+      "content_type": [
+         "organization-core",
+         "customcategory"
+      ],
+      "codename": "delete_customcategory"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 130,
+   "fields": {
+      "name": "Can add link type",
+      "content_type": [
+         "organization-core",
+         "linktype"
+      ],
+      "codename": "add_linktype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 131,
+   "fields": {
+      "name": "Can change link type",
+      "content_type": [
+         "organization-core",
+         "linktype"
+      ],
+      "codename": "change_linktype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 132,
+   "fields": {
+      "name": "Can delete link type",
+      "content_type": [
+         "organization-core",
+         "linktype"
+      ],
+      "codename": "delete_linktype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 133,
+   "fields": {
+      "name": "Can add media",
+      "content_type": [
+         "organization-media",
+         "media"
+      ],
+      "codename": "add_media"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 134,
+   "fields": {
+      "name": "Can change media",
+      "content_type": [
+         "organization-media",
+         "media"
+      ],
+      "codename": "change_media"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 135,
+   "fields": {
+      "name": "Can delete media",
+      "content_type": [
+         "organization-media",
+         "media"
+      ],
+      "codename": "delete_media"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 136,
+   "fields": {
+      "name": "Can add media file",
+      "content_type": [
+         "organization-media",
+         "mediatranscoded"
+      ],
+      "codename": "add_mediatranscoded"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 137,
+   "fields": {
+      "name": "Can change media file",
+      "content_type": [
+         "organization-media",
+         "mediatranscoded"
+      ],
+      "codename": "change_mediatranscoded"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 138,
+   "fields": {
+      "name": "Can delete media file",
+      "content_type": [
+         "organization-media",
+         "mediatranscoded"
+      ],
+      "codename": "delete_mediatranscoded"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 139,
+   "fields": {
+      "name": "Can add image",
+      "content_type": [
+         "organization-media",
+         "mediaimage"
+      ],
+      "codename": "add_mediaimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 140,
+   "fields": {
+      "name": "Can change image",
+      "content_type": [
+         "organization-media",
+         "mediaimage"
+      ],
+      "codename": "change_mediaimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 141,
+   "fields": {
+      "name": "Can delete image",
+      "content_type": [
+         "organization-media",
+         "mediaimage"
+      ],
+      "codename": "delete_mediaimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 142,
+   "fields": {
+      "name": "Can add media category",
+      "content_type": [
+         "organization-media",
+         "mediacategory"
+      ],
+      "codename": "add_mediacategory"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 143,
+   "fields": {
+      "name": "Can change media category",
+      "content_type": [
+         "organization-media",
+         "mediacategory"
+      ],
+      "codename": "change_mediacategory"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 144,
+   "fields": {
+      "name": "Can delete media category",
+      "content_type": [
+         "organization-media",
+         "mediacategory"
+      ],
+      "codename": "delete_mediacategory"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 145,
+   "fields": {
+      "name": "Can add playlist",
+      "content_type": [
+         "organization-media",
+         "playlist"
+      ],
+      "codename": "add_playlist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 146,
+   "fields": {
+      "name": "Can change playlist",
+      "content_type": [
+         "organization-media",
+         "playlist"
+      ],
+      "codename": "change_playlist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 147,
+   "fields": {
+      "name": "Can delete playlist",
+      "content_type": [
+         "organization-media",
+         "playlist"
+      ],
+      "codename": "delete_playlist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 148,
+   "fields": {
+      "name": "Can add media",
+      "content_type": [
+         "organization-media",
+         "playlistmedia"
+      ],
+      "codename": "add_playlistmedia"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 149,
+   "fields": {
+      "name": "Can change media",
+      "content_type": [
+         "organization-media",
+         "playlistmedia"
+      ],
+      "codename": "change_playlistmedia"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 150,
+   "fields": {
+      "name": "Can delete media",
+      "content_type": [
+         "organization-media",
+         "playlistmedia"
+      ],
+      "codename": "delete_playlistmedia"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 151,
+   "fields": {
+      "name": "Can add playlist",
+      "content_type": [
+         "organization-media",
+         "playlistrelated"
+      ],
+      "codename": "add_playlistrelated"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 152,
+   "fields": {
+      "name": "Can change playlist",
+      "content_type": [
+         "organization-media",
+         "playlistrelated"
+      ],
+      "codename": "change_playlistrelated"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 153,
+   "fields": {
+      "name": "Can delete playlist",
+      "content_type": [
+         "organization-media",
+         "playlistrelated"
+      ],
+      "codename": "delete_playlistrelated"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 154,
+   "fields": {
+      "name": "Can add live streaming",
+      "content_type": [
+         "organization-media",
+         "livestreaming"
+      ],
+      "codename": "add_livestreaming"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 155,
+   "fields": {
+      "name": "Can change live streaming",
+      "content_type": [
+         "organization-media",
+         "livestreaming"
+      ],
+      "codename": "change_livestreaming"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 156,
+   "fields": {
+      "name": "Can delete live streaming",
+      "content_type": [
+         "organization-media",
+         "livestreaming"
+      ],
+      "codename": "delete_livestreaming"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 157,
+   "fields": {
+      "name": "Can add custom page",
+      "content_type": [
+         "organization-pages",
+         "custompage"
+      ],
+      "codename": "add_custompage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 158,
+   "fields": {
+      "name": "Can change custom page",
+      "content_type": [
+         "organization-pages",
+         "custompage"
+      ],
+      "codename": "change_custompage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 159,
+   "fields": {
+      "name": "Can delete custom page",
+      "content_type": [
+         "organization-pages",
+         "custompage"
+      ],
+      "codename": "delete_custompage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 160,
+   "fields": {
+      "name": "Can add extended custom page",
+      "content_type": [
+         "organization-pages",
+         "extendedcustompage"
+      ],
+      "codename": "add_extendedcustompage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 161,
+   "fields": {
+      "name": "Can change extended custom page",
+      "content_type": [
+         "organization-pages",
+         "extendedcustompage"
+      ],
+      "codename": "change_extendedcustompage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 162,
+   "fields": {
+      "name": "Can delete extended custom page",
+      "content_type": [
+         "organization-pages",
+         "extendedcustompage"
+      ],
+      "codename": "delete_extendedcustompage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 163,
+   "fields": {
+      "name": "Can add extended custom page dynamic content",
+      "content_type": [
+         "organization-pages",
+         "extendedcustompagedynamiccontent"
+      ],
+      "codename": "add_extendedcustompagedynamiccontent"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 164,
+   "fields": {
+      "name": "Can change extended custom page dynamic content",
+      "content_type": [
+         "organization-pages",
+         "extendedcustompagedynamiccontent"
+      ],
+      "codename": "change_extendedcustompagedynamiccontent"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 165,
+   "fields": {
+      "name": "Can delete extended custom page dynamic content",
+      "content_type": [
+         "organization-pages",
+         "extendedcustompagedynamiccontent"
+      ],
+      "codename": "delete_extendedcustompagedynamiccontent"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 166,
+   "fields": {
+      "name": "Can add page block",
+      "content_type": [
+         "organization-pages",
+         "pageblock"
+      ],
+      "codename": "add_pageblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 167,
+   "fields": {
+      "name": "Can change page block",
+      "content_type": [
+         "organization-pages",
+         "pageblock"
+      ],
+      "codename": "change_pageblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 168,
+   "fields": {
+      "name": "Can delete page block",
+      "content_type": [
+         "organization-pages",
+         "pageblock"
+      ],
+      "codename": "delete_pageblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 169,
+   "fields": {
+      "name": "Can add image",
+      "content_type": [
+         "organization-pages",
+         "pageimage"
+      ],
+      "codename": "add_pageimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 170,
+   "fields": {
+      "name": "Can change image",
+      "content_type": [
+         "organization-pages",
+         "pageimage"
+      ],
+      "codename": "change_pageimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 171,
+   "fields": {
+      "name": "Can delete image",
+      "content_type": [
+         "organization-pages",
+         "pageimage"
+      ],
+      "codename": "delete_pageimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 172,
+   "fields": {
+      "name": "Can add playlist",
+      "content_type": [
+         "organization-pages",
+         "pageplaylist"
+      ],
+      "codename": "add_pageplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 173,
+   "fields": {
+      "name": "Can change playlist",
+      "content_type": [
+         "organization-pages",
+         "pageplaylist"
+      ],
+      "codename": "change_pageplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 174,
+   "fields": {
+      "name": "Can delete playlist",
+      "content_type": [
+         "organization-pages",
+         "pageplaylist"
+      ],
+      "codename": "delete_pageplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 175,
+   "fields": {
+      "name": "Can add link",
+      "content_type": [
+         "organization-pages",
+         "pagelink"
+      ],
+      "codename": "add_pagelink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 176,
+   "fields": {
+      "name": "Can change link",
+      "content_type": [
+         "organization-pages",
+         "pagelink"
+      ],
+      "codename": "change_pagelink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 177,
+   "fields": {
+      "name": "Can delete link",
+      "content_type": [
+         "organization-pages",
+         "pagelink"
+      ],
+      "codename": "delete_pagelink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 178,
+   "fields": {
+      "name": "Can add related title",
+      "content_type": [
+         "organization-pages",
+         "pagerelatedtitle"
+      ],
+      "codename": "add_pagerelatedtitle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 179,
+   "fields": {
+      "name": "Can change related title",
+      "content_type": [
+         "organization-pages",
+         "pagerelatedtitle"
+      ],
+      "codename": "change_pagerelatedtitle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 180,
+   "fields": {
+      "name": "Can delete related title",
+      "content_type": [
+         "organization-pages",
+         "pagerelatedtitle"
+      ],
+      "codename": "delete_pagerelatedtitle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 181,
+   "fields": {
+      "name": "Can add Dynamic Content Page",
+      "content_type": [
+         "organization-pages",
+         "dynamiccontentpage"
+      ],
+      "codename": "add_dynamiccontentpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 182,
+   "fields": {
+      "name": "Can change Dynamic Content Page",
+      "content_type": [
+         "organization-pages",
+         "dynamiccontentpage"
+      ],
+      "codename": "change_dynamiccontentpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 183,
+   "fields": {
+      "name": "Can delete Dynamic Content Page",
+      "content_type": [
+         "organization-pages",
+         "dynamiccontentpage"
+      ],
+      "codename": "delete_dynamiccontentpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 184,
+   "fields": {
+      "name": "Can add link image",
+      "content_type": [
+         "organization-pages",
+         "linkimage"
+      ],
+      "codename": "add_linkimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 185,
+   "fields": {
+      "name": "Can change link image",
+      "content_type": [
+         "organization-pages",
+         "linkimage"
+      ],
+      "codename": "change_linkimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 186,
+   "fields": {
+      "name": "Can delete link image",
+      "content_type": [
+         "organization-pages",
+         "linkimage"
+      ],
+      "codename": "delete_linkimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 187,
+   "fields": {
+      "name": "Can add Slider",
+      "content_type": [
+         "organization-pages",
+         "dynamiccontenthomeslider"
+      ],
+      "codename": "add_dynamiccontenthomeslider"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 188,
+   "fields": {
+      "name": "Can change Slider",
+      "content_type": [
+         "organization-pages",
+         "dynamiccontenthomeslider"
+      ],
+      "codename": "change_dynamiccontenthomeslider"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 189,
+   "fields": {
+      "name": "Can delete Slider",
+      "content_type": [
+         "organization-pages",
+         "dynamiccontenthomeslider"
+      ],
+      "codename": "delete_dynamiccontenthomeslider"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 190,
+   "fields": {
+      "name": "Can add Body",
+      "content_type": [
+         "organization-pages",
+         "dynamiccontenthomebody"
+      ],
+      "codename": "add_dynamiccontenthomebody"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 191,
+   "fields": {
+      "name": "Can change Body",
+      "content_type": [
+         "organization-pages",
+         "dynamiccontenthomebody"
+      ],
+      "codename": "change_dynamiccontenthomebody"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 192,
+   "fields": {
+      "name": "Can delete Body",
+      "content_type": [
+         "organization-pages",
+         "dynamiccontenthomebody"
+      ],
+      "codename": "delete_dynamiccontenthomebody"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 193,
+   "fields": {
+      "name": "Can add Media",
+      "content_type": [
+         "organization-pages",
+         "dynamiccontenthomemedia"
+      ],
+      "codename": "add_dynamiccontenthomemedia"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 194,
+   "fields": {
+      "name": "Can change Media",
+      "content_type": [
+         "organization-pages",
+         "dynamiccontenthomemedia"
+      ],
+      "codename": "change_dynamiccontenthomemedia"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 195,
+   "fields": {
+      "name": "Can delete Media",
+      "content_type": [
+         "organization-pages",
+         "dynamiccontenthomemedia"
+      ],
+      "codename": "delete_dynamiccontenthomemedia"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 196,
+   "fields": {
+      "name": "Can add image",
+      "content_type": [
+         "organization-pages",
+         "homeimage"
+      ],
+      "codename": "add_homeimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 197,
+   "fields": {
+      "name": "Can change image",
+      "content_type": [
+         "organization-pages",
+         "homeimage"
+      ],
+      "codename": "change_homeimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 198,
+   "fields": {
+      "name": "Can delete image",
+      "content_type": [
+         "organization-pages",
+         "homeimage"
+      ],
+      "codename": "delete_homeimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 199,
+   "fields": {
+      "name": "Can add home",
+      "content_type": [
+         "organization-pages",
+         "home"
+      ],
+      "codename": "add_home"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 200,
+   "fields": {
+      "name": "Can change home",
+      "content_type": [
+         "organization-pages",
+         "home"
+      ],
+      "codename": "change_home"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 201,
+   "fields": {
+      "name": "Can delete home",
+      "content_type": [
+         "organization-pages",
+         "home"
+      ],
+      "codename": "delete_home"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 202,
+   "fields": {
+      "name": "Can add organization",
+      "content_type": [
+         "organization-network",
+         "organization"
+      ],
+      "codename": "add_organization"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 203,
+   "fields": {
+      "name": "Can change organization",
+      "content_type": [
+         "organization-network",
+         "organization"
+      ],
+      "codename": "change_organization"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 204,
+   "fields": {
+      "name": "Can delete organization",
+      "content_type": [
+         "organization-network",
+         "organization"
+      ],
+      "codename": "delete_organization"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 205,
+   "fields": {
+      "name": "Can add person",
+      "content_type": [
+         "organization-network",
+         "person"
+      ],
+      "codename": "add_person"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 206,
+   "fields": {
+      "name": "Can change person",
+      "content_type": [
+         "organization-network",
+         "person"
+      ],
+      "codename": "change_person"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 207,
+   "fields": {
+      "name": "Can delete person",
+      "content_type": [
+         "organization-network",
+         "person"
+      ],
+      "codename": "delete_person"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 208,
+   "fields": {
+      "name": "Can add organization linked block inline",
+      "content_type": [
+         "organization-network",
+         "organizationlinkedblockinline"
+      ],
+      "codename": "add_organizationlinkedblockinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 209,
+   "fields": {
+      "name": "Can change organization linked block inline",
+      "content_type": [
+         "organization-network",
+         "organizationlinkedblockinline"
+      ],
+      "codename": "change_organizationlinkedblockinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 210,
+   "fields": {
+      "name": "Can delete organization linked block inline",
+      "content_type": [
+         "organization-network",
+         "organizationlinkedblockinline"
+      ],
+      "codename": "delete_organizationlinkedblockinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 211,
+   "fields": {
+      "name": "Can add Organization Linked",
+      "content_type": [
+         "organization-network",
+         "organizationlinked"
+      ],
+      "codename": "add_organizationlinked"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 212,
+   "fields": {
+      "name": "Can change Organization Linked",
+      "content_type": [
+         "organization-network",
+         "organizationlinked"
+      ],
+      "codename": "change_organizationlinked"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 213,
+   "fields": {
+      "name": "Can delete Organization Linked",
+      "content_type": [
+         "organization-network",
+         "organizationlinked"
+      ],
+      "codename": "delete_organizationlinked"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 214,
+   "fields": {
+      "name": "Can add organization linked inline",
+      "content_type": [
+         "organization-network",
+         "organizationlinkedinline"
+      ],
+      "codename": "add_organizationlinkedinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 215,
+   "fields": {
+      "name": "Can change organization linked inline",
+      "content_type": [
+         "organization-network",
+         "organizationlinkedinline"
+      ],
+      "codename": "change_organizationlinkedinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 216,
+   "fields": {
+      "name": "Can delete organization linked inline",
+      "content_type": [
+         "organization-network",
+         "organizationlinkedinline"
+      ],
+      "codename": "delete_organizationlinkedinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 217,
+   "fields": {
+      "name": "Can add organization playlist",
+      "content_type": [
+         "organization-network",
+         "organizationplaylist"
+      ],
+      "codename": "add_organizationplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 218,
+   "fields": {
+      "name": "Can change organization playlist",
+      "content_type": [
+         "organization-network",
+         "organizationplaylist"
+      ],
+      "codename": "change_organizationplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 219,
+   "fields": {
+      "name": "Can delete organization playlist",
+      "content_type": [
+         "organization-network",
+         "organizationplaylist"
+      ],
+      "codename": "delete_organizationplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 220,
+   "fields": {
+      "name": "Can add link",
+      "content_type": [
+         "organization-network",
+         "organizationlink"
+      ],
+      "codename": "add_organizationlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 221,
+   "fields": {
+      "name": "Can change link",
+      "content_type": [
+         "organization-network",
+         "organizationlink"
+      ],
+      "codename": "change_organizationlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 222,
+   "fields": {
+      "name": "Can delete link",
+      "content_type": [
+         "organization-network",
+         "organizationlink"
+      ],
+      "codename": "delete_organizationlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 223,
+   "fields": {
+      "name": "Can add organization image",
+      "content_type": [
+         "organization-network",
+         "organizationimage"
+      ],
+      "codename": "add_organizationimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 224,
+   "fields": {
+      "name": "Can change organization image",
+      "content_type": [
+         "organization-network",
+         "organizationimage"
+      ],
+      "codename": "change_organizationimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 225,
+   "fields": {
+      "name": "Can delete organization image",
+      "content_type": [
+         "organization-network",
+         "organizationimage"
+      ],
+      "codename": "delete_organizationimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 226,
+   "fields": {
+      "name": "Can add organization block",
+      "content_type": [
+         "organization-network",
+         "organizationblock"
+      ],
+      "codename": "add_organizationblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 227,
+   "fields": {
+      "name": "Can change organization block",
+      "content_type": [
+         "organization-network",
+         "organizationblock"
+      ],
+      "codename": "change_organizationblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 228,
+   "fields": {
+      "name": "Can delete organization block",
+      "content_type": [
+         "organization-network",
+         "organizationblock"
+      ],
+      "codename": "delete_organizationblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 229,
+   "fields": {
+      "name": "Can add organization service",
+      "content_type": [
+         "organization-network",
+         "organizationservice"
+      ],
+      "codename": "add_organizationservice"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 230,
+   "fields": {
+      "name": "Can change organization service",
+      "content_type": [
+         "organization-network",
+         "organizationservice"
+      ],
+      "codename": "change_organizationservice"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 231,
+   "fields": {
+      "name": "Can delete organization service",
+      "content_type": [
+         "organization-network",
+         "organizationservice"
+      ],
+      "codename": "delete_organizationservice"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 232,
+   "fields": {
+      "name": "Can add organization type",
+      "content_type": [
+         "organization-network",
+         "organizationtype"
+      ],
+      "codename": "add_organizationtype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 233,
+   "fields": {
+      "name": "Can change organization type",
+      "content_type": [
+         "organization-network",
+         "organizationtype"
+      ],
+      "codename": "change_organizationtype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 234,
+   "fields": {
+      "name": "Can delete organization type",
+      "content_type": [
+         "organization-network",
+         "organizationtype"
+      ],
+      "codename": "delete_organizationtype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 235,
+   "fields": {
+      "name": "Can add Organization",
+      "content_type": [
+         "organization-network",
+         "organizationeventlocation"
+      ],
+      "codename": "add_organizationeventlocation"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 236,
+   "fields": {
+      "name": "Can change Organization",
+      "content_type": [
+         "organization-network",
+         "organizationeventlocation"
+      ],
+      "codename": "change_organizationeventlocation"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 237,
+   "fields": {
+      "name": "Can delete Organization",
+      "content_type": [
+         "organization-network",
+         "organizationeventlocation"
+      ],
+      "codename": "delete_organizationeventlocation"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 238,
+   "fields": {
+      "name": "Can add organization role",
+      "content_type": [
+         "organization-network",
+         "organizationrole"
+      ],
+      "codename": "add_organizationrole"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 239,
+   "fields": {
+      "name": "Can change organization role",
+      "content_type": [
+         "organization-network",
+         "organizationrole"
+      ],
+      "codename": "change_organizationrole"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 240,
+   "fields": {
+      "name": "Can delete organization role",
+      "content_type": [
+         "organization-network",
+         "organizationrole"
+      ],
+      "codename": "delete_organizationrole"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 241,
+   "fields": {
+      "name": "Can add Organization contact",
+      "content_type": [
+         "organization-network",
+         "organizationcontact"
+      ],
+      "codename": "add_organizationcontact"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 242,
+   "fields": {
+      "name": "Can change Organization contact",
+      "content_type": [
+         "organization-network",
+         "organizationcontact"
+      ],
+      "codename": "change_organizationcontact"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 243,
+   "fields": {
+      "name": "Can delete Organization contact",
+      "content_type": [
+         "organization-network",
+         "organizationcontact"
+      ],
+      "codename": "delete_organizationcontact"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 244,
+   "fields": {
+      "name": "Can add organization user image",
+      "content_type": [
+         "organization-network",
+         "organizationuserimage"
+      ],
+      "codename": "add_organizationuserimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 245,
+   "fields": {
+      "name": "Can change organization user image",
+      "content_type": [
+         "organization-network",
+         "organizationuserimage"
+      ],
+      "codename": "change_organizationuserimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 246,
+   "fields": {
+      "name": "Can delete organization user image",
+      "content_type": [
+         "organization-network",
+         "organizationuserimage"
+      ],
+      "codename": "delete_organizationuserimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 247,
+   "fields": {
+      "name": "Can add department",
+      "content_type": [
+         "organization-network",
+         "department"
+      ],
+      "codename": "add_department"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 248,
+   "fields": {
+      "name": "Can change department",
+      "content_type": [
+         "organization-network",
+         "department"
+      ],
+      "codename": "change_department"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 249,
+   "fields": {
+      "name": "Can delete department",
+      "content_type": [
+         "organization-network",
+         "department"
+      ],
+      "codename": "delete_department"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 250,
+   "fields": {
+      "name": "Can add department page",
+      "content_type": [
+         "organization-network",
+         "departmentpage"
+      ],
+      "codename": "add_departmentpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 251,
+   "fields": {
+      "name": "Can change department page",
+      "content_type": [
+         "organization-network",
+         "departmentpage"
+      ],
+      "codename": "change_departmentpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 252,
+   "fields": {
+      "name": "Can delete department page",
+      "content_type": [
+         "organization-network",
+         "departmentpage"
+      ],
+      "codename": "delete_departmentpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 253,
+   "fields": {
+      "name": "Can add team",
+      "content_type": [
+         "organization-network",
+         "team"
+      ],
+      "codename": "add_team"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 254,
+   "fields": {
+      "name": "Can change team",
+      "content_type": [
+         "organization-network",
+         "team"
+      ],
+      "codename": "change_team"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 255,
+   "fields": {
+      "name": "Can delete team",
+      "content_type": [
+         "organization-network",
+         "team"
+      ],
+      "codename": "delete_team"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 256,
+   "fields": {
+      "name": "Can add team page",
+      "content_type": [
+         "organization-network",
+         "teampage"
+      ],
+      "codename": "add_teampage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 257,
+   "fields": {
+      "name": "Can change team page",
+      "content_type": [
+         "organization-network",
+         "teampage"
+      ],
+      "codename": "change_teampage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 258,
+   "fields": {
+      "name": "Can delete team page",
+      "content_type": [
+         "organization-network",
+         "teampage"
+      ],
+      "codename": "delete_teampage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 259,
+   "fields": {
+      "name": "Can add link",
+      "content_type": [
+         "organization-network",
+         "teamlink"
+      ],
+      "codename": "add_teamlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 260,
+   "fields": {
+      "name": "Can change link",
+      "content_type": [
+         "organization-network",
+         "teamlink"
+      ],
+      "codename": "change_teamlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 261,
+   "fields": {
+      "name": "Can delete link",
+      "content_type": [
+         "organization-network",
+         "teamlink"
+      ],
+      "codename": "delete_teamlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 262,
+   "fields": {
+      "name": "Can add Producer data",
+      "content_type": [
+         "organization-network",
+         "producerdata"
+      ],
+      "codename": "add_producerdata"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 263,
+   "fields": {
+      "name": "Can change Producer data",
+      "content_type": [
+         "organization-network",
+         "producerdata"
+      ],
+      "codename": "change_producerdata"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 264,
+   "fields": {
+      "name": "Can delete Producer data",
+      "content_type": [
+         "organization-network",
+         "producerdata"
+      ],
+      "codename": "delete_producerdata"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 265,
+   "fields": {
+      "name": "Can add person playlist",
+      "content_type": [
+         "organization-network",
+         "personplaylist"
+      ],
+      "codename": "add_personplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 266,
+   "fields": {
+      "name": "Can change person playlist",
+      "content_type": [
+         "organization-network",
+         "personplaylist"
+      ],
+      "codename": "change_personplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 267,
+   "fields": {
+      "name": "Can delete person playlist",
+      "content_type": [
+         "organization-network",
+         "personplaylist"
+      ],
+      "codename": "delete_personplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 268,
+   "fields": {
+      "name": "Can add link",
+      "content_type": [
+         "organization-network",
+         "personlink"
+      ],
+      "codename": "add_personlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 269,
+   "fields": {
+      "name": "Can change link",
+      "content_type": [
+         "organization-network",
+         "personlink"
+      ],
+      "codename": "change_personlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 270,
+   "fields": {
+      "name": "Can delete link",
+      "content_type": [
+         "organization-network",
+         "personlink"
+      ],
+      "codename": "delete_personlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 271,
+   "fields": {
+      "name": "Can add person image",
+      "content_type": [
+         "organization-network",
+         "personimage"
+      ],
+      "codename": "add_personimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 272,
+   "fields": {
+      "name": "Can change person image",
+      "content_type": [
+         "organization-network",
+         "personimage"
+      ],
+      "codename": "change_personimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 273,
+   "fields": {
+      "name": "Can delete person image",
+      "content_type": [
+         "organization-network",
+         "personimage"
+      ],
+      "codename": "delete_personimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 274,
+   "fields": {
+      "name": "Can add person file",
+      "content_type": [
+         "organization-network",
+         "personfile"
+      ],
+      "codename": "add_personfile"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 275,
+   "fields": {
+      "name": "Can change person file",
+      "content_type": [
+         "organization-network",
+         "personfile"
+      ],
+      "codename": "change_personfile"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 276,
+   "fields": {
+      "name": "Can delete person file",
+      "content_type": [
+         "organization-network",
+         "personfile"
+      ],
+      "codename": "delete_personfile"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 277,
+   "fields": {
+      "name": "Can add person block",
+      "content_type": [
+         "organization-network",
+         "personblock"
+      ],
+      "codename": "add_personblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 278,
+   "fields": {
+      "name": "Can change person block",
+      "content_type": [
+         "organization-network",
+         "personblock"
+      ],
+      "codename": "change_personblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 279,
+   "fields": {
+      "name": "Can delete person block",
+      "content_type": [
+         "organization-network",
+         "personblock"
+      ],
+      "codename": "delete_personblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 280,
+   "fields": {
+      "name": "Can add Person List",
+      "content_type": [
+         "organization-network",
+         "pagecustompersonlistblockinline"
+      ],
+      "codename": "add_pagecustompersonlistblockinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 281,
+   "fields": {
+      "name": "Can change Person List",
+      "content_type": [
+         "organization-network",
+         "pagecustompersonlistblockinline"
+      ],
+      "codename": "change_pagecustompersonlistblockinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 282,
+   "fields": {
+      "name": "Can delete Person List",
+      "content_type": [
+         "organization-network",
+         "pagecustompersonlistblockinline"
+      ],
+      "codename": "delete_pagecustompersonlistblockinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 283,
+   "fields": {
+      "name": "Can add Person List",
+      "content_type": [
+         "organization-network",
+         "personlistblock"
+      ],
+      "codename": "add_personlistblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 284,
+   "fields": {
+      "name": "Can change Person List",
+      "content_type": [
+         "organization-network",
+         "personlistblock"
+      ],
+      "codename": "change_personlistblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 285,
+   "fields": {
+      "name": "Can delete Person List",
+      "content_type": [
+         "organization-network",
+         "personlistblock"
+      ],
+      "codename": "delete_personlistblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 286,
+   "fields": {
+      "name": "Can add Person autocomplete",
+      "content_type": [
+         "organization-network",
+         "personlistblockinline"
+      ],
+      "codename": "add_personlistblockinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 287,
+   "fields": {
+      "name": "Can change Person autocomplete",
+      "content_type": [
+         "organization-network",
+         "personlistblockinline"
+      ],
+      "codename": "change_personlistblockinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 288,
+   "fields": {
+      "name": "Can delete Person autocomplete",
+      "content_type": [
+         "organization-network",
+         "personlistblockinline"
+      ],
+      "codename": "delete_personlistblockinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 289,
+   "fields": {
+      "name": "Can add status",
+      "content_type": [
+         "organization-network",
+         "activitystatus"
+      ],
+      "codename": "add_activitystatus"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 290,
+   "fields": {
+      "name": "Can change status",
+      "content_type": [
+         "organization-network",
+         "activitystatus"
+      ],
+      "codename": "change_activitystatus"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 291,
+   "fields": {
+      "name": "Can delete status",
+      "content_type": [
+         "organization-network",
+         "activitystatus"
+      ],
+      "codename": "delete_activitystatus"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 292,
+   "fields": {
+      "name": "Can add grade",
+      "content_type": [
+         "organization-network",
+         "activitygrade"
+      ],
+      "codename": "add_activitygrade"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 293,
+   "fields": {
+      "name": "Can change grade",
+      "content_type": [
+         "organization-network",
+         "activitygrade"
+      ],
+      "codename": "change_activitygrade"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 294,
+   "fields": {
+      "name": "Can delete grade",
+      "content_type": [
+         "organization-network",
+         "activitygrade"
+      ],
+      "codename": "delete_activitygrade"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 295,
+   "fields": {
+      "name": "Can add framework",
+      "content_type": [
+         "organization-network",
+         "activityframework"
+      ],
+      "codename": "add_activityframework"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 296,
+   "fields": {
+      "name": "Can change framework",
+      "content_type": [
+         "organization-network",
+         "activityframework"
+      ],
+      "codename": "change_activityframework"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 297,
+   "fields": {
+      "name": "Can delete framework",
+      "content_type": [
+         "organization-network",
+         "activityframework"
+      ],
+      "codename": "delete_activityframework"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 298,
+   "fields": {
+      "name": "Can add function",
+      "content_type": [
+         "organization-network",
+         "activityfunction"
+      ],
+      "codename": "add_activityfunction"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 299,
+   "fields": {
+      "name": "Can change function",
+      "content_type": [
+         "organization-network",
+         "activityfunction"
+      ],
+      "codename": "change_activityfunction"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 300,
+   "fields": {
+      "name": "Can delete function",
+      "content_type": [
+         "organization-network",
+         "activityfunction"
+      ],
+      "codename": "delete_activityfunction"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 301,
+   "fields": {
+      "name": "Can add budget code",
+      "content_type": [
+         "organization-network",
+         "budgetcode"
+      ],
+      "codename": "add_budgetcode"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 302,
+   "fields": {
+      "name": "Can change budget code",
+      "content_type": [
+         "organization-network",
+         "budgetcode"
+      ],
+      "codename": "change_budgetcode"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 303,
+   "fields": {
+      "name": "Can delete budget code",
+      "content_type": [
+         "organization-network",
+         "budgetcode"
+      ],
+      "codename": "delete_budgetcode"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 304,
+   "fields": {
+      "name": "Can add record piece",
+      "content_type": [
+         "organization-network",
+         "recordpiece"
+      ],
+      "codename": "add_recordpiece"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 305,
+   "fields": {
+      "name": "Can change record piece",
+      "content_type": [
+         "organization-network",
+         "recordpiece"
+      ],
+      "codename": "change_recordpiece"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 306,
+   "fields": {
+      "name": "Can delete record piece",
+      "content_type": [
+         "organization-network",
+         "recordpiece"
+      ],
+      "codename": "delete_recordpiece"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 307,
+   "fields": {
+      "name": "Can add training type",
+      "content_type": [
+         "organization-network",
+         "trainingtype"
+      ],
+      "codename": "add_trainingtype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 308,
+   "fields": {
+      "name": "Can change training type",
+      "content_type": [
+         "organization-network",
+         "trainingtype"
+      ],
+      "codename": "change_trainingtype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 309,
+   "fields": {
+      "name": "Can delete training type",
+      "content_type": [
+         "organization-network",
+         "trainingtype"
+      ],
+      "codename": "delete_trainingtype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 310,
+   "fields": {
+      "name": "Can add training level",
+      "content_type": [
+         "organization-network",
+         "traininglevel"
+      ],
+      "codename": "add_traininglevel"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 311,
+   "fields": {
+      "name": "Can change training level",
+      "content_type": [
+         "organization-network",
+         "traininglevel"
+      ],
+      "codename": "change_traininglevel"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 312,
+   "fields": {
+      "name": "Can delete training level",
+      "content_type": [
+         "organization-network",
+         "traininglevel"
+      ],
+      "codename": "delete_traininglevel"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 313,
+   "fields": {
+      "name": "Can add training topic",
+      "content_type": [
+         "organization-network",
+         "trainingtopic"
+      ],
+      "codename": "add_trainingtopic"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 314,
+   "fields": {
+      "name": "Can change training topic",
+      "content_type": [
+         "organization-network",
+         "trainingtopic"
+      ],
+      "codename": "change_trainingtopic"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 315,
+   "fields": {
+      "name": "Can delete training topic",
+      "content_type": [
+         "organization-network",
+         "trainingtopic"
+      ],
+      "codename": "delete_trainingtopic"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 316,
+   "fields": {
+      "name": "Can add training speciality",
+      "content_type": [
+         "organization-network",
+         "trainingspeciality"
+      ],
+      "codename": "add_trainingspeciality"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 317,
+   "fields": {
+      "name": "Can change training speciality",
+      "content_type": [
+         "organization-network",
+         "trainingspeciality"
+      ],
+      "codename": "change_trainingspeciality"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 318,
+   "fields": {
+      "name": "Can delete training speciality",
+      "content_type": [
+         "organization-network",
+         "trainingspeciality"
+      ],
+      "codename": "delete_trainingspeciality"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 319,
+   "fields": {
+      "name": "Can add UMR",
+      "content_type": [
+         "organization-network",
+         "umr"
+      ],
+      "codename": "add_umr"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 320,
+   "fields": {
+      "name": "Can change UMR",
+      "content_type": [
+         "organization-network",
+         "umr"
+      ],
+      "codename": "change_umr"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 321,
+   "fields": {
+      "name": "Can delete UMR",
+      "content_type": [
+         "organization-network",
+         "umr"
+      ],
+      "codename": "delete_umr"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 322,
+   "fields": {
+      "name": "Can add Activity Weekly Hour Volume",
+      "content_type": [
+         "organization-network",
+         "activityweeklyhourvolume"
+      ],
+      "codename": "add_activityweeklyhourvolume"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 323,
+   "fields": {
+      "name": "Can change Activity Weekly Hour Volume",
+      "content_type": [
+         "organization-network",
+         "activityweeklyhourvolume"
+      ],
+      "codename": "change_activityweeklyhourvolume"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 324,
+   "fields": {
+      "name": "Can delete Activity Weekly Hour Volume",
+      "content_type": [
+         "organization-network",
+         "activityweeklyhourvolume"
+      ],
+      "codename": "delete_activityweeklyhourvolume"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 325,
+   "fields": {
+      "name": "Can add activity",
+      "content_type": [
+         "organization-network",
+         "personactivity"
+      ],
+      "codename": "add_personactivity"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 326,
+   "fields": {
+      "name": "Can change activity",
+      "content_type": [
+         "organization-network",
+         "personactivity"
+      ],
+      "codename": "change_personactivity"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 327,
+   "fields": {
+      "name": "Can delete activity",
+      "content_type": [
+         "organization-network",
+         "personactivity"
+      ],
+      "codename": "delete_personactivity"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 328,
+   "fields": {
+      "name": "Can add activity timesheet",
+      "content_type": [
+         "organization-network",
+         "personactivitytimesheet"
+      ],
+      "codename": "add_personactivitytimesheet"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 329,
+   "fields": {
+      "name": "Can change activity timesheet",
+      "content_type": [
+         "organization-network",
+         "personactivitytimesheet"
+      ],
+      "codename": "change_personactivitytimesheet"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 330,
+   "fields": {
+      "name": "Can delete activity timesheet",
+      "content_type": [
+         "organization-network",
+         "personactivitytimesheet"
+      ],
+      "codename": "delete_personactivitytimesheet"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 331,
+   "fields": {
+      "name": "Can add project activity",
+      "content_type": [
+         "organization-network",
+         "projectactivity"
+      ],
+      "codename": "add_projectactivity"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 332,
+   "fields": {
+      "name": "Can change project activity",
+      "content_type": [
+         "organization-network",
+         "projectactivity"
+      ],
+      "codename": "change_projectactivity"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 333,
+   "fields": {
+      "name": "Can delete project activity",
+      "content_type": [
+         "organization-network",
+         "projectactivity"
+      ],
+      "codename": "delete_projectactivity"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 334,
+   "fields": {
+      "name": "Can add person activity vacation",
+      "content_type": [
+         "organization-network",
+         "personactivityvacation"
+      ],
+      "codename": "add_personactivityvacation"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 335,
+   "fields": {
+      "name": "Can change person activity vacation",
+      "content_type": [
+         "organization-network",
+         "personactivityvacation"
+      ],
+      "codename": "change_personactivityvacation"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 336,
+   "fields": {
+      "name": "Can delete person activity vacation",
+      "content_type": [
+         "organization-network",
+         "personactivityvacation"
+      ],
+      "codename": "delete_personactivityvacation"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 337,
+   "fields": {
+      "name": "Can add media department",
+      "content_type": [
+         "organization-network",
+         "mediadepartment"
+      ],
+      "codename": "add_mediadepartment"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 338,
+   "fields": {
+      "name": "Can change media department",
+      "content_type": [
+         "organization-network",
+         "mediadepartment"
+      ],
+      "codename": "change_mediadepartment"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 339,
+   "fields": {
+      "name": "Can delete media department",
+      "content_type": [
+         "organization-network",
+         "mediadepartment"
+      ],
+      "codename": "delete_mediadepartment"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 340,
+   "fields": {
+      "name": "Can add article",
+      "content_type": [
+         "organization-magazine",
+         "article"
+      ],
+      "codename": "add_article"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 341,
+   "fields": {
+      "name": "Can change article",
+      "content_type": [
+         "organization-magazine",
+         "article"
+      ],
+      "codename": "change_article"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 342,
+   "fields": {
+      "name": "Can delete article",
+      "content_type": [
+         "organization-magazine",
+         "article"
+      ],
+      "codename": "delete_article"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 343,
+   "fields": {
+      "name": "Can add image",
+      "content_type": [
+         "organization-magazine",
+         "articleimage"
+      ],
+      "codename": "add_articleimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 344,
+   "fields": {
+      "name": "Can change image",
+      "content_type": [
+         "organization-magazine",
+         "articleimage"
+      ],
+      "codename": "change_articleimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 345,
+   "fields": {
+      "name": "Can delete image",
+      "content_type": [
+         "organization-magazine",
+         "articleimage"
+      ],
+      "codename": "delete_articleimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 346,
+   "fields": {
+      "name": "Can add related title",
+      "content_type": [
+         "organization-magazine",
+         "articlerelatedtitle"
+      ],
+      "codename": "add_articlerelatedtitle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 347,
+   "fields": {
+      "name": "Can change related title",
+      "content_type": [
+         "organization-magazine",
+         "articlerelatedtitle"
+      ],
+      "codename": "change_articlerelatedtitle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 348,
+   "fields": {
+      "name": "Can delete related title",
+      "content_type": [
+         "organization-magazine",
+         "articlerelatedtitle"
+      ],
+      "codename": "delete_articlerelatedtitle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 349,
+   "fields": {
+      "name": "Can add article playlist",
+      "content_type": [
+         "organization-magazine",
+         "articleplaylist"
+      ],
+      "codename": "add_articleplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 350,
+   "fields": {
+      "name": "Can change article playlist",
+      "content_type": [
+         "organization-magazine",
+         "articleplaylist"
+      ],
+      "codename": "change_articleplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 351,
+   "fields": {
+      "name": "Can delete article playlist",
+      "content_type": [
+         "organization-magazine",
+         "articleplaylist"
+      ],
+      "codename": "delete_articleplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 352,
+   "fields": {
+      "name": "Can add brief",
+      "content_type": [
+         "organization-magazine",
+         "brief"
+      ],
+      "codename": "add_brief"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 353,
+   "fields": {
+      "name": "Can change brief",
+      "content_type": [
+         "organization-magazine",
+         "brief"
+      ],
+      "codename": "change_brief"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 354,
+   "fields": {
+      "name": "Can delete brief",
+      "content_type": [
+         "organization-magazine",
+         "brief"
+      ],
+      "codename": "delete_brief"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 355,
+   "fields": {
+      "name": "Can add topic",
+      "content_type": [
+         "organization-magazine",
+         "topic"
+      ],
+      "codename": "add_topic"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 356,
+   "fields": {
+      "name": "Can change topic",
+      "content_type": [
+         "organization-magazine",
+         "topic"
+      ],
+      "codename": "change_topic"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 357,
+   "fields": {
+      "name": "Can delete topic",
+      "content_type": [
+         "organization-magazine",
+         "topic"
+      ],
+      "codename": "delete_topic"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 358,
+   "fields": {
+      "name": "Can add Person List",
+      "content_type": [
+         "organization-magazine",
+         "articlepersonlistblockinline"
+      ],
+      "codename": "add_articlepersonlistblockinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 359,
+   "fields": {
+      "name": "Can change Person List",
+      "content_type": [
+         "organization-magazine",
+         "articlepersonlistblockinline"
+      ],
+      "codename": "change_articlepersonlistblockinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 360,
+   "fields": {
+      "name": "Can delete Person List",
+      "content_type": [
+         "organization-magazine",
+         "articlepersonlistblockinline"
+      ],
+      "codename": "delete_articlepersonlistblockinline"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 361,
+   "fields": {
+      "name": "Can add Dynamic Content Article",
+      "content_type": [
+         "organization-magazine",
+         "dynamiccontentarticle"
+      ],
+      "codename": "add_dynamiccontentarticle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 362,
+   "fields": {
+      "name": "Can change Dynamic Content Article",
+      "content_type": [
+         "organization-magazine",
+         "dynamiccontentarticle"
+      ],
+      "codename": "change_dynamiccontentarticle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 363,
+   "fields": {
+      "name": "Can delete Dynamic Content Article",
+      "content_type": [
+         "organization-magazine",
+         "dynamiccontentarticle"
+      ],
+      "codename": "delete_dynamiccontentarticle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 364,
+   "fields": {
+      "name": "Can add project",
+      "content_type": [
+         "organization-projects",
+         "project"
+      ],
+      "codename": "add_project"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 365,
+   "fields": {
+      "name": "Can change project",
+      "content_type": [
+         "organization-projects",
+         "project"
+      ],
+      "codename": "change_project"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 366,
+   "fields": {
+      "name": "Can delete project",
+      "content_type": [
+         "organization-projects",
+         "project"
+      ],
+      "codename": "delete_project"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 367,
+   "fields": {
+      "name": "Can add project topic",
+      "content_type": [
+         "organization-projects",
+         "projecttopic"
+      ],
+      "codename": "add_projecttopic"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 368,
+   "fields": {
+      "name": "Can change project topic",
+      "content_type": [
+         "organization-projects",
+         "projecttopic"
+      ],
+      "codename": "change_projecttopic"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 369,
+   "fields": {
+      "name": "Can delete project topic",
+      "content_type": [
+         "organization-projects",
+         "projecttopic"
+      ],
+      "codename": "delete_projecttopic"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 370,
+   "fields": {
+      "name": "Can add program",
+      "content_type": [
+         "organization-projects",
+         "projectprogram"
+      ],
+      "codename": "add_projectprogram"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 371,
+   "fields": {
+      "name": "Can change program",
+      "content_type": [
+         "organization-projects",
+         "projectprogram"
+      ],
+      "codename": "change_projectprogram"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 372,
+   "fields": {
+      "name": "Can delete program",
+      "content_type": [
+         "organization-projects",
+         "projectprogram"
+      ],
+      "codename": "delete_projectprogram"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 373,
+   "fields": {
+      "name": "Can add program type",
+      "content_type": [
+         "organization-projects",
+         "projectprogramtype"
+      ],
+      "codename": "add_projectprogramtype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 374,
+   "fields": {
+      "name": "Can change program type",
+      "content_type": [
+         "organization-projects",
+         "projectprogramtype"
+      ],
+      "codename": "change_projectprogramtype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 375,
+   "fields": {
+      "name": "Can delete program type",
+      "content_type": [
+         "organization-projects",
+         "projectprogramtype"
+      ],
+      "codename": "delete_projectprogramtype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 376,
+   "fields": {
+      "name": "Can add work package",
+      "content_type": [
+         "organization-projects",
+         "projectworkpackage"
+      ],
+      "codename": "add_projectworkpackage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 377,
+   "fields": {
+      "name": "Can change work package",
+      "content_type": [
+         "organization-projects",
+         "projectworkpackage"
+      ],
+      "codename": "change_projectworkpackage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 378,
+   "fields": {
+      "name": "Can delete work package",
+      "content_type": [
+         "organization-projects",
+         "projectworkpackage"
+      ],
+      "codename": "delete_projectworkpackage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 379,
+   "fields": {
+      "name": "Can add project playlist",
+      "content_type": [
+         "organization-projects",
+         "projectplaylist"
+      ],
+      "codename": "add_projectplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 380,
+   "fields": {
+      "name": "Can change project playlist",
+      "content_type": [
+         "organization-projects",
+         "projectplaylist"
+      ],
+      "codename": "change_projectplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 381,
+   "fields": {
+      "name": "Can delete project playlist",
+      "content_type": [
+         "organization-projects",
+         "projectplaylist"
+      ],
+      "codename": "delete_projectplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 382,
+   "fields": {
+      "name": "Can add link",
+      "content_type": [
+         "organization-projects",
+         "projectlink"
+      ],
+      "codename": "add_projectlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 383,
+   "fields": {
+      "name": "Can change link",
+      "content_type": [
+         "organization-projects",
+         "projectlink"
+      ],
+      "codename": "change_projectlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 384,
+   "fields": {
+      "name": "Can delete link",
+      "content_type": [
+         "organization-projects",
+         "projectlink"
+      ],
+      "codename": "delete_projectlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 385,
+   "fields": {
+      "name": "Can add project image",
+      "content_type": [
+         "organization-projects",
+         "projectimage"
+      ],
+      "codename": "add_projectimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 386,
+   "fields": {
+      "name": "Can change project image",
+      "content_type": [
+         "organization-projects",
+         "projectimage"
+      ],
+      "codename": "change_projectimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 387,
+   "fields": {
+      "name": "Can delete project image",
+      "content_type": [
+         "organization-projects",
+         "projectimage"
+      ],
+      "codename": "delete_projectimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 388,
+   "fields": {
+      "name": "Can add project user image",
+      "content_type": [
+         "organization-projects",
+         "projectuserimage"
+      ],
+      "codename": "add_projectuserimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 389,
+   "fields": {
+      "name": "Can change project user image",
+      "content_type": [
+         "organization-projects",
+         "projectuserimage"
+      ],
+      "codename": "change_projectuserimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 390,
+   "fields": {
+      "name": "Can delete project user image",
+      "content_type": [
+         "organization-projects",
+         "projectuserimage"
+      ],
+      "codename": "delete_projectuserimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 391,
+   "fields": {
+      "name": "Can add project file",
+      "content_type": [
+         "organization-projects",
+         "projectfile"
+      ],
+      "codename": "add_projectfile"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 392,
+   "fields": {
+      "name": "Can change project file",
+      "content_type": [
+         "organization-projects",
+         "projectfile"
+      ],
+      "codename": "change_projectfile"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 393,
+   "fields": {
+      "name": "Can delete project file",
+      "content_type": [
+         "organization-projects",
+         "projectfile"
+      ],
+      "codename": "delete_projectfile"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 394,
+   "fields": {
+      "name": "Can add project block",
+      "content_type": [
+         "organization-projects",
+         "projectblock"
+      ],
+      "codename": "add_projectblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 395,
+   "fields": {
+      "name": "Can change project block",
+      "content_type": [
+         "organization-projects",
+         "projectblock"
+      ],
+      "codename": "change_projectblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 396,
+   "fields": {
+      "name": "Can delete project block",
+      "content_type": [
+         "organization-projects",
+         "projectblock"
+      ],
+      "codename": "delete_projectblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 397,
+   "fields": {
+      "name": "Can add project topic page",
+      "content_type": [
+         "organization-projects",
+         "projecttopicpage"
+      ],
+      "codename": "add_projecttopicpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 398,
+   "fields": {
+      "name": "Can change project topic page",
+      "content_type": [
+         "organization-projects",
+         "projecttopicpage"
+      ],
+      "codename": "change_projecttopicpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 399,
+   "fields": {
+      "name": "Can delete project topic page",
+      "content_type": [
+         "organization-projects",
+         "projecttopicpage"
+      ],
+      "codename": "delete_projecttopicpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 400,
+   "fields": {
+      "name": "Can add project call",
+      "content_type": [
+         "organization-projects",
+         "projectcall"
+      ],
+      "codename": "add_projectcall"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 401,
+   "fields": {
+      "name": "Can change project call",
+      "content_type": [
+         "organization-projects",
+         "projectcall"
+      ],
+      "codename": "change_projectcall"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 402,
+   "fields": {
+      "name": "Can delete project call",
+      "content_type": [
+         "organization-projects",
+         "projectcall"
+      ],
+      "codename": "delete_projectcall"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 403,
+   "fields": {
+      "name": "Can add project call block",
+      "content_type": [
+         "organization-projects",
+         "projectcallblock"
+      ],
+      "codename": "add_projectcallblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 404,
+   "fields": {
+      "name": "Can change project call block",
+      "content_type": [
+         "organization-projects",
+         "projectcallblock"
+      ],
+      "codename": "change_projectcallblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 405,
+   "fields": {
+      "name": "Can delete project call block",
+      "content_type": [
+         "organization-projects",
+         "projectcallblock"
+      ],
+      "codename": "delete_projectcallblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 406,
+   "fields": {
+      "name": "Can add project call image",
+      "content_type": [
+         "organization-projects",
+         "projectcallimage"
+      ],
+      "codename": "add_projectcallimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 407,
+   "fields": {
+      "name": "Can change project call image",
+      "content_type": [
+         "organization-projects",
+         "projectcallimage"
+      ],
+      "codename": "change_projectcallimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 408,
+   "fields": {
+      "name": "Can delete project call image",
+      "content_type": [
+         "organization-projects",
+         "projectcallimage"
+      ],
+      "codename": "delete_projectcallimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 409,
+   "fields": {
+      "name": "Can add project call file",
+      "content_type": [
+         "organization-projects",
+         "projectcallfile"
+      ],
+      "codename": "add_projectcallfile"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 410,
+   "fields": {
+      "name": "Can change project call file",
+      "content_type": [
+         "organization-projects",
+         "projectcallfile"
+      ],
+      "codename": "change_projectcallfile"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 411,
+   "fields": {
+      "name": "Can delete project call file",
+      "content_type": [
+         "organization-projects",
+         "projectcallfile"
+      ],
+      "codename": "delete_projectcallfile"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 412,
+   "fields": {
+      "name": "Can add link",
+      "content_type": [
+         "organization-projects",
+         "projectcalllink"
+      ],
+      "codename": "add_projectcalllink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 413,
+   "fields": {
+      "name": "Can change link",
+      "content_type": [
+         "organization-projects",
+         "projectcalllink"
+      ],
+      "codename": "change_projectcalllink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 414,
+   "fields": {
+      "name": "Can delete link",
+      "content_type": [
+         "organization-projects",
+         "projectcalllink"
+      ],
+      "codename": "delete_projectcalllink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 415,
+   "fields": {
+      "name": "Can add project demo",
+      "content_type": [
+         "organization-projects",
+         "projectdemo"
+      ],
+      "codename": "add_projectdemo"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 416,
+   "fields": {
+      "name": "Can change project demo",
+      "content_type": [
+         "organization-projects",
+         "projectdemo"
+      ],
+      "codename": "change_projectdemo"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 417,
+   "fields": {
+      "name": "Can delete project demo",
+      "content_type": [
+         "organization-projects",
+         "projectdemo"
+      ],
+      "codename": "delete_projectdemo"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 418,
+   "fields": {
+      "name": "Can add repository",
+      "content_type": [
+         "organization-projects",
+         "repository"
+      ],
+      "codename": "add_repository"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 419,
+   "fields": {
+      "name": "Can change repository",
+      "content_type": [
+         "organization-projects",
+         "repository"
+      ],
+      "codename": "change_repository"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 420,
+   "fields": {
+      "name": "Can delete repository",
+      "content_type": [
+         "organization-projects",
+         "repository"
+      ],
+      "codename": "delete_repository"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 421,
+   "fields": {
+      "name": "Can add repository system",
+      "content_type": [
+         "organization-projects",
+         "repositorysystem"
+      ],
+      "codename": "add_repositorysystem"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 422,
+   "fields": {
+      "name": "Can change repository system",
+      "content_type": [
+         "organization-projects",
+         "repositorysystem"
+      ],
+      "codename": "change_repositorysystem"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 423,
+   "fields": {
+      "name": "Can delete repository system",
+      "content_type": [
+         "organization-projects",
+         "repositorysystem"
+      ],
+      "codename": "delete_repositorysystem"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 424,
+   "fields": {
+      "name": "Can add related title",
+      "content_type": [
+         "organization-projects",
+         "projectrelatedtitle"
+      ],
+      "codename": "add_projectrelatedtitle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 425,
+   "fields": {
+      "name": "Can change related title",
+      "content_type": [
+         "organization-projects",
+         "projectrelatedtitle"
+      ],
+      "codename": "change_projectrelatedtitle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 426,
+   "fields": {
+      "name": "Can delete related title",
+      "content_type": [
+         "organization-projects",
+         "projectrelatedtitle"
+      ],
+      "codename": "delete_projectrelatedtitle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 427,
+   "fields": {
+      "name": "Can add Dynamic Content Project",
+      "content_type": [
+         "organization-projects",
+         "dynamiccontentproject"
+      ],
+      "codename": "add_dynamiccontentproject"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 428,
+   "fields": {
+      "name": "Can change Dynamic Content Project",
+      "content_type": [
+         "organization-projects",
+         "dynamiccontentproject"
+      ],
+      "codename": "change_dynamiccontentproject"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 429,
+   "fields": {
+      "name": "Can delete Dynamic Content Project",
+      "content_type": [
+         "organization-projects",
+         "dynamiccontentproject"
+      ],
+      "codename": "delete_dynamiccontentproject"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 430,
+   "fields": {
+      "name": "Can add Project blog page",
+      "content_type": [
+         "organization-projects",
+         "projectblogpage"
+      ],
+      "codename": "add_projectblogpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 431,
+   "fields": {
+      "name": "Can change Project blog page",
+      "content_type": [
+         "organization-projects",
+         "projectblogpage"
+      ],
+      "codename": "change_projectblogpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 432,
+   "fields": {
+      "name": "Can delete Project blog page",
+      "content_type": [
+         "organization-projects",
+         "projectblogpage"
+      ],
+      "codename": "delete_projectblogpage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 433,
+   "fields": {
+      "name": "Can add Project public data",
+      "content_type": [
+         "organization-projects",
+         "projectpublicdata"
+      ],
+      "codename": "add_projectpublicdata"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 434,
+   "fields": {
+      "name": "Can change Project public data",
+      "content_type": [
+         "organization-projects",
+         "projectpublicdata"
+      ],
+      "codename": "change_projectpublicdata"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 435,
+   "fields": {
+      "name": "Can delete Project public data",
+      "content_type": [
+         "organization-projects",
+         "projectpublicdata"
+      ],
+      "codename": "delete_projectpublicdata"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 436,
+   "fields": {
+      "name": "Can add Project private data",
+      "content_type": [
+         "organization-projects",
+         "projectprivatedata"
+      ],
+      "codename": "add_projectprivatedata"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 437,
+   "fields": {
+      "name": "Can change Project private data",
+      "content_type": [
+         "organization-projects",
+         "projectprivatedata"
+      ],
+      "codename": "change_projectprivatedata"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 438,
+   "fields": {
+      "name": "Can delete Project private data",
+      "content_type": [
+         "organization-projects",
+         "projectprivatedata"
+      ],
+      "codename": "delete_projectprivatedata"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 439,
+   "fields": {
+      "name": "Can add Project contact",
+      "content_type": [
+         "organization-projects",
+         "projectcontact"
+      ],
+      "codename": "add_projectcontact"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 440,
+   "fields": {
+      "name": "Can change Project contact",
+      "content_type": [
+         "organization-projects",
+         "projectcontact"
+      ],
+      "codename": "change_projectcontact"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 441,
+   "fields": {
+      "name": "Can delete Project contact",
+      "content_type": [
+         "organization-projects",
+         "projectcontact"
+      ],
+      "codename": "delete_projectcontact"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 442,
+   "fields": {
+      "name": "Can add Project residency",
+      "content_type": [
+         "organization-projects",
+         "projectresidency"
+      ],
+      "codename": "add_projectresidency"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 443,
+   "fields": {
+      "name": "Can change Project residency",
+      "content_type": [
+         "organization-projects",
+         "projectresidency"
+      ],
+      "codename": "change_projectresidency"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 444,
+   "fields": {
+      "name": "Can delete Project residency",
+      "content_type": [
+         "organization-projects",
+         "projectresidency"
+      ],
+      "codename": "delete_projectresidency"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 445,
+   "fields": {
+      "name": "Can add project residency producer",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyproducer"
+      ],
+      "codename": "add_projectresidencyproducer"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 446,
+   "fields": {
+      "name": "Can change project residency producer",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyproducer"
+      ],
+      "codename": "change_projectresidencyproducer"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 447,
+   "fields": {
+      "name": "Can delete project residency producer",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyproducer"
+      ],
+      "codename": "delete_projectresidencyproducer"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 448,
+   "fields": {
+      "name": "Can add project residency file",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyfile"
+      ],
+      "codename": "add_projectresidencyfile"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 449,
+   "fields": {
+      "name": "Can change project residency file",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyfile"
+      ],
+      "codename": "change_projectresidencyfile"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 450,
+   "fields": {
+      "name": "Can delete project residency file",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyfile"
+      ],
+      "codename": "delete_projectresidencyfile"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 451,
+   "fields": {
+      "name": "Can add project residency image",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyimage"
+      ],
+      "codename": "add_projectresidencyimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 452,
+   "fields": {
+      "name": "Can change project residency image",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyimage"
+      ],
+      "codename": "change_projectresidencyimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 453,
+   "fields": {
+      "name": "Can delete project residency image",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyimage"
+      ],
+      "codename": "delete_projectresidencyimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 454,
+   "fields": {
+      "name": "Can add project residency user image",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyuserimage"
+      ],
+      "codename": "add_projectresidencyuserimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 455,
+   "fields": {
+      "name": "Can change project residency user image",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyuserimage"
+      ],
+      "codename": "change_projectresidencyuserimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 456,
+   "fields": {
+      "name": "Can delete project residency user image",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyuserimage"
+      ],
+      "codename": "delete_projectresidencyuserimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 457,
+   "fields": {
+      "name": "Can add project residency article",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyarticle"
+      ],
+      "codename": "add_projectresidencyarticle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 458,
+   "fields": {
+      "name": "Can change project residency article",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyarticle"
+      ],
+      "codename": "change_projectresidencyarticle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 459,
+   "fields": {
+      "name": "Can delete project residency article",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyarticle"
+      ],
+      "codename": "delete_projectresidencyarticle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 460,
+   "fields": {
+      "name": "Can add project residency event",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyevent"
+      ],
+      "codename": "add_projectresidencyevent"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 461,
+   "fields": {
+      "name": "Can change project residency event",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyevent"
+      ],
+      "codename": "change_projectresidencyevent"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 462,
+   "fields": {
+      "name": "Can delete project residency event",
+      "content_type": [
+         "organization-projects",
+         "projectresidencyevent"
+      ],
+      "codename": "delete_projectresidencyevent"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 463,
+   "fields": {
+      "name": "Can add block",
+      "content_type": [
+         "organization-agenda",
+         "eventblock"
+      ],
+      "codename": "add_eventblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 464,
+   "fields": {
+      "name": "Can change block",
+      "content_type": [
+         "organization-agenda",
+         "eventblock"
+      ],
+      "codename": "change_eventblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 465,
+   "fields": {
+      "name": "Can delete block",
+      "content_type": [
+         "organization-agenda",
+         "eventblock"
+      ],
+      "codename": "delete_eventblock"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 466,
+   "fields": {
+      "name": "Can add image",
+      "content_type": [
+         "organization-agenda",
+         "eventimage"
+      ],
+      "codename": "add_eventimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 467,
+   "fields": {
+      "name": "Can change image",
+      "content_type": [
+         "organization-agenda",
+         "eventimage"
+      ],
+      "codename": "change_eventimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 468,
+   "fields": {
+      "name": "Can delete image",
+      "content_type": [
+         "organization-agenda",
+         "eventimage"
+      ],
+      "codename": "delete_eventimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 469,
+   "fields": {
+      "name": "Can add department",
+      "content_type": [
+         "organization-agenda",
+         "eventdepartment"
+      ],
+      "codename": "add_eventdepartment"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 470,
+   "fields": {
+      "name": "Can change department",
+      "content_type": [
+         "organization-agenda",
+         "eventdepartment"
+      ],
+      "codename": "change_eventdepartment"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 471,
+   "fields": {
+      "name": "Can delete department",
+      "content_type": [
+         "organization-agenda",
+         "eventdepartment"
+      ],
+      "codename": "delete_eventdepartment"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 472,
+   "fields": {
+      "name": "Can add person",
+      "content_type": [
+         "organization-agenda",
+         "eventperson"
+      ],
+      "codename": "add_eventperson"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 473,
+   "fields": {
+      "name": "Can change person",
+      "content_type": [
+         "organization-agenda",
+         "eventperson"
+      ],
+      "codename": "change_eventperson"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 474,
+   "fields": {
+      "name": "Can delete person",
+      "content_type": [
+         "organization-agenda",
+         "eventperson"
+      ],
+      "codename": "delete_eventperson"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 475,
+   "fields": {
+      "name": "Can add link",
+      "content_type": [
+         "organization-agenda",
+         "eventlink"
+      ],
+      "codename": "add_eventlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 476,
+   "fields": {
+      "name": "Can change link",
+      "content_type": [
+         "organization-agenda",
+         "eventlink"
+      ],
+      "codename": "change_eventlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 477,
+   "fields": {
+      "name": "Can delete link",
+      "content_type": [
+         "organization-agenda",
+         "eventlink"
+      ],
+      "codename": "delete_eventlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 478,
+   "fields": {
+      "name": "Can add playlist",
+      "content_type": [
+         "organization-agenda",
+         "eventplaylist"
+      ],
+      "codename": "add_eventplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 479,
+   "fields": {
+      "name": "Can change playlist",
+      "content_type": [
+         "organization-agenda",
+         "eventplaylist"
+      ],
+      "codename": "change_eventplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 480,
+   "fields": {
+      "name": "Can delete playlist",
+      "content_type": [
+         "organization-agenda",
+         "eventplaylist"
+      ],
+      "codename": "delete_eventplaylist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 481,
+   "fields": {
+      "name": "Can add period",
+      "content_type": [
+         "organization-agenda",
+         "eventperiod"
+      ],
+      "codename": "add_eventperiod"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 482,
+   "fields": {
+      "name": "Can change period",
+      "content_type": [
+         "organization-agenda",
+         "eventperiod"
+      ],
+      "codename": "change_eventperiod"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 483,
+   "fields": {
+      "name": "Can delete period",
+      "content_type": [
+         "organization-agenda",
+         "eventperiod"
+      ],
+      "codename": "delete_eventperiod"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 484,
+   "fields": {
+      "name": "Can add public type",
+      "content_type": [
+         "organization-agenda",
+         "eventpublictype"
+      ],
+      "codename": "add_eventpublictype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 485,
+   "fields": {
+      "name": "Can change public type",
+      "content_type": [
+         "organization-agenda",
+         "eventpublictype"
+      ],
+      "codename": "change_eventpublictype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 486,
+   "fields": {
+      "name": "Can delete public type",
+      "content_type": [
+         "organization-agenda",
+         "eventpublictype"
+      ],
+      "codename": "delete_eventpublictype"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 487,
+   "fields": {
+      "name": "Can add training level",
+      "content_type": [
+         "organization-agenda",
+         "eventtraininglevel"
+      ],
+      "codename": "add_eventtraininglevel"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 488,
+   "fields": {
+      "name": "Can change training level",
+      "content_type": [
+         "organization-agenda",
+         "eventtraininglevel"
+      ],
+      "codename": "change_eventtraininglevel"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 489,
+   "fields": {
+      "name": "Can delete training level",
+      "content_type": [
+         "organization-agenda",
+         "eventtraininglevel"
+      ],
+      "codename": "delete_eventtraininglevel"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 490,
+   "fields": {
+      "name": "Can add training",
+      "content_type": [
+         "organization-agenda",
+         "eventtraining"
+      ],
+      "codename": "add_eventtraining"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 491,
+   "fields": {
+      "name": "Can change training",
+      "content_type": [
+         "organization-agenda",
+         "eventtraining"
+      ],
+      "codename": "change_eventtraining"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 492,
+   "fields": {
+      "name": "Can delete training",
+      "content_type": [
+         "organization-agenda",
+         "eventtraining"
+      ],
+      "codename": "delete_eventtraining"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 493,
+   "fields": {
+      "name": "Can add related title",
+      "content_type": [
+         "organization-agenda",
+         "eventrelatedtitle"
+      ],
+      "codename": "add_eventrelatedtitle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 494,
+   "fields": {
+      "name": "Can change related title",
+      "content_type": [
+         "organization-agenda",
+         "eventrelatedtitle"
+      ],
+      "codename": "change_eventrelatedtitle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 495,
+   "fields": {
+      "name": "Can delete related title",
+      "content_type": [
+         "organization-agenda",
+         "eventrelatedtitle"
+      ],
+      "codename": "delete_eventrelatedtitle"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 496,
+   "fields": {
+      "name": "Can add Dynamic Content Event",
+      "content_type": [
+         "organization-agenda",
+         "dynamiccontentevent"
+      ],
+      "codename": "add_dynamiccontentevent"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 497,
+   "fields": {
+      "name": "Can change Dynamic Content Event",
+      "content_type": [
+         "organization-agenda",
+         "dynamiccontentevent"
+      ],
+      "codename": "change_dynamiccontentevent"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 498,
+   "fields": {
+      "name": "Can delete Dynamic Content Event",
+      "content_type": [
+         "organization-agenda",
+         "dynamiccontentevent"
+      ],
+      "codename": "delete_dynamiccontentevent"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 499,
+   "fields": {
+      "name": "Can add Additionnal description",
+      "content_type": [
+         "organization-agenda",
+         "eventpricedescription"
+      ],
+      "codename": "add_eventpricedescription"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 500,
+   "fields": {
+      "name": "Can change Additionnal description",
+      "content_type": [
+         "organization-agenda",
+         "eventpricedescription"
+      ],
+      "codename": "change_eventpricedescription"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 501,
+   "fields": {
+      "name": "Can delete Additionnal description",
+      "content_type": [
+         "organization-agenda",
+         "eventpricedescription"
+      ],
+      "codename": "delete_eventpricedescription"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 502,
+   "fields": {
+      "name": "Can add product list",
+      "content_type": [
+         "organization-shop",
+         "productlist"
+      ],
+      "codename": "add_productlist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 503,
+   "fields": {
+      "name": "Can change product list",
+      "content_type": [
+         "organization-shop",
+         "productlist"
+      ],
+      "codename": "change_productlist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 504,
+   "fields": {
+      "name": "Can delete product list",
+      "content_type": [
+         "organization-shop",
+         "productlist"
+      ],
+      "codename": "delete_productlist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 505,
+   "fields": {
+      "name": "Can add product",
+      "content_type": [
+         "organization-shop",
+         "productlistproduct"
+      ],
+      "codename": "add_productlistproduct"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 506,
+   "fields": {
+      "name": "Can change product",
+      "content_type": [
+         "organization-shop",
+         "productlistproduct"
+      ],
+      "codename": "change_productlistproduct"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 507,
+   "fields": {
+      "name": "Can delete product",
+      "content_type": [
+         "organization-shop",
+         "productlistproduct"
+      ],
+      "codename": "delete_productlistproduct"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 508,
+   "fields": {
+      "name": "Can add product list",
+      "content_type": [
+         "organization-shop",
+         "pageproductlist"
+      ],
+      "codename": "add_pageproductlist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 509,
+   "fields": {
+      "name": "Can change product list",
+      "content_type": [
+         "organization-shop",
+         "pageproductlist"
+      ],
+      "codename": "change_pageproductlist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 510,
+   "fields": {
+      "name": "Can delete product list",
+      "content_type": [
+         "organization-shop",
+         "pageproductlist"
+      ],
+      "codename": "delete_pageproductlist"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 511,
+   "fields": {
+      "name": "Can add link",
+      "content_type": [
+         "organization-shop",
+         "productlink"
+      ],
+      "codename": "add_productlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 512,
+   "fields": {
+      "name": "Can change link",
+      "content_type": [
+         "organization-shop",
+         "productlink"
+      ],
+      "codename": "change_productlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 513,
+   "fields": {
+      "name": "Can delete link",
+      "content_type": [
+         "organization-shop",
+         "productlink"
+      ],
+      "codename": "delete_productlink"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 514,
+   "fields": {
+      "name": "Can add prestashop product",
+      "content_type": [
+         "organization-shop",
+         "productprestashopproduct"
+      ],
+      "codename": "add_productprestashopproduct"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 515,
+   "fields": {
+      "name": "Can change prestashop product",
+      "content_type": [
+         "organization-shop",
+         "productprestashopproduct"
+      ],
+      "codename": "change_productprestashopproduct"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 516,
+   "fields": {
+      "name": "Can delete prestashop product",
+      "content_type": [
+         "organization-shop",
+         "productprestashopproduct"
+      ],
+      "codename": "delete_productprestashopproduct"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 517,
+   "fields": {
+      "name": "Can add job_reponse",
+      "content_type": [
+         "organization-job",
+         "jobresponse"
+      ],
+      "codename": "add_jobresponse"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 518,
+   "fields": {
+      "name": "Can change job_reponse",
+      "content_type": [
+         "organization-job",
+         "jobresponse"
+      ],
+      "codename": "change_jobresponse"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 519,
+   "fields": {
+      "name": "Can delete job_reponse",
+      "content_type": [
+         "organization-job",
+         "jobresponse"
+      ],
+      "codename": "delete_jobresponse"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 520,
+   "fields": {
+      "name": "Can add job offer",
+      "content_type": [
+         "organization-job",
+         "joboffer"
+      ],
+      "codename": "add_joboffer"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 521,
+   "fields": {
+      "name": "Can change job offer",
+      "content_type": [
+         "organization-job",
+         "joboffer"
+      ],
+      "codename": "change_joboffer"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 522,
+   "fields": {
+      "name": "Can delete job offer",
+      "content_type": [
+         "organization-job",
+         "joboffer"
+      ],
+      "codename": "delete_joboffer"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 523,
+   "fields": {
+      "name": "Can add candidacy",
+      "content_type": [
+         "organization-job",
+         "candidacy"
+      ],
+      "codename": "add_candidacy"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 524,
+   "fields": {
+      "name": "Can change candidacy",
+      "content_type": [
+         "organization-job",
+         "candidacy"
+      ],
+      "codename": "change_candidacy"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 525,
+   "fields": {
+      "name": "Can delete candidacy",
+      "content_type": [
+         "organization-job",
+         "candidacy"
+      ],
+      "codename": "delete_candidacy"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 526,
+   "fields": {
+      "name": "Can add candidacy image",
+      "content_type": [
+         "organization-job",
+         "candidacyimage"
+      ],
+      "codename": "add_candidacyimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 527,
+   "fields": {
+      "name": "Can change candidacy image",
+      "content_type": [
+         "organization-job",
+         "candidacyimage"
+      ],
+      "codename": "change_candidacyimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 528,
+   "fields": {
+      "name": "Can delete candidacy image",
+      "content_type": [
+         "organization-job",
+         "candidacyimage"
+      ],
+      "codename": "delete_candidacyimage"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 529,
+   "fields": {
+      "name": "Can add user object permission",
+      "content_type": [
+         "guardian",
+         "userobjectpermission"
+      ],
+      "codename": "add_userobjectpermission"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 530,
+   "fields": {
+      "name": "Can change user object permission",
+      "content_type": [
+         "guardian",
+         "userobjectpermission"
+      ],
+      "codename": "change_userobjectpermission"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 531,
+   "fields": {
+      "name": "Can delete user object permission",
+      "content_type": [
+         "guardian",
+         "userobjectpermission"
+      ],
+      "codename": "delete_userobjectpermission"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 532,
+   "fields": {
+      "name": "Can add group object permission",
+      "content_type": [
+         "guardian",
+         "groupobjectpermission"
+      ],
+      "codename": "add_groupobjectpermission"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 533,
+   "fields": {
+      "name": "Can change group object permission",
+      "content_type": [
+         "guardian",
+         "groupobjectpermission"
+      ],
+      "codename": "change_groupobjectpermission"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 534,
+   "fields": {
+      "name": "Can delete group object permission",
+      "content_type": [
+         "guardian",
+         "groupobjectpermission"
+      ],
+      "codename": "delete_groupobjectpermission"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 535,
+   "fields": {
+      "name": "Can add log entry",
+      "content_type": [
+         "admin",
+         "logentry"
+      ],
+      "codename": "add_logentry"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 536,
+   "fields": {
+      "name": "Can change log entry",
+      "content_type": [
+         "admin",
+         "logentry"
+      ],
+      "codename": "change_logentry"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 537,
+   "fields": {
+      "name": "Can delete log entry",
+      "content_type": [
+         "admin",
+         "logentry"
+      ],
+      "codename": "delete_logentry"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 538,
+   "fields": {
+      "name": "Can add comment",
+      "content_type": [
+         "django_comments",
+         "comment"
+      ],
+      "codename": "add_comment"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 539,
+   "fields": {
+      "name": "Can change comment",
+      "content_type": [
+         "django_comments",
+         "comment"
+      ],
+      "codename": "change_comment"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 540,
+   "fields": {
+      "name": "Can delete comment",
+      "content_type": [
+         "django_comments",
+         "comment"
+      ],
+      "codename": "delete_comment"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 541,
+   "fields": {
+      "name": "Can moderate comments",
+      "content_type": [
+         "django_comments",
+         "comment"
+      ],
+      "codename": "can_moderate"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 542,
+   "fields": {
+      "name": "Can add comment flag",
+      "content_type": [
+         "django_comments",
+         "commentflag"
+      ],
+      "codename": "add_commentflag"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 543,
+   "fields": {
+      "name": "Can change comment flag",
+      "content_type": [
+         "django_comments",
+         "commentflag"
+      ],
+      "codename": "change_commentflag"
+   }
+},
+{
+   "model": "auth.permission",
+   "pk": 544,
+   "fields": {
+      "name": "Can delete comment flag",
+      "content_type": [
+         "django_comments",
+         "commentflag"
+      ],
+      "codename": "delete_commentflag"
+   }
+},
+{
+   "model": "auth.user",
+   "pk": 1,
+   "fields": {
+      "password": "pbkdf2_sha256$24000$NbqFSQrZc17W$rMd1hyWDyQm4xP+0S8udfdGhdWulsQiuUcGkYkaGS2Q=",
+      "last_login": "2018-05-25T15:48:46.415Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "root@example.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2018-05-25T15:47:48.902Z",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "blog.blogpost",
+   "pk": 1,
+   "fields": {
+      "comments_count": 0,
+      "keywords_string": "",
+      "rating_count": 0,
+      "rating_sum": 0,
+      "rating_average": 0.0,
+      "site": 1,
+      "title": "article search",
+      "title_fr": "article search",
+      "title_en": "",
+      "slug": "article-search",
+      "_meta_title": null,
+      "_meta_title_fr": null,
+      "_meta_title_en": null,
+      "description": "article search",
+      "description_fr": "article search",
+      "description_en": "article search",
+      "gen_description": true,
+      "created": "2018-05-28T08:09:12.219Z",
+      "updated": "2018-05-28T08:09:12.235Z",
+      "status": 2,
+      "publish_date": "2018-05-28T08:09:12.213Z",
+      "expiry_date": null,
+      "short_url": "",
+      "in_sitemap": true,
+      "content": "",
+      "content_fr": "",
+      "content_en": "",
+      "user": [
+         "admin"
+      ],
+      "allow_comments": true,
+      "featured_image": "",
+      "categories": [],
+      "related_posts": []
+   }
+},
+{
+   "model": "mezzanine_agenda.event",
+   "pk": 1,
+   "fields": {
+      "comments_count": 0,
+      "keywords_string": "",
+      "rating_count": 0,
+      "rating_sum": 0,
+      "rating_average": 0.0,
+      "site": 1,
+      "title": "event search",
+      "title_fr": "event search",
+      "title_en": "",
+      "slug": "event-search",
+      "_meta_title": "",
+      "description": "event search",
+      "description_fr": "event search",
+      "description_en": "event search",
+      "gen_description": true,
+      "created": "2018-05-25T15:49:55.223Z",
+      "updated": "2018-05-25T15:49:55.257Z",
+      "status": 2,
+      "publish_date": "2018-05-25T15:49:32Z",
+      "expiry_date": null,
+      "short_url": null,
+      "in_sitemap": true,
+      "content": "",
+      "content_fr": "",
+      "content_en": "",
+      "user": [
+         "admin"
+      ],
+      "sub_title": "",
+      "sub_title_fr": "",
+      "sub_title_en": "",
+      "parent": null,
+      "category": null,
+      "start": "2018-05-25T15:49:49Z",
+      "end": "2018-05-30T15:49:51Z",
+      "date_text": "",
+      "location": null,
+      "facebook_event": null,
+      "shop": null,
+      "external_id": null,
+      "is_full": false,
+      "brochure": "",
+      "no_price_comments": null,
+      "no_price_comments_fr": null,
+      "no_price_comments_en": null,
+      "mentions": "",
+      "mentions_fr": "",
+      "mentions_en": "",
+      "allow_comments": false,
+      "rank": null,
+      "prices": []
+   }
+},
+{
+   "model": "organization-network.organization",
+   "pk": 1,
+   "fields": {
+      "_order": 0,
+      "name": "Default Organization",
+      "description": "",
+      "description_fr": null,
+      "description_en": null,
+      "slug": "default-organization",
+      "url": "",
+      "address": "",
+      "postal_code": null,
+      "city": null,
+      "country": "",
+      "user": null,
+      "mappable_location": null,
+      "lat": null,
+      "lon": null,
+      "type": null,
+      "role": null,
+      "email": null,
+      "initials": null,
+      "is_on_map": false,
+      "is_host": true,
+      "telephone": null,
+      "opening_times": "",
+      "opening_times_fr": null,
+      "opening_times_en": null,
+      "subway_access": "",
+      "subway_access_fr": null,
+      "subway_access_en": null,
+      "bio": "",
+      "bio_fr": null,
+      "bio_en": null,
+      "site": null,
+      "validation_status": 1
+   }
+},
+{
+   "model": "organization-network.person",
+   "pk": 1,
+   "fields": {
+      "keywords_string": "",
+      "site": 1,
+      "title": "person search",
+      "slug": "person-search",
+      "_meta_title": "",
+      "description": "person search",
+      "description_fr": "person search",
+      "description_en": "",
+      "gen_description": true,
+      "created": "2018-05-28T08:00:19.194Z",
+      "updated": "2018-05-28T08:00:19.194Z",
+      "status": 2,
+      "publish_date": "2018-05-28T08:00:19.181Z",
+      "expiry_date": null,
+      "short_url": "",
+      "in_sitemap": true,
+      "address": "",
+      "postal_code": "",
+      "city": "",
+      "country": "",
+      "user": null,
+      "person_title": "",
+      "gender": "",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "telephone": "",
+      "register_id": "",
+      "birthday": null,
+      "bio": "",
+      "bio_fr": "",
+      "bio_en": "",
+      "role": "",
+      "external_id": "",
+      "karma": 0
+   }
+},
+{
+   "model": "organization-magazine.article",
+   "pk": 1,
+   "fields": {
+      "sub_title": "",
+      "sub_title_fr": "",
+      "sub_title_en": "",
+      "department": null,
+      "categories": [],
+      "related_posts": [],
+      "topics": []
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 1,
+   "fields": {
+      "action_time": "2018-05-25T15:49:55.287Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "mezzanine_agenda",
+         "event"
+      ],
+      "object_id": "1",
+      "object_repr": "event search",
+      "action_flag": 1,
+      "change_message": "Added."
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 2,
+   "fields": {
+      "action_time": "2018-05-25T15:50:52.683Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "organization-network",
+         "departmentpage"
+      ],
+      "object_id": "1",
+      "object_repr": "department search",
+      "action_flag": 1,
+      "change_message": "Added."
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 34,
+   "fields": {
+      "action_time": "2018-05-28T07:57:06.463Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "organization-network",
+         "teampage"
+      ],
+      "object_id": "34",
+      "object_repr": "team search",
+      "action_flag": 1,
+      "change_message": "Ajout."
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 35,
+   "fields": {
+      "action_time": "2018-05-28T07:57:20.127Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "organization-network",
+         "teampage"
+      ],
+      "object_id": "34",
+      "object_repr": "team search",
+      "action_flag": 2,
+      "change_message": "Modification de in_menus et keywords."
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 36,
+   "fields": {
+      "action_time": "2018-05-28T07:57:30.083Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "organization-network",
+         "departmentpage"
+      ],
+      "object_id": "1",
+      "object_repr": "department search",
+      "action_flag": 2,
+      "change_message": "Modification de in_menus et keywords."
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 37,
+   "fields": {
+      "action_time": "2018-05-28T07:58:10.759Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "pages",
+         "richtextpage"
+      ],
+      "object_id": "35",
+      "object_repr": "home",
+      "action_flag": 1,
+      "change_message": "Ajout."
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 38,
+   "fields": {
+      "action_time": "2018-05-28T08:00:19.245Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "organization-network",
+         "person"
+      ],
+      "object_id": "1",
+      "object_repr": "person search",
+      "action_flag": 1,
+      "change_message": "Ajout."
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 39,
+   "fields": {
+      "action_time": "2018-05-28T08:00:45.599Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "organization-pages",
+         "custompage"
+      ],
+      "object_id": "36",
+      "object_repr": "custom page search",
+      "action_flag": 1,
+      "change_message": "Ajout."
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 40,
+   "fields": {
+      "action_time": "2018-05-28T08:02:08.580Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "organization-pages",
+         "custompage"
+      ],
+      "object_id": "36",
+      "object_repr": "custom page search",
+      "action_flag": 2,
+      "change_message": "Modification de in_menus et keywords."
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 41,
+   "fields": {
+      "action_time": "2018-05-28T08:05:54.085Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "organization-projects",
+         "projecttopic"
+      ],
+      "object_id": "1",
+      "object_repr": "project topic search",
+      "action_flag": 1,
+      "change_message": "Ajout."
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 42,
+   "fields": {
+      "action_time": "2018-05-28T08:06:25.453Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "organization-projects",
+         "projecttopic"
+      ],
+      "object_id": "1",
+      "object_repr": "project topic search",
+      "action_flag": 3,
+      "change_message": ""
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 43,
+   "fields": {
+      "action_time": "2018-05-28T08:06:46.206Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "organization-projects",
+         "projecttopicpage"
+      ],
+      "object_id": "37",
+      "object_repr": "project topic search",
+      "action_flag": 1,
+      "change_message": "Ajout."
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 44,
+   "fields": {
+      "action_time": "2018-05-28T08:07:18.424Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "organization-media",
+         "playlist"
+      ],
+      "object_id": "1",
+      "object_repr": "playlist search (audio)",
+      "action_flag": 1,
+      "change_message": "Ajout."
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 45,
+   "fields": {
+      "action_time": "2018-05-28T08:08:37.039Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "shop",
+         "product"
+      ],
+      "object_id": "1",
+      "object_repr": "product search",
+      "action_flag": 1,
+      "change_message": "Ajout."
+   }
+},
+{
+   "model": "admin.logentry",
+   "pk": 46,
+   "fields": {
+      "action_time": "2018-05-28T08:09:12.273Z",
+      "user": [
+         "admin"
+      ],
+      "content_type": [
+         "organization-magazine",
+         "article"
+      ],
+      "object_id": "1",
+      "object_repr": "article search",
+      "action_flag": 1,
+      "change_message": "Ajout."
+   }
+}
+]
