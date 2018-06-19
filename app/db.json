@@ -8360,8 +8360,6 @@
    "pk": 1,
    "fields": {
       "sub_title": "",
-      "sub_title_fr": "",
-      "sub_title_en": "",
       "department": null,
       "categories": [],
       "related_posts": [],
