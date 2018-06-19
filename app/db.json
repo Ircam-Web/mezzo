@@ -1635,19 +1635,6 @@
    }
 },
 {
-   "model": "organization-pages.custompage",
-   "pk": 36,
-   "fields": {
-      "content": "",
-      "content_fr": "",
-      "content_en": "",
-      "sub_title": "",
-      "sub_title_fr": "",
-      "sub_title_en": "",
-      "menu_alinea": false
-   }
-},
-{
    "model": "organization-network.departmentpage",
    "pk": 1,
    "fields": {
