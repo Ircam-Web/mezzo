@@ -1635,15 +1635,6 @@
    }
 },
 {
-   "model": "mezzanine_agenda.season",
-   "pk": 1,
-   "fields": {
-      "title": "Season 2018-2019",
-      "start": "2018-07-31",
-      "end": "2019-08-01"
-   }
-},
-{
    "model": "organization-media.playlist",
    "pk": 1,
    "fields": {
