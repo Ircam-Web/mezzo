@@ -1635,31 +1635,6 @@
    }
 },
 {
-   "model": "organization-media.playlist",
-   "pk": 1,
-   "fields": {
-      "keywords_string": "",
-      "site": 1,
-      "title": "playlist search",
-      "title_fr": "playlist search",
-      "title_en": "",
-      "slug": "playlist-search",
-      "_meta_title": "",
-      "description": "playlist search (audio)",
-      "description_fr": "playlist search (audio)",
-      "description_en": "",
-      "gen_description": true,
-      "created": "2018-05-28T08:07:18.402Z",
-      "updated": "2018-05-28T08:07:18.402Z",
-      "status": 2,
-      "publish_date": "2018-05-28T08:07:18.394Z",
-      "expiry_date": null,
-      "short_url": "",
-      "in_sitemap": true,
-      "type": "audio"
-   }
-},
-{
    "model": "organization-pages.custompage",
    "pk": 36,
    "fields": {
