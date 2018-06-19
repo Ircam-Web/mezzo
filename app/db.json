@@ -1635,43 +1635,6 @@
    }
 },
 {
-   "model": "organization-network.departmentpage",
-   "pk": 1,
-   "fields": {
-      "content": "",
-      "content_fr": "",
-      "content_en": "",
-      "sub_title": "",
-      "sub_title_fr": "",
-      "sub_title_en": "",
-      "department": null,
-      "weaving_css_class": ""
-   }
-},
-{
-   "model": "organization-network.teampage",
-   "pk": 34,
-   "fields": {
-      "content": "",
-      "content_fr": "",
-      "content_en": "",
-      "sub_title": "",
-      "sub_title_fr": "",
-      "sub_title_en": "",
-      "team": null
-   }
-},
-{
-   "model": "organization-projects.projecttopicpage",
-   "pk": 37,
-   "fields": {
-      "sub_title": "",
-      "sub_title_fr": "",
-      "sub_title_en": "",
-      "project_topic": null
-   }
-},
-{
    "model": "auth.permission",
    "pk": 1,
    "fields": {
