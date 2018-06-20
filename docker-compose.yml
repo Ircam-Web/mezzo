@@ -18,6 +18,8 @@
 # Authors:
 # Guillaume Pellerin <guillaume.pellerin@ircam.fr>
 
+# version 1
+
 var:
     image: debian:jessie
     volumes:
@@ -59,6 +61,3 @@ app:
         - db
     environment:
         - DEBUG=False
-
-nginx:
-    image: nginx

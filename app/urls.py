@@ -25,7 +25,7 @@ from future.builtins import str
 
 import django.views.i18n
 from django.views.i18n import javascript_catalog
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
@@ -227,3 +227,9 @@ if "mezzanine.pages" in settings.INSTALLED_APPS:
 handler404 = "mezzanine.core.views.page_not_found"
 handler500 = "mezzanine.core.views.server_error"
 handler403 = "organization.core.views.permission_denied"
+
+# rdi_io patterns.
+if "rdf_io" in settings.INSTALLED_APPS:
+    urlpatterns += [
+        url(r"^rdf_io/", include('rdf_io.urls'))
+        ]
