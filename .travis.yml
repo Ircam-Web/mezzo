@@ -18,7 +18,8 @@ install:
   - docker-compose build
 
 script:
-  - docker-compose run app pip freeze
+  - docker-compose run app pip freeze+
+  - docker-compose run app python manage.py migrate
   - docker-compose -f docker-compose.yml -f env/dev.yml -f env/selenium.yml up -d
   - docker-compose run app python manage.py loaddata db.json
   - docker-compose run app python manage.py test --front 
