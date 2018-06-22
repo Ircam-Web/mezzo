@@ -3,7 +3,7 @@ wget
 bzip2
 build-essential
 netcat
-nodejs=10.4.1-1nodesource1
+nodejs=10.4.1
 locales
 pandoc
 vim
