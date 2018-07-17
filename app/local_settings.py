@@ -69,5 +69,3 @@ EMAIL_SUBJECT_PREFIX = "[PREFIX]" # prefix title in email
 SITE_TITLE = 'Your Site'
 SITE_TAGLINE = 'This is a Mezzo site'
 
-THEME_APP = 'organization_themes.ircam-www-theme'
-THEME_FOLDER = 'ircam-www-theme'

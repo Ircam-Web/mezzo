@@ -43,15 +43,16 @@ except ImportError as e:
         raise e
 
 # Please define THEME_APP in local_settings
-INSTALLED_APPS.insert(1, THEME_APP)
+INSTALLED_APPS.insert(1, 'organization_themes.ircam-www-theme')
 
+
+# Themes
 HOST_THEMES = [
-    ('example.com', THEME_APP),
+    ('example.com', 'organization_themes.ircam-www-theme'),
 ]
 
-# Please define THEME_FOLDER in local_settings
-LOCALE_PATHS += (os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization-themes/organization_themes/' + THEME_FOLDER + '/locale/'),)
-
+# Locales
+LOCALE_PATHS += (os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization-themes/organization_themes/ircam-www-theme/locale/'),)
 
 ####################
 # DYNAMIC SETTINGS #
