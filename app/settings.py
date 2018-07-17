@@ -42,6 +42,16 @@ except ImportError as e:
     if "local_settings" not in str(e):
         raise e
 
+# Please define THEME_APP in local_settings
+INSTALLED_APPS.insert(1, THEME_APP)
+
+HOST_THEMES = [
+    ('example.com', THEME_APP),
+]
+
+# Please define THEME_FOLDER in local_settings
+LOCALE_PATHS += (os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization-themes/organization_themes/' + THEME_FOLDER + '/locale/'),)
+
 
 ####################
 # DYNAMIC SETTINGS #
@@ -59,3 +69,6 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+
+
+
