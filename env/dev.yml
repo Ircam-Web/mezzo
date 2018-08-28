@@ -3,6 +3,6 @@ app:
     image: ircamweb/mezzo:latest-dev
     command: /bin/sh bin/app.sh --runserver
     ports:
-        - "9000:8000"
+        - "9011:8000"
     environment:
         - DEBUG=True
