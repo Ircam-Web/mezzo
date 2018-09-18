@@ -18,17 +18,14 @@ uid='www-data'
 gid='www-data'
 # patterns='*.js;*.css;*.jpg;*.jpeg;*.gif;*.png;*.svg;*.ttf;*.eot;*.woff;*.woff2'
 
-# Staging
-# pip install pandas xlwt
-# pip install -U https://forge.ircam.fr/p/django-eve/source/download/dev/
-# pip install https://forge.ircam.fr/p/django-prestashop/source/download/master/ --src /srv/lib
-# pip install -U https://github.com/stephenmcd/grappelli-safe/archive/dynamic_stacked.zip
-# pip install django-querysetsequence==0.6.1 django==1.9.11
-# pip install django-autocomplete-light django-querysetsequence
-# /usr/bin/yes | pip uninstall django-orderable
-# pip install bleach==1.5.0 django==1.9.11
+# Install a package in development mode
+# without rebuidling docker image.
+# You need at first checkout your sources in 'lib' folder
+# in host project side, then run :
+# pip install -e /srv/lib/mypackage...
 
-chown -R $uid:$gid $media
+# Install (staging) libs
+# /srv/bin/build/local/setup_lib.sh
 
 # waiting for other services
 sh $app/bin/wait.sh
