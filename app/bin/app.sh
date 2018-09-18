@@ -25,7 +25,7 @@ gid='www-data'
 # pip install -e /srv/lib/mypackage...
 
 # Install (staging) libs
-# /srv/bin/build/local/setup_lib.sh
+/srv/bin/build/local/setup_lib.sh
 
 # waiting for other services
 sh $app/bin/wait.sh
