@@ -25,7 +25,7 @@
     path = lib/grappelli-safe
     url = https://github.com/Ircam-Web/grappelli-safe.git
     branch-master = dynamic_stacked
-    branch-dev = dynamic_stacked
+    branch-dev = dynamic_stacked-dev
     ignore = dirty
 [submodule "lib/mezzanine-organization"]
     path = lib/mezzanine-organization

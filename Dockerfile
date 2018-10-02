@@ -6,6 +6,7 @@ WORKDIR /srv
 
 RUN apt-get update && apt-get install -y apt-transport-https
 COPY etc/apt/sources.list /etc/apt/
+COPY etc/apt/preferences.d/nodejs /etc/apt/preferences.d/
 COPY requirements.txt /srv
 RUN apt-get update && \
     DEBIAN_PACKAGES=$(egrep -v "^\s*(#|$)" /srv/requirements.txt) && \
