@@ -132,6 +132,13 @@ Our docker composition already bundles some powerful containers and bleeding edg
 For a production environment setup::
 
     cd Mezzo
+
+Copy the local_settings sample::
+
+    cp app/local_settings.py.sample app/local_settings.py
+
+and edit your own local_settings, especially the SECRET_KEY parameter. Then::
+
     bin/prod/up.sh
 
 which builds, (re)creates, starts, and attaches all containers.
@@ -160,7 +167,7 @@ options::
 
 This will install a init script in /etc/init.d. For example, if your app directory is named `mezzanine-organization` then `/etc/init.d/mezzanine-organization` becomes the init script for the OS booting procedure and for you if you need to start the daemon by hand::
 
-    sudo /etc/init.d/Mezzo start
+    sudo /etc/init.d/mezzo start
 
 
 .. _Docker-engine: https://docs.docker.com/installation/
