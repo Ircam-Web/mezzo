@@ -45,7 +45,7 @@ db:
         - POSTGRES_PASSWORD=noodFof2Kna
 
 app:
-    image: ircamweb/mezzo:latest-dev
+    image: ircamweb/mezzo
     command: /bin/sh bin/app.sh --runserver
     volumes:
         - ./app:/srv/app
@@ -56,7 +56,7 @@ app:
     expose:
         - "8000"
     ports:
-        - "9000:8000" 
+        - "9000:8000"
     links:
         - db
     environment:
