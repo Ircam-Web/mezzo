@@ -24,10 +24,6 @@ RUN npm install
 RUN npm install -g gulp
 RUN npm install -g bower
 
-COPY lib/mezzanine-organization-themes/Gemfile /srv
-RUN gem install bundler
-RUN bundle install
-
 RUN pip install -U pip
 RUN pip install -U setuptools
 
