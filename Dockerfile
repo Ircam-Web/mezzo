@@ -1,4 +1,4 @@
-FROM python:3-jessie
+FROM python:3.6-stretch
 
 ENV PYTHONUNBUFFERED 1
 
@@ -10,7 +10,7 @@ COPY etc/apt/preferences.d/nodejs /etc/apt/preferences.d/
 COPY requirements.txt /srv
 RUN apt-get update && \
     DEBIAN_PACKAGES=$(egrep -v "^\s*(#|$)" /srv/requirements.txt) && \
-    apt-get install -t jessie-backports -y --force-yes $DEBIAN_PACKAGES && \
+    apt-get install -t stretch-backports -y --force-yes $DEBIAN_PACKAGES && \
     echo fr_FR.UTF-8 UTF-8 >> /etc/locale.gen && \
     locale-gen && \
     apt-get clean

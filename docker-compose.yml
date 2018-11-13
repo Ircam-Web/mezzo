@@ -21,7 +21,7 @@
 version: '2'
 services:
     var:
-        image: debian:jessie
+        image: debian:stretch
         volumes:
             - ./var/media:/srv/media
             - ./var/backup:/srv/backup
