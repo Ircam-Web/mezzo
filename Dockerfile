@@ -19,8 +19,6 @@ ENV LANG fr_FR.UTF-8
 ENV LANGUAGE fr_FR:fr
 ENV LC_ALL fr_FR.UTF-8
 
-COPY lib/mezzanine-organization-themes/package.json /srv
-RUN npm install
 RUN npm install -g gulp
 RUN npm install -g bower
 
