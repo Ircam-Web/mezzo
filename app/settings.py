@@ -150,7 +150,7 @@ if CUSTOM_MODULES:
 ##########
 
 HOST_THEMES = [
-    ('example.com', 'organization_themes.ircam-www-theme'),
+    ('example.com', 'ircam_www_theme'),
 ]
 
 
