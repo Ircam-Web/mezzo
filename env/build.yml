@@ -1,4 +1,5 @@
-
-app:
-    build: .
+version: '2'
+services:
+    app:
+        build: .
 
