@@ -9,12 +9,6 @@
     branch-master = master
     branch-dev = dev
     ignore = dirty
-[submodule "lib/mezzanine-organization-themes"]
-    path = lib/mezzanine-organization-themes
-    url = git@github.com:Ircam-Web/mezzanine-organization-themes.git
-    branch-master = master
-    branch-dev = dev
-    ignore = dirty
 [submodule "bin"]
     path = bin
     url = git@github.com:Ircam-Web/mezzo-bin.git
@@ -38,3 +32,9 @@
     url = git@github.com:Ircam-Web/cartridge.git
     branch-master = master
     branch-dev = master
+[submodule "lib/ircam-www-theme"]
+	path = lib/ircam-www-theme
+	url = git@github.com:Ircam-Web/ircam-www-theme.git
+    branch-master = master
+    branch-dev = dev
+    ignore = dirty
