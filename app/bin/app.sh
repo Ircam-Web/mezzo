@@ -18,6 +18,12 @@ uid='www-data'
 gid='www-data'
 # patterns='*.js;*.css;*.jpg;*.jpeg;*.gif;*.png;*.svg;*.ttf;*.eot;*.woff;*.woff2'
 
+# Install a package in development mode
+# without rebuidling docker image.
+# You need at first checkout your sources in 'lib' folder
+# in host project side, then run :
+# pip install -e /srv/lib/mypackage...
+
 # Install (staging) libs
 # /srv/bin/build/local/setup_lib.sh
 

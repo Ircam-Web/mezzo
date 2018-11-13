@@ -7,8 +7,6 @@ nodejs
 locales
 pandoc
 vim
-ruby
-ruby-dev
 gettext
 libsasl2-dev
 python3-dev

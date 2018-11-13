@@ -53,7 +53,7 @@ services:
         expose:
             - "8000"
         ports:
-            - "9001:8000" 
+            - "9001:8000"
         depends_on:
             - var
             - db
