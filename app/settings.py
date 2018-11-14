@@ -38,6 +38,7 @@ warnings.filterwarnings(
 
 SILENCED_SYSTEM_CHECKS = ['fields.W342',]
 
+SECRET_KEY = "H7665jhuyUTGuhuUYT6è-ertyezçuàçi'09Iikrpokfàçir"
 
 ###################################
 # MEZZANINE ORGANIZATION SETTINGS #
@@ -81,7 +82,7 @@ USE_I18N = True
 USE_L10N = True
 
 AUTHENTICATION_BACKENDS = (
-    "organization.core.backend.OrganizationLDAPBackend",
+    # "organization.core.backend.OrganizationLDAPBackend",
     "mezzanine.core.auth_backends.MezzanineBackend",
     "guardian.backends.ObjectPermissionBackend",
 )
