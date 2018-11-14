@@ -104,13 +104,12 @@ LANGUAGES = (
 #############
 # DATABASES #
 #############
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': os.environ.get('DB_ENV_POSTGRES_PASSWORD'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'HOST': 'db',
         'PORT': '5432',
     },
@@ -151,7 +150,7 @@ if CUSTOM_MODULES:
 ##########
 
 HOST_THEMES = [
-    ('example.com', 'organization_themes.ircam-www-theme'),
+    ('example.com', 'ircam_www_theme'),
 ]
 
 

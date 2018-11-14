@@ -25,13 +25,13 @@ gid='www-data'
 # pip install -e /srv/lib/mypackage...
 
 # Install (staging) libs
-/srv/bin/build/local/setup_lib.sh
+# /srv/bin/build/local/setup_lib.sh
 
 # waiting for other services
 sh $app/bin/wait.sh
 
 # django setup
-python $manage wait-for-db
+#python $manage wait-for-db
 
 # initial setup
 if [ ! -f .init ]; then

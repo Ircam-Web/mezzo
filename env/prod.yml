@@ -1,4 +1,5 @@
-
-app:
-    command: /bin/sh bin/app.sh
+version: '2'
+services:
+    app:
+        command: /bin/sh bin/app.sh
 
