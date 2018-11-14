@@ -152,7 +152,7 @@ and edit your own local_settings, especially the SECRET_KEY parameter. Then::
 
 which builds, (re)creates, starts, and attaches all containers.
 
-Then browse the app at http://localhost:8000/
+Then browse the app at http://localhost:9001/
 
 On MacOS or Windows, you maybe need to replace 'localhost' by the IP given by the docker terminal.
 
