@@ -38,6 +38,8 @@ services:
         image: postgres:9.5
         volumes:
             - ./var/lib/postgresql/data:/var/lib/postgresql/data
+        volumes_from:
+            - var
         env_file:
             - 'env/prod.env'
 
