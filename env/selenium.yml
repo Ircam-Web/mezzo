@@ -1,32 +1,35 @@
 # To execute this docker-compose yml file use docker-compose -f <file_name> up
 # Add the "-d" flag at the end for deattached execution
-firefox:
-  image: selenium/node-firefox:3.11.0-dysprosium
-  volumes:
-    - /dev/shm:/dev/shm
-  links:
-    - hub
-  environment:
-    HUB_HOST: hub
-    HUB_PORT: '4444'
 
-chrome:
-  image: selenium/node-chrome:3.11.0-dysprosium
-  volumes:
-    - /dev/shm:/dev/shm
-  links:
-    - hub
-  environment:
-    HUB_HOST: hub
-    HUB_PORT: '4444'
+version: '2'
+services:
+    firefox:
+        image: selenium/node-firefox:3.11.0-dysprosium
+        volumes:
+            - /dev/shm:/dev/shm
+        depends_on:
+            - hub
+        environment:
+            HUB_HOST: hub
+            HUB_PORT: '4444'
 
-hub:
-  image: selenium/hub:3.11.0-dysprosium
-  ports:
-    - "4444:4444"
-  expose:
-    - "4444"
+    chrome:
+        image: selenium/node-chrome:3.11.0-dysprosium
+        volumes:
+            - /dev/shm:/dev/shm
+        depends_on:
+            - hub
+        environment:
+            HUB_HOST: hub
+            HUB_PORT: '4444'
 
-app:
-  links:
-    - hub
+    hub:
+        image: selenium/hub:3.11.0-dysprosium
+        ports:
+            - "4444:4444"
+        expose:
+            - "4444"
+
+    app:
+        depends_on:
+            - hub
