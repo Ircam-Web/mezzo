@@ -2,28 +2,31 @@
 Mezzo
 =====
 
-Mezzo is a complete CMS for organizations with complex workflows.
+Mezzo is a Content Management System (CMS) for organizations with complex workflows.
 
-It includes the state-of-the-art of all modern web backend and frontend frameworks and many smart for easy development between teams.
+It includes the state-of-the-art of all modern web backend and frontend frameworks and many smart tools for easy development between teams.
 
-It provides a development and a production environment for Mezzanine-Organization_ which is based on Mezzanine_ and Django_ plus many other modules.
+It provides both full development and production environments for the Mezzanine-Organization_ application which is based on Mezzanine_, Django_ and many other python modules.
 
-Use cases
-==========
-
-- Institutional or corporate web sites with a lot of structural data
-- Project web applications
-- Any django based project thanks to the smart modular architecture
 
 Features
 ========
 
 - Smart and collaborative content management (Department, Page, News, Events, Media, Project, Job, etc.)
-- Full Project data management including demo repositories
+- Full Project data management including project pages, particpants, demo repositories, etc.
 - Person activity management per department
 - Translation ready models and templates
-- Full modular architecture fir easy customization
-- Smart docker environment and packaging for easy scalable deployment on every platform
+- Full modular architecture for easy customization including themes
+- Full docker packaging for easy scalable deployment on every platform
+
+
+Use cases
+==========
+
+- Basic CMS
+- More complex institutional or corporate web sites with a lot of structural data like departments, persons, projects, etc.
+- Any Python and Django based application thanks to the modular architecture
+
 
 Examples
 ========
@@ -31,43 +34,45 @@ Examples
 IRCAM : https://www.ircam.fr
 STARTS : https://www.starts.eu
 
-.. _Mezzanine-Organization : https://github.com/Ircam-Web/mezzanine-organization
-.. _Django : https://www.djangoproject.com/
-.. _Mezzanine : http://mezzanine.jupo.org/
 
 Architecture
 ============
 
 For easier development and production workflow, this application has been fully dockerized.
 
+
 Paths
-++++++
++++++
+
+The Mezzo architecture is designed to be as close as possible with a POSIX OS.
 
 - app \
     django application
 
-  - app/migrations \
-        mezzanine migrations
   - app/bin \
         commands to run the app inside docker containers
+  - local_settings.py.sample \
+        example settings to copy to local_settings.oy before starting anything
+  - requirements.txt \
+        python package dependencies
 
 - bin \
     management tools
-- doc
+- doc \
     documentation
 - env \
     docker-compose environment files
 - etc \
     custom configuration files
 - lib \
-    custom libraries added as git submodules including mezzanine-organization and mezzanine-organization-themes
+    default and custom libraries which will be mounted in app container
 - var \
-    all application data versioned on a separated repository
+    local application data
 
   - var/backup \
         database backup directory
   - var/media \
-        all media uploaded through the app
+        media uploaded through the app
   - var/lib/postgresql \
         postgresql DB (not versioned)
   - var/log/nginx \
@@ -92,6 +97,8 @@ Main modules embed in app/organization
     manage events, using _Mezzanine-Agenda
 - core \
     commons or abstract functionnality
+- custom
+    empty module for easy cutomization
 - formats \
     manage date format
 - job \
@@ -109,11 +116,13 @@ Main modules embed in app/organization
 - shop \
     manage product from prestashop (softwares and subscriptions), using _Cartridge
 
+
 Install
 =======
 
+
 Clone
-++++++
++++++
 
 First install Git_, Docker-engine_ and docker-compose_ and open a terminal.
 
@@ -143,7 +152,7 @@ and edit your own local_settings, especially the SECRET_KEY parameter. Then::
 
 which builds, (re)creates, starts, and attaches all containers.
 
-Then browse the app at http://localhost:8040/
+Then browse the app at http://localhost:8000/
 
 On MacOS or Windows, you maybe need to replace 'localhost' by the IP given by the docker terminal.
 
@@ -170,21 +179,11 @@ This will install a init script in /etc/init.d. For example, if your app directo
     sudo /etc/init.d/mezzo start
 
 
-.. _Docker-engine: https://docs.docker.com/installation/
-.. _docker-compose: https://docs.docker.com/compose/install/
-.. _docker-compose reference: https://docs.docker.com/compose/reference/
-.. _Docker-Toolbox: https://www.docker.com/products/docker-toolbox
-.. _Git: http://git-scm.com/downloads
-.. _NodeJS: https://nodejs.org
-.. _Gulp: http://gulpjs.com/
-.. _Mezzanine-Agenda : https://github.com/jpells/mezzanine-agenda
-.. _Cartridge : https://github.com/stephenmcd/cartridge/
-
 Development
 ===========
 
 Dev mode
-+++++++++
+++++++++
 
 For a development environment setup::
 
@@ -198,7 +197,7 @@ On MacOS or Windows, we need to replace 'localhost' by the IP given by the docke
 
 
 Backend
-++++++++
++++++++
 
 If you modify or add django models, you can produce migration files with::
 
@@ -213,8 +212,8 @@ Accessing the app container shell::
     docker-compose run app bash
 
 
-Front
-+++++
+Frontend
+++++++++
 
 The styles are written in SASS in app/static and the builder uses Gulp.
 All the builing tools are included in the app container so that you can build the front in one command::
@@ -223,6 +222,8 @@ All the builing tools are included in the app container so that you can build th
 
 Gulp will launch BrowserSync. BrowserSync is a middleware that expose the website on port 3000.
 Any change on CSS or JS files will trigger the build system and reload the browser.
+
+
 Maintenance
 ============
 
@@ -292,13 +293,15 @@ Or more, inspecting any container of the composition (usefully to know IP of a c
 
     docker inspect [CONTAINER_ID]
 
+
 Copyrights
 ==========
 
-* Copyright (c) 2016 Ircam
-* Copyright (c) 2016 Guillaume Pellerin
-* Copyright (c) 2016 Emilie Zawadzki
-* Copyright (c) 2016 Jérémy Fabre
+* Copyright (c) 2016-2018 Ircam
+* Copyright (c) 2016-2018 Guillaume Pellerin
+* Copyright (c) 2016-2018 Emilie Zawadzki
+* Copyright (c) 2016-2018 Jérémy Fabre
+
 
 License
 ========
@@ -314,3 +317,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Affero General Public License for more details.
 
 Read the LICENSE.txt file for more details.
+
+
+.. _Mezzanine-Organization : https://github.com/Ircam-Web/mezzanine-organization
+.. _Django : https://www.djangoproject.com/
+.. _Mezzanine : http://mezzanine.jupo.org/
+.. _Docker-engine: https://docs.docker.com/installation/
+.. _docker-compose: https://docs.docker.com/compose/install/
+.. _docker-compose reference: https://docs.docker.com/compose/reference/
+.. _Docker-Toolbox: https://www.docker.com/products/docker-toolbox
+.. _Git: http://git-scm.com/downloads
+.. _NodeJS: https://nodejs.org
+.. _Gulp: http://gulpjs.com/
+.. _Mezzanine-Agenda : https://github.com/jpells/mezzanine-agenda
+.. _Cartridge : https://github.com/stephenmcd/cartridge/

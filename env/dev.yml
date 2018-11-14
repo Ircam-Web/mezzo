@@ -4,6 +4,6 @@ services:
         image: ircamweb/mezzo:latest-docker
         command: /bin/sh bin/app.sh --runserver
         ports:
-            - "9002:8000"
+            - "9001:8000"
         env_file:
             - 'env/dev.env'
