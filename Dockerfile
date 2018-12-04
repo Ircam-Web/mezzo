@@ -28,10 +28,14 @@ RUN pip install -U setuptools
 RUN mkdir /srv/app
 COPY app/requirements.txt /srv/app
 RUN pip install -r app/requirements.txt
-
+ 
 RUN mkdir /srv/lib
 COPY lib /srv/lib
 COPY bin/build/local/setup_lib.sh /srv
 RUN bash setup_lib.sh
 
+RUN mkdir -p /var/log/app/
+RUN touch /var/log/app/debug.log
+
 WORKDIR /srv/app
+
