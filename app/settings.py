@@ -43,6 +43,7 @@ SECRET_KEY = "H7665jhuyUTGuhuUYT6è-ertyezçuàçi'09Iikrpokfàçir"
 ###################################
 # MEZZANINE ORGANIZATION SETTINGS #
 ###################################
+
 try:
     from organization.settings import *
 except ImportError as e:
@@ -154,7 +155,6 @@ HOST_THEMES = [
     ('example.com', 'ircam_www_theme'),
 ]
 
-
 ##################
 # LOCAL SETTINGS #
 ##################
@@ -186,4 +186,25 @@ else:
     set_dynamic_settings(globals())
 
 
+##################
+#### LOGGING ####
+##################
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': "/var/log/app/debug.log",
+        },
+    },
+    'loggers': {
+        'organization': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
