@@ -1,7 +1,7 @@
-"/var/log/uwsgi/*.log" "/var/log/uwsgi/app/*.log" {
+%s/var/log/**/*.log {
   copytruncate
   daily
-  rotate 5
+  rotate 7
   compress
   delaycompress
   missingok
