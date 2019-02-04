@@ -297,9 +297,9 @@ Or more, inspecting any container of the composition (usefully to know IP of a c
 Copyrights
 ==========
 
-* Copyright (c) 2016-2018 Ircam
-* Copyright (c) 2016-2018 Guillaume Pellerin
-* Copyright (c) 2016-2018 Emilie Zawadzki
+* Copyright (c) 2016-2019 Ircam
+* Copyright (c) 2016-2019 Guillaume Pellerin
+* Copyright (c) 2016-2019 Emilie Zawadzki
 * Copyright (c) 2016-2018 Jérémy Fabre
 
 
