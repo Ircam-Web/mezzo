@@ -24,6 +24,7 @@ gid='www-data'
 # You need at first checkout your sources in 'lib' folder
 # in host project side, then run :
 # pip install -e /srv/lib/mypackage...
+#pip install mysqlclient==1.3.13
 
 # Install (staging) libs
 # /srv/bin/build/local/setup_lib.sh
