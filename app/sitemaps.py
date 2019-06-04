@@ -48,10 +48,10 @@ class PersonSiteMap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Person.objects.published()
+        return Person.objects.all()
 
     def lastmod(self, obj):
-        return obj.publish_date
+        return obj.updated
 
 
 class ProjectSiteMap(Sitemap):
@@ -59,10 +59,10 @@ class ProjectSiteMap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Project.objects.published()
+        return ProjectPage.objects.published()
 
     def lastmod(self, obj):
-        return obj.publish_date
+        return obj.updated
 
 
 class EventSiteMap(Sitemap):
