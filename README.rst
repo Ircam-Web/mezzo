@@ -13,10 +13,11 @@ Features
 ========
 
 - Smart and collaborative content management (Department, Page, News, Events, Media, Project, Job, etc.)
-- Full Project data management including project pages, particpants, demo repositories, etc.
-- Person activity management per department
+- Full Project data management including project pages, particpants, activities, demo repositories, etc.
+- Personal project activity management per department
+- Multi-site management with separated themes
 - Translation ready models and templates
-- Full modular architecture for easy customization including themes
+- Full modular architecture for easy customization
 - Full docker packaging for easy scalable deployment on every platform
 
 
@@ -32,7 +33,9 @@ Examples
 ========
 
 IRCAM : https://www.ircam.fr
+STMS Lab : https://www.stms-lab.fr/
 STARTS : https://www.starts.eu
+Manifeste Festival : https://manifeste.ircam.fr
 
 
 Architecture
