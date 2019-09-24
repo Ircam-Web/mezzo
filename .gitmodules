@@ -25,7 +25,7 @@
     path = lib/mezzanine-organization
     url = https://github.com/Ircam-Web/mezzanine-organization.git
     branch-master = master
-    branch-dev = docker
+    branch-dev = dev
     ignore = dirty
 [submodule "lib/cartridge"]
     path = lib/cartridge

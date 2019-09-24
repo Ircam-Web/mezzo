@@ -20,6 +20,8 @@ data
 postgres
 mysql
 tmp
+local_settings.py
+var
 
 # Installer logs
 pip-log.txt

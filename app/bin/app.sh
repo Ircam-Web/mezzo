@@ -7,7 +7,8 @@ wsgi=$app'/wsgi.py'
 static='/srv/static/'
 media='/srv/media/'
 src='/srv/src/'
-log='/var/log/uwsgi/app.log'
+uwsgi_log='/var/log/uwsgi/app.log'
+debug_log='/var/log/app/debug.log'
 
 # uwsgi params
 port=8000
@@ -23,6 +24,7 @@ gid='www-data'
 # You need at first checkout your sources in 'lib' folder
 # in host project side, then run :
 # pip install -e /srv/lib/mypackage...
+#pip install mysqlclient==1.3.13
 
 # Install (staging) libs
 # /srv/bin/build/local/setup_lib.sh
@@ -49,7 +51,9 @@ else
 
     python $manage collectstatic --noinput
 
+    chown www-data: $debug_log
+
     uwsgi --socket :$port --wsgi-file $wsgi --chdir $app --master \
     --processes $processes --threads $threads \
-    --uid $uid --gid $gid --logto $log --touch-reload $wsgi
+    --uid $uid --gid $gid --logto $uwsgi_log --touch-reload $wsgi
 fi
