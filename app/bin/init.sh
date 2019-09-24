@@ -4,6 +4,9 @@
 app='/srv/app'
 manage=$app'/manage.py'
 
+# Install (staging) libs
+/srv/bin/build/local/setup_lib.sh
+
 python $manage migrate --noinput
 python $manage create-admin-user
 python $manage create-default-organization
