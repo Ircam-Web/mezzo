@@ -18,52 +18,46 @@
 # Authors:
 # Guillaume Pellerin <guillaume.pellerin@ircam.fr>
 
-version: '2'
-services:
-    var:
-        image: debian:stretch
-        volumes:
-            - ./var/media:/srv/media
-            - ./var/backup:/srv/backup
-            - ./var/static:/srv/static
-            - ./var/log/uwsgi:/var/log/uwsgi
-            - ./var/log/nginx:/var/log/nginx
-            - ./var/log/app:/var/log/app
-            - ./var/log/cron:/var/log/cron
-            - ./bin:/srv/bin
-            - ./doc:/srv/doc
-            - /srv/bower
-        command: "true"
+version: '3'
 
+services:
     db:
         image: postgres:9.5
         volumes:
-            - ./var/lib/postgresql/data:/var/lib/postgresql/data
-        volumes_from:
-            - var
+
+        volumes:
+            - ./bin:/srv/bin
+            - ./var/backup:/srv/backup
+            - ./var/lib/postgresql:/var/lib/postgresql
         env_file:
             - 'env/prod.env'
 
     app:
-        image: ircamweb/mezzo:latest
+        build:
+            context: .
+            dockerfile: Dockerfile
+        # image: ircamweb/mezzo:latest
         command: /bin/sh bin/app.sh --runserver
         volumes:
             - ./app:/srv/app
             - ./lib:/srv/lib
             - .git:/srv/.git
-        volumes_from:
-            - var
+            - ./bin:/srv/bin
+            - ./doc:/srv/doc
+            - ./var/log/uwsgi:/var/log/uwsgi
+            - ./var/log/app:/var/log/app
+            - ./var/log/cron:/var/log/cron
+            - ./var/media:/srv/media
+            - ./var/static:/srv/static
         expose:
             - "8000"
         ports:
             - "9051:8000"
         depends_on:
-            - var
             - db
         env_file:
             - 'env/prod.env'
 
 volumes:
-    var:
     app:
     db:
