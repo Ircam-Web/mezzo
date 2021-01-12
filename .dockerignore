@@ -1,4 +1,4 @@
-.git
+**/.git
 *.pyc
 *.egg-info
 data/
