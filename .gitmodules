@@ -38,3 +38,7 @@
     branch-master = master
     branch-dev = dev
     ignore = dirty
+[submodule "lib/django-allauth-ircam"]
+	path = lib/django-allauth-ircam
+	url = https://github.com/Ircam-Web/django-allauth-ircam
+	branch = feature/mezzo_adaptation
