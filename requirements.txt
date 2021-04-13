@@ -4,6 +4,7 @@ bzip2
 build-essential
 netcat
 nodejs
+npm
 locales
 pandoc
 vim
@@ -11,3 +12,4 @@ gettext
 libsasl2-dev
 python3-dev
 libldap2-dev
+libgraphviz-dev
